@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.goott.mapper.Community_mapper">
+ 	<select id="getList" resultType="com.goott.domain.T_board_VO">
+  		select 
+  		t_board.board_id as board_id, count(board_reply_id) as reply_count, t_board.member_id as member_id, board_title, board_hit, board_recommend, board_regdate, board_tag_id,
+  		case when(board_tag_id=1) then '잡담' when(board_tag_id=2) then '공지' when(board_tag_id=3) then '캠핑팁' when(board_tag_id=4) then '상품후기' when(board_tag_id=5) then '캠핑후기' end as 'board_tag_name'
+  		from t_board left join t_board_reply on t_board.board_id = t_board_reply.board_id
+  		where board_deleteYN = 'N' and board_tag_id !=2
+  		group by t_board.board_id order by t_board.board_hit DESC limit 0, 10;
+  	</select>
+  	
+  	<select id="getData" parameterType="hashMap" resultType="com.goott.domain.T_camping_VO">
+  		select 
+  		t_camping.camping_id as camping_id, count(camping_reply_id) as reply_count, t_camping.member_id as member_id, camping_title, camping_hit, camping_regdate, camping_region,
+  		camping_recruitment, camping_applicant, camping_departure, camping_period, camping_close
+  		from t_camping left join t_camping_reply on t_camping.camping_id = t_camping_reply.camping_id
+  		where camping_deleteYN = 'N' and camping_close = '진행중'
+  		group by t_camping.camping_id order by t_camping.camping_close DESC, t_camping.camping_id DESC limit 0, 8;
+  	</select>
+  	
+  	<select id="getDraw" resultType="hashMap">
+  		select draw_id, draw_title, product_img_url1, draw_event_end_date from t_draw where draw_deadline != '이벤트 마감'
+  		order by draw_id DESC;
+  	</select>
+  	
+  </mapper>

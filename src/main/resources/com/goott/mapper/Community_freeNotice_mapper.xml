@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.goott.mapper.Community_freeNotice_mapper">
+  	
+  	<select id="getList" parameterType = "hashMap" resultType="com.goott.domain.T_board_VO">
+  		select 
+  		t_board.board_id as board_id, count(board_reply_id) as reply_count, t_board.member_id as member_id, board_title, board_hit, board_recommend, board_regdate, board_tag_id,
+  		case when(board_tag_id=1) then '잡담' when(board_tag_id=2) then '공지' when(board_tag_id=3) then '캠핑팁' when(board_tag_id=4) then '상품후기' when(board_tag_id=5) then '캠핑후기' end as 'board_tag_name'
+  		from t_board left join t_board_reply on t_board.board_id = t_board_reply.board_id
+  		where (t_board.board_title like CONCAT('%',#{keyword},'%') or t_board.board_text like CONCAT('%',#{keyword},'%') or t_board.member_id like CONCAT('%',#{keyword},'%'))
+  		<if test="board_tag_id != null and board_tag_id != '' and board_tag_id != 0">
+			and board_tag_id = ${board_tag_id}
+		</if>
+		and board_deleteYN = 'N'
+  		group by t_board.board_id order by case board_tag_id when 2 then 1 else 2 end,
+  		<if test="sort_value == 'h_desc'">
+  			board_hit DESC,
+  		</if>
+  		<if test="sort_value == 'h_asc'">
+  			board_hit ASC,
+  		</if>
+  		<if test="sort_value == 'r_desc'">
+  			board_recommend DESC,
+  		</if>
+  		<if test="sort_value == 'r_asc'">
+  			board_recommend ASC,
+  		</if>
+  		t_board.board_id DESC limit 0, 10;
+  	</select>
+  	
+  	<select id="getTag" resultType="com.goott.domain.T_board_tag_VO">
+  		select*from t_board_tag
+  	</select>
+  	
+  	<insert id="inputPost">
+  		insert into t_board(member_id, board_tag_id, board_title, board_text) 
+  		values (#{member_id}, #{board_tag_id}, #{board_title}, #{board_text});
+  	</insert>
+  	
+  	<select id="getDetail" resultType="com.goott.domain.T_board_VO">
+  		select 
+  		board_id, member_id, board_title, board_text, board_hit, board_recommend, board_regdate,
+  		case when(board_tag_id=1) then '잡담' when(board_tag_id=2) then '공지' when(board_tag_id=3) then '캠핑팁' when(board_tag_id=4) then '상품후기' when(board_tag_id=5) then '캠핑후기' end as 'board_tag_name'
+  		from t_board where board_id = #{board_id}
+  	</select>
+  	
+  	<update id="correct">
+    	update t_board set 
+    	board_tag_id = #{board_tag_id}, board_text = #{board_text}, board_title = #{board_title} 
+    	where board_id = #{board_id}
+    </update>
+    
+    <update id="delete">
+    	update t_board set board_deleteYN = 'Y' where board_id = #{board_id};
+    </update>
+    
+    <select id="replyList" resultType="com.goott.domain.T_board_reply_VO">
+    	select * from t_board_reply where board_id = #{board_id} order by board_reply_regdate DESC limit 5
+    </select>
+  	
+  	<insert id="inputReply" useGeneratedKeys="true" keyProperty="board_reply_id">
+  		insert into t_board_reply(board_id, member_id, board_reply_text) values(#{board_id}, #{id}, #{comment});
+  	</insert>
+  	
+  	<select id="replyCount" resultType="com.goott.domain.T_board_reply_VO">
+  		select count(*) as 'board_reply_count' from t_board_reply where board_id = #{board_id};
+  	</select>
+  	
+  	<select id="getReply" resultType="com.goott.domain.T_board_reply_VO">
+    	select * from t_board_reply where board_reply_id = #{board_reply_id}
+    </select>
+    
+    <update id="increase">
+    	update t_board set board_hit = board_hit+1 where board_id = #{board_id}
+    </update>
+    
+    <select id="get_viewMore" resultType="com.goott.domain.T_board_reply_VO">
+    	select * from t_board_reply where board_id=#{board_id} order by board_reply_regdate DESC limit #{s_count}, 5;
+    </select>
+    
+    <select id="listCount" parameterType = "hashMap" resultType="com.goott.domain.T_board_VO">
+  		select count(*) as 'board_count' from t_board where board_deleteYN = 'N'
+  		<if test="board_tag_id != null and board_tag_id != '' and board_tag_id != 0">
+			and board_tag_id = #{board_tag_id}
+		</if>
+		<if test="keyword != null and keyword != ''">
+			and (board_title like CONCAT('%',#{keyword},'%') or board_text like CONCAT('%',#{keyword},'%') or member_id like CONCAT('%',#{keyword},'%'))
+		</if>
+  	</select>
+  	
+  	<select id="change_page" resultType="com.goott.domain.T_board_VO">
+  		select 
+  		t_board.board_id as board_id, count(board_reply_id) as reply_count, t_board.member_id as member_id, board_title, board_text, board_hit, board_recommend, board_regdate,
+  		case when(board_tag_id=1) then '잡담' when(board_tag_id=2) then '공지' when(board_tag_id=3) then '캠핑팁' when(board_tag_id=4) then '상품후기' when(board_tag_id=5) then '캠핑후기' end as 'board_tag_name'
+  		from t_board left join t_board_reply on t_board.board_id = t_board_reply.board_id
+  		where (t_board.board_title like CONCAT('%',#{keyword},'%') or t_board.board_text like CONCAT('%',#{keyword},'%') or t_board.member_id like CONCAT('%',#{keyword},'%'))
+  		<if test="board_tag_id != null and board_tag_id != '' and board_tag_id != 0">
+			and board_tag_id = ${board_tag_id}
+		</if>
+		and board_deleteYN = 'N'
+  		group by t_board.board_id order by case board_tag_id when 2 then 1 else 2 end,
+  		<if test="sort_value == 'h_desc'">
+  			board_hit DESC,
+  		</if>
+  		<if test="sort_value == 'h_asc'">
+  			board_hit ASC,
+  		</if>
+  		<if test="sort_value == 'r_desc'">
+  			board_recommend DESC,
+  		</if>
+  		<if test="sort_value == 'r_asc'">
+  			board_recommend ASC,
+  		</if>
+  		t_board.board_id DESC limit ${page_count}, 10;
+  	</select>
+  	
+  	<delete id="delete_reply">
+    	delete from t_board_reply where board_reply_id = #{board_reply_id}
+    </delete>
+    
+    <select id="adminConfirmation" resultType="String">
+    	select member_auth from t_member where member_id = #{member_id}
+    </select>
+    
+    <update id="board_recommend" parameterType="hashMap">
+    	update t_board set board_recommend = board_recommend+1 where board_id = #{board_id}
+    </update>
+    
+    <select id="recommend" parameterType="hashMap">
+    	insert into t_board_recommend(board_id, member_id) values(#{board_id}, #{member_id})
+    </select>
+    
+     <select id="recommend_check" parameterType="hashMap" resultType="int">
+    	select count(*) from t_board_recommend where board_id = #{board_id} and member_id = #{member_id}
+    </select>
+    
+    <update id="inputPoint">
+    	update t_member set member_write_point = member_write_point+#{write_point} where member_id = #{member_id}
+    </update>
+    
+    <update id="updateGrade">
+    	update t_member set grade_id = 
+    	(select*from(select grade_id from t_grade where (select member_purchase_point + member_write_point from t_member where member_id = #{member_id}) between grade_start_point and grade_end_point)as a) 
+    	where member_id = #{member_id};
+    </update>
+    
+    <select id="getImg" resultType="String">
+    	select member_profile_img_url from t_member where member_id = #{member_id}
+    </select>
+  	
+  </mapper>

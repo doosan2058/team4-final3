@@ -1,0 +1,242 @@
+.draw_container{
+    width: 100%;
+    background-color: var(--subColor);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem;
+    font-family: 'GimpoGothicBold00';
+	transition: .3s;
+}
+/*테이블*/
+.admin_body{
+    width: 1500px;
+    background-color: white;
+    border-collapse: collapse;
+    box-shadow : var(--mainColor) 0px 0px 5px 3px;
+    border-radius: 10px;
+    background-color:var(--subColor);
+}
+
+/*테이블 메뉴*/
+.admin_body tr td:first-child{
+    padding: 2rem;
+    width: 40%;
+    text-align: center;
+    color: white;
+    font-size: 2.0rem;
+    font-weight: bold;
+}
+/*테이블 내용*/
+.admin_body tr td input:nth-child(n){
+	 background-color:var(--sub2Color);
+	 width:450px;
+	 height:60px;
+	 color:white;
+	  border-radius: 10px;
+	font-family: 'GimpoGothicBold00';
+	transition: .3s ;
+	font-size: 1.2rem;
+	text-align:center;	
+}
+
+.admin_body tr td:last-child{
+    padding: 2rem;
+    width: 60%;
+}
+#draw_comment{
+	 background-color:rgb(40, 40, 40);
+	 color:white;
+	 border-radius: 10px;
+	font-family: 'GimpoGothicBold00';
+	transition: .3s ;
+}
+textarea::placeholder {
+  font-size: 1.2em;
+}
+/*이벤트 등록 버튼*/
+#selectDrawBtn{
+	 width: 100px;
+    height: 50px;
+    font-size: 1.0rem;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    margin-left:10px;
+    background-color: var(--mainColor);
+    box-shadow : var(--mainColor) 0px 0px 3px 3px;
+}
+.file_submit{
+    width: 250px;
+    height: 70px;
+    font-size: 2.0rem;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    margin-top: 2rem;
+    background-color: var(--mainColor);
+    border-radius: 4px;
+    font-family: 'GimpoGothicBold00';
+    outline: none;
+	transition: .3s;
+}
+/*한정판 상품 목록 컨테이너*/
+.selectDrawProductContainer{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.221);
+    z-index: 99;
+    font-family: 'GimpoGothicBold00';
+	transition: .3s;
+    /* position: relative; */
+} 
+/*한정판 상품 목록*/
+.fa-xmark{
+	cursor: pointer;
+	color: white;
+	transition: .3s;
+	position: absolute;
+	right: 30px;
+	top:5px;
+}
+.drawList{
+    position: absolute;
+    width: 1200px;
+    height: 1060px;
+    overflow-y: scroll;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  	background-color: var(--mainColor);
+    font-size: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.7rem;
+    text-align: center;
+    /* background-color: red; */
+    color:white;
+    border-radius: 10px;
+    margin-top:10px;  
+    position: relative;
+}
+.drawList_cc{
+    width: 20%;
+    height: 100%;
+    border: 1px solid black;
+    background-color:rgb(40, 40, 40);
+    border-radius: 10px;
+    margin-top:20px;
+
+}
+.drawList_b{
+    width: 30%;
+      height: 100%;
+    border: 1px solid black;
+    background-color: var(--sub2Color);
+    border-radius: 10px;
+    margin-top:20px;
+}
+.drawList_i{
+    width: 50%;
+      height: 100%;
+    border: 1px solid black;
+    background-color: var(--sub2Color);
+    border-radius: 10px;
+     margin-top:20px;
+}
+.drawLsit_ul{
+	height:100%;
+	background-color: var(--sub2Color);
+	list-style:none;
+}
+.drawList_li{
+	list-style:none;
+} 
+.btn{
+	width:85%;
+	height: 44px; 
+	margin-top:5px;
+	background-color: rgb(24, 24, 24) ;
+    border: 0;
+    outline: 0;
+     border-radius: 5px;
+     font-size:1.3rem;
+     font-weight: bolder;
+     color:white;
+     font-family: 'GimpoGothicBold00';
+	outline: none;
+}
+.drawList_brand_table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 16px;
+    padding: auto;
+}
+.drawList_cate{
+    margin: 30px;
+}
+.btn_brand {
+    box-shadow: 1px 1px px 1px rgb(185, 184, 184);
+    width: 275px;
+    height: 50px;
+    background-color: pink;
+    font-size: 1.5rem;
+    margin: 5px;
+
+}
+.productBtns{
+ width: 500px;
+	height: 70px;
+	color: white;
+   border-radius: 10px;
+    padding-left: 0.5rem;
+	background-color: rgb(24, 24, 24);
+	font-family: 'GimpoGothicBold00';
+	outline: none;
+	transition: .3s;
+    border: none;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color:white;
+    font-weight: bold;  
+    margin-bottom:30px; 
+
+}
+
+.categoryBtns { 
+	 width: 300px;
+	height: 70px;
+	color: white;
+   border-radius: 10px;
+    padding-left: 0.5rem;
+	background-color: rgb(24, 24, 24);
+	font-family: 'GimpoGothicBold00';
+	outline: none;
+	transition: .3s;
+    border: none;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color:white;
+    font-weight: bold;  
+    margin-bottom:30px; 
+}
+
+#draw_dealine{
+	color:white;
+	width:20px;
+}
+.open{
+	color:white;
+}
+
+
+
+

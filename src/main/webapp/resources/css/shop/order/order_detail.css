@@ -1,0 +1,244 @@
+/*주문 상세 컨테이너*/
+
+h2{
+	font-family: 'GimpoGothicBold00';
+	color: var(--subFontColor);
+}
+
+.orderContainer{
+    width: 70%;
+    margin: 0 auto;
+    
+}
+
+/*주소*/
+.orderContainer .orderAddressDiv{
+    width: 100%;
+   /*  border: 3px solid crimson; */
+}
+
+.addressDiv{
+    /* height: 300px; */
+    /* border: 3px solid black; */
+    padding: 1rem;
+    font-family: 'GimpoGothicBold00';
+    color: white;
+    font-size: 1.2rem;
+}
+
+.orderInputs{
+	width: 100%;
+	padding: 1rem;
+	background-color: var(--sub2Color);
+	color: white;
+	font-family: 'GimpoGothicBold00';
+	transition: .3s;
+	border: none;
+	outline: none;
+}
+
+.orderSelect{
+	height: 50px;
+}
+
+.orderText{
+	height: 150px;
+	resize: none;
+	font-size: 1.2rem;
+}
+
+
+.orderInputs:focus{
+	background-color: var(--mainColor);
+}
+
+/*상품정보*/
+.orderProductDiv{
+    width: 100%;
+    /* border: 3px solid blue; */
+}
+
+.orderProductBottom{
+    display: flex;
+    width: 100%;
+    height: 300px;
+   	/* border: 3px solid red; */
+}
+
+.productImgDiv{
+    width: 30%;
+    height: 100%;
+    /* border: 3px solid rebeccapurple; */
+    overflow: hidden;
+    
+}
+/*상품 이미지*/
+.productImg{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    transition: .3s;
+}
+
+.productImg:hover{
+	transform: scale(1.1,1.1);
+}
+
+.productDetail{
+	font-family: 'GimpoGothicBold00';
+    /* border: 3px solid white; */
+    width: 70%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1.4rem;
+    color: white;
+}
+
+/*결제정보*/
+.orderPriceDiv{
+    width: 100%;
+    /* border: 3px solid white; */
+}
+
+.orderPriceBottom{
+    width: 100%;
+}
+
+.orderPriceBottom table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orderPriceBottom table td{
+   	
+    padding: 0.2rem;
+    color: white;
+    height: 50px;
+}
+
+.orderPriceBottom table td:first-child{
+	
+    width: 70%;
+    font-size: 1.2rem;
+    font-family: 'Black Han Sans';
+}
+
+.orderPriceBottom table td:last-child{
+	font-family: 'GimpoGothicBold00';
+    width: 30%;
+}
+
+
+
+.productQuantitySpan{
+    color: var(--fontColor);
+    font-size: 2rem;
+}
+
+
+
+/*결제하기버튼*/
+.orderContainer .orderPaymentDiv{
+    width: 100%;
+    /* border: 3px solid dodgerblue; */
+}
+
+.orderPaymentBottom{
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+
+.orderPaymentBottom #paymentBtn{
+    background-color: var(--mainColor);
+    color: white;
+    padding: 1rem;
+    
+}
+
+/*상세 TOP 디비전 공통*/
+.orderAddressTop, .orderProductTop, .orderPriceTop, .orderPaymentTop{
+    width: 100%;
+    font-size: 1.5rem;
+    color: white;
+    padding: 1rem;
+    border-bottom: 3px solid var(--borderColor);
+}
+
+/*상세 BOTTOM 디비전 공통*/
+.orderAddressBottom, .orderProductBottom, .orderPriceBottom, .orderPaymentBottom{
+    width: 100%;
+    /* height: 600px; */
+    padding: 1rem;
+}
+
+/*쿠폰사용 컨테이너*/
+.couponUseCon{
+    display: none;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.221);
+    backdrop-filter: blur(4px);
+}
+
+.couponDiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 450px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+}
+
+
+/*쿠폰정보*/
+.couponInfoDiv{
+	display : none;
+	/* border: 3px solid white; */
+	height: 50px;
+	align-items: center;
+	
+}
+
+/*쿠폰취소*/
+.couponCancle{
+	color: red;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.couponCancle:hover{
+	
+	transform: scale(1.1,1.1);
+}
+
+/*등급 이름 스팬 */
+.gradeNameSpan{
+	color: var(--fontColor);
+}
+
+/*할인 스팬들 */
+.discountSpan{
+	color: var(--fontColor);
+}
+
+#resultPriceSpan{
+	font-family: 'Black Han Sans';
+	color: var(--subFontColor);
+	font-size: 2.5rem;
+}
+
+/*취소아이콘*/
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}

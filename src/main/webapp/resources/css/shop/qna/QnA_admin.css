@@ -1,0 +1,88 @@
+
+.QnA_Admin_Title{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid pink;
+}
+.QnA_Admin_Title > button{
+    width: 100px;
+    height: 30px;
+}
+.QnA_Admin_Search{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    border: 1px solid pink;
+}
+.QnA_Admin_Search :nth-child(1){
+    width: 400px;
+    height: 30px;
+}
+.QnA_Admin_Search :nth-child(2){
+    width: 100px;
+    height: 30px;
+}
+.QnA_Admin_Nav{
+    height: 50px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    border: 1px solid pink;
+}
+.QnA_Admin_Nav  label{
+    padding-right: 5%;
+}
+.QnA_Admin_Check{
+    height: 50px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    border: 1px solid pink;
+}
+.QnA_Admin_Check >select{
+    width: 30%;
+    height: 50%;
+}
+.QnA_Admin_Main{
+    height: 500px;
+    border: 1px solid pink;
+}
+.QnA_Admin_Main_Table{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+.QnA_Admin_Main_Table thead{
+    height: 10%;
+}
+.QnA_Admin_Main_Table  td {
+    cursor: pointer;
+}
+.QnA_Admin_Main_Table, th, tr, td{
+    border: 1px solid black;
+}
+.QnA_Admin_Paging{
+    height: 30px;
+    border: 1px solid pink;
+}
+.QnA_Admin_Paging > ol{
+    text-align: center;
+}
+.QnA_Admin_Paging > ol > li{
+    display: inline-block;
+    vertical-align: middle;
+    align-items: center;
+}
+.QnA_Admin_Paging > ol > li > a{
+    display: block;
+    width: 30px;
+    height: 30px;
+    color: var(--fontColor);
+}

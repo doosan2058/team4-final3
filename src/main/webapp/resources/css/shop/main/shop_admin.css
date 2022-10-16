@@ -1,0 +1,444 @@
+/*광고*/
+.carousel{
+    width: 100%;
+    height: 800px;
+    background-color: var(--mainColor);
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel .carousel_button_L{
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--fontColor);
+    font-size: 2rem;
+    z-index: 99;
+}
+
+.carousel .carousel_button_R{
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--fontColor);
+    font-size: 2rem;
+    z-index: 99;
+}
+
+.carousel .adContainer{
+    width: 600%;
+    height: 100%;
+    display: flex;
+    transition: .2s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background-color: violet; */
+}
+.carousel .adContainer .adSubCon{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+
+/*광고 이미지 구역*/
+.carousel .adContainer .adSubCon .carouselImgDiv{
+    width: 100%;
+    height: 100%;
+    /* border: 3px solid white; */
+    padding: 1rem;
+}
+
+.carousel .adContainer .adSubCon .carouselImgDiv img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+/*광고 설명 구역 */
+.carousel .adContainer .adSubCon .carouselContentDiv{
+    width: 50%;
+    height: 100%;
+   /*  border: 3px solid cyan; */
+    padding: 1rem;
+    color: white;
+}
+
+
+
+
+
+
+/*-------------------------------------------------------------------------*/
+main{
+    width: 100%;
+    display: flex;
+    /* border: 3px solid crimson;  */
+}
+/*왼쪽 섹션*/
+main .section{
+    width: 81%;
+    background-color: var(--subColor);
+    /* border: 3px solid yellow; */
+}
+/*상품 탑 10 헤드 */
+main .section .section_best_header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+   /*  background-color: red; */
+    font-family: 'GimpoGothicBold00'; 
+    font-size: 2rem;
+    /* border: 3px solid yellow; */
+}
+main .section .section_best_header h1{
+    color: var(--fontColor);
+}
+main .section .section_best_header h1 span{
+    color: white;
+}
+/*상품 탑 10 내용*/
+main .section .section_best{
+    width: 100%;
+    height: 435px;
+    position: relative;
+    overflow: hidden;
+    /* background-color: darkgoldenrod; */
+}
+
+/*이름 디비전*/
+.nameDiv{
+	/* border: 3px solid black; */
+	display: flex;
+	height: 20%;
+	padding: 0.5rem;
+	justify-content: center;
+}
+
+
+/*왼쪽 버튼*/
+.best_button_L{
+    cursor: pointer;
+    color: var(--mainColor);
+    font-size: 4rem;
+    position: absolute;
+    z-index: 1;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .3s;
+}
+/*오른쪽 버튼*/
+.best_button_R{
+    cursor: pointer;
+    color: var(--mainColor);
+    font-size: 4rem;
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .3s;
+    
+    
+}
+
+.best_button_L:hover{
+	color: var(--fontColor);
+} 
+.best_button_R:hover{
+	color: var(--fontColor);
+}
+
+/*탐 10 상품 디비전*/
+.section_best_items{
+    width: 400%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--subFontColor);
+    position: absolute;
+    left: 0;
+    transition: .2s;
+    
+    
+    
+}
+.section_best_items a{
+	font-family: 'Black Han Sans'; 
+	color: white;
+	transition: .3s;
+	text-decoration: none;
+}
+.section_best_items a:hover{
+	color: red;
+}
+/*탑 10 상품*/
+.section_item{
+    width: 20%;
+    height: 100%;
+    /* border: 3px solid dodgerblue; */
+    padding: 1rem;
+    position: relative;
+}
+
+/*순위 디비전*/
+.scoreDiv{
+	position: absolute;
+	width: 100px;
+	height: 200px;
+	bottom: -10%;
+	left: 0;
+	/* border: 3px solid blue; */
+	display: flex;
+	/* align-items: end; */
+}
+
+/*순위 스팬*/
+.numberSpan1, .numberSpan2, .numberSpan3{
+	font-size: 9rem;
+	color: var(--fontColor);
+	font-family: 'Black Han Sans';
+}
+.numberSpan4, .numberSpan5, .numberSpan6, .numberSpan7, .numberSpan8, .numberSpan9, .numberSpan10{
+	font-size: 9rem;
+	color: rgba(209, 209, 209, 0.817);
+	font-family: 'Black Han Sans';
+}
+
+
+/*탑 10 상품 이미지*/
+/* main .section .section_best .section_best_items .section_item .section_item img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+} */
+/*상품  헤더*/
+main .section .section_items_header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    /* background-color: orangered; */
+    font-family: 'GimpoGothicBold00'; 
+    font-size: 2rem;
+    /* border: 3px solid yellow; */
+}
+
+.section_items_header a{
+	
+	font-size: 3rem;
+	color: white;
+	text-decoration: none;
+	transition: .3s;
+}
+
+.section_items_header a:hover{
+	color: red;
+}
+
+main .section .section_items_header h1{
+    color: var(--fontColor);
+}
+/*상품 컨테이너*/
+main .section .section_items_main{
+    width: 100%;
+    
+    
+}
+/*상품 더보기 클릭시 상품 그릴 디비전*/
+main .section .section_items_main .productDiv{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--subColor);
+}
+
+/*상품*/
+.section_items{
+    width: 20%;
+    height: 435px;
+    /* border: 3px solid green; */
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  
+}
+
+.section_items a{
+	font-family: 'Black Han Sans'; 
+	color: white;
+	transition: .3s;
+	text-decoration: none;
+}
+
+.section_items a:hover{
+	color: red;
+}
+/*상품 한정판, 삭제 상품 정보 디비전*/
+.productInfoDiv{
+	width: 100%;
+	/* border: 3px solid white; */
+	background-color: var(--mainColor);
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	font-family: 'GimpoGothicBold00';
+	color: var(--fontColor);
+}
+
+/*상품 썸네일 이미지 디비전 */
+.thumbnailDiv{
+	width: 100%;
+	height: 80%;
+	/* border: 3px solid red; */
+	overflow: hidden;
+}
+/*상품 썸네일 이미지 */
+.thumbnailImg{
+	width: 100%;
+	height: 100%;
+	object-fit: fill;
+	transition: .3s;
+}
+
+.thumbnailImg:hover{
+	transform: scale(1.2,1.2);
+}
+/*상품 더 불러오기 디비전*/
+.section_view_more{
+    width: 100%;
+    padding: 0.5rem;
+    background-color: var(--subColor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align : center;
+}
+
+.moreSpan{
+	cursor: pointer;
+	transition: .3s;
+	font-family: 'Black Han Sans';
+	font-size: 2rem;
+	color: white;
+}
+
+.moreSpan:hover{
+	color: red;
+}
+
+.section_view_more i{
+    font-size: 2rem;
+    color: var(--fontColor);
+    cursor: pointer;
+}
+/*사이드바 디비전*/
+main .side{
+    width: 19%;
+    background-color: rgb(59, 59, 59);
+    /* border: 3px solid purple; */
+    padding: 1rem;
+    position: relative;
+    
+}
+
+.side_navBar{
+    width: 100%;
+    height: 800px;
+    background-color: var(--mainColor);
+    border-radius: 4px;
+    padding: 1rem;
+    position: sticky;
+    top: 1rem;
+    left: 0;
+    
+}
+/*등급 구역 */
+.gradeDiv{
+	height: 30%;
+	/* border: 3px solid white; */
+	border-bottom: 3px solid var(--borderColor);
+	padding: 1rem;
+}
+
+.gradeInnerTop{
+	height: 80%;
+	/* border: 3px solid red; */
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'GimpoGothicBold00';
+}
+
+#userProfileImg{
+	width: 100%;
+	height: 100%;
+	border-radius: 40%;
+}
+
+.gradeInnerBottom{
+	height: 20%;
+	/* border: 3px solid yellow; */
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	font-family: 'GimpoGothicBold00';
+}
+
+.userGradeSpan{
+	font-size: 1.2rem;
+}
+
+.gradeAnchor{
+	text-decoration: none;
+	color: var(--subFontColor);
+	transition: .3s;
+}
+
+.gradeAnchor:hover{
+	color: red;
+}
+
+/*카테고리 구역 */
+.categoryDiv{
+	height: 70%;
+	/* border: 3px solid red; */
+	padding: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	color: white;
+	font-family: 'Black Han Sans'; 
+	
+}
+
+.categoryInnerDiv{
+	width: 50%;
+	border: 3px solid white;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*카테고리 */
+.categorySpan{
+	cursor: pointer;
+	transition: .3s;
+	color: var(--subFontColor);
+}
+
+.categorySpan:hover{
+	color: red;
+}
+

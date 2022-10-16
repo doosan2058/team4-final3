@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goott.mapper.QnAMapper">
+	
+	<!-- 게시글 작성 -->
+	<insert id="Question" parameterType="com.goott.domain.QnAVO">
+		insert into t_qna ( member_id, qna_category, qna_public, qna_title, qna_text) 
+		values( #{member_id}, #{qna_category}, #{qna_public}, #{qna_title}, #{qna_text})
+	</insert>
+	
+	<!-- 게시글 작성자 수정 -->
+	<update id="QnA_update" parameterType="com.goott.domain.QnAVO">
+		update t_qna set  member_id=#{member_id}, qna_category=#{qna_category}, qna_title=#{qna_title} , qna_text=#{qna_text}, qna_public=#{qna_public}  
+		where qna_id =#{qna_id};
+	</update>
+	
+	<!-- 관리자 게시글 답변 수정 -->
+	<update id="Question_admin_update" parameterType="com.goott.domain.QnAVO">
+		update t_qna_answer set  qna_answer_text=#{qna_answer_text}  
+		where qna_id =#{qna_id};
+	</update>
+	
+	<!-- 관리자 게시글 답변 -->
+	<insert id="Question_admin" parameterType="com.goott.domain.QnAVO">
+		insert into t_qna_answer (qna_id, qna_answer_text)
+		values(#{qna_id} ,#{qna_answer_text})
+	</insert>
+	
+	<!-- 관리자 게시글 답변시 답변 상태 Y로 수정 -->
+	<update id="Question_admin_answer" parameterType="com.goott.domain.QnAVO">
+		update t_qna set qna_admin_answer ='Y' where qna_id = #{qna_id};
+	</update>
+	
+	<!-- 게시글 상세페이지 -->
+	<select id="QnA_detail" parameterType="Map" resultType="com.goott.domain.QnAVO">
+		select
+		  Q.qna_id,Q.member_id,Q.qna_category,Q.qna_public,Q.qna_title,Q.qna_text,Q.qna_admin_answer,Q.qna_regdate,A.qna_answer_text
+ 		from t_qna Q left outer join t_qna_answer A on Q.qna_id = A.qna_id where Q.qna_id =#{qna_id}
+	</select>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="delete" parameterType="com.goott.domain.QnAVO">
+		delete from t_qna where qna_id=#{qna_id}
+	</delete>
+	
+	<!-- 일반 총 게시글 갯수 출력(검색 및 카데고리 ) -->
+	<select id="countQnABoardCategory" parameterType="Map" resultType="int">
+		SELECT COUNT(*) FROM t_qna
+
+		<if test="QnASearch != 'all' and checkcategory != 'all'">
+		where  qna_title like CONCAT('%',#{QnASearch},'%') and qna_category=#{checkcategory}
+		 </if> 
+		<if test="QnASearch != 'all' and checkcategory =='all'">
+		where  qna_title like CONCAT('%',#{QnASearch},'%')
+		 </if> 
+		<if test="QnASearch =='all' and checkcategory != 'all'">
+		where  qna_category=#{checkcategory}
+		 </if> 
+		<if test="QnASearch =='all' and checkcategory =='all'">
+		
+		 </if> 	 
+	</select> 
+	
+	<!-- 일반 게시글 조회 -->
+	<select id="selectQnABoard" parameterType="com.goott.domain.PagingVO" resultType="com.goott.domain.QnAVO">
+		
+		SELECT *
+			FROM (
+  				SELECT @rownum:=@rownum+1  rnum, A.* 
+  					FROM t_qna A, 
+  			
+  				<if test="QnASearch != 'all' and checkcategory != 'all'">
+				(
+  									SELECT @ROWNUM := 0
+  									) R where  qna_title like CONCAT('%',#{QnASearch},'%') and qna_category=#{checkcategory} order by qna_id desc
+		 		</if>
+		 		<if test="QnASearch != 'all' and checkcategory =='all'">
+				(
+  									SELECT @ROWNUM := 0
+  									) R where  qna_title like CONCAT('%',#{QnASearch},'%') order by qna_id desc
+				 </if> 
+				<if test="QnASearch =='all' and checkcategory != 'all'">
+				(
+  									SELECT @ROWNUM := 0
+  									) R where  qna_category=#{checkcategory} order by qna_id desc
+				</if> 
+				<if test="QnASearch =='all' and checkcategory =='all'">
+				(
+  									SELECT @ROWNUM := 0
+  									) R order by qna_id desc
+		 		</if> 
+				
+			) LIST
+			WHERE
+			 rnum between #{vo.start} AND #{vo.end}
+
+			 ;
+	</select> 
+	
+	<!-- 관리자 총 게시글 갯수 출력(검색 및 카데고리 ) -->
+	<select id="countQnAadminBoardCategory" parameterType="Map" resultType="int">
+		SELECT COUNT(*) FROM t_qna
+		 
+		 <if test="QnASearch != 'all' and checkadmin != 'all'">
+		where  qna_title like CONCAT('%',#{QnASearch},'%') and qna_admin_answer =#{checkadmin}
+		 </if> 
+		<if test="QnASearch != 'all' and checkadmin =='all'">
+		where  qna_title like CONCAT('%',#{QnASearch},'%')
+		 </if> 
+		<if test="QnASearch =='all' and checkadmin != 'all'">
+		where  qna_admin_answer =#{checkadmin}
+		 </if> 
+		<if test="QnASearch =='all' and checkadmin =='all'">
+		
+		 </if> 
+	</select>
+	
+	<!-- 관리자 게시글 조회 -->
+	<select id="selectQnAadminBoard" parameterType="com.goott.domain.PagingVO" resultType="com.goott.domain.QnAVO">
+		
+		SELECT *
+			FROM (
+  				SELECT @rownum:=@rownum+1  rnum, A.* 
+  					FROM t_qna A, 
+
+  				<if test="QnASearch != 'all' and checkadmin != 'all'">
+				(
+  									SELECT @ROWNUM := 0
+  									) R where qna_admin_answer like CONCAT('%',#{checkadmin},'%') and qna_title like CONCAT('%',#{QnASearch},'%') order by qna_regdate desc
+		 		</if>
+		 		<if test="QnASearch != 'all' and checkadmin =='all'">
+				(
+  									SELECT @ROWNUM := 0
+  									) R where qna_title like CONCAT('%',#{QnASearch},'%') order by qna_regdate desc
+				 </if> 
+				 <if test="QnASearch == 'all' and checkadmin != 'all'">
+				(
+  									SELECT @ROWNUM := 0
+  									) R where qna_admin_answer like CONCAT('%',#{checkadmin},'%') order by qna_regdate desc
+		 		</if>
+				 <if test="QnASearch == 'all' and checkadmin == 'all'">
+				(
+  									SELECT @ROWNUM := 0
+  									) R order by qna_regdate desc
+		 		</if>
+			) LIST
+			WHERE
+			 rnum between #{vo.start} AND #{vo.end}
+
+			 ;
+	</select>
+	
+
+</mapper>

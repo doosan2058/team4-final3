@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goott.mapper.OrderMapper">
+	<!-- 주문하기 -->
+	<select id="buy" parameterType="Map" statementType="CALLABLE">
+		<![CDATA[
+			call buy_product(
+				#{in_member_id, mode=IN, jdbcType=VARCHAR, javaType=String},
+				#{in_product_id, mode=IN, jdbcType=INTEGER, javaType=int},
+				#{in_order_quantity, mode=IN, jdbcType=INTEGER, javaType=int},
+				#{in_order_address, mode=IN, jdbcType=VARCHAR, javaType=String},
+				#{in_order_purchase_amount, mode=IN, jdbcType=INTEGER, javaType=int},
+				#{in_order_coupon_num, mode=IN, jdbcType=VARCHAR, javaType=String},
+				#{in_order_comment, mode=IN, jdbcType=VARCHAR, javaType=String},
+				#{in_member_purchase_point, mode=IN, jdbcType=INTEGER, javaType=int},
+				#{result, mode=OUT, jdbcType=INTEGER, javaType=int}
+			)
+		]]>
+	</select>
+	
+	<!-- 진행 주문 정보 가져오기 -->
+	<select id="selectOrderAll" parameterType="String" resultType="com.goott.domain.OrderVO">
+		<![CDATA[
+			select order_id, member_id, product_id, order_start_date, order_end_date, order_quantity, 
+				   order_address, order_purchase_amount, order_state, order_coupon_num, order_comment,
+				   member_purchase_point
+			from t_order
+			where member_id = #{member_id}
+			and order_state in ('배송중', '배송완료')
+		]]>
+	</select>
+	
+	<!-- 구매 확정 처리 프로시저 -->
+	<select id="updateOrder" parameterType="Map" statementType="CALLABLE">
+		<![CDATA[
+			call confirm_product(
+				#{in_order_id, mode=IN, jdbcType=INTEGER, javaType=int},
+				#{result, mode=OUT, jdbcType=INTEGER, javaType=int}
+			)
+		]]>
+	</select>
+	
+	<!-- 구매 정보 가져오기 -->
+	<select id="selectReviewInfo" parameterType="_int" resultType="map">
+		<![CDATA[
+			select o.product_id as product_id, o.member_id as member_id from t_sales s inner join t_order o 
+			on s.order_id = o.order_id where s.sales_id = #{sales_id}
+		]]>
+	</select>
+
+</mapper>

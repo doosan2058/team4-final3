@@ -1,0 +1,481 @@
+/*광고*/
+.carousel {
+    margin: 0 auto;
+    width: 100%;
+    height: 800px;
+    background-color: var(--mainColor);
+    position: relative;
+    overflow: hidden;
+}
+.adContainer {
+    width: 600%;
+    height: 100%;
+    display: flex;
+    transition: .2s;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.adSubCon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+/*광고 이미지 구역*/
+.carouselImgDiv {
+    width: 100%;
+    height: 100%;
+}
+.carouselImgDiv img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+/*-------------------------------------------------------------------------*/
+
+/*상품구역, 네비구역 컨테이너*/
+main {
+    width: 100%;
+    display: flex;
+}
+/*상품 구역*/
+.itemContainer {
+    width: 80%;
+    background-color: var(--subColor);
+}
+.itemBestDivCon{
+    width: 100%;
+
+
+}
+/*상품 탑 10 헤드 */
+.itemBestHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    font-family: 'GimpoGothicBold00';
+    font-size: 2rem;
+
+}
+.itemBestHeader h1 {
+
+}
+.itemBestHeader h1 span {
+    color: var(--fontColor);
+}
+/*상품 탑 10 내용*/
+.itemBestBody {
+    width: 100%;
+    height: auto;
+}
+/*탑 10 상품 디비전*/
+.itemBestDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    color: var(--subFontColor);
+}
+.itemBestDiv a {
+    font-family: 'GimpoGothicBold00';
+    transition: .3s;
+    text-decoration: none;
+}
+/*탑 10 상품*/
+.productBest {
+    width: 20%;
+    height: 350px;
+    padding: 1rem;
+    position: relative;
+    background-color: var(--sub2Color);
+    border: 3px solid var(--subColor);
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+/*이름 디비전*/
+.nameDivBest {
+    display: flex;
+    height: 20%;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+
+}
+/*상품 썸네일 이미지 디비전 */
+.thumbnailDivBest {
+    width: 100%;
+    max-width: 200px;
+    height: 80%;
+    max-height: 200px;
+    overflow: hidden;
+
+}
+/*순위 디비전*/
+.scoreDiv {
+    position: absolute;
+    width: 100px;
+    height: fit-content;
+    bottom: -10%;
+    left: 0;
+    display: flex;
+}
+/*순위 스팬*/
+.numberSpan1, .numberSpan2, .numberSpan3 {
+    font-size: 6rem;
+    color: rgb(69,175,227,0.82);
+    font-family: 'Black Han Sans';
+}
+.numberSpan4, .numberSpan5, .numberSpan6, .numberSpan7, .numberSpan8, .numberSpan9, .numberSpan10 {
+    font-size: 6rem;
+    color: rgba(209, 209, 209, 0.817);
+    font-family: 'Black Han Sans';
+}
+.itemAllDivCon{
+    width: 100%;
+}
+/*상품 헤더*/
+.itemAllHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    font-family: 'GimpoGothicBold00';
+    font-size: 2rem;
+}
+.itemAllHeader h1 {
+    color: var(--fontColor);
+}
+/*상품 내용*/
+.itemAllBody {
+    width: 100%;
+}
+/*상품 디비전*/
+.itemAllDiv {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--subColor);
+}
+/*상품*/
+.product {
+    width: 20%;
+    height: 350px;
+    background-color: var(--sub2Color);
+    border: 3px solid var(--subColor);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: .3s;
+    cursor: pointer;
+
+}
+/*상품 이름*/
+.product a {
+    font-family: 'GimpoGothicBold00';
+    transition: .3s;
+    text-decoration: none;
+}
+/*이름 디비전*/
+.nameDiv {
+    display: flex;
+    height: 20%;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+
+}
+/*상품 썸네일 이미지 디비전 */
+.thumbnailDiv {
+    width: 100%;
+    max-width: 200px;
+    height: 80%;
+    max-height: 200px;
+    overflow: hidden;
+}
+/*상품 썸네일 이미지 */
+.thumbnailImg {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    transition: .3s;
+}
+/*상품 더 불러오기 디비전*/
+.viewMoreDiv {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: var(--subColor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.moreSpan {
+    cursor: pointer;
+    transition: .3s;
+    font-family: 'Black Han Sans';
+    font-size: 2rem;
+}
+.moreSpan:hover {
+    color: var(--hoverColor);;
+}
+.viewMoreDiv i {
+    font-size: 2rem;
+    color: var(--fontColor);
+    cursor: pointer;
+}
+/*사이드바 디비전*/
+.side {
+    width: 20%;
+    position: relative;
+
+}
+/*알림 메시지*/
+.side p {
+    font-size: 0.8rem;
+}
+.closeSideSpan{
+    transition: .3s;
+    cursor: pointer;
+    position: absolute;
+    z-index: -1;
+    top: 2rem;
+    right: 2rem;
+}
+.closeSideSpan:hover{
+    color: var(--fontColor);
+    transform: scale(1.2,1.2);
+}
+.side_navBar {
+    width: 100%;
+    height: 800px;
+    background-color: var(--mainColor);
+    border-radius: 4px;
+    padding: 1rem;
+    position: sticky;
+    top: 1rem;
+    left: 0;
+}
+
+/*등급 구역 */
+.gradeDiv {
+    height: 30%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.gradeInnerTop {
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#userProfileImg {
+    width: 100%;
+    max-width: 200px;
+    height: 100%;
+    max-height: 200px;
+    border-radius: 40%;
+}
+
+.gradeInnerBottom {
+    height: 20%;
+    border-top: 1px solid var(--borderColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.5rem;
+}
+.gradeInnerBottom span{
+    margin-left: 0.3rem;
+}
+.userGradeSpan {
+    font-size: 1rem;
+}
+
+/*카테고리 구역 */
+.categoryDiv {
+    height: 70%;
+    display: flex;
+}
+/*정렬 메뉴*/
+.sortMenuDiv{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sortMenuSpanDiv{
+    width: 100%;
+    border: 3px solid var(--mainColor);
+    background-color: var(--sub2Color);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+.sortMenuSpan{
+    font-size: 1rem;
+    transition: .3s;
+    padding: 0.5rem 0;
+}
+/*소트 메뉴*/
+.sortInnerDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*카테고리 */
+.categorySpan, .brandSpan {
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: .3s;
+    color: var(--subFontColor);
+
+    padding: 0.2rem;
+}
+.categorySpan:hover, .brandSpan:hover {
+    color: var(--fontColor);;
+}
+
+/*태블릿, 스마트폰 용 카테고리 스팬*/
+.categorySpanAnchor{
+    display: none;
+    cursor: pointer;
+    transition: .3s;
+    position: absolute;
+    right: 1rem;
+}
+.moreIcon{
+    transition: .3s;
+
+}
+.categorySpanAnchor:hover .moreIcon{
+    color: var(--fontColor);
+}
+
+
+/* ------------------------------------------------------------------------------------------------------*/
+
+@media screen and (min-width:320px) and (max-width:767px) {
+    /* 스마트폰 */
+    body{
+        min-width: 320px;
+    }
+    /*광고*/
+    .carousel {
+        height: 300px;
+    }
+    /*상품구역*/
+    .itemContainer {
+        width: 100%;
+    }
+
+    .closeSideSpan{
+
+    }
+    .side_navBar{
+        position: static;
+    }
+    /*탑 10 상품*/
+    .productBest{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+
+    }
+    /*탑 10 이름*/
+    .nameDivBest{
+        width: 70%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .nameDivBest a{
+        font-size: 0.8rem;
+    }
+    /*탑 10 썸네일*/
+    .thumbnailDivBest{
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .thumbnailDivBest img{
+        width: 50px;
+        height: 50px;
+    }
+
+    .scoreDiv span{
+        font-size: 3rem;
+    }
+    /*일반 상품*/
+    .product {
+        width: 100%;
+        height: 300px;
+    }
+    .categorySpanAnchor{
+        display: block;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1023px) {
+    /* 타블렛 */
+
+    /*상품구역*/
+    .itemContainer {
+        width: 100%;
+    }
+
+    .closeSideSpan{
+
+    }
+    .side_navBar{
+        position: static;
+    }
+    /*탑 10 상품*/
+    .productBest{
+        width: 50%;
+        height: 200px;
+        display: flex;
+    }
+    /*탑 10 이름*/
+    .nameDivBest{
+        width: 30%;
+        height: 100%;
+    }
+    /*탑 10 썸네일*/
+    .thumbnailDivBest{
+        width: 70%;
+        height: 100%;
+    }
+
+    /*일반 상품*/
+    .product {
+        width: 50%;
+        height: 300px;
+    }
+    .categorySpanAnchor{
+        display: block;
+    }
+
+}
+
+@media screen and (min-width:1024px) {
+    /* 데스크탑 */
+}

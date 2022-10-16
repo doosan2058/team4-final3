@@ -1,0 +1,103 @@
+@font-face {
+    font-family: 'Black Han Sans';
+    src: url(/resources/font/BlackHanSans-Regular.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'GimpoGothicRegular00';
+	src: url(/resources/font/cts2688_file4.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'GimpoGothicBold00';
+	src: url(/resources/font/cts2688_file2.ttf) format('truetype');
+}
+
+:root{
+    --mainColor : rgb(24, 24, 24);
+    --subColor : rgb(59, 59, 59);
+    --sub2Color : rgb(40, 40, 40);
+    --borderColor : rgba(209, 209, 209, 0.486);
+    --fontColor : rgb(142, 206, 231);
+    --subFontColor : rgb(209, 209, 209);
+    --sub2FontColor : rgba(142, 206, 231, 0.82);
+	--hoverColor: rgb(69, 175, 227);
+	--basicFontColor: white;
+	--alterFontColor: black;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+	background-color: var(--subColor);
+	font-family: 'GimpoGothicRegular00';
+	color: var(--basicFontColor);
+}
+h1, h2, h3, h4, h5, p, span, i, a{
+	color: var(--basicFontColor);
+}
+a:visited{
+	color: var(--basicFontColor);
+}
+
+.EmphasisSpan{
+	color: var(--fontColor);
+	
+}
+
+/*버튼 */
+.formBtns {
+	width: 150px;
+	height: 50px;
+	background-color: var(--sub2Color);
+	transition: .3s;
+	color: var(--subFontColor);
+	cursor: pointer;
+	font-family: 'GimpoGothicBold00';
+	font-size: 1.1rem;
+	/* margin-bottom: 0.5rem; */
+	border: none;
+}
+
+.formBtns:hover {
+	background-color: var(--mainColor);
+	
+}
+
+/*폼 텍스트 인풋 공통 */
+.formInputs {
+	width: 300px;
+	height: 50px;
+	padding-left: 0.5rem;
+	background-color: var(--sub2Color);
+	font-family: 'GimpoGothicBold00';
+	transition: .3s;
+	border: none;
+	outline: none;
+	color: var(--basicFontColor);
+}
+
+.formInputs:focus{
+	background-color: var(--mainColor);
+}
+
+.errorContainer{
+	
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	
+}
+/*숨기기 */
+.noneClass{
+	display: none;
+}
+
+
+
+
+

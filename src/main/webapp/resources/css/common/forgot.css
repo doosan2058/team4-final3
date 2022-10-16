@@ -1,0 +1,46 @@
+@charset "UTF-8";
+body{
+	background-color: var(--subColor);
+}
+/*비밀번호 찾기 컨테이너*/
+.forgotContainer{
+	width: 500px;
+	min-height: 400px; 
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	box-shadow: var(--sub2Color) 0px 0px 5px 3px;
+	background-color: rgb(76, 76, 76);
+	
+}
+/*아이디*/
+.idDiv{ 
+	width: 100%;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+}
+/*이메일*/
+.emailDiv{
+	width: 100%;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/*버튼*/
+.btnDiv{
+	width: 100%;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}

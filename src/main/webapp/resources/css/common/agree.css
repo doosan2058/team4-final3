@@ -1,0 +1,205 @@
+body{
+	
+	background-color: var(--subColor);
+	color: white;
+}
+/*진행상태*/
+.progressDiv{
+	display: flex;
+	justify-content: space-around;
+    align-items: center;
+	position: fixed;
+	top: 40px;
+	right: 20px;
+	/* border: 3px solid pink; */
+	width: 200px;
+	height: 50px;
+	color: black;
+}
+
+.one{
+	animation: colorChange 1s infinite linear alternate;
+}	
+
+.oneDot{
+	/* animation: colorChange 1s leaner infinite normal forwards; */
+	animation: colorChange 1s infinite linear alternate;
+}
+
+@keyframes colorChange {
+	0%{
+		color: yellow;
+	}
+	
+	50%{
+		color: white;
+	}
+}
+
+h1,h2,h3,h4{
+	font-family: 'GimpoGothicBold00';
+	color: var(--subFontColor);
+}
+
+p{
+	font-family: 'GimpoGothicRegular00';
+}
+
+/*회원가입 컨테이너 */
+.loginContainer{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 800px;
+    /* border: 3px solid black; */
+    padding: 1rem;
+}
+
+.loginContainer h2, .loginContainer h3, .loginContainer h4, .loginContainer p{
+    margin-top: 0.5rem;
+}
+
+/*모두 동의 체크 박스 */
+#allAgreeCheckBox{
+    width: 20px;
+    height: 20px;   
+}
+
+/*수집 동의 체크 박스들 */
+.agreeCheckBoxs{
+    width: 20px;
+    height: 20px;   
+}
+
+/*회원가입 헤더 */
+.loginHeader{
+    display: flex;
+    justify-content: center;
+    /* border: 3px solid aqua; */
+    font-size: 2rem;
+    color: white;
+}
+
+/*모두 동의 */
+.allAgreeDiv{
+    /* border: 3px solid saddlebrown; */
+    display: flex;
+    
+}
+
+/*모두 동의 왼쪽, 오른쪽 */
+.allAgreeDivLeft, .allAgreeDivRight{
+    height: 100%;
+    padding: 1rem;
+}
+
+.allAgreeDivLeft{
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.allAgreeDivRight{
+    width: 95%;
+    
+}
+/*사이트 이용약관 동의 */
+.serviceAgreeDiv{
+    /* border: 3px solid green; */
+    display: flex;
+    height: 100%;
+    
+}
+/*사이트 이용약관 동의 왼쪽, 오른쪽 */
+.serviceAgreeDivLeft, .serviceAgreeDivRight{
+    height: 100%;
+    padding: 1rem;
+}
+
+.serviceAgreeDivLeft{
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.serviceAgreeDivRight{
+    width: 95%;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+/*개인정보 수집 동의 */
+.personalAgreeDiv{
+    /* border: 3px solid blue; */
+    display: flex;
+    height: 100%;
+    
+}
+/*개인정보 수집 동의 왼쪽, 오른쪽 */
+.personalAgreeDivLeft, .personalAgreeDivRight{
+    height: 100%;
+    padding: 1rem;
+}
+
+.personalAgreeDivLeft{
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.personalAgreeDivRight{
+    width: 95%;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.personalAgreeTable{
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.personalAgreeTable th, .personalAgreeTable td{
+    border: 1px solid var(--borderColor);
+    padding: 0.5rem;
+}
+
+/*프로모션 email 수신 동의 */
+.emailAgreeDiv{
+    /* border: 1px solid var(--mainColor); */
+    display: flex;
+    height: 100%;
+    
+}
+/*프로모션 email 수신 동의 왼쪽, 오른쪽 */
+.emailAgreeDivLeft, .emailAgreeDivRight{
+    height: 100%;
+    padding: 1rem;
+}
+
+.emailAgreeDivLeft{
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.emailAgreeDivRight{
+    width: 95%;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+/* 다음으로 넘어가기 버튼 구역 */
+.btnDiv{
+   /*  border: 3px solid burlywood; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}

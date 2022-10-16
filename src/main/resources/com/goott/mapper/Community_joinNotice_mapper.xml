@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.goott.mapper.Community_joinNotice_mapper">
+  	
+  	<select id="getList" parameterType="hashMap" resultType="com.goott.domain.T_camping_VO">
+  		select 
+  		t_camping.camping_id as camping_id, count(camping_reply_id) as reply_count, t_camping.member_id as member_id, camping_title, camping_hit, camping_regdate, camping_region,
+  		camping_recruitment, camping_applicant, camping_departure, camping_period, camping_close                                                  
+  		from t_camping left join t_camping_reply on t_camping.camping_id = t_camping_reply.camping_id where
+  		<include refid="search_option" />
+  		and camping_deleteYN = 'N'
+  		group by t_camping.camping_id order by t_camping.camping_close DESC,
+  		<if test="sort_value == 'desc'">
+  			camping_hit DESC,
+  		</if>
+  		<if test="sort_value == 'asc'">
+  			camping_hit ASC,
+  		</if>
+  		t_camping.camping_id DESC limit 0, 10;
+  	</select>
+  	
+  	<select id="getDetail" resultType="com.goott.domain.T_camping_VO">
+  		select camping_id, member_id, camping_title, camping_regdate, camping_region, camping_recruitment, camping_applicant, camping_departure, camping_period, camping_text, camping_hit, camping_close, camping_campsite , campsite_address, campsite_lat, campsite_lon
+		from t_camping, t_campsite where t_camping.camping_campsite = t_campsite.campsite_name and t_camping.camping_id = #{camping_id};
+  	</select>
+  	
+  	<insert id="input" parameterType="hashMap">
+  		insert into t_camping(member_id, camping_recruitment, camping_title, camping_text, camping_departure, camping_period, camping_region, camping_campsite) 
+  		values (#{member_id}, #{camping_recruitment}, #{camping_title}, #{camping_text}, #{camping_departure}, #{camping_period}, #{camping_region}, #{camping_campsite});
+  	</insert>
+  	
+  	<update id="correct">
+    	update t_camping set 
+    	camping_recruitment = #{camping_recruitment}, camping_text = #{camping_text}, camping_title = #{camping_title}, camping_departure = #{camping_departure},
+    	camping_period = #{camping_period}, camping_region = #{camping_region}, camping_campsite = #{camping_campsite}, camping_close = #{camping_close}, camping_applicant = #{camping_applicant}
+    	where camping_id = #{camping_id}
+    </update>
+    
+    <update id="delete">
+    	update t_camping set camping_deleteYN = 'Y' where camping_id = #{camping_id};
+    </update>
+    
+    <select id="replyList" resultType="com.goott.domain.T_camping_reply_VO">
+    	select * from t_camping_reply where camping_id = #{camping_id} order by camping_reply_regdate DESC limit 5
+    </select>
+  	
+  	<select id="replyCount" resultType="com.goott.domain.T_camping_reply_VO">
+  		select count(*) as 'camping_reply_count' from t_camping_reply where camping_id = #{camping_id};
+  	</select>
+  	
+  	<insert id="replyInput" useGeneratedKeys="true" keyProperty="camping_reply_id">
+  		insert into t_camping_reply(camping_id, member_id, camping_reply_text) values(#{camping_id}, #{id}, #{comment});
+  	</insert>
+  	
+  	<select id="getReply" resultType="com.goott.domain.T_camping_reply_VO">
+    	select * from t_camping_reply where camping_reply_id = #{camping_reply_id}
+    </select>
+    
+    <select id="viewMore" resultType="com.goott.domain.T_camping_reply_VO">
+    	select * from t_camping_reply where camping_id=#{camping_id} order by camping_reply_regdate DESC limit #{s_count}, 5;
+    </select>
+    
+    <update id="increase">
+    	update t_camping set camping_hit = camping_hit+1 where camping_id = #{camping_id}
+    </update>
+    
+    <select id="listCount" parameterType = "hashMap" resultType="com.goott.domain.T_camping_VO">
+  		select count(*) as 'camping_count' from t_camping where
+  		<include refid="search_option" />
+  		and camping_deleteYN = 'N'
+  	</select>
+  	
+  	<select id="changePage" resultType="com.goott.domain.T_camping_VO">
+  		select 
+  		t_camping.camping_id as camping_id, count(camping_reply_id) as reply_count, t_camping.member_id as member_id, camping_title, camping_hit, camping_regdate, camping_region,
+  		camping_recruitment, camping_applicant, camping_departure, camping_period, camping_close
+  		from t_camping left join t_camping_reply on t_camping.camping_id = t_camping_reply.camping_id where
+  		<include refid="search_option" />
+  		and camping_deleteYN = 'N'
+  		group by t_camping.camping_id order by t_camping.camping_close DESC,
+  		<if test="sort_value == 'desc'">
+  			camping_hit DESC,
+  		</if>
+  		<if test="sort_value == 'asc'">
+  			camping_hit ASC,
+  		</if>
+  		t_camping.camping_id DESC limit ${page_count}, 10;
+  	</select>
+  	
+  	<sql id="search_option">
+		<choose>
+  			<when test="camping_region!=null and camping_region!=''">
+  				camping_region = #{camping_region} and
+  			</when>
+  			<otherwise>
+  				camping_region like CONCAT('%',"",'%') and
+  			</otherwise>
+  		</choose>
+  		<choose>
+  			<when test="camping_recruitment!=null and camping_recruitment!=''">
+  				camping_recruitment = #{camping_recruitment} and
+  			</when>
+  			<otherwise>
+  				camping_recruitment like CONCAT('%',"",'%') and
+  			</otherwise>
+  		</choose>
+  		<choose>
+  			<when test="camping_departure!=null and camping_departure!=''">
+  				camping_departure = #{camping_departure} and
+  			</when>
+  			<otherwise>
+  				camping_departure like CONCAT('%',"",'%') and
+  			</otherwise>
+  		</choose>
+  		<choose>
+  			<when test="camping_period!=null and camping_period!=''">
+  				camping_period = #{camping_period} and
+  			</when>
+  			<otherwise>
+  				camping_period like CONCAT('%',"",'%') and
+  			</otherwise>
+  		</choose>
+  		<choose>
+  			<when test="camping_close!=null and camping_close!=''">
+  				camping_close = #{camping_close}
+  			</when>
+  			<otherwise>
+  				camping_close like CONCAT('%',"",'%')
+  			</otherwise>
+  		</choose>
+  		<if test="keyword != null and keyword != ''">
+			and camping_title like CONCAT('%',#{keyword},'%') or camping_text like CONCAT('%',#{keyword},'%') or t_camping.member_id like CONCAT('%',#{keyword},'%')
+		</if>
+	</sql>
+	
+	<select id="campsite" parameterType = "hashMap" resultType="hashMap">
+	select campsite_name, campsite_address, campsite_category from t_campsite where
+		<choose>
+  			<when test="search_category!=null and search_category!=''">
+				campsite_category like CONCAT('%',#{search_category},'%')
+			</when>
+  			<otherwise>
+  				campsite_category like CONCAT('%',"",'%')
+  			</otherwise>
+  		</choose>
+  		<choose>
+  			<when test="search_region!=null and search_region!=''">
+				and campsite_address like CONCAT('%',#{search_region},'%')
+			</when>
+  			<otherwise>
+  				and campsite_address like CONCAT('%',"",'%')
+  			</otherwise>
+  		</choose>
+  		<choose>
+  			<when test="search_keyword!=null and search_keyword!=''">
+				and campsite_name like CONCAT('%',#{search_keyword},'%')
+			</when>
+  			<otherwise>
+  				and campsite_name like CONCAT('%',"",'%')
+  			</otherwise>
+  		</choose>
+	</select>
+	
+	<delete id="delete_reply">
+    	delete from t_camping_reply where camping_reply_id = #{camping_reply_id}
+    </delete>
+    
+    <select id="adminConfirmation" resultType="String">
+    	select member_auth from t_member where member_id = #{member_id}
+    </select>
+    
+    <update id="inputPoint" parameterType="hashMap">
+    	update t_member set member_write_point = member_write_point+#{write_point} where member_id = #{member_id}
+    </update>
+    
+    <update id="updateGrade" parameterType="hashMap">
+    	update t_member set grade_id = 
+    	(select*from(select grade_id from t_grade where (select member_purchase_point + member_write_point from t_member where member_id = #{member_id}) between grade_start_point and grade_end_point)as a) 
+    	where member_id = #{member_id};
+    </update>
+    
+    <select id="getImg" resultType="String">
+    	select member_profile_img_url from t_member where member_id = #{member_id}
+    </select>
+  	
+  </mapper>

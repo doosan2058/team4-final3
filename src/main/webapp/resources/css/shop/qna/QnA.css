@@ -1,0 +1,206 @@
+body{
+
+	font-family: 'GimpoGothicBold00';
+
+    background-color: var(--subColor);
+}
+.QnA_Title{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+h1 {
+	color: white;
+}
+.QnA_Title_btnContainer {
+	width : 500px;
+	height: 70%;
+}
+#QnA_Title_btnAsked{
+	right:10px
+}
+#QnA_Title_btn{
+	right: 150px
+}
+#QnA_Title_btnAsked, #QnA_Title_btn{
+	width: 100px;
+    height: 40px;
+    font-size: 1.0rem;
+    border-style: none;
+    border-radius: 5px;
+    position: absolute;
+    color: white;
+    cursor:pointer;
+    background-color : var(--mainColor);
+    transition : all 0.1s;
+    font-family: 'GimpoGothicBold00';
+	transition: .3s;
+}
+#checkboxbtn{
+	width: 100px;
+    height: 40px;
+    font-size: 1.0rem;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    cursor:pointer;
+    background-color : var(--mainColor);
+    transition : all 0.1s;
+    font-family: 'GimpoGothicBold00';
+	transition: .3s;
+}
+#QnA_Title_btnAsked:hover, #QnA_Title_btn:hover .asked:hover, #checkadminboxbtn:hover, #checkboxbtn:hover{
+	box-shadow : white 0 0 2px 2px;
+}
+
+.asked,#checkadminboxbtn{
+	width: 100px;
+    height: 40px;
+    font-size: 1.0rem;
+	border-radius: 5px;
+    color: white;
+    cursor:pointer;
+    font-family: 'GimpoGothicBold00';
+	transition: .3s;
+    background-color : var(--mainColor);
+    transition : all 0.1s;
+}
+
+.QnA_Search{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    border-radius: 5px;
+    background-color: var(--subColor);
+    box-shadow : var(--mainColor) 0px 0px 0px 1px;
+    
+}
+.QnA_Search :nth-child(1){
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+}
+.QnA_Search :nth-child(2){
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    
+}
+.QnA_Nav{
+    height: 50px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: var(--subColor);
+    box-shadow : var(--mainColor) 0px 0px 0px 1px;
+	
+}
+.QnA_Nav label{
+    padding-right: 5%;
+}
+.QnA_Admin_Main{
+    height: 600px;
+
+}
+.QnA_Admin_Main_Table{
+    width: 100%;
+    /* height: 600px; */
+    text-align: center;
+    color:white;
+    border-collapse: collapse;
+}
+.QnA_Admin_Main_Table thead {
+    height: 50px;
+    color:white;
+    background-color: var(--mainColor);
+}
+.QnA_Admin_Main_Table > thead >tr :nth-child(1){
+    width:10%;
+}
+.QnA_Admin_Main_Table > thead >tr :nth-child(2){
+    width: 50%;
+}
+.QnA_Admin_Main_Table > thead >tr :nth-child(3){
+    width: 30%;
+}
+.QnA_Admin_Main_Table > thead >tr :nth-child(4){
+    width: 10%;
+}
+.QnA_Admin_Main_Table td {
+    cursor: pointer;
+    text-align: left;
+    padding-left: 1rem;
+}
+.qna_category{
+	width:10%;
+	height: 50px;
+}
+.qna_title{
+	width: 50%;
+	height: 50px;
+}
+.qna_regdate{
+	width: 30%;
+	height: 50px;
+}
+.qna_admin_answer{
+	width: 10%;
+	height: 50px;
+}
+
+
+
+
+.QnA_Admin_Main_Table, th, tr, td{
+    border: 1px solid black;
+}
+.QnA_Paging{
+    height: 30px;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    
+    /* border: 1px solid pink; */
+}
+.QnA_Paging > a{
+	color: white;
+	text-decoration: none;
+}
+.QnA_Paging > b{
+	color: var(--fontColor);
+		text-decoration: none;
+}
+.QnA_Paging > ol{
+/* 	text-decoration: none; */
+    text-align: center;
+}
+.QnA_Paging > ol > li{
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+}
+/* .QnA_Paging > ol > li > a{
+    display: block;
+    width: 30px;
+    height: 30px;
+    color: white;
+    text-decoration: none;
+} */
+td > a:hover{
+	text-decoration: none;
+	color: var(--fontColor);
+}
+td > a{
+	text-decoration: none;
+	color:white;
+	
+}

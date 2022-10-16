@@ -1,0 +1,36 @@
+body {
+	background-color: var(--subColor);
+}
+
+.basketMiddle h1 {
+	font-family: 'GimpoGothicRegular00';
+	color: var(--subFontColor);
+}
+/*장바구니 상품 정보 구역*/
+.basketMiddle {
+	min-height: 700px;
+	font-family: 'GimpoGothicBold00';
+	/* border: 3px solid green; */
+	padding: 1rem;
+}
+
+/*장바구니 상품 테이블*/
+#basketTable {
+	margin: 3rem auto;
+	border-collapse: collapse;
+	/* background-color: var(--mainColor); */
+}
+
+#basketTable th {
+	font-size: 1.5rem;
+	color: var(--subFontColor);
+	padding: 1rem;
+}
+
+#basketTable td {
+	padding: 1rem;
+	color: white;
+	text-align: center;
+	
+}
+

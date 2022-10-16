@@ -1,0 +1,572 @@
+body{
+	font-family: 'Black Han Sans';
+	background-color: var(--subColor);
+}
+
+h3{
+	color: white;
+	font-family: 'GimpoGothicBold00';
+}
+
+/*내정보*/
+.myInfoCon{
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 3px solid black; */
+    background-color: var(--subColor);
+    color: white;
+}
+/*네비구역*/
+.navDiv{
+	width: 80%;
+	height: 10%;
+	/* border-bottom: 3px solid var(); */
+	display: flex;
+	justify-content: space-around;
+    align-items: center;
+    
+    border-bottom: 3px solid var(--borderColor);
+}
+
+.navDiv a{
+	color: white;
+	text-decoration: none;
+	transition: .3s;
+	font-size: 1.5rem;
+	
+}
+
+.navDiv a:hover{
+	transform: translateY(-10%);
+	color: red;
+}
+/*사진, 유저정보 */
+.infoTopDiv{
+    width: 80%;
+    height: 50%;
+    /* border: 3px solid violet; */
+    display: flex;    
+    background-color: var(--subColor);
+}
+
+.infoBottomDiv{
+	background-color: var(--subColor);
+}
+/*이미지*/
+.userImgDiv{
+    width: 30%;
+    height: 100%;
+   /*  border: 3px solid blue; */
+    padding: 1rem;
+}
+
+.userImgDivInnerTop{
+	width: 100%;
+	height: 80%;
+	border-bottom: 3px solid var(--borderColor);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.userImgDivInnerBottom{
+	width: 100%;
+	height: 20%;
+	/* border: 3px solid white; */
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#userImg{
+    width: 80%;
+    height: 80%;
+    object-fit: fill;
+    /* border: 3px solid black; */
+    border-radius : 10%;
+}
+
+
+
+.imgSubmit, .imgCancel{
+	display: none;
+	text-decoration: none;
+	cursor: pointer;
+	transition: .3s;
+	color: white;
+}
+
+.imgSubmit:hover, .imgCancel:hover{
+	color: var(--fontColor);
+}
+
+
+.userInfoDiv{
+    width: 60%;
+    height: 100%;
+    /* border: 3px solid saddlebrown; */
+    padding: 1rem;
+    font-family: 'Black Han Sans';
+}
+
+.userNameSpan{
+    font-size: 2rem;
+    color: var(--fontColor);
+}
+
+.userModifyDiv{
+    /* border: 3px solid blue; */
+    width: 10%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.userModifyDiv span{
+    margin-bottom: 1rem;
+}
+
+.infoBottomDiv{
+    width: 80%;
+    height: 40%;
+    /* border: 3px solid chocolate; */
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    
+}
+
+.userGradeDiv, .userQuoponHistoryDiv, .userOrderHistoryDiv{
+    width: 33%;
+    height: 100%;
+    /* border: 3px solid green; */
+    padding: 1rem;
+	cursor: pointer;
+	transition: .3s;
+	background-color: var(--sub2Color);
+}
+
+.userGradeDiv:hover{
+	background-color: red;
+}
+
+.userOrderHistoryDiv:hover{
+	background-color: red;
+}
+
+/*유저 활동 내역 컨테이너 */
+.userHistoryCon{
+    width: 100%;
+    
+    /* border: 3px solid blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--subColor);
+}
+
+.userModifyDiv a{
+	color: white;
+	transition: .3s;
+	cursor: pointer;
+	margin-bottom: 0.5rem;
+	text-decoration: underline;
+}
+
+.userModifyDiv a:hover{
+	color: red;
+}
+/*진행중인 주문내역 */
+.deliveryHisroyDiv{
+    width: 80%;
+    height: 50%;
+    min-height: 300px;
+    max-height: 500px;
+    overflow-y: scroll;
+    /* border: 3px solid blue; */
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    background-color: var(--subColor);
+    
+}
+/*진행주문내역 테이블*/
+.deliveryHisroyTable{
+	border-collapse: collapse;
+	color: var(--subFontColor);
+	font-size: 1.2rem;
+	
+}
+
+.deliveryHisroyTable th{
+	font-size: 1.4rem;
+	font-family: 'GimpoGothicBold00';
+	margin-bottom: 2rem;
+}
+.deliveryHisroyTable td{
+	padding: 0.5rem;
+	border-bottom: 3px solid var(--borderColor);
+}
+/*기타 내역 */
+.etcHistoryDiv{
+    width: 80%;
+    height: 50%;
+    /* border: 3px solid red; */
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--subColor);
+    
+}
+
+.etcHistoryDiv a{
+	color: white;
+	transition: .3s;
+	cursor: pointer;
+	margin-bottom: 0.5rem;
+}
+
+.etcHistoryDiv a:hover{
+	color: red;
+}
+
+.etcHistoryDiv span{
+    margin-bottom: 1rem;
+}
+
+/*구매내역 보기 모달 컨테이너 */
+.orderHistoryModalCon{
+	
+    display: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.21);
+    backdrop-filter: blur(4px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+/*구매내역 테이블 */
+.orderHistoryDiv{
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 700px;
+    height: 500px;
+    background-color: var(--subColor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    
+}
+
+.orderHistoryTable{
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.orderHistoryTable th{
+    font-size: 1.4rem;
+    padding: 1rem;
+    color: var(--subFontColor);
+}
+
+.orderHistoryTable td{
+	font-size: 1.2rem;
+	padding: 1rem;
+	border-bottom: 3px solid var(--mainColor);
+}
+
+.reviewTd{
+	
+	cursor: pointer;
+	transition: .3s;
+	
+}
+
+.reviewTd a{
+	color: white;
+	transition: .3s;
+	text-decoration: none;
+}
+
+.reviewTd a:hover{
+	color: red;
+}
+
+
+.writeReviewSpan{
+    color: var(--fontColor);
+    cursor: pointer;
+}
+
+.confirmBuy{
+	width: 100px;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.confirmBuy:hover{
+	color: red;
+}
+
+/*회원탈퇴컨테이너*/
+.deleteMemberContainer{
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	
+	background-color: rgba(0, 0, 0, 0.339);
+    backdrop-filter: blur(4px);
+}
+/*회원탈퇴디비전*/
+.deleteMemberDiv{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 500px;
+	height: 500px;
+	border: 3px solid black;
+	background-color: white;
+	font-family: 'GimpoGothicBold00';
+}
+
+/*회원탈퇴디비전 구역 1~4*/
+.deleteInner{
+	padding: 1rem;
+}
+.deleteInner:nth-child(1){
+	width: 100%;
+	/* border: 3px solid black; */
+	height: 10%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #f6f8fa;
+	
+}
+.deleteInner:nth-child(2){
+	width: 100%;
+	border-top: 2px solid #fff5ab;
+	border-bottom: 2px solid #fff5ab;
+	height: 20%;
+	background-color: #fff8c5;
+	display:flex;
+	align-items: center;
+	
+}
+.deleteInner:nth-child(3){
+	width: 100%;
+	/* border: 3px solid black; */
+	height: 30%;
+	color: rgb(35, 35, 35);
+	
+	
+	
+}
+.deleteInner:nth-child(4){
+	width: 100%;
+	/* border: 3px solid black; */
+	height: 40%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.closeIcon{
+	cursor: pointer;
+	color: black;
+	transition: .3s;
+}
+
+.closeIcon:hover{
+	color: rgb(139, 197, 255);
+}
+
+.boldSpan{
+	color: black;
+	font-size: 1.1rem;
+}
+
+.deleteSpan{
+	color: red;
+	font-size: 1.1rem;
+	text-decoration: underline;
+	
+}
+
+.deleteBtns {
+	width: 100%;
+	height: 50px;
+	background-color: var(--sub2Color);
+	transition: .3s;
+	color: var(--subFontColor);
+	cursor: not-allowed;
+	
+	font-family: 'GimpoGothicBold00';
+	font-size: 1.1rem;
+	/* margin-bottom: 0.5rem; */
+	border: none;
+	text-decoration: line-through;
+}
+
+.deleteBtns:hover {
+	background-color: var(--mainColor);
+	
+}
+
+.deleteInputs {
+	width: 100%;
+	height: 50px;
+	/* margin-bottom: 0.5rem; */
+	padding-left: 0.5rem;
+	background-color: var(--sub2Color);
+	color: white;
+	font-family: 'GimpoGothicBold00';
+	transition: .3s;
+	border: none;
+	outline: none;
+}
+
+.deleteInputs:focus{
+	background-color: var(--mainColor);
+}
+
+/*비밀번호 변경 컨테이너*/
+.changePasswordContainer{
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	
+	background-color: rgba(0, 0, 0, 0.339);
+    backdrop-filter: blur(4px);
+	
+}
+
+.changePasswordDiv{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 500px;
+	height: 300px;
+	/* border: 3px solid black; */
+	background-color: var(--subFontColor);
+	font-family: 'GimpoGothicBold00';
+	
+}
+
+.changePasswordInnerTop{
+	width: 100%;
+	height: 30%;
+	/* border: 3px solid red; */
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.changePasswordInnerBottom{
+	width: 100%;
+	height: 40%;
+	/* border: 3px solid green; */
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.changePasswordInnerResult{
+	width: 100%;
+	height: 30%;
+	border-top: 3px solid var(--borderColor);
+	padding: 1rem;
+}
+
+.myListContainer{
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	
+	background-color: rgba(0, 0, 0, 0.339);
+    backdrop-filter: blur(4px);
+}
+
+.myListDiv{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 80%;
+	height: 80%;
+	/* border: 3px solid black; */
+	background-color: white;
+	font-family: 'GimpoGothicBold00';
+	position: relative;
+	background-color: var(--subColor);
+	color: white;
+	padding: 1rem;
+	display: flex;
+}
+
+.myListHeader{
+	
+	
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: -40px;
+	right: 0;
+	cursor: pointer;
+	transition: .3s;
+}
+.myListHeader:hover{
+	color: var(--fontColor);
+	transform: scale(1.3,1.3);
+}
+
+.freeBoard, .camping, .review{
+	width: 33%;
+	height: 100%;
+	/* border: 3px solid white; */
+	overflow-y: scroll;
+	
+}
+
+.lineDiv{
+	width: 100%;
+	padding: 0.5rem;
+	border-bottom: 3px solid var(--mainColor);
+}
+.idxSpan{
+	color: var(--fontColor);
+	font-size: 1.5rem;
+}
+.titleSpan{
+	color: var(--subFontColor);
+}
+
+
+
+

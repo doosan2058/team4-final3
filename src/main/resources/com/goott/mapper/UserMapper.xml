@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goott.mapper.UserMapper">
+	<!-- 유저별 구매 확정 목록 가져오기 -->
+	<select id="selectSalesAll" parameterType="String" resultType="com.goott.domain.SalesVO">
+		<![CDATA[
+			select s.sales_id, s.order_id, s.sales_date, s.sales_review, s.sales_review_date from t_sales s 
+			inner join t_order o on s.order_id = o.order_id
+			inner join t_member m on o.member_id = m.member_id where m.member_id = #{member_id};
+		]]>
+	</select>
+
+	<!-- 구매상품 리뷰 작성하기 -->
+	<insert id="insertReview" parameterType="com.goott.domain.ProductReviewVO">
+		<![CDATA[
+			insert into t_product_review(product_id, member_id, product_review_text, 
+											product_review_grade, product_review_img_url, 
+											product_review_video_url, product_review_speed)
+			values(#{product_id}, #{member_id}, #{product_review_text}, #{product_review_grade}, #{product_review_img_url},
+					#{product_review_video_url}, #{product_review_speed})
+		]]>
+	</insert>
+	
+	<!-- 리뷰 작성 여부 업데이트 -->
+	<update id="updateReviewState" parameterType="_int">
+		<![CDATA[
+			update t_sales set sales_review = 'y' where sales_id = #{sales_id}
+		]]>
+	</update>
+	
+	<!-- 장바구니 담기 -->
+	<insert id="insertBasket" parameterType="com.goott.domain.BasketVO">
+		insert into t_basket(member_id, product_id, basket_amount) values(#{member_id}, #{product_id}, #{basket_amount})
+	</insert>
+	
+	
+	<!-- 유저 이전 프로필 이미지 주소 가져오기 -->
+	<select id="selectUserImg" parameterType="String" resultType="String">
+		<![CDATA[
+			select member_profile_img_url from t_member where member_id = #{member_id}
+		]]>
+		
+	</select>
+	
+	<!-- 유저 프로필 이미지 주소 저장 -->
+	<update id="updateUserImg" parameterType="map">
+		<![CDATA[
+			update t_member set member_profile_img_url = #{member_profile_img_url} where member_id = #{member_id}
+		]]>
+	</update>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="updatePw" parameterType="String">
+		<![CDATA[
+			update t_member set member_pw = #{member_pw} where member_id = #{member_id}
+		]]>
+	</update>
+	
+	<!-- 프로필 이미지, 등급 이름, 등급 색, 등급 폰트 색, 등급 할인율, 등급 적립율, 등급 이미지 -->
+	<select id="selectUserGradeAndProfileImgUrl" parameterType="String" resultType="map">
+		<![CDATA[
+			select m.member_profile_img_url as member_profile_img_url, g.grade_name as grade_name, g.grade_color as grade_color ,
+			       g.grade_font_color as grade_font_color, g.grade_discount as grade_discount,
+			       g.grade_accrual_rate as grade_accrual_rate, g.grade_img_url as grade_img_url
+			from t_member m 
+			inner join t_grade g on m.grade_id = g.grade_id where m.member_id = #{member_id}
+		]]>
+	</select>
+	
+	<!--  리뷰 도움되요 개수 업데이트 -->
+	<update id="updateHelpful" parameterType="_int">
+		<![CDATA[
+			update t_product_review set product_review_helpful = 
+					( select count(product_review_id) as count from t_helpful 
+			where product_review_id = #{product_review_id} ) where product_review_id = #{product_review_id}
+		]]>
+		
+	</update>
+	
+	<!--  리뷰 도움되요 테이블에 내용 넣기 -->
+	<insert id="insertHelpful" parameterType="map">
+		<![CDATA[
+			insert into t_helpful(product_review_id, member_id) values(#{product_review_id}, #{member_id})
+		]]>
+		
+	</insert>
+	
+	<!-- 리뷰 도움되요 클릭 했는지 확인 -->
+	<select id="selectCountHelpful" parameterType="map" resultType="_int">
+		<![CDATA[
+			select count(product_review_id) as count from t_helpful 
+			where product_review_id = #{product_review_id} and member_id = #{member_id}
+		]]>
+	</select>
+	
+	<!-- 리뷰 도움되요 수 가져오기 -->
+	<select id="selectHelpful" parameterType="_int" resultType="_int">
+		<![CDATA[
+			select product_review_helpful from t_product_review where product_review_id = #{product_review_id}
+		]]>
+	</select>
+	
+	<!-- 장바구니 리스트 가져오기 -->
+	<select id="selectBasketList" resultType="com.goott.domain.BasketVO">
+		<![CDATA[
+			select basket_id, product_id, basket_amount from t_basket where member_id = #{member_id}
+		]]>
+	</select>
+	
+	<!-- 장바구니 삭제 -->
+	<delete id="deleteBasket" parameterType="int">
+		delete from t_basket where basket_id = #{basket_id}
+	</delete>
+	
+	<!-- 장바구니 정보 가져오기 -->
+	<select id="selectBasketInfo" resultType="map" parameterType="_int">
+		<![CDATA[
+			select product_id, basket_amount from t_basket where basket_id = #{basket_id}
+		]]>
+	</select>
+</mapper>
+
+

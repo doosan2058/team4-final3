@@ -1,0 +1,190 @@
+.registProductCon {
+	width: 100%;
+	
+	/* border: 3px solid saddlebrown; */
+	display: flex;
+}
+/*상품 등록 구역*/
+.registProductDiv {
+	width: 60%;
+	/* height: 100vh; */
+	/* border:3px solid aliceblue; */
+	padding: 1rem;
+}
+
+.registProductDiv table {
+	border-collapse: collapse;
+	width: 100%;
+	font-family: 'GimpoGothicBold00';
+	color: white;
+}
+
+table th,table td {
+	width: 50%;
+	/* border: 2px solid black; */
+	padding: 1rem;
+}
+table th{
+	color: var(--mainColor);
+	font-size: 1.5rem;
+}
+
+table td:nth-child(2n-1){
+	font-size: 1.3rem;
+	color: var(--subFontColor);
+}
+
+
+
+/*업로드 이미지 리스트 디비전 */
+.mainFileListDiv, .subFileListDiv {
+	width: 100%;
+	height: 150px;
+	/* border: 1px solid black; */
+	padding: 1rem;
+}
+
+/*업로드 이미지 설정 */
+.imgList:nth-child(1) {
+	background-color: red;
+	margin-bottom: 10px;
+}
+
+.imgList:nth-child(2) {
+	background-color: blue;
+	margin-bottom: 10px;
+}
+
+.imgList:nth-child(3) {
+	background-color: green;
+	margin-bottom: 10px;
+}
+
+.imgListSub:nth-child(1) {
+	background-color: yellow;
+	margin-bottom: 10px;
+}
+
+.imgListSub:nth-child(2) {
+	background-color: orangered;
+	margin-bottom: 10px;
+}
+
+/*결과 미리보기 구역 */
+.registProductCon .prePageDiv {
+	width: 40%;
+	
+	/* border: 3px solid red; */
+}
+
+
+.prePageDiv .prePageDivTop {
+	width: 100%;
+	height: 30%;
+	display: flex;
+}
+
+.prePageDiv .prePageDivTop .prePageDivTopLeft {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.productImgMain {
+	width: 100%;
+	height: 65%;
+	/* border: 3px solid black; */
+	margin-bottom: 5px;
+	padding: 0.5rem;
+	font-size: 2rem;
+	color: white;
+	display: none;
+}
+
+.productImgFirst, .productImgSecond, .productImgThird {
+	width: 30%;
+	height: 30%;
+	max-height: 100px;
+	overflow-y: scroll;
+	padding: 0.5rem;
+	margin-right: 3px;
+	font-size: 4rem;
+	color: white;
+	display: none;
+}
+
+.prePageDiv .prePageDivTop .prePageDivTopRight {
+	width: 50%;
+	height: 100%;
+	
+}
+
+.prePageDiv .prePageDivBottom {
+	width: 100%;
+	height: 70%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.subImgFirst, .subImgSecond {
+	width: 70%;
+	height: 50%;
+	max-height: 500px;
+	overflow-y: scroll;
+	padding: 1rem;
+	font-size: 7rem;
+	color: white;
+	display: none;
+	
+	/* background-color: aqua; */
+}
+
+/*메인 이미지들 , 서브 이미지들 */
+.mainImgs, .subImgs{
+	 width: 100%;
+	 object-fit: fill;
+}
+
+#formText{
+	width: 100%;
+	height: 100px;
+	/* margin-bottom: 0.5rem; */
+	padding-left: 0.5rem;
+	background-color: var(--sub2Color);
+	color: white;
+	font-family: 'GimpoGothicBold00';
+	transition: .3s;
+	border: none;
+	outline: none;
+	resize: none;
+	padding: 1rem;
+}
+
+#submitBtn{
+	display: block;
+	margin: 0 auto;
+}
+
+.deleteBtn, .deleteSubBtn{
+	width: 20px;
+	height: 20px;
+	background-color: var(--mainColor);
+	color: white;
+	cursor: pointer;
+	
+}
+
+.deleteBtn:hover{
+	color: var(--fontColor);
+}
+
+.deleteSubBtn:hover{
+	color: var(--fontColor);
+}
+
+
+
+
+

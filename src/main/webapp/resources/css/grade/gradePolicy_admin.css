@@ -1,0 +1,79 @@
+main{
+	width : 100%;
+	height: auto;
+    display:flex;
+    flex-direction: row;
+    background:	#A8A8A8;
+}
+.mainDiv{
+	margin: 0 auto;
+    width:60%;
+    height: 100%;
+/*     border: solid 2px yellowgreen; */
+    color:white;
+}
+.mainDiv>h1{
+	padding: 26px 26px 15px 26px;
+	text-align: center;
+	border-bottom: 2px solid #A8A8A8;
+}
+.subnav{
+  /*   border: solid 2px yellowgreen; */
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0px;
+    padding: 6px 4px;
+    width: 100%;
+    height:60px;
+    position: relative;
+}
+.subnav>p{
+/* 	border: solid 2px blue; */
+    width:55%;
+    padding-left: 5px;
+}
+.btns{
+/* 	border: solid 2px red;	 */
+	position: absolute;
+	top:13px;
+	right:30px;
+
+}
+.btn{
+		font-size: 1rem;
+	 	width:70px;
+        height:30px;
+        border:1px #5D7190 solid;;
+        margin:15px auto; 
+        background-color:#5D7190;  
+        text-align:center; 
+        cursor: pointer;  
+        color:white;
+        transition:all 0.9s, color 0.3;
+        border-radius: 3.3px;  
+}
+.btn:hover {
+	       box-shadow: 0 80px 0 0  rgba(0,0,0,0.25) inset, 
+                    0 -80px 0 0 rgba(0,0,0,0.25) inset;
+}
+
+
+.form{
+	width:100%;
+}
+table{
+	width:90%;
+	margin: auto;
+	border-color: #5E7291;
+}
+th, td{
+	text-align: center;
+}
+.background{
+	width:80%;
+	height:80%;
+	boarder : solid 1px black;
+	
+}
+
+
