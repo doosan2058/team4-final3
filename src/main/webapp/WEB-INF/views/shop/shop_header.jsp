@@ -46,6 +46,7 @@
             <a id="loginBtn" href="/login" data-tooltip="로그인 하기">로그인</a>
             <a id="joinBtn" href="/agree" data-tooltip="회원가입 하기">회원가입</a>
             <a id="loginName" class="noneClass" href="/user">${sessionScope.login_id }</a>
+            <c:if test="${sessionScope.login_auth eq '회원'}"></c:if>
             <a id="basket" class="noneClass">
                 <span class="material-symbols-outlined basketSpan">
                 shopping_basket
@@ -58,18 +59,26 @@
             <a id="loginBtn" href="/login" class="noneClass">로그인</a>
             <a id="joinBtn" href="/agree" class="noneClass">회원가입</a>
             <c:if test="${sessionScope.login_auth eq '관리자' }">
-
-                <a id="loginName" href="/admin" data-tooltip="관리자 페이지 보기">${sessionScope.login_id }님</a>
+                <a id="loginName" href="/admin" data-tooltip="관리자 페이지 보기" data-login="${sessionScope.login_id }" ></a>
             </c:if>
             <c:if test="${sessionScope.login_auth eq '회원' }">
-
-                <a id="loginName" class="loginInfo" href="/user" data-tooltip="내정보 보기" data-login="${sessionScope.login_id }">${sessionScope.login_id }님</a>
+                <a id="loginName" class="loginInfo" href="/user" data-tooltip="내정보 페이지 보기" data-login="${sessionScope.login_id }">
+                        </a>
             </c:if>
-            <a id="basket" href="user/basket" data-tooltip="장바구니 보기">
-                <span class="material-symbols-outlined basketSpan">
-                    shopping_basket
-                </span>
-            </a>
+            <c:if test="${sessionScope.login_auth ne '회원'}">
+                <a id="basket" href="user/basket" data-tooltip="장바구니 보기" class="noneClass">
+                    <span class="material-symbols-outlined basketSpan">
+                        shopping_basket
+                    </span>
+                </a>
+            </c:if>
+            <c:if test="${sessionScope.login_auth eq '회원'}">
+                <a id="basket" href="user/basket" data-tooltip="장바구니 보기">
+                    <span class="material-symbols-outlined basketSpan">
+                        shopping_basket
+                    </span>
+                </a>
+            </c:if>
             <a id="logOutBtn" data-tooltip="로그아웃 하기">로그아웃</a>
         </c:if>
 

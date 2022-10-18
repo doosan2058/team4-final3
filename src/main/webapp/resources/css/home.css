@@ -4,35 +4,10 @@ html, body{
 	height: 100%;
 }
 
-
 a{
-	text-decoration: none;
-	color: white;
-	transition: .3s;
-}
-
-a:visited{
-	color: white;
-}
-
-a:hover{
-	color: var(--hoverColor);;
-	transform: translateY(-10%);
-}
-
-#logOutBtn{
-	background-color: transparent;
-	border: none;
-	color: white;
-	font-size: 1rem;
 	transition: .3s;
 	cursor: pointer;
 }
-
-#logOutBtn:hover{
-	color: var(--hoverColor);;
-}
-
 /*홈 컨테이너*/
 .homeContainer{
 	height: 100%;
@@ -42,7 +17,6 @@ a:hover{
 /*상단*/
 .homeTop{
 	height: 10%;
-	/* border: 3px solid yellow; */
 	display: flex;
 	
 }
@@ -84,14 +58,12 @@ h1{
 	z-index: 99;
 	transition: .3s;
 }
-
 img{
 	width: 100%;
 	height: 100%;
 	object-fit : fill;
 	transition: .3s;
 }
-
 /*쇼핑몰*/
 .shopDiv{
 	position: relative;
@@ -106,18 +78,8 @@ img{
     cursor: pointer;
     transition: .3s;
     overflow: hidden;
-    
 }
 
-.shopDiv:hover img{
-	/* transform: scale(1.1,1.1); */
-	opacity: 0.2;
-	
-}
-.shopDiv:hover h1{
-	transform: translate(-50%,-70%);
-	color: var(--hoverColor);;
-}
 /*커뮤니티*/
 .communityDiv{
 	position: relative;
@@ -134,51 +96,45 @@ img{
     overflow: hidden;
 }
 
-.communityDiv:hover img{
-	opacity: 0.2;
-	
-}
-.communityDiv:hover h1{
-	transform: translate(-50%,-70%);
-	color: var(--hoverColor);;
-	
-}
-
+/* 스마트폰 */
 @media screen and (min-width:320px) and (max-width:767px) {
-	/* 스마트폰 */
-
 	.homeMain{
 		flex-direction: column;
 	}
-
 	.shopDiv{
 		width: 100%;
 	}
-
 	.communityDiv{
 		width: 100%;
 	}
 
 
 }
-
+/* 태블릿 */
 @media screen and (min-width:768px) and (max-width:1023px) {
-	/* 랩탑 */
 	.homeMain{
 		flex-direction: column;
 	}
-
 	.shopDiv{
 		width: 100%;
 	}
-
 	.communityDiv{
 		width: 100%;
 	}
 }
-
+/* 데스크탑 */
 @media screen and (min-width:1024px) {
-	/* 데스크탑 */
+	a:hover{
+		color: var(--hoverColor);;
+		transform: translateY(-10%);
+	}
+	.shopDiv:hover img, .communityDiv:hover img{
+		opacity: 0.2;
+	}
+	.shopDiv:hover h1, .communityDiv:hover h1{
+		transform: translate(-50%,-70%);
+		color: var(--hoverColor);;
+	}
 }
 
 

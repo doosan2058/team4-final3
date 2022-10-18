@@ -19,7 +19,7 @@
     <!-- 구글 폰트 -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-    <title>캠핑 용품 판매 페이지</title>
+    <title>쇼핑몰 메인</title>
 </head>
 
 <body>
@@ -77,6 +77,12 @@
             </div>
             <!--상품 탑 10 내용-->
             <div class="itemBestBody">
+                <span class="material-symbols-outlined backSpan">
+                    arrow_back_ios
+                </span>
+                <span class="material-symbols-outlined forwardSpan">
+                    arrow_forward_ios
+                </span>
                 <!--탑 10 상품 디비전-->
                 <div class="itemBestDiv">
                     <c:forEach var="item" items="${productList}" varStatus="status">
@@ -127,6 +133,7 @@
                             <div class="nameDiv">
                                 <a href="/product/detail?product_id=${item.product_id }"> ${item.product_name } </a>
                             </div>
+
                             <div class="thumbnailDiv">
                                 <img src="/productImg/${item.product_thumbnail_img_url }" class="thumbnailImg"
                                      alt="이미지 준비중 입니다.">

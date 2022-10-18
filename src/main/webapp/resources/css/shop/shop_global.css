@@ -10,17 +10,12 @@ header{
 	cursor: pointer;
 	transition: .3s;
 }
-#logOutBtn:hover{
-	color: var(--hoverColor);;
-}
+
 header a{
     text-decoration: none;
 	transition: .3s;
 }
-header a:hover{
-	color: var(--hoverColor);;
-	transform: translateY(-10%);
-}
+
 #loginName:hover{
 	color: var(--hoverColor);;
 	transform: translateY(-10%);
@@ -40,9 +35,7 @@ header .logo h1{
 	transition: .3s;
 }
 
-header .logo h1:hover{
-	transform: translateY(-10%);
-}
+
 header .menu{
     width: 40%;
     height: 100%;
@@ -64,9 +57,7 @@ header .login a{
     transition: .3s;
 }
 
-#basket:hover .basketSpan{
-    color: var(--fontColor);
-}
+
 footer{
     width: 100%;
     height: 200px;
@@ -89,9 +80,7 @@ footer{
 	cursor: pointer;
     font-family: 'Black Han Sans';
 } 
-.footer_logo h1:hover{
-  	transform: translateY(-10%);
-} 
+
 .footer_content{
     width: 70%;
     height: 100%;
@@ -187,10 +176,25 @@ footer{
         margin-left: 1rem;
 
     }
-
     #loginName{
         display: flex;
         align-items: center;
+    }
+    #logOutBtn:hover{
+        color: var(--hoverColor);;
+    }
+    header a:hover{
+        color: var(--hoverColor);;
+        transform: translateY(-10%);
+    }
+    #basket:hover .basketSpan{
+        color: var(--fontColor);
+    }
+    header .logo h1:hover{
+        transform: translateY(-10%);
+    }
+    .footer_logo h1:hover{
+        transform: translateY(-10%);
     }
 }
 

@@ -242,9 +242,9 @@ public class ProductServiceImpl implements ProductService {
 		return productMapper.listAll(pageShop);
 	}
 	@Override //페이지 전체 번호 관리자
-	public int getPageTotalNumAll(int category_id) {
+	public int getPageTotalNumAll(int category_id, int brand_id) {
 		
-		return productMapper.totalAll(category_id);
+		return productMapper.totalAll(category_id, brand_id);
 	}
 	@Override
 	public int updateProduct(ProductVO productVO, MultipartFile[] imgs1, MultipartFile[] imgs2) {

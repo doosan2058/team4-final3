@@ -59,7 +59,6 @@ public class ShopController {
 		// 전체 페이지 수 조회
 		int totalPage = (int) Math.ceil((productService.getPageTotalNum(0, 0) / (double) 10.0));
 		PageShop pageShop = new PageShop(1, totalPage);
-		List<ProductVO> productList = productService.getProductList(pageShop);
 
 		// 카테고리 목록 조회
 		List<ProductCategoryVO> categoryList = productCategoryService.getList();
@@ -69,6 +68,9 @@ public class ShopController {
 
 		// 판매 탑 10 목록
 		List<Map<String, Object>> topProduct = productService.getProductTopSales();
+
+		// 공개 상품 10개
+		List<ProductVO> productList = productService.getProductList(pageShop);
 
 		// 로그인 되어 있다면 회원 등급, 프로필 이미지 정보
 		Map<String, Object> userInfo = null;
@@ -84,6 +86,7 @@ public class ShopController {
 		model.addAttribute("brandList", brandList);
 		model.addAttribute("topProduct", topProduct);
 		model.addAttribute("userInfo", userInfo);
+
 		return "shop/main/shop_user";
 	}
 
@@ -95,14 +98,20 @@ public class ShopController {
 		HttpSession session = request.getSession();
 
 		// 전체 페이지 수 조회
-		int totalPage = (int) Math.ceil((productService.getPageTotalNumAll(0) / (double) 10.0));
+		int totalPage = (int) Math.ceil((productService.getPageTotalNumAll(0, 0) / (double) 10.0));
+		PageShop pageShop = new PageShop(1, totalPage);
+
 		// 카테고리 목록 조회
 		List<ProductCategoryVO> categoryList = productCategoryService.getList();
-		PageShop pageShop = new PageShop(1, totalPage);
-		List<ProductVO> productList = productService.getProductListAll(pageShop);
+
+		// 브랜드 목록 조회
+		List<ProductBrandVO> brandList = productBrandService.getList();
 
 		// 판매 탑 10 목록
 		List<Map<String, Object>> topProduct = productService.getProductTopSales();
+
+		//전체 상품 10개
+		List<ProductVO> productList = productService.getProductListAll(pageShop);
 
 		// 로그인 되어 있다면 회원 등급, 프로필 이미지 정보
 		Map<String, Object> userInfo = null;
@@ -115,8 +124,10 @@ public class ShopController {
 		model.addAttribute("productList", productList);
 		model.addAttribute("pageShop", pageShop);
 		model.addAttribute("categoryList", categoryList);
+		model.addAttribute("brandList", brandList);
 		model.addAttribute("topProduct", topProduct);
 		model.addAttribute("userInfo", userInfo);
+
 		return "shop/main/shop_admin";
 	}
 
@@ -126,7 +137,7 @@ public class ShopController {
 		int category_id = map.get("category_id");
 		int brand_id = map.get("brand_id");
 		int totalPage = (int) Math.ceil((productService.getPageTotalNum(category_id, brand_id) / (double) 10.0));
-		log.info(totalPage);
+
 		PageShop pageShop = new PageShop(1, totalPage);
 
 		pageShop.setCategory_id(category_id);
@@ -144,23 +155,25 @@ public class ShopController {
 //		log.info("카테고리 관리자  =================================================");
 
 		int category_id = map.get("category_id");
-		int totalPage = (int) Math.ceil((productService.getPageTotalNumAll(category_id) / (double) 10.0));
+		int brand_id = map.get("brand_id");
+		int totalPage = (int) Math.ceil((productService.getPageTotalNumAll(category_id, brand_id) / (double) 10.0));
 
 		PageShop pageShop = new PageShop(1, totalPage);
 
 		pageShop.setCategory_id(category_id);
+		pageShop.setBrand_id(brand_id);
 		List<ProductVO> productList = productService.getProductListAll(pageShop);
 
 		model.addAttribute("productList", productList);
 		model.addAttribute("pageShop", pageShop);
-		return "shop/main/productDivUser";
+		return "shop/main/productDivAdmin";
 
 	}
 
 	// 상품 더보기
 	@RequestMapping(value = "/list", method = RequestMethod.POST)
 	public String listAjaxPost(@RequestBody PageShop pageShop, Model model) {
-//		log.info("ajax 상품 더보기 요청 ---------------------------------------");
+
 		int category_id = pageShop.getCategory_id();
 		int brand_id = pageShop.getBrand_id();
 
@@ -173,7 +186,7 @@ public class ShopController {
 
 		// 공개 상품 리스트
 		List<ProductVO> productList = productService.getProductList(pageShop);
-//		log.info(productList);
+
 		model.addAttribute("productList", productList);
 		model.addAttribute("pageShop", pageShop);
 		return "shop/main/productDivUser";
@@ -182,16 +195,19 @@ public class ShopController {
 	// 상품 더보기 관리자
 	@RequestMapping(value = "/list/admin", method = RequestMethod.POST)
 	public String listAjaxAdminPost(@RequestBody PageShop pageShop, Model model) {
-//		log.info("ajax 관리자 상품 더보기 요청 ---------------------------------------");
+
 		int category_id = pageShop.getCategory_id();
+		int brand_id = pageShop.getBrand_id();
+
 		// pageShop 초기화
-		int totalPage = (int) Math.ceil((productService.getPageTotalNumAll(category_id) / (double) 10.0));
+		int totalPage = (int) Math.ceil((productService.getPageTotalNumAll(category_id, brand_id) / (double) 10.0));
+
 		pageShop.setTotalPage(totalPage);
 		pageShop.setStartNum((pageShop.getCurrentPage() - 1) * 10);
 		pageShop.setEndNum(10);
 		// 전체 상품 리스트
 		List<ProductVO> productList = productService.getProductListAll(pageShop);
-//		log.info(productList);
+
 		model.addAttribute("productList", productList);
 		model.addAttribute("pageShop", pageShop);
 		return "shop/main/productDivAdmin";

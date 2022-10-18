@@ -17,17 +17,36 @@ const allMemberAnchor = document.querySelector('.allMemberAnchor');
 const mailAnchor = document.querySelector('.mailAnchor');
 //모니터링
 const graphAnchor = document.querySelector('.graphAnchor');
+//상품추가
+const productAddAnchor = document.querySelector('.productAddAnchor');
+//등급관리
+const gradeAnchor = document.querySelector('.gradeAnchor');
 //메인으로
 const homeAnchor = document.querySelector('.homeAnchor');
+
 // =====================================================================================================
 navIcon.addEventListener('click', navInOut);
 allMemberAnchor.addEventListener('click', showMemberList);
 mailAnchor.addEventListener('click', showSend);
 graphAnchor.addEventListener('click', monitoringFunc);
 homeAnchor.addEventListener('click', goHome);
-
+productAddAnchor.addEventListener('click', goRegister);
+gradeAnchor.addEventListener('click', goGradeRegister);
 // =====================================================================================================
-
+//상품 추가 페이지 이동
+function goRegister(){
+	const result = confirm('상품 추가 페이지로 이동하시겠습니까?');
+	if(result){
+		location.href = '/product/register';
+	}
+}
+//등급 관리 페이지 이동
+function goGradeRegister(){
+	const result = confirm('등급 정보 관리 페이지로 이동하시겠습니까?');
+	if(result){
+		location.href = '/gradePolicy_admin';
+	}
+}
 //메인으로
 function goHome(){
 	let result = confirm('메인 화면으로 나가시겠습니까?');
@@ -332,7 +351,11 @@ function navInOut(){
 		allMemberAnchor.innerHTML = '전체 회원 보기';
 		mailAnchor.innerHTML = '프로모션 메일 보내기';
 		graphAnchor.innerHTML = '모니터링 하기';
+		productAddAnchor.innerHTML = '상품 등록';
+		gradeAnchor.innerHTML = '등급 관리';
 		homeAnchor.innerHTML = '메인 화면으로 나가기';
+
+
 	}
 	else{
 		nav.style.width = '5%';
@@ -342,7 +365,11 @@ function navInOut(){
 		allMemberAnchor.innerHTML = '<span class="material-symbols-outlined"> group </span>';
 		mailAnchor.innerHTML = '<span class="material-symbols-outlined"> mail </span>';
 		graphAnchor.innerHTML = '<span class="material-symbols-outlined"> monitoring </span>';
+		productAddAnchor.innerHTML = '<span class="material-symbols-outlined"> add_shopping_cart </span>';
+		gradeAnchor.innerHTML = '<span class="material-symbols-outlined"> settings_accessibility </span>';
 		homeAnchor.innerHTML = '<span class="material-symbols-outlined"> home </span>';
+
+
 		
 	}
 }

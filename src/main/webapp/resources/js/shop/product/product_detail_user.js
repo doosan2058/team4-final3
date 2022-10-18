@@ -35,7 +35,7 @@ const toBottomDiv = document.querySelector('.toBottomDiv');
 /*리뷰 컨테이너 */
 const productBottom = document.querySelector('.productBottom');
 /*네비게이터 리뷰 이동 디비전 */
-const toReveiwCon = document.querySelector('.toReveiwCon');
+const toReviewCon = document.querySelector('.toReviewCon');
 //리뷰 현재 페이지 
 const currentPage = document.querySelector('#currentPage');
 //리뷰 더보기 디비전
@@ -52,17 +52,17 @@ const thumbs = document.querySelectorAll('.thumb');
 
 //==================================================================================================
 
-window.onload = function(){
-    /*테이블에서 가격정보 읽어와 초기 가격값 출력 */
-    if(productPriceTd.innerHTML != undefined){
-        productPriceSpan.innerHTML = productPriceTd.innerHTML;
-    }
-    //평점차트
-    gradeChart();
-    //배송속도 차트
-    speedChart();
-   
-}
+window.addEventListener('load', function(){
+	/*테이블에서 가격정보 읽어와 초기 가격값 출력 */
+	if(productPriceTd.innerHTML != undefined){
+		productPriceSpan.innerHTML = productPriceTd.innerHTML;
+	}
+	//평점차트
+	gradeChart();
+	//배송속도 차트
+	speedChart();
+
+});
 
 //==================================================================================================
 
@@ -74,11 +74,11 @@ productSubImg.forEach((item) => {
 
 quantityUpBtn.addEventListener('click' , quantityUp);
 quantityDownBtn.addEventListener('click' , quantityDown);
-basketBtn.addEventListener('click' , basket);
+basketBtn.addEventListener('click' , basketFunc);
 viewMoreDiv.addEventListener('click' , fullHeightContainer);
 toTopDiv.addEventListener('click' , scrollToTop);
 toBottomDiv.addEventListener('click' , scrollToBottom);
-toReveiwCon.addEventListener('click' , scrollToReview);
+toReviewCon.addEventListener('click' , scrollToReview);
 veiwMoreRewviesDiv.addEventListener('click' , viewMoreReview);
 youtubeDiv.addEventListener('click', showYoutubeCon);
 youtubeContainer.addEventListener('click', closeYoutubeCon);
@@ -330,7 +330,7 @@ function priceToString(price) {
 
 /*장바구니 담기 클릭시 실행되는 함수 ajax */
 /*유저 페이지에서만 실행 */
-function basket(){
+function basketFunc(){
 	let loginText = document.querySelector('#loginInput').value;
 	let count = quantityText.value;
 	let product = product_id.value;

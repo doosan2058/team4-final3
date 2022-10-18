@@ -38,6 +38,9 @@ body{
 h1, h2, h3, h4, h5, p, span, i, a{
 	color: var(--basicFontColor);
 }
+a{
+	text-decoration: none;
+}
 a:visited{
 	color: var(--basicFontColor);
 }
@@ -84,13 +87,11 @@ a:visited{
 }
 
 .errorContainer{
-	
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	
 }
 /*숨기기 */
 .noneClass{

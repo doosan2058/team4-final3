@@ -66,7 +66,7 @@ public interface ProductService {
 	 * @param category_id 카테고리 아이디(FK)
 	 * @return 카테고리별 상품 총 개수 ( 0 : 모든 상품 )
 	 */
-	public int getPageTotalNumAll(int category_id); 
+	public int getPageTotalNumAll(int category_id, int brand_id);
 	
 	
 	/**
@@ -75,11 +75,7 @@ public interface ProductService {
 	 * @return 카테고리 번호, 브랜드 번호
 	 */
 	public Map<String, Object> getProductCidBid(int product_id);
-	/**
-	 * 상품 리뷰 리스트 가져오기
-	 * @param product_id 상품 번호(PK), 현재 리뷰 페이지
-	 * @return 리뷰 엔티티 리스트 10개
-	 */
+
 	public List<ProductReviewVO> getProductReviewList(PageReview pageReview);
 	
 	/**

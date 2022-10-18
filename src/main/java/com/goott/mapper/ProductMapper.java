@@ -40,18 +40,10 @@ public interface ProductMapper {
 	public List<ProductVO> list(PageShop pageShop);
 
 	public int total(@Param("category_id")int category_id, @Param("brand_id")int brand_id);
-	/**
-	 * 상품 10개씩 가져오기(관리자)
-	 * @param pageShop 페이징 엔티티
-	 * @return 상품 리스트
-	 */
+
 	public List<ProductVO> listAll(PageShop pageShop);
-	/**
-	 * 카테고리별 전체 품목 수 가져오기(관리자)
-	 * @param category_id 상품 아이디(0 : all)
-	 * @return 상품 개수 
-	 */
-	public int totalAll(int category_id);
+
+	public int totalAll(@Param("category_id") int category_id,@Param("brand_id") int brand_id);
 	/**
 	 * 상품 수정
 	 * @param productVO 상품 엔티티
@@ -72,11 +64,7 @@ public interface ProductMapper {
 	 */
 	public Map<String, Object> selectCidBid(int product_id);
 	
-	/**
-	 * 상품 리뷰 리스트 10개 가져오기
-	 * @param product_id
-	 * @return
-	 */
+
 	public List<ProductReviewVO> selectReviewAll(PageReview pageReview);
 	
 	/**

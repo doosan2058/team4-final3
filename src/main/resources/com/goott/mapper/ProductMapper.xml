@@ -1,259 +1,330 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goott.mapper.ProductMapper">
-	
-	<!-- 상품 비공개 처리  -->
-	<update id="updateDelete" parameterType="_int">
+
+    <!-- 상품 비공개 처리  -->
+    <update id="updateDelete" parameterType="_int">
 		<![CDATA[
-			update t_product set product_delete = 'y' where product_id = #{product_id}
-		]]>
+        update t_product
+        set product_delete = 'y'
+        where product_id = #{product_id}
+        ]]>
 	</update>
-	<!-- 상품 등록 -->
-	<insert id="insert" parameterType="com.goott.domain.ProductVO">
+    <!-- 상품 등록 -->
+    <insert id="insert" parameterType="com.goott.domain.ProductVO">
 		<![CDATA[
-			insert into t_product(product_category_id,
-						  		  product_brand_id, 
-								  product_limited, 
-								  product_stock,
-								  product_name, 
-								  product_comment, 
-								  product_price,
-								  product_thumbnail_img_url, 
-								  product_img_url1,
-								  product_img_url2, 
-								  product_img_url3, 
-								  product_description_img_url1,
-								  product_description_img_url2,
-								  product_youtube_url,
-								  product_delivery_day)
-			values(#{product_category_id},
-				   #{product_brand_id},
-				   #{product_limited},
-				   #{product_stock},
-				   #{product_name},
-				   #{product_comment},
-				   #{product_price},
-				   #{product_thumbnail_img_url},
-				   #{product_img_url1},
-				   #{product_img_url2},
-				   #{product_img_url3},
-				   #{product_description_img_url1},
-				   #{product_description_img_url2},
-				   #{product_youtube_url},
-				   #{product_delivery_day})
-		]]>
+        insert into t_product(product_category_id,
+                              product_brand_id,
+                              product_limited,
+                              product_stock,
+                              product_name,
+                              product_comment,
+                              product_price,
+                              product_thumbnail_img_url,
+                              product_img_url1,
+                              product_img_url2,
+                              product_img_url3,
+                              product_description_img_url1,
+                              product_description_img_url2,
+                              product_youtube_url,
+                              product_delivery_day)
+        values (#{product_category_id},
+                #{product_brand_id},
+                #{product_limited},
+                #{product_stock},
+                #{product_name},
+                #{product_comment},
+                #{product_price},
+                #{product_thumbnail_img_url},
+                #{product_img_url1},
+                #{product_img_url2},
+                #{product_img_url3},
+                #{product_description_img_url1},
+                #{product_description_img_url2},
+                #{product_youtube_url},
+                #{product_delivery_day})
+        ]]>
 	
 	</insert>
-	<!-- 상품 자세히  -->
-	<select id="get" parameterType="_int" resultType="com.goott.domain.ProductVO">
+    <!-- 상품 자세히  -->
+    <select id="get" parameterType="_int" resultType="com.goott.domain.ProductVO">
 		<![CDATA[
-			select product_id,
-				   product_category_id,
-				   product_brand_id, 
-				   product_limited, 
-				   product_stock,
-				   product_name, 
-				   product_comment, 
-				   product_price,
-				   product_thumbnail_img_url, 
-				   product_img_url1,
-				   product_img_url2, 
-				   product_img_url3, 
-				   product_description_img_url1,
-				   product_description_img_url2,
-				   product_youtube_url,
-				   product_regdate,
-				   product_delivery_day,
-				   product_delete
-			from t_product
-		    where product_id = #{product_id}
-		]]>
+        select product_id,
+               product_category_id,
+               product_brand_id,
+               product_limited,
+               product_stock,
+               product_name,
+               product_comment,
+               product_price,
+               product_thumbnail_img_url,
+               product_img_url1,
+               product_img_url2,
+               product_img_url3,
+               product_description_img_url1,
+               product_description_img_url2,
+               product_youtube_url,
+               product_regdate,
+               product_delivery_day,
+               product_delete
+        from t_product
+        where product_id = #{product_id}
+        ]]>
 	</select>
-	<!-- 상품 10개씩 유저 -->
-	<select id="list" parameterType="com.goott.domain.PageShop" resultType="com.goott.domain.ProductVO">
-		<![CDATA[
+    <!-- 상품 10개씩 유저 -->
+    <select id="list" parameterType="com.goott.domain.PageShop" resultType="com.goott.domain.ProductVO">
+        <![CDATA[
 			select product_id, product_name, product_img_url1, product_thumbnail_img_url 
 			from t_product
 			where product_limited = '일반'
 			and product_delete = 'n'
 		]]>
-			<if test="category_id != 0">
-				<![CDATA[
+        <if test="category_id != 0">
+            <![CDATA[
 					and product_category_id = #{category_id}
 				]]>
-			</if>
-			<if test="brand_id != 0">
-				<![CDATA[
+        </if>
+        <if test="brand_id != 0">
+            <![CDATA[
 					and product_brand_id = #{brand_id}
 				]]>
-			</if>
-		<![CDATA[
+        </if>
+        <![CDATA[
 			order by product_id 
 			limit #{startNum},#{endNum}
 		]]>
-	</select>
-	<!-- 상품 10개씩 관리자 -->
-	<!-- 한정판, 비공개 여부 상관 없이 모두 -->
-	<select id="listAll" parameterType="com.goott.domain.PageShop" resultType="com.goott.domain.ProductVO">
-		<![CDATA[
+    </select>
+    <!-- 상품 10개씩 관리자 -->
+    <!-- 한정판, 비공개 여부 상관 없이 모두 -->
+    <select id="listAll" parameterType="com.goott.domain.PageShop" resultType="com.goott.domain.ProductVO">
+        <![CDATA[
 			select product_id, product_name, product_img_url1, product_thumbnail_img_url, product_delete, product_limited
 			from t_product
 		]]>
-			<if test="category_id != 0">
-				<![CDATA[
+        <if test="category_id != 0 and brand_id == 0">
+            <![CDATA[
 					where product_category_id = #{category_id}
+					order by product_id limit #{startNum},#{endNum}
 				]]>
-			</if>
-		<![CDATA[
-			order by product_id 
-			limit #{startNum},#{endNum}
-		]]>
-	</select>
-	<!-- 전체 페이지 수 유저 -->
-	<select id="total" resultType="_int" parameterType="_int">
-		<![CDATA[
+        </if>
+        <if test="category_id == 0 and brand_id != 0">
+            <![CDATA[
+					where product_brand_id = #{brand_id}
+					order by product_id limit #{startNum},#{endNum}
+					]]>
+        </if>
+        <if test="category_id == 0 and brand_id == 0">
+            <![CDATA[
+					order by product_id limit #{startNum},#{endNum}
+					]]>
+        </if>
+		<if test="category_id != 0 and brand_id != 0">
+			<![CDATA[
+					where product_category_id = #{category_id}
+					and product_brand_id = #{brand_id}
+					order by product_id limit #{startNum},#{endNum}
+					]]>
+		</if>
+
+    </select>
+    <!-- 전체 페이지 수 유저 -->
+    <select id="total" resultType="_int" parameterType="_int">
+        <![CDATA[
 			select count(product_id) as totalPage 
 			from t_product
 			where product_limited = '일반'
 			and product_delete = 'n'
 		]]>
-		<if test="category_id != 0">
-			<![CDATA[
+        <if test="category_id != 0">
+            <![CDATA[
 				and product_category_id = #{category_id}
 			]]>
-		</if>
-		<if test="brand_id != 0">
-			<![CDATA[
+        </if>
+        <if test="brand_id != 0">
+            <![CDATA[
 				and product_brand_id = #{brand_id}
 			]]>
-		</if>
-	</select>
-	<!-- 전체 페이지 수 관리자 -->
-	<!-- 한정판, 삭제여부, 비공개 여부 상관 없이 모두 -->
-	<select id="totalAll" resultType="_int" parameterType="_int">
-		<![CDATA[
+        </if>
+    </select>
+    <!-- 전체 페이지 수 관리자 -->
+    <!-- 한정판, 삭제여부, 비공개 여부 상관 없이 모두 -->
+    <select id="totalAll" resultType="_int" parameterType="_int">
+        <![CDATA[
 			select count(product_id) as totalPage 
 			from t_product
 		]]>
-		<if test="category_id != 0">
-			<![CDATA[
+        <if test="category_id != 0">
+            <![CDATA[
 				where product_category_id = #{category_id}
 			]]>
-		</if>
-	</select>
-	<!-- 상품 업데이트 -->
-	<update id="update" parameterType="com.goott.domain.ProductVO">
+        </if>
+        <if test="brand_id != 0">
+            <![CDATA[
+				where product_brand_id = #{brand_id}
+			]]>
+        </if>
+    </select>
+    <!-- 상품 업데이트 -->
+    <update id="update" parameterType="com.goott.domain.ProductVO">
 		<![CDATA[
-			update t_product 
-			set	product_id = #{product_id}, 
-				product_category_id = #{product_category_id}, 
-				product_brand_id = #{product_brand_id}, 
-				product_limited = #{product_limited}, 
-				product_stock = #{product_stock}, 
-				product_name = #{product_name}, 
-				product_comment = #{product_comment}, 
-				product_price = #{product_price},
-				product_thumbnail_img_url = #{product_thumbnail_img_url},
-				product_img_url1 = #{product_img_url1}, 
-				product_img_url2 = #{product_img_url2}, 
-				product_img_url3 = #{product_img_url3}, 
-				product_description_img_url1 = #{product_description_img_url1}, 
-				product_description_img_url2 = #{product_description_img_url2}, 
-				product_youtube_url = #{product_youtube_url}, 
-				product_delivery_day = #{product_delivery_day}, 
-				product_delete = #{product_delete}
-			where product_id = #{product_id}
-			
-		]]>
+        update t_product
+        set product_id                   = #{product_id},
+            product_category_id          = #{product_category_id},
+            product_brand_id             = #{product_brand_id},
+            product_limited              = #{product_limited},
+            product_stock                = #{product_stock},
+            product_name                 = #{product_name},
+            product_comment              = #{product_comment},
+            product_price                = #{product_price},
+            product_thumbnail_img_url    = #{product_thumbnail_img_url},
+            product_img_url1             = #{product_img_url1},
+            product_img_url2             = #{product_img_url2},
+            product_img_url3             = #{product_img_url3},
+            product_description_img_url1 = #{product_description_img_url1},
+            product_description_img_url2 = #{product_description_img_url2},
+            product_youtube_url          = #{product_youtube_url},
+            product_delivery_day         = #{product_delivery_day},
+            product_delete               = #{product_delete}
+        where product_id = #{product_id}
+        ]]>
 	</update>
-	
-	
-	<!-- 결제창 상품 정보 가져오기 -->
-	<!-- 상품 번호, 재고량, 상품 이름, 상품 가격, 썸네일 이미지, 배송일 -->
-	<select id="selectOrderProduct" parameterType="_int" resultType="map">
+
+
+    <!-- 결제창 상품 정보 가져오기 -->
+    <!-- 상품 번호, 재고량, 상품 이름, 상품 가격, 썸네일 이미지, 배송일 -->
+    <select id="selectOrderProduct" parameterType="_int" resultType="map">
 		<![CDATA[
-			select product_id, product_category_id, product_brand_id, product_stock, product_name, 
-				   product_price, product_thumbnail_img_url, product_delivery_day
-			from t_product where product_id = #{product_id}
-		]]>
+        select product_id,
+               product_category_id,
+               product_brand_id,
+               product_stock,
+               product_name,
+               product_price,
+               product_thumbnail_img_url,
+               product_delivery_day
+        from t_product
+        where product_id = #{product_id}
+        ]]>
 	</select>
-	
-	<!-- 상품 카테고리번호, 브랜드 번호 가져오기 -->
-	<select id="selectCidBid" parameterType="_int" resultType="map">
+
+    <!-- 상품 카테고리번호, 브랜드 번호 가져오기 -->
+    <select id="selectCidBid" parameterType="_int" resultType="map">
 		<![CDATA[
-			select product_category_id, product_brand_id from t_product 
-			where product_id = #{product_id}
-		]]>
+        select product_category_id, product_brand_id
+        from t_product
+        where product_id = #{product_id}
+        ]]>
 		
 	</select>
-	
-	<!-- 상품 현재 재고 가져오기 -->
-	<select id="selectStock" parameterType="_int" resultType="_int">
+
+    <!-- 상품 현재 재고 가져오기 -->
+    <select id="selectStock" parameterType="_int" resultType="_int">
 		<![CDATA[
-			select product_stock from t_product where product_id = #{product_id}
-		]]>
+        select product_stock
+        from t_product
+        where product_id = #{product_id}
+        ]]>
 	</select>
-	
-	<!-- 상품 리뷰 총 개수 가져오기 -->
-	<select id="selectCountReview" parameterType="_int" resultType="_int">
+
+    <!-- 상품 리뷰 총 개수 가져오기 -->
+    <select id="selectCountReview" parameterType="_int" resultType="_int">
 		<![CDATA[
-			select count(product_review_id) as totalNum from t_product_review where product_id = #{product_id}
-		]]>
+        select count(product_review_id) as totalNum
+        from t_product_review
+        where product_id = #{product_id}
+        ]]>
 	</select>
-	
-	<!-- 상품 리뷰 10개 가져오기 -->
-	<select id="selectReviewAll" parameterType="com.goott.domain.PageReview" resultType="com.goott.domain.ProductReviewVO">
+
+    <!-- 상품 리뷰 10개 가져오기 -->
+    <select id="selectReviewAll" parameterType="com.goott.domain.PageReview"
+            resultType="com.goott.domain.ProductReviewVO">
 		<![CDATA[
-			select product_review_id, product_id, member_id, product_review_regdate, product_review_text, product_review_grade,
-				   product_review_helpful, product_review_img_url, product_review_video_url, product_review_speed
-			from t_product_review 
-			where product_id = #{product_id} 
-			limit #{searchStartNum},#{searchCount}
-		]]>
+        select product_review_id,
+               product_id,
+               member_id,
+               product_review_regdate,
+               product_review_text,
+               product_review_grade,
+               product_review_helpful,
+               product_review_img_url,
+               product_review_video_url,
+               product_review_speed
+        from t_product_review
+        where product_id = #{product_id} limit #{searchStartNum}
+            , #{searchCount}
+        ]]>
 	</select>
-	
-	<!-- 신상품 정보 가져오기 -->
-	<select id="selectNewProduct" resultType="com.goott.domain.ProductVO">
+
+    <!-- 신상품 정보 가져오기 -->
+    <select id="selectNewProduct" resultType="com.goott.domain.ProductVO">
 		<![CDATA[
-			select product_id, product_category_id, product_brand_id, product_limited, product_stock, product_name, product_comment, product_price, 
-	   			   product_thumbnail_img_url, product_img_url1, product_img_url2, product_img_url3, product_description_img_url1, 
-       			   product_description_img_url2, product_youtube_url, product_regdate, product_delivery_day, product_delete
-			from t_product where product_delete = 'n' order by product_regdate desc limit 0,1
-		]]>
+        select product_id,
+               product_category_id,
+               product_brand_id,
+               product_limited,
+               product_stock,
+               product_name,
+               product_comment,
+               product_price,
+               product_thumbnail_img_url,
+               product_img_url1,
+               product_img_url2,
+               product_img_url3,
+               product_description_img_url1,
+               product_description_img_url2,
+               product_youtube_url,
+               product_regdate,
+               product_delivery_day,
+               product_delete
+        from t_product
+        where product_delete = 'n'
+        order by product_regdate desc limit 0,1
+        ]]>
 	</select>
-	
-	<!-- 상품 배송 후기 정보 가져오기 -->
-	<select id="selectCountSpeed" parameterType="_int" resultType="map">
+
+    <!-- 상품 배송 후기 정보 가져오기 -->
+    <select id="selectCountSpeed" parameterType="_int" resultType="map">
 		<![CDATA[
-			select product_review_speed, count(*) as count  from t_product_review  
-			where product_id = #{product_id} group by product_review_speed
-		]]>
+        select product_review_speed, count(*) as count
+        from t_product_review
+        where product_id = #{product_id}
+        group by product_review_speed
+        ]]>
 		
 	</select>
-	
-	<!-- 상품 평점 정보 가져오기 -->
-	<select id="selectCountGrade" parameterType="_int" resultType="map">
+
+    <!-- 상품 평점 정보 가져오기 -->
+    <select id="selectCountGrade" parameterType="_int" resultType="map">
 		<![CDATA[
-			select product_review_grade, count(*) as count 
-			from t_product_review where product_id = #{product_id} group by product_review_grade order by product_review_grade desc
-		]]>
+        select product_review_grade, count(*) as count
+        from t_product_review
+        where product_id = #{product_id}
+        group by product_review_grade
+        order by product_review_grade desc
+        ]]>
 	</select>
-	
-	<!-- 리뷰 이미지, 리뷰 영상 정보 가져오기 -->
-	<select id="selectReviewUrl" parameterType="_int" resultType="map">
+
+    <!-- 리뷰 이미지, 리뷰 영상 정보 가져오기 -->
+    <select id="selectReviewUrl" parameterType="_int" resultType="map">
 		<![CDATA[
-			select product_review_img_url, product_review_video_url from t_product_review where product_review_id = #{product_review_id}
-		]]>
+        select product_review_img_url, product_review_video_url
+        from t_product_review
+        where product_review_id = #{product_review_id}
+        ]]>
 		
 	</select>
-	
-	<!-- 상품 판매순 탑 10 -->
-	<select id="selectTopProduct" resultType="map">
+
+    <!-- 상품 판매순 탑 10 -->
+    <select id="selectTopProduct" resultType="map">
 		<![CDATA[
-			select p.product_id as product_id, count(p.product_id) as count, p.product_name as product_name, 
-				   p.product_thumbnail_img_url as product_thumbnail_img_url from t_sales s 
-			inner join t_order o on s.order_id = o.order_id inner join t_product p on o.product_id = p.product_id 
-			where p.product_delete = 'n' and p.product_limited = '일반' group by p.product_id limit 0,10;
-		]]>
+        select p.product_id as product_id,
+               count(p.product_id) as count, p.product_name as product_name,
+				   p.product_thumbnail_img_url as product_thumbnail_img_url
+        from t_sales s
+            inner join t_order o
+        on s.order_id = o.order_id inner join t_product p on o.product_id = p.product_id
+        where p.product_delete = 'n' and p.product_limited = '일반'
+        group by p.product_id limit 0, 10;
+        ]]>
 	</select>
 </mapper>

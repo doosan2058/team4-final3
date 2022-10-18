@@ -235,9 +235,16 @@ public class UserController {
 	
 	@RequestMapping(value = "basket", method = RequestMethod.GET)
 	public String basketGet(HttpServletRequest request, Model model) {
-//		log.info("장바구니 ==================================================");
+
 		HttpSession session = request.getSession();
-		
+
+		//관리자 접근
+		if(session.getAttribute("login_auth").toString().equals("관리자")){
+			model.addAttribute("msg", "잘못된 접근입니다. 확인후 다시 시도해 주세요.");
+			model.addAttribute("url", "/");
+			return "/common/alert";
+		}
+		//회원 접근
 		String member_id = session.getAttribute("login_id").toString();
 		List<BasketVO> list = userMapper.selectBasketList(member_id);
 		model.addAttribute("list", list);

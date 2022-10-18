@@ -280,7 +280,7 @@
 		<!--네비게이터-->
 		<div class="navigatorContainer">
 			<div class="toTopDiv">상단</div>
-			<div class="toReveiwCon">리뷰</div>
+			<div class="toReviewCon">리뷰</div>
 			<div class="toBottomDiv">하단</div>
 			<div class="youtubeDiv">유튜브광고</div>
 		</div>

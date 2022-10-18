@@ -17,7 +17,7 @@ const toBottomDiv = document.querySelector('.toBottomDiv');
 /*리뷰 컨테이너 */
 const productBottom = document.querySelector('.productBottom');
 /*네비게이터 리뷰 이동 디비전 */
-const toReveiwCon = document.querySelector('.toReveiwCon');
+const toReviewCon = document.querySelector('.toReviewCon');
 //리뷰 현재 페이지 
 const currentPage = document.querySelector('#currentPage');
 //리뷰 더보기 디비전
@@ -45,7 +45,7 @@ productSubImg.forEach((item) => {
 viewMoreDiv.addEventListener('click' , fullHeightContainer);
 toTopDiv.addEventListener('click' , scrollToTop);
 toBottomDiv.addEventListener('click' , scrollToBottom);
-toReveiwCon.addEventListener('click' , scrollToReview);
+toReviewCon.addEventListener('click' , scrollToReview);
 veiwMoreRewviesDiv.addEventListener('click' , viewMoreReview);
 modifyBtn.addEventListener('click' , goModify);
 deleteBtn.addEventListener('click' , goDelete);

@@ -16,8 +16,8 @@ const joinBtn = document.querySelector('#joinBtn');
 
 
 // ===============================================================================
-window.addEventListener('load', mediaQuery);
-window.addEventListener('resize', mediaQuery);
+window.addEventListener('load', mediaQueryHome);
+window.addEventListener('resize', mediaQueryHome);
 
 logOutBtn.addEventListener('click', doLogOut);
 shopDiv.addEventListener('click', goShop);
@@ -46,7 +46,7 @@ function doLogOut() {
 
 // ===================================================================================
 
-function mediaQuery(){
+function mediaQueryHome(){
 
 	if (matchMedia("screen and (min-width:320px)").matches && matchMedia("screen and (max-width:767px)").matches) {
 		// 스마트폰

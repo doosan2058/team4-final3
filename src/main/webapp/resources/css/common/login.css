@@ -1,28 +1,19 @@
 @charset "UTF-8";
-
-body{
-	background-color: var(--subColor);
-}
 /*로그인 컨테이너 */
 .loginContainer {
 	position: absolute;
-	/* border: 3px solid black; */
 	background-color: rgb(76, 76, 76);
 	width: 500px;
-	/* width: 100%; */
-	/* max-width: 1200px; */
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 	padding: 1rem;
 	box-shadow: var(--sub2Color) 0px 0px 5px 3px;
 }
-
 /*아이디 구역 */
 .idDiv {
 	height: 100%;
 	min-height: 100px;
-	/* border: 3px solid crimson; */
 	padding: 1rem;
 	display: flex;
 	justify-content: center;
@@ -43,12 +34,8 @@ body{
 .btnDiv {
 	height: 100%;
 	padding: 1rem;
-	/* border: 3px solid green; */
 	display: flex;
-	/* justify-content: space-between;
-	align-items: center; */
 }
-
 .btnDiv a{
 	text-decoration: none;
 	color: var(--subFontColor);
@@ -57,38 +44,53 @@ body{
 	text-decoration: underline;
 }
 
-
-
-.btnDiv a:hover{
-	color: red;
-}
-
 #forgotAnchor{
 	color: var(--subFontColor)
 }
 
-#forgotAnchor:hover{
-	color: var(--fontColor)
-}
-
-
 .btnDivLeft{
 	width: 30%;
-	/* border: 3px solid yellow; */
 	display: flex;
-	
 	justify-content: center;
 	align-items: center;
 }
-
 .btnDivRight{
 	width: 70%;
 	min-height: 50px;
-	/* border: 3px solid white; */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
+}
+/* 스마트폰 */
+@media screen and (min-width:320px) and (max-width:767px) {
+	.loginContainer{
+		width: 320px;
+		margin: 0 auto;
+		padding: 0;
+
+	}
+	.btnDiv{
+		flex-direction: column;
+		padding: 0;
+	}
+	.btnDivLeft, .btnDivRight{
+		width: 100%;
+		padding: 0;
+	}
+}
+/* 태블릿 */
+@media screen and (min-width:768px) and (max-width:1023px) {
+
+}
+/* 데스크탑 */
+@media screen and (min-width:1024px) {
+	.btnDiv a:hover{
+		color: red;
+	}
+	#forgotAnchor:hover{
+		color: var(--fontColor)
+	}
 }
 
 
