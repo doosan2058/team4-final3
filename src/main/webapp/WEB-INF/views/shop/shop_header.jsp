@@ -53,7 +53,7 @@
             <img alt="" src="" id="headerUserProfileImg">&nbsp;
             <span class="loginUserIdSpan">${sessionScope.login_id } 님</span>
         </a>
-        <a id="basket" data-tooltip="장바구니 보기">
+        <a id="basket" href="/user/basket" data-tooltip="장바구니 보기">
                 <span class="material-symbols-outlined">
                 shopping_basket
                 </span>

@@ -16,4 +16,5 @@ public class ProductReviewVO {
 	String product_review_img_url;
 	String product_review_video_url;
 	String product_review_speed;
+	String member_profile_img_url;
 }

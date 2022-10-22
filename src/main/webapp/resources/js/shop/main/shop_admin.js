@@ -425,7 +425,7 @@ function mediaQuery() {
         // 스마트폰
         side.style.display = 'none';
         side.style.position = 'fixed';
-        side.style.top = '80px';
+        side.style.top = '0';
         side.style.right = '0';
         side.style.width = '100%';
         side.style.zIndex = '999';
@@ -445,7 +445,7 @@ function mediaQuery() {
         // 태블릿
         side.style.display = 'none';
         side.style.position = 'fixed';
-        side.style.top = '80px';
+        side.style.top = '0';
         side.style.right = '0';
         side.style.width = '100%';
         side.style.zIndex = '999';

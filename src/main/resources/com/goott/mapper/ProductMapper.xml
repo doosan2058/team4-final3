@@ -239,18 +239,21 @@
     <select id="selectReviewAll" parameterType="com.goott.domain.PageReview"
             resultType="com.goott.domain.ProductReviewVO">
 		<![CDATA[
-        select product_review_id,
-               product_id,
-               member_id,
-               product_review_regdate,
-               product_review_text,
-               product_review_grade,
-               product_review_helpful,
-               product_review_img_url,
-               product_review_video_url,
-               product_review_speed
-        from t_product_review
-        where product_id = #{product_id} limit #{searchStartNum}
+        select r.product_review_id as product_review_id,
+               r.product_id as product_id,
+               r.member_id as member_id,
+               r.product_review_regdate as product_review_regdate,
+               r.product_review_text as product_review_text,
+               r.product_review_grade as product_review_grade,
+               r.product_review_helpful as product_review_helpful,
+               r.product_review_img_url as product_review_img_url,
+               r.product_review_video_url as product_review_video_url,
+               r.product_review_speed as product_review_speed,
+               m.member_profile_img_url as member_profile_img_url
+        from t_product_review r
+        inner join t_member m
+        on r.member_id = m.member_id
+        where r.product_id = #{product_id} limit #{searchStartNum}
             , #{searchCount}
         ]]>
 	</select>

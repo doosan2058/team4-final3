@@ -184,8 +184,9 @@
                         <div class="reviewsDiv reviewsHeader">
                             <input type="hidden" value="${item.product_id }">
                             <span>
-									<span class="reviewWriterSpan">${item.member_id }</span>
-									&nbsp;님
+                                <img src="${item.member_profile_img_url}" class="reviewProfileImg">
+                                <span class="reviewWriterSpan">${item.member_id }</span>
+                                &nbsp;님
                             </span>
                             <span>
 									<fmt:formatDate value="${item.product_review_regdate }"/>
@@ -255,7 +256,9 @@
         <div class="toTopDiv">상단</div>
         <div class="toReviewCon">리뷰</div>
         <div class="toBottomDiv">하단</div>
-        <div class="youtubeDiv">유튜브광고</div>
+        <div class="youtubeDiv">
+            <span class="material-symbols-outlined playIconSpan">play_circle</span>
+        </div>
     </div>
     <!-- 유튜브 광고 컨테이너 -->
     <div class="youtubeContainer">
@@ -267,7 +270,8 @@
                 <h1>유튜브 광고가 없는 제품 입니다.</h1>
             </c:if>
             <c:if test="${product.product_youtube_url ne 'no url'}">
-                <iframe class="adIframe" src="${product.product_youtube_url}" width="1280" height="720" allowfullscreen></iframe>
+                <input type="hidden" id="product_youtube_url_hidden" value="${product.product_youtube_url}">
+                <iframe class="adIframe" allowfullscreen></iframe>
             </c:if>
         </div>
     </div>

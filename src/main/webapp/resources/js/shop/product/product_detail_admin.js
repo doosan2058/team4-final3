@@ -40,6 +40,11 @@ const fullImageContainer = document.querySelector('.fullImageContainer');
 const closeFullImageContainerIcon = document.querySelector('.closeFullImageContainerIcon');
 //유튜브 닫기
 const closeYoutubeContainerIcon = document.querySelector('.closeYoutubeContainerIcon');
+//유튜브 주소
+const product_youtube_url_hidden = document.querySelector('#product_youtube_url_hidden');
+//iframe
+const adIframe = document.querySelector('.adIframe');
+
 //==================================================================================================
 
 window.addEventListener('load', initProductDetailAdmin);
@@ -58,10 +63,12 @@ youtubeDiv.addEventListener('click', showYoutubeCon);
 youtubeContainer.addEventListener('click', closeYoutubeCon);
 closeFullImageContainerIcon.addEventListener('click', closeFullImageContainer);
 closeYoutubeContainerIcon.addEventListener('click', closeYoutubeContainer);
+
 //==================================================================================================
+
 function closeYoutubeContainer(){
 	youtubeContainer.style.display = 'none';
-	document.querySelector('.adIframe').src = '';
+	adIframe.src = '';
 }
 function closeFullImageContainer(){
 	fullImageContainer.style.display = 'none';
@@ -97,6 +104,7 @@ function closeYoutubeCon(e){
 //유튜브 컨테이너 보이기
 function showYoutubeCon(){
 	youtubeContainer.style.display = 'block';
+	adIframe.src = product_youtube_url_hidden.value;
 }
 
 //수정

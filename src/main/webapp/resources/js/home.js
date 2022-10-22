@@ -13,8 +13,6 @@ const loginBtn = document.querySelector('#loginBtn');
 const logOutBtn = document.querySelector('#logOutBtn');
 //회원가입 앵커
 const joinBtn = document.querySelector('#joinBtn');
-//로그인 체크 히든 스팬
-const loginCheckHiddenInput = document.querySelector('#loginCheckHiddenInput');
 //로그인 권한 스펜
 const authCheckHiddenInput = document.querySelector('#authCheckHiddenInput');
 //메뉴 설명 앵커
@@ -32,7 +30,7 @@ communityDiv.addEventListener('click', goCommunity);
 // ===============================================================================
 function initHome(){
 	//로그인
-	if(authCheckHiddenInput.value == '회원' || authCheckHiddenInput.value == '관리자'){
+	if(authCheckHiddenInput.value === '회원' || authCheckHiddenInput.value === '관리자'){
 		loginBtn.style.display = 'none';
 		logOutBtn.style.display = 'flex';
 		joinBtn.style.display = 'none';

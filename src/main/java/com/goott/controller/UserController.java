@@ -102,8 +102,6 @@ public class UserController {
 	
 	@RequestMapping(value = "review", method = RequestMethod.POST)
 	public String reviewGet(@RequestParam MultipartFile fileImg, @RequestParam MultipartFile fileVideo, ProductReviewVO productReviewVO, @RequestParam int sales_id, Model model) {
-//		log.info("리뷰작성 post ====================================");
-		
 		//이미지 업로드  주소 초기화
 		productReviewVO.setProduct_review_img_url("no url");
 		//비디오 업로드 주소 초기화
@@ -131,9 +129,6 @@ public class UserController {
 	@RequestMapping(value = "delete", method = RequestMethod.POST)
 	public String deleteUser(@RequestParam String member_id, HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
-		//포스트 아이디 제대로 넘어오는지 확인
-//		log.info(member_id);
-		
 		//세션에 로그인 된 상태인제 체크
 		if(session.getAttribute("login_id") != null) {
 			String login_id = session.getAttribute("login_id").toString();

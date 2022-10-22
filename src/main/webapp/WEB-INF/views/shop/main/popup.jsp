@@ -18,28 +18,25 @@
 		<div class="titleDiv">
 			<form name="popupForm" action="/product/detail" method="get">
 				<h2>
-					<span class="animateText">New</span>
+					<span class="animateText">New - Release!</span>
 					<span class="material-symbols-outlined animateText"> new_releases </span>
-	
 				</h2>
-	
 				<input type="hidden" value="${item.product_id }" id="product_id" name="product_id">
 			</form>
 		</div>
 		<!-- 팝업 이미지 -->
 		<div class="imgDiv">
 			<img alt="" src="/productImg/${item.product_img_url1 }" id="popupImg">
+			<div class="popupTextDiv">
+				<p>${item.product_name } 이 입고 되었어요.</p>
+			</div>
 		</div>
 		<!-- 팝업 버튼 -->
 		<div class="btnDiv">
 			<button class="formBtns todayExit">오늘하루 보지 않기</button>
 			<button class="formBtns justExit">닫기</button>
 		</div>
-
-
-
 	</div>
-
 	<script src="/resources/js/shop/main/popup.js"></script>
 </body>
 </html>

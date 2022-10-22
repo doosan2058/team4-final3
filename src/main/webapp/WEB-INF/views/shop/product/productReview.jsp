@@ -13,6 +13,7 @@
 			<div class="reviewsDiv reviewsHeader">
 				 <input type="hidden" value="${item.product_id }">
 				<span>
+					<img src="${item.member_profile_img_url}" class="reviewProfileImg">
 					<span class="reviewWriterSpan">${item.member_id }</span>
 					&nbsp;님
 				</span>
