@@ -1,4 +1,4 @@
-main{
+main {
     width: 100%;
     background-color: var(--subColor);
     display: flex;
@@ -6,100 +6,108 @@ main{
 }
 
 /*상단*/
-.productTop{
+.productTop {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 80px);
     display: flex;
-
 }
 
 /*상단 왼쪽 상품 이미지 구역*/
-.topLeft{
+.topLeft {
     width: 50%;
     height: 100%;
-
 }
+
 /*메인 이미지*/
-.mainImgDiv{
+.mainImgDiv {
     width: 100%;
     height: 80%;
     padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.productMainImg{
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
 
+.productMainImg {
+    width: 100%;
+    max-width: 700px;
+    height: 100%;
+    max-height: 700px;
+    object-fit: fill;
 }
 
 /*서브이미지*/
-.subImgDiv{
+.subImgDiv {
     width: 100%;
     height: 20%;
     display: flex;
     padding: 1rem;
 }
-.productSubImg{
+
+.productSubImg {
     width: 20%;
+    max-width: 100px;
     height: 100%;
+    max-height: 100px;
     object-fit: fill;
     margin-right: 1rem;
 }
 
-.subImgDiv img{
+.subImgDiv img {
     transition: .3s;
 }
 
-.subImgDiv img:hover{
-	transform: scale(1.1,1.1);
-}
-
 /*상단 오른쪽*/
-.topRight{
+.topRight {
     width: 50%;
     height: 100%;
 
 }
+
 /*상단 오른쪽 상품 설명 구역*/
-.descriptionDiv{
+.descriptionDiv {
     width: 100%;
     height: 70%;
     padding: 1rem;
 }
-.descriptionTable{
+
+.descriptionTable {
     width: 100%;
     height: 100%;
-    color: white;
+    color: var(--basicFontColor);
 }
 
-.descriptionTable td{
+.descriptionTable td {
     padding: 1rem;
 }
+
 /*상단 오른쪽 수량 선택 구역*/
-.quantityDiv{
+.quantityDiv {
     width: 100%;
     height: 15%;
     display: flex;
 }
-.quantityLeft{
+
+.quantityLeft {
     width: 50%;
     height: 100%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-    /* padding: 1rem; */
 }
-.quantityCon{
-    width: 40%;
+
+.quantityCon {
+    width: 90%;
     height: 70%;
     display: flex;
 }
-.quantityConLeft{
+
+.quantityConLeft {
     width: 70%;
     height: 100%;
 }
-.quantityConLeft #quantityText{
+
+#quantityText {
     width: 100%;
     height: 100%;
     text-align: center;
@@ -109,30 +117,29 @@ main{
     border: none;
     user-select: none;
 }
-#productPriceSpan{
+
+#productPriceSpan {
     font-size: 2rem;
 }
-.quantityConRight{
+
+.quantityConRight {
     width: 30%;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.quantityConRight .quantityBtn{
+.quantityBtn {
     width: 100%;
     height: 50%;
-    color: white;
+    color: var(--basicFontColor);
     background-color: var(--sub2Color);
     transition: .3s;
     cursor: pointer;
     border: none;
 }
 
-.quantityBtn:hover{
-	background-color: var(--mainColor);
-}
-main .productTop .topRight .quantityDiv .quantityRight{
+.quantityRight {
     width: 50%;
     height: 100%;
     display: flex;
@@ -141,8 +148,9 @@ main .productTop .topRight .quantityDiv .quantityRight{
     color: white;
 
 }
+
 /*상단 오른쪽 버튼 구역*/
-main .productTop .topRight .btnDiv{
+.btnDiv {
     width: 100%;
     height: 15%;
     display: flex;
@@ -150,22 +158,19 @@ main .productTop .topRight .btnDiv{
     justify-content: space-around;
 }
 
-
-
-main .productTop .topRight .btnDiv .productBtn{
+.productBtn {
     width: 100px;
     height: 50px;
 }
 
-
 /*중단*/
-main .productMiddle{
+.productMiddle {
     width: 100%;
     position: relative;
 }
 
 /*메인이미지 컨테이너*/
-.productImgDiv{
+.productImgDiv {
     width: 100%;
     height: 60vh;
     overflow: hidden;
@@ -175,12 +180,13 @@ main .productMiddle{
     align-items: center;
 }
 
-.mainImgs{
-    width: 800px;
+.mainImgs {
+    width: 100%;
+    max-width: 800px;
     object-fit: fill;
 }
 
-.viewMoreDiv{
+.viewMoreDiv {
     position: absolute;
     bottom: 10px;
     background: var(--mainColor);
@@ -195,18 +201,14 @@ main .productMiddle{
     font-family: 'Black Han Sans';
 }
 
-.viewMoreDiv:hover{
-	color: red;
-}
-
 /*평점*/
-.averageGradeSpan{
-	font-size: 2rem;
-	color: var(--fontColor);
+.averageGradeSpan {
+    font-size: 1rem;
+    color: var(--fontColor);
 }
 
 /*하단 상품 리뷰 구역*/
-main .productBottom{
+.productBottom {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -214,23 +216,24 @@ main .productBottom{
     background-color: var(--subColor);
 }
 
-.productBottom .reviewTop{
+.reviewTop {
     width: 80%;
-    height: 1400px;
+    height: fit-content;
+    max-height: 1400px;
 }
 
-.reviewTop h3{  
-	color: white;
-}
-.reviewTop h4{
-	color: var(--subFontColor);
+.reviewTop h3 {
+    color: white;
 }
 
-.reviewTitle{
+.reviewTop h4 {
+    color: var(--subFontColor);
+}
+
+.reviewTitle {
     font-size: 2rem;
     padding: 1rem;
     height: 20%;
-    border-bottom: 3px solid var(--borderColor);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -238,27 +241,18 @@ main .productBottom{
     color: white;
 }
 
-.colorSpans{
-	color: var(--fontColor);
+.colorSpans {
+    color: var(--fontColor);
 }
 
-.reviewGraphDiv{
+.reviewGraphDiv {
     padding: 1rem;
     display: flex;
     height: 80%;
 }
+
 /*리뷰 점수*/
-.reviewGrade{
-    width: 50%;
-    height: 100%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-/*리뷰 그래프*/
-.reviewGraph{
+.reviewGrade {
     width: 50%;
     height: 100%;
     padding: 1rem;
@@ -268,118 +262,133 @@ main .productBottom{
     align-items: center;
 }
 
-.reviewBottom{
+/*리뷰 그래프*/
+.reviewGraph {
+    width: 50%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reviewBottom {
     width: 80%;
     padding: 1rem;
 }
 
-.reviewBottom p{
-	font-size: 1.5rem;
-	color: white;
-
+.reviewGraphDiv p, .reviewBottom p {
+    font-size: 1rem;
+    color: var(--basicFontColor);
+    text-align: center;
 }
+
 /*리뷰들 반복*/
-.reviews{
+.reviews {
     width: 100%;
-    height: 600px;
-    border-bottom: 3px solid var(--borderColor);
-    background-color: var(--mainColor);
-    margin: 2rem 0;
+    min-height: 300px;
+    height: fit-content;
+    border: 3px solid var(--subColor);
+    background-color: var(--sub2Color);
     padding: 1rem;
     color: var(--subFontColor);
     font-family: 'GimpoGothicBold00';
     display: flex;
+    /*flex-direction: column;*/
     flex-wrap: wrap;
 }
+
 /*리뷰 안 공통*/
-.reviewsDiv{
+.reviewsDiv {
     padding: 1rem;
+    margin-bottom: 0.5rem;
 }
 
-.reviewsHeader, .reviewsGrade{
-	width: 100%;
-	height: 20%;	
+.reviewsHeader, .reviewsGrade {
+    width: 100%;
+    height: 10%;
 }
 
-.reviewsHeader{
-	display: flex;
-	align-items: center;
+.reviewsHeader {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
 }
+
 /*리뷰작성자*/
-.reviewWriterSpan{
-	font-size: 1.4rem;
-	color: var(--fontColor);
+.reviewWriterSpan {
+    font-size: 1.4rem;
+    color: var(--fontColor);
 }
 
-.reviewsGrade{
-	display: flex;
+.reviewsGrade {
+    display: flex;
 }
 
-.reviewsGradeInner{
-    width: 50%;
-	height: 100%;
+.reviewsGradeInner {
+    width: 70%;
+    height: 100%;
 }
 
 /*별점*/
 .star {
-	color: yellow;
-  	font-variation-settings:
-  	'FILL' 1,
-  	'wght' 400,
-  	'GRAD' 0,
-  	'opsz' 48;
+    color: yellow;
+    font-variation-settings: 'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
 }
 
-.reviewsGradeInnerThumb{
-	text-align: right;
+.reviewsGradeInnerThumb {
+    width: 30%;
+    text-align: right;
 }
 
 /*리뷰 도움이되요*/
 .thumb {
-	cursor: pointer;
-	color: rgb(139, 197, 255);
-	transition: .3s;
-  	font-variation-settings:
-  	'FILL' 1,
-  	'wght' 400,
-  	'GRAD' 0,
-  	'opsz' 48;
-}
-.thumb:hover{
-	color: rgb(0, 128, 255);
+    cursor: pointer;
+    color: rgb(139, 197, 255);
+    transition: .3s;
+    font-variation-settings: 'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
 }
 
-.reviewsContent{
-	overflow-y: scroll;
+
+.reviewsContent {
+    overflow-y: scroll;
+
 }
 
-.reviewsContent, .reviewsPhoto{
-	
-	width: 50%;
-	height: 60%;
-	font-family: 'GimpoGothicBold00';
-	display: flex;
-}
-
-.reviewsPhotoInner{
+.reviewsContent, .reviewsPhoto {
     width: 50%;
-	height: 100%;
-	display: flex;
-    justify-content: center;
-    align-items: center;
-    
+    height: 40%;
+    display: flex;
+
 }
 
-.reviewsPhotoInnerPhoto img{
-	width: 100%;
-	height: 100%;
+.reviewsPhotoInner {
+    width: 50%;
+    height: 100%;
+
+
 }
 
-.veiwMoreRewviesDiv{
-	font-family: 'Black Han Sans';
+.reviewImage{
+    margin: auto;
+    display: block;
+    width: 100%;
+    height: 50%;
+    cursor: pointer;
+
+}
+
+.viewMoreReviewsDiv {
+    font-family: 'Black Han Sans';
     background-color: var(--mainColor);
-    color: white;
+    color: var(--basicFontColor);
     width: 200px;
     height: 30px;
     margin: 0 auto;
@@ -389,16 +398,14 @@ main .productBottom{
     justify-content: center;
     align-items: center;
 }
-.veiwMoreRewviesDiv:hover{
-	color: red;
-}
+
 
 /*네비게이터 */
-.navigatorContainer{
-	font-family: 'Black Han Sans';
+.navigatorContainer {
+    font-family: 'Black Han Sans';
     width: 150px;
     height: 400px;
-    background-color: blueviolet;
+    background-color: var(--fontColor);
     position: fixed;
     right: 20px;
     top: 50%;
@@ -408,14 +415,11 @@ main .productBottom{
     transition: .5s;
 }
 
-.navigatorContainer div:hover{
-	color: red;
-}
 
-.toTopDiv{
+.toTopDiv {
     width: 100%;
     height: 20%;
-    border:1px solid white;
+    border: 1px solid white;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -423,10 +427,10 @@ main .productBottom{
     transition: .3s;
 }
 
-.toReviewCon{
+.toReviewCon {
     width: 100%;
     height: 20%;
-    border:1px solid white;
+    border: 1px solid white;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -434,10 +438,10 @@ main .productBottom{
     transition: .3s;
 }
 
-.toBottomDiv{
+.toBottomDiv {
     width: 100%;
     height: 20%;
-    border:1px solid white;
+    border: 1px solid white;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -445,10 +449,10 @@ main .productBottom{
     transition: .3s;
 }
 
-.youtubeDiv{
-	width: 100%;
+.youtubeDiv {
+    width: 100%;
     height: 40%;
-    border:1px solid white;
+    border: 1px solid white;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -457,49 +461,250 @@ main .productBottom{
 }
 
 /*유튜브 광고 컨테이너*/
-.youtubeContainer{
-	display: none;
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
+.youtubeContainer {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
     background-color: rgba(0, 0, 0, 0.339);
     backdrop-filter: blur(4px);
 }
 
-.youtubeInnerDiv{
-	width: 1280px;
-	height: 720px;
-    position: relative;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: white;
-}
-.helpfulAni{
-	animation: aniThumb 0.5s 1 linear alternate;
-}
-.youtubeInnerTop{
-	border: 3px solid white;
-	display: flex;
-	
-}
-.youtubeCloseIcon{
-	color: white;
+.closeYoutubeContainerIcon{
+    cursor: pointer;
+    position: absolute;
+    z-index: 998;
+    top: 1rem;
+    left: 1rem;
+    background-color: var(--mainColor);
+    color: var(--basicFontColor);
+    transition: .3s;
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 700,
+            'GRAD' 0,
+            'opsz' 48
 }
 
-@keyframes aniThumb{
-	33%{
-		transform: rotateZ(-15deg);
-	}
-	66%{
-		transform: rotateZ(15deg);
-	}
-	99%{
-		transform: rotateZ(0deg);
-	}
+.youtubeInnerDiv {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--basicFontColor);
 }
+
+.helpfulAni {
+    animation: aniThumb 0.5s 1 linear alternate;
+}
+
+
+.fullImageContainer{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 997;
+    overflow: scroll;
+    background-color: var(--mainColor);
+}
+.fullImageContainer img{
+    display: block;
+    margin: 0 auto;
+}
+
+.closeFullImageContainerIcon {
+    cursor: pointer;
+    position: absolute;
+    z-index: 998;
+    top: 1rem;
+    left: 1rem;
+    background-color: var(--mainColor);
+    color: var(--basicFontColor);
+    transition: .3s;
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 700,
+            'GRAD' 0,
+            'opsz' 48
+}
+
+
+@keyframes aniThumb {
+    33% {
+        transform: rotateZ(-15deg);
+    }
+    66% {
+        transform: rotateZ(15deg);
+    }
+    99% {
+        transform: rotateZ(0deg);
+    }
+}
+
+/* 스마트폰 */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .productTop {
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .topLeft, .topRight {
+        width: 100%;
+    }
+
+    .descriptionDiv {
+        padding: 0;
+    }
+
+    .descriptionTable td {
+        padding: 0.5rem;
+        font-size: 0.5rem;
+    }
+
+    .quantityDiv {
+        height: 100px;
+        padding: 0;
+    }
+
+    .quantityBtn {
+        font-size: 0.5rem;
+    }
+
+    #productPriceSpan {
+        font-size: 1rem;
+    }
+
+    .btnDiv {
+        margin: 0.5rem 0;
+    }
+
+    .reviewGraphDiv {
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .reviewGrade, .reviewGraph {
+        width: 100%;
+    }
+
+    .navigatorContainer {
+        display: none;
+    }
+
+    .reviewGraphDiv p, .reviewBottom p {
+        font-size: 0.5rem;
+    }
+
+    .reviewsContent, .reviewsPhoto {
+        width: 100%;
+    }
+
+    .reviewsHeader span {
+        font-size: 0.7rem;
+    }
+
+    .reviews, .reviewsDiv {
+        padding: 0.2rem;
+    }
+
+
+
+}
+
+/* 타블렛 */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .productTop {
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .topLeft, .topRight {
+        width: 100%;
+    }
+
+    .descriptionDiv {
+        padding: 0rem;
+    }
+
+    .descriptionTable td {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .quantityDiv {
+        height: 150px;
+        padding: 0.5rem;
+    }
+
+    #productPriceSpan {
+        font-size: 1.2rem;
+    }
+
+    .btnDiv {
+        margin: 0.5rem 0;
+    }
+
+    .reviewGraphDiv p, .reviewBottom p {
+        font-size: 0.8rem;
+    }
+
+    .reviewsContent, .reviewsPhoto {
+        width: 100%;
+    }
+
+    .reviewsHeader span {
+        font-size: 1rem;
+    }
+
+    .reviews, .reviewsDiv {
+        padding: 0.5rem;
+    }
+
+
+}
+
+/* 데스크탑 */
+@media screen and (min-width: 1024px) {
+    .subImgDiv img:hover {
+        transform: scale(1.1, 1.1);
+    }
+
+    .quantityBtn:hover {
+        background-color: var(--mainColor);
+    }
+
+    .viewMoreDiv:hover {
+        color: var(--fontColor);
+    }
+
+    .viewMoreReviewsDiv:hover {
+        color: var(--fontColor);
+    }
+
+    .navigatorContainer div:hover {
+        color: var(--hoverColor);
+    }
+
+    .thumb:hover {
+        color: rgb(0, 128, 255);
+    }
+    .closeFullImageContainerIcon:hover, closeYoutubeContainerIcon:hover{
+        color: var(--fontColor);
+        transform: scale(1.2,1.2);
+    }
+
+
+}
+
+
+

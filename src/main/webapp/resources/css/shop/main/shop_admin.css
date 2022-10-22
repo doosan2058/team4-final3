@@ -230,6 +230,9 @@ main {
     justify-content: space-around;
     color: var(--fontColor);
 }
+.productInfoDiv span{
+    font-size: 0.8rem;
+}
 
 /*상품 썸네일 이미지 디비전 */
 .thumbnailDiv {

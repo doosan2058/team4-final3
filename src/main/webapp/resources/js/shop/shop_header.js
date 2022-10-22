@@ -12,13 +12,19 @@ const basket = document.querySelector('#basket');
 const loginName = document.querySelector('#loginName');
 //툴팁 박스
 const headerToolTipBox = document.querySelector('.headerToolTipBox');
+//로그인 체크 히든 스팬
+const loginCheckHiddenInput = document.querySelector('#loginCheckHiddenInput');
+//로그인 권한 스펜
+const authCheckHiddenInput = document.querySelector('#authCheckHiddenInput');
+//이벤트 앵커
+const draw = document.querySelector('.draw');
+//메뉴 설명 앵커
+const headerAnchorTextSpan = document.querySelectorAll('.headerAnchorTextSpan');
 // ===============================================================================
 
 window.addEventListener('load', mediaQueryHeader);
+window.addEventListener('load', initShopHeader);
 window.addEventListener('resize', mediaQueryHeader);
-
-
-
 logOutBtn.addEventListener('click', doLogOut);
 logo.addEventListener('click', goMain);
 basket.addEventListener('mouseenter', showToolTipBox);
@@ -37,6 +43,69 @@ loginName.addEventListener('mouseleave', hideToolTipBox);
 
 
 // ===============================================================================
+//로그인 체크 여부
+function initShopHeader(){
+	//프로필 앵커 초기화
+	if(authCheckHiddenInput.value == '회원' || authCheckHiddenInput.value == '관리자'){
+		loginName.style.display = 'flex';
+		//회원
+		if(authCheckHiddenInput.value == '회원'){
+			loginName.href = '/user';
+			loginName.dataset.tooltip = '내정보 보기';
+		}
+		else{
+			loginName.href = '/admin';
+			loginName.dataset.tooltip = '관리자 페이지 이동하기';
+		}
+	}
+	else{
+		loginName.style.display = 'none';
+	}
+
+	//로그인시 프로필 이미지 설정
+	if(loginCheckHiddenInput.value != null || loginCheckHiddenInput.value != '' || loginCheckHiddenInput.value != undefined || loginCheckHiddenInput.value.length != 0){
+		let param = {member_id : loginCheckHiddenInput.value}
+		$.ajax({
+			type : 'post',
+			url : '/getUserImg',
+			data : JSON.stringify(param),
+			contentType : 'application/json',
+			dataType : 'json',
+			error : function(){
+				alert('죄송합니다. 잠시후 다시 시도해 주세요.');
+			},
+			success : function (data){
+				let imgUrlText = data.member_profile_img_url;
+				document.querySelector('#headerUserProfileImg').src = imgUrlText;
+			}
+		});
+	}
+	//이벤트 페이지 이동 앵커 주소 초기화
+	if(authCheckHiddenInput.value != '관리자')
+		draw.href = '/shop/draw_customer';
+	else
+		draw.href = '/shop/draw_admin';
+
+	//장바구니 앵커 초기화
+	if(authCheckHiddenInput.value == '회원')
+		basket.style.display = 'flex';
+	else
+		basket.style.display = 'none';
+
+	//로그인, 로그아웃 앵커 초기화
+	if(authCheckHiddenInput.value == '회원' || authCheckHiddenInput.value == '관리자'){
+		loginBtn.style.display = 'none';
+		logOutBtn.style.display = 'flex';
+		joinBtn.style.display = 'none';
+	}
+	else{
+		loginBtn.style.display = 'flex';
+		logOutBtn.style.display = 'none';
+		joinBtn.style.display = 'flex';
+	}
+
+
+}
 //툴팁 박스 오픈
 function showToolTipBox() {
 	//데스크탑 사이즈 일때만
@@ -73,7 +142,7 @@ function goMain() {
 //로그아웃 함수
 function doLogOut() {
 
-    const result = confirm('로그아웃 하시겠습니까?ㅇㅇ');
+    const result = confirm('로그아웃 하시겠습니까?');
 
     if (result == true) {
         location.href = '/logout';
@@ -81,35 +150,24 @@ function doLogOut() {
 }
 function mediaQueryHeader(){
 
+	// 스마트폰
 	if (matchMedia("screen and (min-width:320px)").matches && matchMedia("screen and (max-width:767px)").matches) {
-		// 스마트폰
-
-		loginBtn.innerHTML = '<span class="material-symbols-outlined">login</span>';
-		logOutBtn.innerHTML = '<span class="material-symbols-outlined">logout</span>';
-		joinBtn.innerHTML = '<span class="material-symbols-outlined">person_add</span>';
-		//유저 프로필 이미지
-		if(document.querySelector('#userProfileImg') != null)
-			loginName.innerHTML = `<img alt="" src="${document.querySelector('#userProfileImg').dataset.profile}" id="headerUserProfileImg">`;
-
+		headerAnchorTextSpan.forEach((item) => {
+			item.style.display = 'none';
+		});
 
 	}
+	// 태블릿
 	if (matchMedia("screen and (min-width:768px)").matches && matchMedia("screen and (max-width:1023px)").matches) {
-		// 태블릿
-		
-		loginBtn.innerHTML = '<span class="material-symbols-outlined">login</span>';
-		logOutBtn.innerHTML = '<span class="material-symbols-outlined">logout</span>';
-		joinBtn.innerHTML = '<span class="material-symbols-outlined">person_add</span>';
-		//유저 프로필 이미지
-		if(document.querySelector('#userProfileImg') != null)
-			loginName.innerHTML = `<img alt="" src="${document.querySelector('#userProfileImg').dataset.profile}" id="headerUserProfileImg">`;
+		headerAnchorTextSpan.forEach((item) => {
+			item.style.display = 'none';
+		});
 
 	}
+	// 데스크탑
 	if (matchMedia("screen and (min-width:1024px)").matches) {
-		// 데스크탑
-		loginBtn.innerHTML = '로그인';
-		logOutBtn.innerHTML = '로그아웃';
-		joinBtn.innerHTML = '회원가입';
-		if(document.querySelector('#userProfileImg') != null)
-			loginName.innerHTML = `<img alt="" src="${document.querySelector('#userProfileImg').dataset.profile}" id="headerUserProfileImg">&nbsp;` + loginName.dataset.login + '님';
+		headerAnchorTextSpan.forEach((item) => {
+			item.style.display = 'block';
+		});
 	}
 }

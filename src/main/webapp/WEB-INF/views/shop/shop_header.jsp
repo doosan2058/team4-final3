@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="/resources/css/global.css">
     <!--쇼핑몰 글로벌 css-->
     <link rel="stylesheet" href="/resources/css/shop/shop_global.css">
-
+    <!-- Jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!--쇼핑몰 글로벌 아이콘 cdn-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
     <!-- 구글 폰트 -->
@@ -27,62 +28,41 @@
 </div>
 <!--헤더-->
 <header>
+    <!--로그인 아이디-->
+    <input type="hidden" id="loginCheckHiddenInput" value="${sessionScope.login_id}">
+    <!--로그인 권한-->
+    <input type="hidden" id="authCheckHiddenInput" value="${sessionScope.login_auth}">
     <div class="logo">
         <h1>Camping</h1>
     </div>
     <div class="menu">
         <a id="shop" href="/shop">Shop</a>
-        <c:if test="${sessionScope.login_auth eq '관리자'}">
-            <a class="draw" href="/shop/draw_admin">Draw</a>
-        </c:if>
-        <c:if test="${sessionScope.login_auth eq '회원' || sessionScope.login_auth eq null}">
-            <a class="draw" href="/shop/draw_customer">Draw</a>
-        </c:if>
+        <a class="draw">Draw</a>
         <a id="qna" href="/shop/qna">Q&A</a>
     </div>
     <div class="login">
-
-        <c:if test="${sessionScope.login_id eq null}">
-            <a id="loginBtn" href="/login" data-tooltip="로그인 하기">로그인</a>
-            <a id="joinBtn" href="/agree" data-tooltip="회원가입 하기">회원가입</a>
-            <a id="loginName" class="noneClass" href="/user">${sessionScope.login_id }</a>
-            <c:if test="${sessionScope.login_auth eq '회원'}"></c:if>
-            <a id="basket" class="noneClass">
-                <span class="material-symbols-outlined basketSpan">
+        <a id="loginBtn" href="/login" data-tooltip="로그인 하기">
+            <span class="material-symbols-outlined">login</span>
+            <span class="headerAnchorTextSpan">로그인</span>
+        </a>
+        <a id="joinBtn" href="/agree" data-tooltip="회원가입 하기">
+            <span class="material-symbols-outlined">person_add</span>
+            <span class="headerAnchorTextSpan">회원가입</span>
+        </a>
+        <a id="loginName">
+            <img alt="" src="" id="headerUserProfileImg">&nbsp;
+            <span class="loginUserIdSpan">${sessionScope.login_id } 님</span>
+        </a>
+        <a id="basket" data-tooltip="장바구니 보기">
+                <span class="material-symbols-outlined">
                 shopping_basket
                 </span>
-            </a>
-            <a id="logOutBtn" class="noneClass" >로그아웃</a>
-        </c:if>
-
-        <c:if test="${sessionScope.login_id ne null}">
-            <a id="loginBtn" href="/login" class="noneClass">로그인</a>
-            <a id="joinBtn" href="/agree" class="noneClass">회원가입</a>
-            <c:if test="${sessionScope.login_auth eq '관리자' }">
-                <a id="loginName" href="/admin" data-tooltip="관리자 페이지 보기" data-login="${sessionScope.login_id }" ></a>
-            </c:if>
-            <c:if test="${sessionScope.login_auth eq '회원' }">
-                <a id="loginName" class="loginInfo" href="/user" data-tooltip="내정보 페이지 보기" data-login="${sessionScope.login_id }">
-                        </a>
-            </c:if>
-            <c:if test="${sessionScope.login_auth ne '회원'}">
-                <a id="basket" href="user/basket" data-tooltip="장바구니 보기" class="noneClass">
-                    <span class="material-symbols-outlined basketSpan">
-                        shopping_basket
-                    </span>
-                </a>
-            </c:if>
-            <c:if test="${sessionScope.login_auth eq '회원'}">
-                <a id="basket" href="user/basket" data-tooltip="장바구니 보기">
-                    <span class="material-symbols-outlined basketSpan">
-                        shopping_basket
-                    </span>
-                </a>
-            </c:if>
-            <a id="logOutBtn" data-tooltip="로그아웃 하기">로그아웃</a>
-        </c:if>
-
-
+                <span class="headerAnchorTextSpan">장바구니</span>
+        </a>
+        <a id="logOutBtn" data-tooltip="로그아웃 하기">
+            <span class="material-symbols-outlined">logout</span>
+            <span class="headerAnchorTextSpan">로그아웃</span>
+        </a>
     </div>
 </header>
 

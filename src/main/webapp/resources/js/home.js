@@ -13,10 +13,15 @@ const loginBtn = document.querySelector('#loginBtn');
 const logOutBtn = document.querySelector('#logOutBtn');
 //회원가입 앵커
 const joinBtn = document.querySelector('#joinBtn');
-
-
+//로그인 체크 히든 스팬
+const loginCheckHiddenInput = document.querySelector('#loginCheckHiddenInput');
+//로그인 권한 스펜
+const authCheckHiddenInput = document.querySelector('#authCheckHiddenInput');
+//메뉴 설명 앵커
+const headerAnchorTextSpan = document.querySelectorAll('.headerAnchorTextSpan');
 // ===============================================================================
 window.addEventListener('load', mediaQueryHome);
+window.addEventListener('load', initHome);
 window.addEventListener('resize', mediaQueryHome);
 
 logOutBtn.addEventListener('click', doLogOut);
@@ -25,6 +30,19 @@ communityDiv.addEventListener('click', goCommunity);
 
 
 // ===============================================================================
+function initHome(){
+	//로그인
+	if(authCheckHiddenInput.value == '회원' || authCheckHiddenInput.value == '관리자'){
+		loginBtn.style.display = 'none';
+		logOutBtn.style.display = 'flex';
+		joinBtn.style.display = 'none';
+	}
+	else{
+		loginBtn.style.display = 'flex';
+		logOutBtn.style.display = 'none';
+		joinBtn.style.display = 'flex';
+	}
+}
 
 //쇼핑몰 가기
 function goShop() {
@@ -48,23 +66,25 @@ function doLogOut() {
 
 function mediaQueryHome(){
 
+	// 스마트폰
 	if (matchMedia("screen and (min-width:320px)").matches && matchMedia("screen and (max-width:767px)").matches) {
-		// 스마트폰
-		loginBtn.innerHTML = '<span class="material-symbols-outlined">login</span>';
-		logOutBtn.innerHTML = '<span class="material-symbols-outlined">logout</span>';
-		joinBtn.innerHTML = '<span class="material-symbols-outlined">person_add </span>';
+		headerAnchorTextSpan.forEach((item) => {
+			item.style.display = 'none';
+		});
+
 	}
+	// 태블릿
 	if (matchMedia("screen and (min-width:768px)").matches && matchMedia("screen and (max-width:1023px)").matches) {
-		// 태블릿
-		loginBtn.innerHTML = '로그인';
-		logOutBtn.innerHTML = '로그아웃';
-		joinBtn.innerHTML = '회원가입';
+		headerAnchorTextSpan.forEach((item) => {
+			item.style.display = 'none';
+		});
+
 	}
+	// 데스크탑
 	if (matchMedia("screen and (min-width:1024px)").matches) {
-		// 데스크탑
-		loginBtn.innerHTML = '로그인';
-		logOutBtn.innerHTML = '로그아웃';
-		joinBtn.innerHTML = '회원가입';
+		headerAnchorTextSpan.forEach((item) => {
+			item.style.display = 'block';
+		});
 	}
 }
 

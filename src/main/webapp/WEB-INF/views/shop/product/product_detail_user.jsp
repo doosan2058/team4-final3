@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,8 +28,6 @@
 <main>
     <!--상품 이미지, 상품 가격, 상품 설명, 수량, 장바구니 담기, 구매하기-->
     <form method="get" action="/order">
-
-
         <div class="productTop">
             <input type="hidden" name="product_id" id="product_id" value="${product.product_id }">
             <div class="topLeft">
@@ -39,8 +36,6 @@
                     <c:if test="${product.product_img_url1 ne 'no url' }">
                         <img src="/productImg/${product.product_img_url1 }" alt="" class="productMainImg">
                     </c:if>
-
-
                 </div>
                 <div class="subImgDiv">
                     <!-- 상품 이미지 1~3 -->
@@ -55,8 +50,6 @@
                     <c:if test="${product.product_img_url3 ne 'no url' }">
                         <img src="/productImg/${product.product_img_url3 }" alt="" class="productSubImg">
                     </c:if>
-
-
                 </div>
             </div>
             <div class="topRight">
@@ -65,7 +58,8 @@
                         <tr>
                             <td id="productNameTd">${product.product_name }</td>
                         <tr>
-                            <td id="productPriceTd">
+                        <input type="hidden" id="priceHiddenInput" value="${product.product_price}">
+                        <td id="productPriceTd">
                                 <fmt:formatNumber value="${product.product_price}" type="number"/>
                                 원
                             </td>
@@ -96,7 +90,7 @@
                         <div class="quantityCon">
                             <div class="quantityConLeft">
                                 <!-- 상품 수량 -->
-                                <input type="text" id="quantityText" value="1" name="order_quantity" readonly>
+                                <input type="text" id="quantityText" value="1" name="order_quantity">
                             </div>
                             <div class="quantityConRight">
                                 <input type="button" value="추가" class="quantityBtn" id="quantityUpBtn">
@@ -126,12 +120,9 @@
             <c:if test="${product.product_description_img_url1 ne 'no url'}">
                 <img src="/productImg/${product.product_description_img_url1 }" alt="" class="mainImgs">
             </c:if>
-
             <c:if test="${product.product_description_img_url2 ne 'no url'}">
                 <img src="/productImg/${product.product_description_img_url2 }" alt="" class="mainImgs">
             </c:if>
-
-
             <div class="viewMoreDiv">펼처 보기</div>
         </div>
     </div>
@@ -151,44 +142,38 @@
                         <span class="averageGradeSpan"></span>
                         )
                     </h3>
-
+                    <!--상품 리뷰 평점 (count : 점수 개수, product_review_grade : 점수)-->
                     <c:forEach var="item" items="${gradeData }">
                         <input type="hidden" value="${item.count}" data-grade="${item.product_review_grade }점"
                                class="gradeProduct">
-
                     </c:forEach>
-
                     <!-- Horizontal bar chart -->
                     <c:if test="${empty gradeData }">
-                        <h4>아직 이 상품의 데이터가 없습니다.</h4>
+                        <p>아직 이 상품의 데이터가 없습니다.</p>
                     </c:if>
                     <c:if test="${!empty gradeData }">
                         <canvas id="bar-chart-horizontal" style="" width="250" height="250"></canvas>
                     </c:if>
-
                 </div>
                 <div class="reviewGraph">
                     <h3>배송</h3>
-
+                    <!--상품 리뷰 배송 속도 (count : 속도 개수, product_review_speed : 속도)-->
                     <c:forEach var="item" items="${data }">
                         <input type="hidden" value="${item.count}" data-speed="${item.product_review_speed }"
                                class="speedProduct">
-
                     </c:forEach>
-
                     <!-- 파이 차트 -->
                     <c:if test="${empty data }">
-                        <h4>아직 이 상품의 데이터가 없습니다.</h4>
+                        <p>아직 이 상품의 데이터가 없습니다.</p>
                     </c:if>
                     <c:if test="${!empty data }">
-                        <canvas id="pie-chart" width="250" height="250"></canvas>
+                        <canvas id="pie-chart"></canvas>
                     </c:if>
-
-
                 </div>
             </div>
         </div>
-        <!--리뷰 내용들-->
+        <!--리뷰-->
+        <!--리뷰 현재 페이지 번호-->
         <input type="hidden" name="currentPage" id="currentPage" value="1">
         <div class="reviewBottom">
             <!-- 리뷰 있다면 -->
@@ -201,28 +186,24 @@
                             <span>
 									<span class="reviewWriterSpan">${item.member_id }</span>
 									&nbsp;님
-								</span>
+                            </span>
                             <span>
 									<fmt:formatDate value="${item.product_review_regdate }"/>
-
-								</span>
+                            </span>
                         </div>
                         <!-- 별점 -->
                         <div class="reviewsDiv reviewsGrade">
                             <input type="hidden" value="${item.product_review_speed }">
-
                             <div class="reviewsGradeInner">
-
                                 <c:forEach begin="1" end="${item.product_review_grade }">
                                     <span class="material-symbols-outlined star"> grade </span>
                                 </c:forEach>
-
                                 <span>${item.product_review_grade }점</span>
                             </div>
                             <div class="reviewsGradeInner reviewsGradeInnerThumb">
+                                <!--리뷰 번호(PK)-->
                                 <input type="hidden" value="${item.product_review_id }">
                                 <span class="material-symbols-outlined thumb"> thumb_up </span>
-
                                 <span class="helpfulSpan">${item.product_review_helpful }</span>
                             </div>
                         </div>
@@ -238,10 +219,8 @@
                                     <p>리뷰 이미지를 업로드 하지 않았습니다.</p>
                                 </c:if>
                                 <c:if test="${item.product_review_img_url ne 'no url'}">
-                                    <img alt="이미지 준비중" src="/reviewFiles/${item.product_review_img_url }">
+                                    <img alt="이미지 준비중" src="/reviewFiles/${item.product_review_img_url }" class="reviewImage">
                                 </c:if>
-
-
                             </div>
                             <div class="reviewsPhotoInner reviewsPhotoInnerVideo">
                                 <!-- 조건 처리 작업 -->
@@ -253,32 +232,22 @@
                                         <source src="/reviewFiles/${item.product_review_video_url }" type="video/mp4">
                                     </video>
                                 </c:if>
-
-
                             </div>
-
-
                         </div>
-
-
                     </div>
-
                 </c:forEach>
             </c:if>
             <!-- 리뷰 없다면 -->
             <c:if test="${empty reviewList }">
                 <p>작성된 리뷰가 없습니다.</p>
-
-
             </c:if>
-
         </div>
-
+        <!--리뷰 더보기 버튼 초기화-->
         <c:if test="${pageReview.end eq true }">
-            <div class="veiwMoreRewviesDiv noneClass">리뷰 더보기</div>
+            <div class="viewMoreReviewsDiv noneClass">리뷰 더보기</div>
         </c:if>
         <c:if test="${pageReview.end eq false }">
-            <div class="veiwMoreRewviesDiv">리뷰 더보기</div>
+            <div class="viewMoreReviewsDiv">리뷰 더보기</div>
         </c:if>
     </div>
     <!--네비게이터-->
@@ -290,26 +259,30 @@
     </div>
     <!-- 유튜브 광고 컨테이너 -->
     <div class="youtubeContainer">
-
+        <span class="material-symbols-outlined closeYoutubeContainerIcon">
+            close
+        </span>
         <div class="youtubeInnerDiv">
             <c:if test="${product.product_youtube_url eq 'no url'}">
                 <h1>유튜브 광고가 없는 제품 입니다.</h1>
             </c:if>
             <c:if test="${product.product_youtube_url ne 'no url'}">
-                <iframe src="${product.product_youtube_url}" width="1280" height="720" allowfullscreen></iframe>
+                <iframe class="adIframe" src="${product.product_youtube_url}" width="1280" height="720" allowfullscreen></iframe>
             </c:if>
-
         </div>
     </div>
 </main>
-
+<div class="fullImageContainer">
+    <span class="material-symbols-outlined closeFullImageContainerIcon">
+        close
+    </span>
+    <img src="">
+</div>
 <!-- 푸터 -->
 <jsp:include page="../shop_footer.jsp"/>
 
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
 <!-- chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
-
 <!-- js -->
 <script src="/resources/js/shop/product/product_detail_user.js"></script>
 </body>

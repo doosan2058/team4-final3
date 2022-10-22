@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>전체 회원 목록 페이지</title>
 </head>
 <body>
 	<c:forEach var="item" items="${list }">
@@ -16,14 +16,9 @@
 				<a href="/admin/detail?member_id=${item.member_id }">
 					<span class="memberIdSpan">${item.member_id }</span> 
 				</a>
-				님
+
 			</div>
-					
-					
-		</div>	
-					
+		</div>
 	</c:forEach>
-
-
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.goott.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -64,9 +65,8 @@ public class CommonController {
 
     /**
      * 이메일 인증 체크 후 회원가입 로직 실행할 메서드
-     *
      * @param memberVO 회원 엔티티
-     * @return
+     * @return 메인화면
      */
     @RequestMapping(value = "joinSuccess", method = RequestMethod.POST)
     public String joinSuccessPost(MemberVO memberVO) {
@@ -84,7 +84,7 @@ public class CommonController {
     /**
      * @param member_id 로그인 아이디
      * @param member_pw 로그인 비밀번호
-     * @return
+     * @return 알림창
      */
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String loginPost(@RequestParam String member_id, @RequestParam String member_pw, Model model, HttpServletRequest request) {
@@ -152,7 +152,8 @@ public class CommonController {
     }
 
     /**
-     * @param map 검색할 아이디 담은 제이슨
+     * 아이디 중복 확인
+     * @param param 로그인 아이디
      * @return 검색 아이디 수
      */
     @ResponseBody
@@ -166,7 +167,7 @@ public class CommonController {
     }
 
     /**
-     * @param map 검색할 이메일 담은 제이슨
+     * @param param 검색할 이메일 담은 제이슨
      * @return 검색 이메일 수
      */
     @ResponseBody
@@ -203,6 +204,26 @@ public class CommonController {
             return "common/alert";
         }
 
+    }
+
+    /**
+     * 헤더 구역 로그인 유저 프로필 이미지 불러오기
+     * @param param 로그인 유저 아이디
+     * @return 로그인 유저 프로필 이미지 주소
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getUserImg", method = RequestMethod.POST)
+    public Map<String, Object> getUserImg(@RequestBody Map<String, Object> param){
+        //회원 아이디
+        String member_id = param.get("member_id").toString();
+
+        //회원 프로필 이미지 주소
+        String member_profile_img_url = userService.getUserImgUrl(member_id);
+
+        Map<String, Object> returnMap = new HashMap<>();
+        returnMap.put("member_profile_img_url", member_profile_img_url);
+
+        return returnMap;
     }
 
 
