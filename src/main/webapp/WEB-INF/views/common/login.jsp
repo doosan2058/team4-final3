@@ -23,7 +23,7 @@
 			<!--아이디 컨테이너-->
 			<div class="idDiv">
 				<div class="placeholderDiv">
-					<input type="text" name="member_id" class="formInputs" required="required">
+					<input type="text" id="member_id" name="member_id" class="formInputs" required="required">
 					<span class="placeholderSpan">아이디</span>
 				</div>
 
@@ -31,7 +31,7 @@
 			<!--비밀번호 컨테이너-->
 			<div class="pwDiv">
 				<div class="placeholderDiv">
-					<input type="password" name="member_pw" class="formInputs" required="required">
+					<input type="password" id="member_pw" name="member_pw" class="formInputs" required="required">
 					<span class="placeholderSpan">비밀번호</span>
 				</div>
 			</div>
