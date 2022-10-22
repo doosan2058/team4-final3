@@ -152,7 +152,7 @@
                         <p>아직 이 상품의 데이터가 없습니다.</p>
                     </c:if>
                     <c:if test="${!empty gradeData }">
-                        <canvas id="bar-chart-horizontal" style="" width="250" height="250"></canvas>
+                        <canvas id="bar-chart-horizontal" width="250" height="250"></canvas>
                     </c:if>
                 </div>
                 <div class="reviewGraph">

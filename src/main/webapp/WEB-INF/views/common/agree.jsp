@@ -35,7 +35,7 @@
 		<div class="allAgreeDiv">
 
 			<div class="allAgreeDivLeft">
-				<input type="checkbox" name="" id="allAgreeCheckBox">
+				<input type="checkbox" id="allAgreeCheckBox">
 			</div>
 
 			<div class="allAgreeDivRight">
@@ -49,7 +49,7 @@
 		<div class="serviceAgreeDiv">
 
 			<div class="serviceAgreeDivLeft">
-				<input type="checkbox" name="" id="" class="agreeCheckBoxs">
+				<input type="checkbox" class="agreeCheckBoxs">
 			</div>
 			<!--사이트 이용약관 동의 오른쪽-->
 			<div class="serviceAgreeDivRight">
@@ -318,7 +318,7 @@
 		<div class="personalAgreeDiv">
 
 			<div class="personalAgreeDivLeft">
-				<input type="checkbox" name="" id="" class="agreeCheckBoxs">
+				<input type="checkbox" class="agreeCheckBoxs">
 			</div>
 			<!--사이트 이용약관 동의 오른쪽-->
 			<div class="personalAgreeDivRight">
@@ -334,7 +334,7 @@
 				<p>팀4프로젝트 서비스(이하 "서비스")는 개인정보를 다음의 목적을 위해 처리합니다. 처리한 개인정보는 목적 이외의 용도로는 사용되지 않으며 이용 목적이 변경될 시에는 사전동의를 구할 예정입니다.</p>
 				<p>① 서비스는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집시에 동의 받은 개인정보 보유, 이용기간 내에서 개인정보를 처리, 보유합니다.</p>
 				<p>② 보너스라이프(이하 "회사")는 서비스 회원가입, 회원 식별, 서비스 이용, 보안 유지 등을 위해 아래와 같이 개인정보를 수집ᆞ이용합니다.</p>
-				</p>
+
 
 				<!--테이블 들어갈 자리-->
 				<table class="personalAgreeTable">
@@ -372,7 +372,7 @@
 		<div class="emailAgreeDiv">
 
 			<div class="emailAgreeDivLeft">
-				<input type="checkbox" name="" id="" class="agreeCheckBoxs">
+				<input type="checkbox" class="agreeCheckBoxs">
 			</div>
 			<!--프로모션 email 수신 동의 오른쪽-->
 			<div class="emailAgreeDivRight">
@@ -395,7 +395,7 @@
 		</div>
 	</div>
 	<!--회원가입 컨테이너 끝-->
-	<script src="resources/js/agree.js"></script>
+	<script src="resources/js/common/agree.js"></script>
 </body>
 
 </html>

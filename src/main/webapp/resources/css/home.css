@@ -99,7 +99,7 @@
 }
 
 /* 스마트폰 */
-@media screen and (min-width:320px) and (max-width:767px) {
+@media screen and (min-width:1px) and (max-width:767px) {
 	.homeMain{
 		flex-direction: column;
 	}

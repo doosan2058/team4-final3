@@ -65,7 +65,7 @@ function doLogOut() {
 function mediaQueryHome(){
 
 	// 스마트폰
-	if (matchMedia("screen and (min-width:320px)").matches && matchMedia("screen and (max-width:767px)").matches) {
+	if (matchMedia("screen and (min-width:1px)").matches && matchMedia("screen and (max-width:767px)").matches) {
 		headerAnchorTextSpan.forEach((item) => {
 			item.style.display = 'none';
 		});

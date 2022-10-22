@@ -389,8 +389,8 @@ main {
 
 /* ------------------------------------------------------------------------------------------------------*/
 
-@media screen and (min-width:320px) and (max-width:767px) {
-    /* 스마트폰 */
+/* 스마트폰 */
+@media screen and (min-width:1px) and (max-width:767px) {
     body{
         min-width: 320px;
     }
@@ -455,8 +455,8 @@ main {
 
 }
 
+/* 타블렛 */
 @media screen and (min-width:768px) and (max-width:1023px) {
-    /* 타블렛 */
 
     /*상품구역*/
     .itemContainer {
@@ -499,8 +499,8 @@ main {
 
 }
 
+/* 데스크탑 */
 @media screen and (min-width:1024px) {
-    /* 데스크탑 */
     .itemBestDiv{
         left: -100%;
     }

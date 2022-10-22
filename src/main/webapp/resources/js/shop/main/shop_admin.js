@@ -113,10 +113,10 @@ function loadFunc() {
         if (text != null) {
             if (today > date) {
                 localStorage.removeItem('key');
-                window.open("/shop/popup", "신상품", "width=500, height=500");
+                window.open("/shop/popup", "신상품", "width=320, height=500");
             }
         } else
-            window.open("/shop/popup", "신상품", "width=500, height=500");
+            window.open("/shop/popup", "신상품", "width=320, height=500");
     }
 	//소팅 메뉴들 슬라이드업
     $('.sortInnerDiv').hide();
@@ -421,7 +421,7 @@ function moveLeftS() {
 function mediaQuery() {
     const side = document.querySelector('.side');
 
-    if (matchMedia("screen and (min-width:320px)").matches && matchMedia("screen and (max-width:767px)").matches) {
+    if (matchMedia("screen and (min-width:1px)").matches && matchMedia("screen and (max-width:767px)").matches) {
         // 스마트폰
         side.style.display = 'none';
         side.style.position = 'fixed';

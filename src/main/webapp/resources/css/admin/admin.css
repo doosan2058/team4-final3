@@ -51,7 +51,6 @@
 }
 /*메뉴 아이콘*/
 .navInnerBottom a{
-	display: inline-block;
 	display: flex;
 	align-items: center;
 	transition: .3s;
@@ -204,7 +203,7 @@
 }
 
 /* 스마트폰 */
-@media screen and (min-width:320px) and (max-width:767px) {
+@media screen and (min-width:1px) and (max-width:767px) {
 	.mainTop h1{
 		font-size: 1rem;
 	}

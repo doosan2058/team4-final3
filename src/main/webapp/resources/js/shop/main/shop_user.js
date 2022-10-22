@@ -414,7 +414,7 @@ function moveLeftS() {
 function mediaQuery() {
     const side = document.querySelector('.side');
 
-    if (matchMedia("screen and (min-width:320px)").matches && matchMedia("screen and (max-width:767px)").matches) {
+    if (matchMedia("screen and (min-width:1px)").matches && matchMedia("screen and (max-width:767px)").matches) {
         // 스마트폰
         side.style.display = 'none';
         side.style.position = 'fixed';

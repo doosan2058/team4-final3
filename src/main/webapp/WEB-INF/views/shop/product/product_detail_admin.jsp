@@ -161,7 +161,7 @@
                         <p>아직 이 상품의 데이터가 없습니다.</p>
                     </c:if>
                     <c:if test="${!empty data }">
-                        <canvas id="pie-chart" width="250" height="250"></canvas>
+                        <canvas id="pie-chart"></canvas>
                     </c:if>
                 </div>
             </div>

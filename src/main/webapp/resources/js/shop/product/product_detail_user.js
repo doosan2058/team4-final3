@@ -214,6 +214,7 @@ function gradeChart(){
 	      ]
 	    },
 	    options: {
+
 	      legend: { display: false },
 	      scales: {
 			  y: {
@@ -252,6 +253,7 @@ function speedChart(){
           }]
         },
         options: {
+
           title: {
             display: true,
             text: '구매자 분들이 작성해준 후기에요'
@@ -380,6 +382,7 @@ function basketFunc(){
 		}
 	});
 }
+
 
 
 

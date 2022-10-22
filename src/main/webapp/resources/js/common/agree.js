@@ -8,14 +8,14 @@ const nextBtn = document.querySelector('#nextBtn');
 const agreeCheckBoxs = document.querySelectorAll('.agreeCheckBoxs');
 
 //==================================================================================
-allAgreeCheckBox.addEventListener('click', ckeckAllCeckBox);
+allAgreeCheckBox.addEventListener('click', ckeckAllCheckBox);
 nextBtn.addEventListener('click' , checkAgrees);
 
 //==================================================================================
 
 //모든 이용약관 동의 체크박스 체크시 이하 모든 약관 체크 되는 함수
-function ckeckAllCeckBox(){
-//   console.log(agreeCheckBoxs);
+function ckeckAllCheckBox(){
+console.log(agreeCheckBoxs);
    for(let item of agreeCheckBoxs){
         item.checked = allAgreeCheckBox.checked;
    }

@@ -109,7 +109,12 @@ function checkDupEmail(){
 }
 //아이디 중복 확인 함수
 function checkDupId(){
-	const param = {
+	if((member_id.value).trim().length == 0){
+        idDupCheckSpan.innerHTML = '';
+        return;
+    }
+
+    const param = {
 			"id" : member_id.value
 	}
 	
@@ -201,7 +206,7 @@ function preDoJoinCheck(){
     	//이메일이름 + 도메인 해서 hidden 에 저장
     	let fullEmailText = '';
     	fullEmailText = (emailName.value + '@' + domain.value);
-    	document.querySelector('input[name=member_email').value = fullEmailText.trim();
+    	document.querySelector('input[name=member_email]').value = fullEmailText.trim();
     	//주소들 합처서 hidden 에 저장
     	let fullAddressText = '';
     	addressInputs.forEach(item => {

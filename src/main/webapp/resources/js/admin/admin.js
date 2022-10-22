@@ -379,7 +379,7 @@ function navInOut() {
     //네비 열기
     if (navFlag == false) {
         // 스마트폰 사이즈
-        if (matchMedia("screen and (min-width:320px)").matches && matchMedia("screen and (max-width:767px)").matches ||
+        if (matchMedia("screen and (min-width:1px)").matches && matchMedia("screen and (max-width:767px)").matches ||
             matchMedia("screen and (min-width:768px)").matches && matchMedia("screen and (max-width:1023px)").matches) {
             main.style.zIndex = '-1';
             navFlag = true;
@@ -414,7 +414,7 @@ function navInOut() {
 }
 
 function mediaQueryAdmin() {
-    if (matchMedia("screen and (min-width:320px)").matches && matchMedia("screen and (max-width:767px)").matches) {
+    if (matchMedia("screen and (min-width:1px)").matches && matchMedia("screen and (max-width:767px)").matches) {
         // 스마트폰
     }
     if (matchMedia("screen and (min-width:768px)").matches && matchMedia("screen and (max-width:1023px)").matches) {

@@ -22,11 +22,18 @@
 		<form action="login" method="post">
 			<!--아이디 컨테이너-->
 			<div class="idDiv">
-				<input type="text" name="member_id" id="" class="formInputs" placeholder="아이디" required="required">
+				<div class="placeholderDiv">
+					<input type="text" name="member_id" class="formInputs" required="required">
+					<span class="placeholderSpan">아이디</span>
+				</div>
+
 			</div>
 			<!--비밀번호 컨테이너-->
 			<div class="pwDiv">
-				<input type="password" name="member_pw" id="" class="formInputs" placeholder="비밀번호" required="required">
+				<div class="placeholderDiv">
+					<input type="password" name="member_pw" class="formInputs" required="required">
+					<span class="placeholderSpan">비밀번호</span>
+				</div>
 			</div>
 			<!--서브밋-->
 			<div class="btnDiv">

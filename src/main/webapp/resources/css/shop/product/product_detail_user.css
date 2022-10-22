@@ -563,7 +563,7 @@ main {
 }
 
 /* 스마트폰 */
-@media screen and (min-width: 320px) and (max-width: 767px) {
+@media screen and (min-width: 1px) and (max-width: 767px) {
     .productTop {
         flex-direction: column;
         height: fit-content;
@@ -736,6 +736,7 @@ main {
         width: 1280px;
         height: 720px;
     }
+
 
 }
 
