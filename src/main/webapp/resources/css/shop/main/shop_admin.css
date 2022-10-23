@@ -275,7 +275,6 @@ main {
 .side {
     width: 20%;
     position: relative;
-
 }
 /*알림 메시지*/
 .side p {
@@ -351,6 +350,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 
 }
 .sortMenuSpanDiv{
@@ -465,6 +465,12 @@ main {
     }
     .categorySpanAnchor{
         display: block;
+    }
+    .sortMenuDiv span{
+        font-size: 0.7rem;
+    }
+    .productRegistSpan{
+        font-size: 1rem;
     }
 
 }

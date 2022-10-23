@@ -88,7 +88,12 @@
 	<!-- 장바구니 리스트 가져오기 -->
 	<select id="selectBasketList" resultType="com.goott.domain.BasketVO">
 		<![CDATA[
-			select basket_id, product_id, basket_amount from t_basket where member_id = #{member_id}
+			select b.basket_id as basket_id, b.product_id as product_id, b.basket_amount as basket_amount,
+				   p.product_name as product_name, p.product_img_url1 as product_img_url1
+			from t_basket b
+			inner join t_product p
+			on b.product_id = p.product_id
+			where member_id = #{member_id}
 		]]>
 	</select>
 	

@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 .popupCon{
-	border: 3px solid black;
 	font-family: 'GimpoGothicBold00';
 	background-color: var(--subColor);
 	color: var(--subFontColor);
@@ -18,17 +17,6 @@
 .animateText{
 	animation: colorChange 1s infinite linear alternate;
 }
-
-@keyframes colorChange {
-	0%{
-		color: yellow;
-	}
-	
-	50%{
-		color: white;
-	}
-}
-
 /*제목*/
 .titleDiv{
 	height: 10%;
@@ -73,3 +61,12 @@
 	width: 120px;
 }
 
+@keyframes colorChange {
+	0%{
+		color: yellow;
+	}
+
+	50%{
+		color: white;
+	}
+}

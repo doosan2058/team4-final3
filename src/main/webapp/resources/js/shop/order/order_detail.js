@@ -62,22 +62,16 @@ function priceToString(price) {
 //사용한 쿠폰 취소하기 함수
 function cancelCouponUse(){
 	const result = confirm("할인 쿠폰 적용을 취소 하시겠습니까?");
-		
-
-	
 	if(result){
 		//할인 금액 초기화
 		couponPrice.innerHTML = '0';
 		couponInfoDiv.style.display = 'none';
 		couponPriceHidden.value = '0';
 		useCouponNum.value = 'no use coupon';
+		insertCouponBtn.style.display = 'block';
 		setTotalPrice();
 	};
-	
-	insertCouponBtn.style.display = 'block';
-	//인풋 쿠폰 번호 확인
-//	console.log(useCouponNum.value);
-	 	
+
 }
 
 
@@ -127,7 +121,7 @@ function useCoupon(){
 				//사용할 쿠폰 번호 히든인풋 저장
 				useCouponNum.value = data.coupon.coupon_num;
 				//인풋 쿠폰 번호 확인
-//				console.log(useCouponNum.value);
+
 				couponInfoDiv.style.display = 'flex';
 				//버튼 숨기기
 				insertCouponBtn.style.display = 'none';

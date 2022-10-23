@@ -178,8 +178,6 @@ public class ProductController {
         model.addAttribute("data", data);
         model.addAttribute("gradeData", gradeData);
 
-        log.info(reviewList);
-
         return "shop/product/product_detail_user";
     }
 

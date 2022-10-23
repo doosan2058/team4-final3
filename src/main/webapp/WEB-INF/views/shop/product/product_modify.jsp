@@ -31,9 +31,9 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td>카테고리 선택</td>
+								<td><p>카테고리 선택</p></td>
 								<td>
-									<select name="product_category_id" id="" class="formInputs">
+									<select name="product_category_id" class="productAddInputs">
 										<c:forEach var="item" items="${categoryList }">
 											<c:if test="${product.product_category_id eq item.product_category_id }">
 												<option value="${item.product_category_id }" selected="selected">${item.product_category_name }</option>
@@ -49,9 +49,9 @@
 								</td>
 							</tr>
 							<tr>
-								<td>브랜드 선택</td>
+								<td><p>브랜드 선택</p></td>
 								<td>
-									<select name="product_brand_id" id="" class="formInputs">
+									<select name="product_brand_id" class="productAddInputs">
 										<c:forEach var="item" items="${brandList }">
 											<option value="${item.product_brand_id }">${item.product_brand_name }</option>
 										</c:forEach>
@@ -61,95 +61,104 @@
 								</td>
 							</tr>
 							<tr>
-								<td>한정판 여부</td>
+								<td><p>한정판 여부</p></td>
 								<td>
 									<c:if test="${product.product_limited eq '한정판' }">
-										<input type="radio" name="product_limited" id="" value="한정판" checked="checked">한정판 
-										<input type="radio" name="product_limited" id="" value="일반">일반
+										<input type="radio" name="product_limited" value="한정판" checked="checked">한정판
+										<input type="radio" name="product_limited" value="일반">일반
 									</c:if>
 									<c:if test="${product.product_limited eq '일반' }">
-										<input type="radio" name="product_limited" id="" value="한정판">한정판 
-									<input type="radio" name="product_limited" id="" value="일반" checked="checked">일반
+										<input type="radio" name="product_limited" value="한정판">한정판
+									<input type="radio" name="product_limited" value="일반" checked="checked">일반
 									</c:if>
 								</td>
 							</tr>
 							<tr>
-								<td>상품 재고량</td>
+								<td><p>상품 재고량</p></td>
 								<td>
-									<input type="number" class="formInputs" name="product_stock" id="" required="required" min="1" max="99" value=${product.product_stock }>
-									개
+									<input type="number" class="productAddInputs" name="product_stock" required="required"
+										   min="1" max="99" placeholder="개수">
 								</td>
 							</tr>
 							<tr>
-								<td>상품 이름</td>
+								<td><p>상품 이름</p></td>
 								<td>
-									<input type="text" class="formInputs" name="product_name" id="" required="required" maxlength="20" value="${product.product_name }">
+									<input type="text" class="productAddInputs" name="product_name" required="required"
+										   maxlength="20" value="${product.product_name }">
 								</td>
 							</tr>
 							<tr>
-								<td>상품 코멘트</td>
+								<td><p>상품 코멘트</p></td>
 								<td>
-									<textarea name="product_comment" id="formText" placeholder="상품 설명 작성(200자)" maxlength="200">${product.product_comment }</textarea>
+									<textarea name="product_comment" id="formText" placeholder="상품 설명 작성(200자)"
+											  maxlength="200">${product.product_comment }</textarea>
+
 								</td>
 							</tr>
 							<tr>
-								<td>상품 가격</td>
+								<td><p>상품 가격</p></td>
 								<td>
-									<input type="number" class="formInputs" name="product_price" id="" required="required" min="1" max="99999999" value="${product.product_price }">
-									원
+									<input type="hidden" value="${product.product_img_url1}" class="mainImgUrlHidden">
+									<input type="hidden" value="${product.product_img_url2}" class="mainImgUrlHidden">
+									<input type="hidden" value="${product.product_img_url3}" class="mainImgUrlHidden">
+									<input type="number" class="productAddInputs" name="product_price" id="" required="required"
+										   min="1" max="99999999" placeholder="원">
 								</td>
 							</tr>
 							<tr>
-								<td>상품 이미지(최대 3개)</td>
-								<!-- <td><input type="file" name="imgs1" multiple></td> -->
+								<td><p>상품 이미지(최대 3개)</p></td>
+
 								<td>
+									<input type="hidden" value="${product.product_description_img_url1}" class="subImgUrlHidden">
+									<input type="hidden" value="${product.product_description_img_url2}" class="subImgUrlHidden">
 									<input type="file" name="imgs1" id="mainFile" class="formInputs" multiple>
 									<div class="mainFileListDiv"></div>
 								</td>
 							</tr>
 							<tr>
-								<td>상품 설명 이미지(최대 2개)</td>
-								<!-- <td><input type="file" name="imgs2" multiple></td> -->
+								<td><p>상품 설명 이미지(최대 2개)</p></td>
+
 								<td>
 									<input type="file" name="imgs2" id="subFile" class="formInputs" multiple>
 									<div class="subFileListDiv"></div>
 								</td>
 							</tr>
 							<tr>
-								<td>상품 유튜브 주소</td>
+								<td><p>상품 유튜브 주소</p></td>
 								<td>
 									<c:if test="${product.product_youtube_url eq 'no url' }">
-										<input type="text" name="product_youtube_url" id="" maxlength="100" class="formInputs">
+										<input type="text" class="productAddInputs" name="product_youtube_url" maxlength="100">
 									</c:if>
 									<c:if test="${product.product_youtube_url ne 'no url' }">
-										<input type="text" name="product_youtube_url" id="" maxlength="100" value="${product.product_youtube_url }" class="formInputs">
+										<input type="text" class="productAddInputs" name="product_youtube_url" maxlength="100" value="${product.product_youtube_url }">
 									</c:if>
 								</td>
 							</tr>
 							<tr>
-								<td>상품 배송일</td>
+								<td><p>상품 배송일</p></td>
 								<td>
-									<input type="number" class="formInputs" name="product_delivery_day" id="" required="required" min="1" max="10" value="${product.product_delivery_day }">
-									일
+									<input type="number" class="productAddInputs" name="product_delivery_day"
+										   required="required" min="1" max="10" placeholder="평균 배송일" value="${product.product_delivery_day }">
 								</td>
 							</tr>
 							<tr>
-								<td>상품 공개 여부</td>
+								<td><p>상품 공개 여부</p></td>
 								<td>
 									<c:if test="${product.product_delete eq 'y' }">
-										<input type="radio" name="product_delete" id="" value="n">공개
-										<input type="radio" name="product_delete" id="" value="y" checked="checked">비공개
+										<input type="radio" name="product_delete" value="n">공개
+										<input type="radio" name="product_delete" value="y" checked="checked">비공개
 									</c:if>
 									<c:if test="${product.product_delete eq 'n' }">
-										<input type="radio" name="product_delete" id="" value="n" checked="checked">공개
-										<input type="radio" name="product_delete" id="" value="y">비공개
+										<input type="radio" name="product_delete" value="n" checked="checked">공개
+										<input type="radio" name="product_delete" value="y">비공개
 									</c:if>
 								</td>
 							</tr>
 
 							<tr>
-								<td colspan="2">
-									<input type="submit" id="submitBtn" class="formBtns" value="수정하기">
+								<td colspan="2" class="btnDiv">
+									<input type="button" class="productAddBtns preBtn" value="미리보기">
+									<input type="submit" class="productAddBtns" value="수정하기" id="addBtn">
 								</td>
 							</tr>
 						</tbody>
@@ -157,7 +166,9 @@
 				</div>
 				<!--미리보기-->
 				<div class="prePageDiv">
-
+					<span class="material-symbols-outlined closePreDivIcon">
+                    	close
+					</span>
 					<div class="prePageDivTop">
 						<div class="prePageDivTopLeft">
 							<div class="productImgMain">상품 메인 이미지</div>

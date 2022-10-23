@@ -267,10 +267,12 @@
         </span>
         <div class="youtubeInnerDiv">
             <c:if test="${product.product_youtube_url eq 'no url'}">
+                <input type="hidden" class="product_youtube_url_hidden" value="${product.product_youtube_url}">
+                <iframe class="adIframe noneClass" allowfullscreen></iframe>
                 <h1>유튜브 광고가 없는 제품 입니다.</h1>
             </c:if>
             <c:if test="${product.product_youtube_url ne 'no url'}">
-                <input type="hidden" id="product_youtube_url_hidden" value="${product.product_youtube_url}">
+                <input type="hidden" class="product_youtube_url_hidden" value="${product.product_youtube_url}">
                 <iframe class="adIframe" allowfullscreen></iframe>
             </c:if>
         </div>

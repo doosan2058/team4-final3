@@ -69,7 +69,7 @@ header .login a{
 footer{
     width: 100%;
     height: 200px;
-    border-top: 3px solid var(--borderColor);
+    border-top: 1px solid var(--borderColor);
     background-color: var(--subColor);
     display: flex;
     flex-direction: row;

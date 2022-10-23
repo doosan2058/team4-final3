@@ -19,22 +19,28 @@ const productImgSecond = document.querySelector('.productImgSecond');
 const productImgThird = document.querySelector('.productImgThird');
 const subImgFirst = document.querySelector('.subImgFirst');
 const subImgSecond = document.querySelector('.subImgSecond');
-
+//미리보기 버튼
+const preBtn = document.querySelector('.preBtn');
+//미리보기 닫기 아이콘
+const closePreDivIcon = document.querySelector('.closePreDivIcon');
 //==================================================================================================
 // 파일 인풋 파일추가 이벤트
 mainFile.addEventListener('change' , addListMain );
 subFile.addEventListener('change' , addListSub );
-
+preBtn.addEventListener('click', showPreDiv);
+closePreDivIcon.addEventListener('click', closePreDiv);
 //==================================================================================================
+function closePreDiv(){
+	document.querySelector('.prePageDiv').style.display = 'none';
+}
+function showPreDiv(){
+	document.querySelector('.prePageDiv').style.display = 'block';
+}
 // mainDiv에 커스텀 리스트 추가 함수
 function addListMain(){
 	// 만약 기존 이미지 선택 개수와 현재 선택 개수의 합이 3을 넘는다면
 	if((mainFile.files.length + fileArrayMain.length) > 3){
 		alert('이미지는 4개 이상 업로드 할수 없습니다.');
-//		console.log('이미지는 4개 이상 업로드 할수 없습니다.');
-
-
-
 	}
 	// 이미지 선택 개수가 3개 이하라면
 	else{
@@ -47,7 +53,6 @@ function addListMain(){
 				break;
 			}
 		}
-
 	}
 	drawListMain(); 
 }

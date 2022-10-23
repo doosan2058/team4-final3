@@ -50,7 +50,7 @@ const closeFullImageContainerIcon = document.querySelector('.closeFullImageConta
 //유튜브 닫기
 const closeYoutubeContainerIcon = document.querySelector('.closeYoutubeContainerIcon');
 //유튜브 주소
-const product_youtube_url_hidden = document.querySelector('#product_youtube_url_hidden');
+const product_youtube_url_hidden = document.querySelector('.product_youtube_url_hidden');
 //iframe
 const adIframe = document.querySelector('.adIframe');
 
@@ -168,7 +168,8 @@ function closeYoutubeCon(e){
 //유튜브 컨테이너 보이기
 function showYoutubeCon(){
 	youtubeContainer.style.display = 'block';
-	adIframe.src = product_youtube_url_hidden.value;
+	if(product_youtube_url_hidden.value != null || product_youtube_url_hidden.value.length > 0)
+		adIframe.src = product_youtube_url_hidden.value;
 }
 //수평 차트 평점 함수
 function gradeChart(){

@@ -48,7 +48,7 @@ public class UserController {
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String userGet(HttpServletRequest request, Model model) {
-//		log.info("mypage =========================================");
+
 		
 		//로그인 유저 아이디
 		//인터셉터로 로그인 여부 확인 하기때문에 따로 로그인 아이디 null 처리 불필요
@@ -60,42 +60,30 @@ public class UserController {
 		List<SalesVO> salesList = userService.getUserSalesList(member_id);
 		//회원 정보
 		MemberVO memberVO = memberService.getMemberInfo(member_id);
-//		log.info(memberVO);
+
 		model.addAttribute("orderList" , orderList);
 		model.addAttribute("salesList" , salesList);
 		model.addAttribute("memberVO" , memberVO);
-		
-		
 		
 		List<Map<String, Object>> freeMapList = adminService.getFreeList(member_id);
 		List<Map<String, Object>> campingMapList = adminService.getCampingList(member_id);
 		List<Map<String, Object>> qnaMapList = adminService.getQnaList(member_id);
 		
-		
-		
 		model.addAttribute("freeMapList", freeMapList);
 		model.addAttribute("campingMapList", campingMapList);
 		model.addAttribute("qnaMapList", qnaMapList);
-		
-		
-		
+
 		return "/user/mypage";
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "profile", method = RequestMethod.POST)
 	public Map<String, Object> profile(@RequestParam MultipartFile file, @RequestParam String member_id){
-//		log.info("프로필 이미지 변경 =======================================================");
-		
-		
 		return userService.changeProfileImg(file, member_id);
 	}
 	
 	@RequestMapping(value = "review", method = RequestMethod.GET)
 	public String reviewGet(@RequestParam int sales_id, Model model) {
-//		log.info("리뷰작성 ====================================");
-		
-		
 		model.addAttribute("sales_id", sales_id);
 		return "/user/review";
 	}
@@ -118,7 +106,6 @@ public class UserController {
 		productReviewVO.setProduct_id(product_id);
 		//리뷰 작성 
 		String resultText = userService.writeReview(productReviewVO, sales_id, fileImg, fileVideo);
-		
 		
 		model.addAttribute("msg", resultText);
 		model.addAttribute("url", "user");
@@ -176,7 +163,7 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(value = "check", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
 	public String checkPw(@RequestBody Map<String, Object> param, Model model) {
-//		log.info("비밀번호 변경전 체크 =======================================");
+
 		String member_id = param.get("member_id").toString();
 		String member_pw = param.get("member_pw").toString();
 		
@@ -193,12 +180,10 @@ public class UserController {
 	}
 	@RequestMapping(value = "change_password", method = RequestMethod.GET)
 	public String changePw() {
-//		log.info("비밀번호 변경 페이지 get ==============================================");
 		return "user/change_password";
 	}
 	@RequestMapping(value = "change_password", method = RequestMethod.POST)
 	public String changePwPost(@RequestParam String member_pw, HttpServletRequest request, Model model) {
-//		log.info("비밀번호 변경 페이지 post ==============================================");
 		//비밀번호 업데이트 로직 작성
 		HttpSession session = request.getSession();
 		//세션에 로그인 되어 있다면
@@ -243,7 +228,8 @@ public class UserController {
 		String member_id = session.getAttribute("login_id").toString();
 		List<BasketVO> list = userMapper.selectBasketList(member_id);
 		model.addAttribute("list", list);
-		
+
+
 		return "/user/basket";
 	}
 	
@@ -268,8 +254,6 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(value = "deleteBasket", method = RequestMethod.POST, produces = "text/html;charset=utf-8")
 	public String deleteBasket(@RequestBody Map<String, Object> param) {
-//		log.info("장바구니 삭제 ================================");
-//		log.info(param);
 		int basket_id = Integer.parseInt( param.get("basket_id").toString() );
 		int result = userMapper.deleteBasket(basket_id);
 		
@@ -281,10 +265,9 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(value = "buyBasket", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
 	public Map<String, Object> buyBasket(@RequestBody Map<String, Object> param) {
-//		log.info("장바구니 구매 ================================");
-//		log.info(param);
 		int basket_id = Integer.parseInt( param.get("basket_id").toString() );
 		Map<String, Object> returnMap = userService.buyToBasket(basket_id);
+
 		return returnMap;
 	}
 	

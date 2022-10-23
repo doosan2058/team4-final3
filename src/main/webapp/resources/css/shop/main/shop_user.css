@@ -261,7 +261,7 @@ main {
 .side {
     width: 20%;
     position: relative;
-
+    overflow-y: scroll;
 }
 /*알림 메시지*/
 .side p {
@@ -451,6 +451,9 @@ main {
     }
     .categorySpanAnchor{
         display: block;
+    }
+    .sortMenuDiv span{
+        font-size: 0.7rem;
     }
 
 }

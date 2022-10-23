@@ -1,36 +1,59 @@
-body {
-	background-color: var(--subColor);
-}
-
 .basketMiddle h1 {
 	font-family: 'GimpoGothicRegular00';
 	color: var(--subFontColor);
 }
 /*장바구니 상품 정보 구역*/
 .basketMiddle {
-	min-height: 700px;
-	font-family: 'GimpoGothicBold00';
-	/* border: 3px solid green; */
+	min-height: calc(100vh - 80px);
 	padding: 1rem;
 }
 
 /*장바구니 상품 테이블*/
 #basketTable {
-	margin: 3rem auto;
+	margin: 1rem auto;
+	width: 60%;
 	border-collapse: collapse;
-	/* background-color: var(--mainColor); */
 }
-
 #basketTable th {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	color: var(--subFontColor);
 	padding: 1rem;
 }
-
 #basketTable td {
 	padding: 1rem;
-	color: white;
+	color: var(--basicFontColor);
 	text-align: center;
-	
+	transition: .3s;
+
 }
+.basketRadio{
+	cursor: pointer;
+}
+.productAnchor{
+	transition: .3s;
+}
+
+@media screen and (min-width: 1px) and (max-width: 767px) {
+	#basketTable{
+		width: 100%;
+	}
+	#basketTable th{
+		font-size: 0.7rem;
+	}
+	#basketTable td{
+		font-size: 0.5rem;
+	}
+	#deleteBtn, #buyBtn{
+		width: 50px;
+		font-size: 0.5rem;
+	}
+}
+
+
+@media screen and (min-width: 1024px) {
+	.productAnchor:hover{
+		color: var(--fontColor);
+	}
+}
+
 

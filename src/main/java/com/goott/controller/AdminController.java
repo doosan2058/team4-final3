@@ -62,7 +62,7 @@ public class AdminController {
         model.addAttribute("qnaMapList", qnaMapList);
         model.addAttribute("orderMapList", orderMapList);
 
-
+        log.info(qnaMapList);
         return "/admin/detail";
     }
 

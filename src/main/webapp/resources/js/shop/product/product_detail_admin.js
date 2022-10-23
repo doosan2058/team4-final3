@@ -41,7 +41,7 @@ const closeFullImageContainerIcon = document.querySelector('.closeFullImageConta
 //유튜브 닫기
 const closeYoutubeContainerIcon = document.querySelector('.closeYoutubeContainerIcon');
 //유튜브 주소
-const product_youtube_url_hidden = document.querySelector('#product_youtube_url_hidden');
+const product_youtube_url_hidden = document.querySelector('.product_youtube_url_hidden');
 //iframe
 const adIframe = document.querySelector('.adIframe');
 
@@ -104,16 +104,21 @@ function closeYoutubeCon(e){
 //유튜브 컨테이너 보이기
 function showYoutubeCon(){
 	youtubeContainer.style.display = 'block';
-	adIframe.src = product_youtube_url_hidden.value;
+	if(product_youtube_url_hidden.value != null || product_youtube_url_hidden.value.length > 0)
+		adIframe.src = product_youtube_url_hidden.value;
 }
 
 //수정
 function goModify(){
-	location.href='/product/modify?product_id=' + product_id.value;
+	const result = confirm('상품 수정 페이지로 이동할까요?');
+	if(result)
+		location.href='/product/modify?product_id=' + product_id.value;
 }
 //비공개
 function goDelete(){
-	location.href='/product/delete?product_id=' + product_id.value;
+	const result = confirm('해당 상품을 비공개 처리 하시겠어요?');
+	if(result)
+		location.href='/product/delete?product_id=' + product_id.value;
 }
 //수평 차트 평점 함수
 function gradeChart(){

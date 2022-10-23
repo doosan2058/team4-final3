@@ -1,35 +1,49 @@
 .registProductCon {
 	width: 100%;
-	/* border: 3px solid saddlebrown; */
 	display: flex;
+	flex-wrap: wrap;
 }
 /*상품 등록 구역*/
-.registProductCon .registProductDiv {
+.registProductDiv {
 	width: 60%;
-	/* height: 100vh; */
 	background-color: var(--subColor);
-	/* border: 3px solid yellow; */
-	color: white;
+	color: var(--basicFontColor);
 	padding: 1rem;
+}
+.productAddInputs {
+	width: 100%;
+	max-width: 300px;
+	min-width: 50px;
+	height: 50px;
+	padding-left: 0.5rem;
+	background-color: var(--sub2Color);
+	font-family: 'GimpoGothicBold00';
+	transition: .3s;
+	border: none;
+	outline: none;
+	color: var(--basicFontColor);
+}
+.productAddBtns{
+	width: 150px;
+	height: 50px;
+	background-color: var(--sub2Color);
+	transition: .3s;
+	color: var(--subFontColor);
+	cursor: pointer;
+	font-family: 'GimpoGothicBold00';
+	font-size: 1.1rem;
+	border: none;
 }
 
 .registProductDiv table {
 	border-collapse: collapse;
 	width: 100%;
-	font-family: 'GimpoGothicBold00';
-	color: white;
 }
 
 table th,table td {
 	width: 50%;
-	/* border: 2px solid black; */
 	padding: 1rem;
 }
-table th{
-	color: var(--mainColor);
-	font-size: 1.5rem;
-}
-
 table td:nth-child(2n-1){
 	font-size: 1.3rem;
 	color: var(--subFontColor);
@@ -38,9 +52,7 @@ table td:nth-child(2n-1){
 /*업로드 이미지 리스트 디비전 */
 .mainFileListDiv, .subFileListDiv {
 	width: 100%;
-	height: 150px;
-	/* border: 1px solid black; */
-	padding: 1rem;
+
 }
 
 /*업로드 이미지 설정 */
@@ -61,43 +73,39 @@ table td:nth-child(2n-1){
 
 .imgListSub:nth-child(1) {
 	background-color: yellow;
+	color: black;
 	margin-bottom: 10px;
 }
 
 .imgListSub:nth-child(2) {
 	background-color: orangered;
+	color: black;
 	margin-bottom: 10px;
 }
 
 /*결과 미리보기 구역 */
-.registProductCon .prePageDiv {
+.prePageDiv {
+	position: static;
 	width: 40%;
-	
-	/* border: 3px solid red; */
+	display: block;
 }
-
-
-.prePageDiv .prePageDivTop {
+.prePageDivTop {
 	width: 100%;
 	height: 30%;
 	display: flex;
 }
-
-.prePageDiv .prePageDivTop .prePageDivTopLeft {
+.prePageDivTopLeft {
 	width: 50%;
 	height: 100%;
 	display: flex;
 	flex-wrap: wrap;
 }
-
 .productImgMain {
 	width: 100%;
 	height: 65%;
-	/* border: 3px solid black; */
 	margin-bottom: 5px;
 	padding: 0.5rem;
 	font-size: 2rem;
-	color: white;
 	display: none;
 }
 
@@ -109,17 +117,16 @@ table td:nth-child(2n-1){
 	padding: 0.5rem;
 	margin-right: 3px;
 	font-size: 4rem;
-	color: white;
 	display: none;
 }
 
-.prePageDiv .prePageDivTop .prePageDivTopRight {
+.prePageDivTopRight {
 	width: 50%;
 	height: 100%;
 	
 }
 
-.prePageDiv .prePageDivBottom {
+.prePageDivBottom {
 	width: 100%;
 	height: 70%;
 	display: flex;
@@ -134,30 +141,26 @@ table td:nth-child(2n-1){
 	overflow-y: scroll;
 	padding: 1rem;
 	font-size: 7rem;
-	color: white;
 	display: none;
-	
-	/* background-color: aqua; */
 }
-
 /*메인 이미지들 , 서브 이미지들 */
 .mainImgs, .subImgs{
 	 width: 100%;
 	 object-fit: fill;
 }
 .btnDiv{
-	width: 200%;
-	display: flex;
-	flex-direction: row-reverse;
+	text-align: center;
+}
+.preBtn{
+	display: none;
 }
 
 #formText{
-	width: 100%;
+	width: 300px;
 	height: 100px;
-	/* margin-bottom: 0.5rem; */
 	padding-left: 0.5rem;
 	background-color: var(--sub2Color);
-	color: white;
+	color: var(--basicFontColor);
 	font-family: 'GimpoGothicBold00';
 	transition: .3s;
 	border: none;
@@ -166,26 +169,110 @@ table td:nth-child(2n-1){
 	padding: 1rem;
 }
 
-#addBtn{
-	display: block;
-	margin: 0 auto;
-}
-
 .deleteBtn, .deleteSubBtn{
 	width: 20px;
 	height: 20px;
 	background-color: var(--mainColor);
-	color: white;
+	color: var(--basicFontColor);
 	cursor: pointer;
 	
 }
 
-.deleteBtn:hover{
-	color: var(--fontColor);
+.closePreDivIcon{
+	display: none;
+	cursor: pointer;
+	position: absolute;
+	z-index: 999;
+	top: 1rem;
+	right: 1rem;
+	background-color: var(--mainColor);
+	color: var(--basicFontColor);
+	transition: .3s;
+	font-variation-settings:
+			'FILL' 0,
+			'wght' 700,
+			'GRAD' 0,
+			'opsz' 48
+}
+@media screen and (min-width: 1px) and (max-width: 767px) {
+	.productAddInputs, #formText{
+		width: 120px;
+		font-size: 0.7rem;
+	}
+	.productAddBtns{
+		width: 100px;
+		font-size: 0.7rem;
+	}
+	.registProductDiv{
+		width: 100%;
+		order: 2;
+	}
+	.prePageDiv{
+		position: fixed;
+		z-index: 999;
+		top: 0;
+		left: 0;
+		display: none;
+		width: 100%;
+		height: 100%;
+		order: 1;
+		backdrop-filter: blur(4px);
+	}
+	.productImgMain{
+		font-size: 1rem;
+	}
+	table p{
+		font-size: 0.6rem;
+	}
+	.preBtn{
+		display: inline-block;
+	}
+	.closePreDivIcon{
+		display: block;
+	}
 }
 
-.deleteSubBtn:hover{
-	color: var(--fontColor);
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.registProductDiv{
+		width: 100%;
+		order: 2;
+	}
+	.prePageDiv{
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: none;
+		width: 100%;
+		height: 100%;
+		order: 1;
+		backdrop-filter: blur(4px);
+	}
+	.productImgMain{
+		font-size: 1.2rem;
+	}
+	table p{
+		font-size: 1rem;
+	}
+	.preBtn{
+		display: inline-block;
+	}
+	.closePreDivIcon{
+		display: block;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.deleteBtn:hover{
+		color: var(--fontColor);
+	}
+	.deleteSubBtn:hover{
+		color: var(--fontColor);
+	}
+	.productAddBtns:hover {
+		background-color: var(--mainColor);
+	}
+
+
 }
 
 
