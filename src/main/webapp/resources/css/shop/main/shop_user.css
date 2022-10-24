@@ -25,11 +25,35 @@
 .carouselImgDiv {
     width: 100%;
     height: 100%;
+    border: 3px solid var(--basicFontColor);
 }
 .carouselImgDiv img {
     width: 100%;
     height: 100%;
     object-fit: fill;
+}
+.adNaviCon{
+    position: absolute;
+    width: 200px;
+    height: 30px;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.adNavi{
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    transition: .3s;
+}
+.adNavi:first-child{
+    background-color: var(--fontColor);
+    transform : scale(1.5,1.5);
 }
 /*-------------------------------------------------------------------------*/
 
@@ -53,14 +77,14 @@ main {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     padding: 0.5rem;
     font-family: 'GimpoGothicBold00';
     font-size: 2rem;
 
 }
 .itemBestHeader h1 {
-
+    padding-left: 0.5rem;
 }
 .itemBestHeader h1 span {
     color: var(--fontColor);
@@ -139,7 +163,7 @@ main {
     height: 80%;
     max-height: 200px;
     overflow: hidden;
-
+        border: 3px solid var(--basicFontColor);
 }
 /*순위 디비전*/
 .scoreDiv {
@@ -171,13 +195,14 @@ main {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     padding: 0.5rem;
     font-family: 'GimpoGothicBold00';
     font-size: 2rem;
 }
 .itemAllHeader h1 {
     color: var(--fontColor);
+    margin-left: 0.5rem;
 }
 /*상품 내용*/
 .itemAllBody {
@@ -227,6 +252,7 @@ main {
     height: 80%;
     max-height: 200px;
     overflow: hidden;
+    border: 3px solid var(--basicFontColor);
 }
 /*상품 썸네일 이미지 */
 .thumbnailImg {
@@ -261,7 +287,6 @@ main {
 .side {
     width: 20%;
     position: relative;
-    overflow-y: scroll;
 }
 /*알림 메시지*/
 .side p {
@@ -435,10 +460,12 @@ main {
         display: flex;
         justify-content: center;
         align-items: center;
+        border: none;
     }
     .thumbnailDivBest img{
         width: 50px;
         height: 50px;
+        border: 3px solid var(--basicFontColor);
     }
 
     .scoreDiv span{

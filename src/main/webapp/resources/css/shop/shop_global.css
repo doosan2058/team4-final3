@@ -2,8 +2,8 @@ header{
     width: 100%;
     height: 80px;
     display: flex;
-    background-color: var(--subColor);
-    border-bottom: 0.5px solid var(--borderColor);
+    background-color: var(--mainColor);
+
     font-family: 'Black Han Sans'; 
 }
 #logOutBtn{
@@ -12,13 +12,14 @@ header{
 }
 
 header a{
+    color: var(--basicFontColor);
     text-decoration: none;
 	transition: .3s;
 }
 
 
-header .logo{
-    width: 30%;
+.logo{
+    width: 15%;
     height: 100%;
     color: var(--fontColor);
     display: flex;
@@ -27,35 +28,44 @@ header .logo{
     justify-content: center;
     cursor: pointer;
 }
-header .logo h1{
+.logo h1{
 	color: var(--fontColor);
 	transition: .3s;
 }
 
 
-header .menu{
-    width: 40%;
+.menu{
+    width: 25%;
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 }
-header .menu a{
+.menu a{
     margin-left: 1rem;
 }
-header .login{
-    width: 30%;
+
+.login{
+    width: 60%;
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
 }
-header .login a{
+.login a{
     transition: .3s;
     cursor: pointer;
+    margin-right: 1rem;
+}
+.login span{
+    transition: .3s;
+}
+.login i{
+    font-size: 1.5rem;
+    transition: .3s;
 }
 /*메뉴 스팬들*/
-#basket, #loginBtn, #joinBtn, #logOutBtn{
+#basket, #loginBtn, #joinBtn, #logOutBtn, #loginCommu, #loginShop{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,32 +75,24 @@ header .login a{
 .headerAnchorTextSpan{
     font-size: 0.8rem;
 }
+#loginShop {
+    pointer-events: none;
+    background-color: var(--fontColor);
+    border-radius: 20px;
+    padding: 0.5rem;
+}
 
 footer{
     width: 100%;
-    height: 200px;
     border-top: 1px solid var(--borderColor);
-    background-color: var(--subColor);
     display: flex;
     flex-direction: row;
-}
-.footer_logo{
-    width: 30%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding-bottom: 1rem;
 }
 
-.footer_logo h1{
-  	color: var(--fontColor);
-	transition: .3s;
-	cursor: pointer;
-    font-family: 'Black Han Sans';
-} 
 
 .footer_content{
-    width: 70%;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -100,11 +102,12 @@ footer{
 
 }
 .footer_content h1{
-    font-family: 'GimpoGothicBold00';
+    margin-bottom: 0.5rem;
 }
 .footer_content p{
-    font-family: 'GimpoGothicRegular00';
+    margin: 0 0 0.3rem;
 }
+
 /*헤더 유저 이미지*/
 #headerUserProfileImg{
     width: 50px;
@@ -127,15 +130,17 @@ footer{
 
     /*로고*/
     .logo h1{
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     /*메뉴*/
     .menu a{
         font-size: 0.5rem;
+        margin-left: 0.5rem;
     }
     .login a{
         font-size: 0.5rem;
         margin-left: 0.3rem;
+        margin-right: 0.5rem;
     }
     .footer_logo h1{
         font-size: 0.8rem;
@@ -181,6 +186,9 @@ footer{
     .login a{
         font-size: 1rem;
         margin-left: 1rem;
+    }
+    .login a:hover span, .login a:hover i{
+        color: var(--fontColor);
     }
     #loginName{
         display: flex;

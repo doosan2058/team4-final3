@@ -1,13 +1,3 @@
-body{
-	font-family: 'Black Han Sans';
-	background-color: var(--subColor);
-}
-
-h3{
-	color: white;
-	font-family: 'GimpoGothicBold00';
-}
-
 /*내정보*/
 .myInfoCon{
     width: 100%;
@@ -15,39 +5,38 @@ h3{
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* border: 3px solid black; */
-    background-color: var(--subColor);
-    color: white;
+
 }
 /*네비구역*/
 .navDiv{
-	width: 80%;
-	height: 10%;
-	/* border-bottom: 3px solid var(); */
+	width: 100%;
+	height: 80px;
 	display: flex;
 	justify-content: space-around;
     align-items: center;
-    
-    border-bottom: 3px solid var(--borderColor);
+	background-color: var(--sub2Color);
+	font-family: "Black Han Sans";
 }
 
 .navDiv a{
-	color: white;
+	color: var(--basicFontColor);
 	text-decoration: none;
 	transition: .3s;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.navDiv i{
 	font-size: 1.5rem;
-	
+	transition: .3s;
 }
 
-.navDiv a:hover{
-	transform: translateY(-10%);
-	color: red;
-}
 /*사진, 유저정보 */
 .infoTopDiv{
     width: 80%;
     height: 50%;
-    /* border: 3px solid violet; */
+
     display: flex;    
     background-color: var(--subColor);
 }
@@ -59,7 +48,7 @@ h3{
 .userImgDiv{
     width: 30%;
     height: 100%;
-   /*  border: 3px solid blue; */
+
     padding: 1rem;
 }
 
@@ -565,6 +554,16 @@ h3{
 }
 .titleSpan{
 	color: var(--subFontColor);
+}
+
+@media screen and (min-width: 1024px) {
+	.navDiv a:hover{
+		transform: translateY(-10%);
+		color: var(--fontColor);
+	}
+	.navDiv a:hover i{
+		color: var(--fontColor);
+	}
 }
 
 

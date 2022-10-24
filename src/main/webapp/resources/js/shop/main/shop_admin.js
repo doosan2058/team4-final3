@@ -6,8 +6,6 @@ const viewMoreDiv = document.querySelector('.viewMoreDiv');
 const currentPageInput = document.querySelector('#currentPageInput');
 /* 전체 페이지 번호 */
 const totalPageInput = document.querySelector('#totalPageInput');
-/* 상품 디비전 */
-const itemAllDiv = document.querySelector('.itemAllDiv');
 /* 카테고리 스팬들 */
 const categorySpan = document.querySelectorAll('.categorySpan');
 /* 검색 카테고리 전역 변수 */
@@ -34,6 +32,8 @@ const itemBestDiv = document.querySelector('.itemBestDiv');
 const forwardSpan = document.querySelector('.forwardSpan');
 //탑10 왼쪽 이동 스팬
 const backSpan = document.querySelector('.backSpan');
+//광고 네비
+const adNavi = document.querySelectorAll('.adNavi');
 // ==================================================================================================
 
 window.addEventListener('load', loadFunc);
@@ -79,6 +79,15 @@ function loadFunc() {
     let interval = setInterval(() => {
         adContainer.style.transition = '.2s';
         adContainer.style.left = count * -100 + '%';
+        for(let i = 0; i < adNavi.length; i++){
+            adNavi[i].style.backgroundColor = 'white';
+            adNavi[i].style.transform = 'scale(1,1)';
+        }
+        if(count < 5){
+            adNavi[count].style.backgroundColor = 'var(--fontColor)';
+            adNavi[count].style.transform = 'scale(1.5,1.5)';
+
+        }
         count++;
 
         if (count == 6) {
@@ -86,6 +95,8 @@ function loadFunc() {
                 adContainer.style.transition = '0s';
                 adContainer.style.left = '0%';
                 count = 1;
+                adNavi[0].style.backgroundColor = 'var(--fontColor)';
+                adNavi[0].style.transform = 'scale(1.5,1.5)';
             }, 201);
         }
 

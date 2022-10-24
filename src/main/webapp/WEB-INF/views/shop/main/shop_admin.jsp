@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="/resources/css/global.css">
     <!-- Jquery cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--xeicon-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
     <title>쇼핑몰 관리자 메인</title>
 </head>
 
@@ -52,6 +54,13 @@
                 <img src="/resources/img/shop/ad/c5a20ba490f33ba0301b5cbc46fbf4b9.jpg" alt="이미지 준비중 입니다.">
             </div>
         </div>
+    </div>
+    <div class="adNaviCon">
+        <div class="adNavi"></div>
+        <div class="adNavi"></div>
+        <div class="adNavi"></div>
+        <div class="adNavi"></div>
+        <div class="adNavi"></div>
     </div>
 </div>
 <!--carousel-->

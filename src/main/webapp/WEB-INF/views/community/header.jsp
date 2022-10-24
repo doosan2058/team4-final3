@@ -11,7 +11,7 @@
     <!--글로벌 css-->
     <link rel="stylesheet"
 	href="<c:url value="/resources/css/community_global.css?ver=2"/>">
-    <!--쇼핑몰 글로벌 아이콘 cdn-->
+    <!--xeicon-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
     <title>Document</title>
 </head>

@@ -6,8 +6,6 @@ const viewMoreDiv = document.querySelector('.viewMoreDiv');
 const currentPageInput = document.querySelector('#currentPageInput');
 /* 전체 페이지 번호 */
 const totalPageInput = document.querySelector('#totalPageInput');
-/* 상품 디비전 */
-const itemAllDiv = document.querySelector('.itemAllDiv');
 /* 카테고리 스팬들 */
 const categorySpan = document.querySelectorAll('.categorySpan');
 /* 검색 카테고리 전역 변수 */
@@ -34,6 +32,8 @@ const itemBestDiv = document.querySelector('.itemBestDiv');
 const forwardSpan = document.querySelector('.forwardSpan');
 //탑10 왼쪽 이동 스팬
 const backSpan = document.querySelector('.backSpan');
+//광고 네비
+const adNavi = document.querySelectorAll('.adNavi');
 // ==================================================================================================
 
 window.addEventListener('load', loadFunc);
@@ -68,7 +68,7 @@ categorySpanAnchor.addEventListener('mouseleave', hideToolTipBox);
 
 // ==================================================================================================
 //시작 함수
-function loadFunc(){
+function loadFunc() {
     /* 광고 복사 (1 뒤 , 5 앞) */
     let firstAd = adContainer.children[0].cloneNode(true);
     adContainer.append(firstAd);
@@ -77,6 +77,15 @@ function loadFunc(){
     let interval = setInterval(() => {
         adContainer.style.transition = '.2s';
         adContainer.style.left = count * -100 + '%';
+        for(let i = 0; i < adNavi.length; i++){
+            adNavi[i].style.backgroundColor = 'white';
+            adNavi[i].style.transform = 'scale(1,1)';
+        }
+        if(count < 5){
+            adNavi[count].style.backgroundColor = 'var(--fontColor)';
+            adNavi[count].style.transform = 'scale(1.5,1.5)';
+
+        }
         count++;
 
         if (count == 6) {
@@ -84,6 +93,8 @@ function loadFunc(){
                 adContainer.style.transition = '0s';
                 adContainer.style.left = '0%';
                 count = 1;
+                adNavi[0].style.backgroundColor = 'var(--fontColor)';
+                adNavi[0].style.transform = 'scale(1.5,1.5)';
             }, 201);
         }
 
@@ -103,7 +114,7 @@ function loadFunc(){
     //로컬 스토리지 확인, 없으면 null 반환
     //로컬 스토리지에 key가 있으면 만료시간 체크
     //데스크탑 사이즈 일때만 팝업창 오픈
-    if (matchMedia("screen and (min-width:1024px)").matches){
+    if (matchMedia("screen and (min-width:1024px)").matches) {
         let text = localStorage.getItem('key');
         let date = new Date(text);
         let today = new Date();
@@ -116,7 +127,6 @@ function loadFunc(){
         } else
             window.open("/shop/popup", "신상품", "width=320, height=500");
     }
-
     //소팅 메뉴들 슬라이드업
     $('.sortInnerDiv').hide();
 

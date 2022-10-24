@@ -6,7 +6,7 @@
 }
 /*상단*/
 .homeTop{
-	height: 10%;
+	height: 80px;
 	display: flex;
 	
 }
@@ -45,7 +45,7 @@
 }
 /*메인*/
 .homeMain{
-	height: 90%;
+	height: calc(100vh - 80px);
 	display: flex;
 	transition: .3s;
 	
@@ -75,11 +75,11 @@
     justify-content: center;
     align-items: center;
     color: white;
-    background-color: var(--mainColor);
-    border: 1px solid black;
+    border: 3px solid var(--basicFontColor);
     cursor: pointer;
     transition: .3s;
     overflow: hidden;
+
 }
 
 /*커뮤니티*/
@@ -91,8 +91,8 @@
     justify-content: center;
     align-items: center;
     color: white;
-    background-color: var(--mainColor);
-    border: 1px solid black;
+	border: 3px solid var(--basicFontColor);
+	border-left: 0px;
     cursor: pointer;
     transition: .2s;
     overflow: hidden;

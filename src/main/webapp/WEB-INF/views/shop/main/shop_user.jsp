@@ -57,6 +57,13 @@
             </div>
         </div>
     </div>
+    <div class="adNaviCon">
+        <div class="adNavi"></div>
+        <div class="adNavi"></div>
+        <div class="adNavi"></div>
+        <div class="adNavi"></div>
+        <div class="adNavi"></div>
+    </div>
 </div>
 <!--carousel-->
 

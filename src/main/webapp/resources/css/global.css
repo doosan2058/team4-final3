@@ -32,7 +32,7 @@
 
 body{
 	background-color: var(--subColor);
-	font-family: 'GimpoGothicRegular00';
+	ffont-family: 'GimpoGothicRegular00';
 	color: var(--basicFontColor);
 	min-width: 320px;
 }

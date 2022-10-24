@@ -20,6 +20,8 @@
     <!-- 구글 폰트 -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <!--xeicon-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
     <title>쇼핑몰 헤더</title>
 </head>
 <body>
@@ -33,7 +35,7 @@
     <!--로그인 권한-->
     <input type="hidden" id="authCheckHiddenInput" value="${sessionScope.login_auth}">
     <div class="logo">
-        <h1>Camping</h1>
+        <h1>Team4</h1>
     </div>
     <div class="menu">
         <a id="shop" href="/shop">Shop</a>
@@ -49,6 +51,7 @@
             <span class="material-symbols-outlined">person_add</span>
             <span class="headerAnchorTextSpan">회원가입</span>
         </a>
+
         <a id="loginName">
             <img alt="" src="" id="headerUserProfileImg">&nbsp;
             <span class="loginUserIdSpan">${sessionScope.login_id } 님</span>
@@ -57,12 +60,23 @@
                 <span class="material-symbols-outlined">
                 shopping_basket
                 </span>
-                <span class="headerAnchorTextSpan">장바구니</span>
+            <span class="headerAnchorTextSpan">장바구니</span>
         </a>
         <a id="logOutBtn" data-tooltip="로그아웃 하기">
             <span class="material-symbols-outlined">logout</span>
             <span class="headerAnchorTextSpan">로그아웃</span>
         </a>
+
+        <a href="/shop" id="loginShop">
+            <i class="xi-shop"></i>
+            <span class="headerAnchorTextSpan">쇼핑몰</span>
+        </a>
+        <a href="/community/main" id="loginCommu">
+            <i class="xi-forum"></i>
+            <span class="headerAnchorTextSpan">커뮤니티</span>
+        </a>
+
+
     </div>
 </header>
 
