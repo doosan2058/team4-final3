@@ -160,11 +160,11 @@
 
     <!--오른쪽 사이드-->
     <div class="side">
-             <span class="material-symbols-outlined closeSideSpan">
+
+        <div class="side_navBar">
+            <span class="material-symbols-outlined closeSideSpan">
                         close
             </span>
-        <div class="side_navBar">
-
             <!-- 등급 구역 -->
             <div class="gradeDiv" style="background-color: ${userInfo.grade_color};">
                 <div class="gradeInnerTop">
@@ -174,8 +174,6 @@
                     <c:if test="${!empty userInfo }">
                         <img alt="이미지 준비중 입니다." src="/gradeImg/${userInfo.grade_img_url}" id="userProfileImg" data-profile="${userInfo.member_profile_img_url }">
                     </c:if>
-
-
                 </div>
                 <div class="gradeInnerBottom">
                     <c:if test="${!empty userInfo }">
@@ -188,12 +186,8 @@
                         <span class="userGradeSpan" style="color: ${userInfo.grade_font_color}">
                             ${userInfo.grade_accrual_rate * 100}%
                         </span> 적립
-
                     </c:if>
-
                 </div>
-
-
             </div>
             <!-- 카테고리 구역 -->
             <div class="categoryDiv">

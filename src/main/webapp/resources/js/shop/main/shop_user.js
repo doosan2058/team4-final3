@@ -60,8 +60,7 @@ product.forEach((item) => {
 })
 sortMenuSpanDiv.forEach((item) => {
     item.addEventListener('click', sortingMenuSlide);
-    item.addEventListener('mouseenter', changeSortingSpanColor);
-    item.addEventListener('mouseleave', rollbackSortingSpanColor);
+
 })
 categorySpanAnchor.addEventListener('click', showCategoryDiv);
 closeSideSpan.addEventListener('click', closeCategoryDiv);
@@ -149,27 +148,14 @@ function loadFunc() {
     mediaQuery();
 }
 function closeCategoryDiv() {
-    side.style.display = 'none';
+    side.style.right = '-100%';
 }
 
 function showCategoryDiv() {
-
-    side.style.display = 'block';
+    side.style.right = '0px';
 }
 
-function rollbackSortingSpanColor() {
-    //데스크탑 사이즈 일때만
-    if (matchMedia("screen and (min-width:1024px)").matches){
-        this.children[0].style.color = 'var(--basicFontColor)';
-    }
-}
 
-function changeSortingSpanColor() {
-    //데스크탑 사이즈 일때만
-    if (matchMedia("screen and (min-width:1024px)").matches) {
-        this.children[0].style.color = 'var(--fontColor)';
-    }
-}
 
 //소팅 메뉴 슬라이드 함수
 function sortingMenuSlide() {
@@ -190,8 +176,7 @@ function rollbackBackgroundColor() {
         this.style.backgroundColor = 'var(--sub2Color)';
         this.style.border = '3px solid var(--subColor)';
         this.style.transform = 'translateY(0)';
-        //폰트
-        this.children[1].children[0].style.color = 'white';
+
 
     }
 
@@ -206,8 +191,7 @@ function changeBackgroundColor() {
         this.style.border = '3px solid var(--subColor)';
         this.style.transform = 'translateY(-5px)';
 
-        //폰트
-        this.children[1].children[0].style.color = 'var(--hoverColor)';
+
 
     }
 
@@ -437,21 +421,13 @@ function moveLeftS() {
 }
 
 function mediaQuery() {
-    const side = document.querySelector('.side');
 
+    // 스마트폰
     if (matchMedia("screen and (min-width:1px)").matches && matchMedia("screen and (max-width:767px)").matches) {
-        // 스마트폰
-        side.style.display = 'none';
-        side.style.position = 'fixed';
-        side.style.top = '0';
-        side.style.right = '0';
-        side.style.width = '100%';
-        side.style.zIndex = '999';
-        closeSideSpan.style.zIndex = '100';
-        $('.sortInnerDiv').slideUp();
+
         //탑10 상품 이동
         itemBestDiv.style.left = '-500%';
-
+        //탑10 상품 슬라이드 이벤트 초기화
         forwardSpan.removeEventListener('click', moveRightD);
         backSpan.removeEventListener('click', moveLeftD);
         forwardSpan.removeEventListener('click', moveRightT);
@@ -459,19 +435,12 @@ function mediaQuery() {
         forwardSpan.addEventListener('click', moveRightS);
         backSpan.addEventListener('click', moveLeftS);
     }
+    // 태블릿
     if (matchMedia("screen and (min-width:768px)").matches && matchMedia("screen and (max-width:1023px)").matches) {
-        // 태블릿
-        side.style.display = 'none';
-        side.style.position = 'fixed';
-        side.style.top = '0';
-        side.style.right = '0';
-        side.style.width = '100%';
-        side.style.zIndex = '999';
-        closeSideSpan.style.zIndex = '100';
-        $('.sortInnerDiv').slideUp();
+
         //탑10 상품 이동
         itemBestDiv.style.left = '-250%';
-
+        //탑10 상품 슬라이드 이벤트 초기화
         forwardSpan.removeEventListener('click', moveRightD);
         backSpan.removeEventListener('click', moveLeftD);
         forwardSpan.removeEventListener('click', moveRightS);
@@ -479,16 +448,11 @@ function mediaQuery() {
         forwardSpan.addEventListener('click', moveRightT);
         backSpan.addEventListener('click', moveLeftT);
     }
+    // 데스크탑
     if (matchMedia("screen and (min-width:1024px)").matches) {
-        // 데스크탑
-        side.style.display = 'block';
-        side.style.width = '20%';
-        side.style.position = 'relative';
-        closeSideSpan.style.zIndex = '-1';
-        $('.sortInnerDiv').slideUp();
         //탑10 상품 이동
         itemBestDiv.style.left = '-100%';
-
+        //탑10 상품 슬라이드 이벤트 초기화
         forwardSpan.removeEventListener('click', moveRightS);
         backSpan.removeEventListener('click', moveLeftS);
         forwardSpan.removeEventListener('click', moveRightT);

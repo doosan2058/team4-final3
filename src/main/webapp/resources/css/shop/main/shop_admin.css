@@ -61,7 +61,6 @@
 
 /*상품구역, 네비구역 컨테이너*/
 main {
-    margin-top: 5rem;
     width: 100%;
     display: flex;
 }
@@ -73,7 +72,7 @@ main {
 }
 .itemBestDivCon{
     width: 100%;
-
+    margin-top: 5rem;
 
 }
 /*상품 탑 10 헤드 */
@@ -303,10 +302,12 @@ main {
     text-align: center;
 }
 .moreSpan {
+    display: inline-block;
+    padding: 10px;
     cursor: pointer;
     transition: .3s;
     font-family: 'Black Han Sans';
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .viewMoreDiv i {
@@ -318,6 +319,7 @@ main {
 .side {
     width: 20%;
     position: relative;
+    transition: .3s ease-in-out;
 }
 /*알림 메시지*/
 .side p {
@@ -404,6 +406,7 @@ main {
     cursor: pointer;
     display: flex;
     justify-content: center;
+    transition: .3s;
 }
 .sortMenuSpan{
     font-size: 1rem;
@@ -576,18 +579,20 @@ main {
         color: var(--hoverColor);
     }
     .moreSpan:hover {
-        color: var(--hoverColor);;
+        background-color: rgba(38, 38, 38, 0.5);
     }
     .closeSideSpan:hover{
         color: var(--fontColor);
         transform: scale(1.2,1.2);
     }
     .categorySpan:hover, .brandSpan:hover {
-        color: var(--hoverColor);
-        background-color: var(--fontColor);
+        background-color: rgba(38, 38, 38, 0.5);
     }
     .categorySpanAnchor:hover .moreIcon{
         color: var(--fontColor);
+    }
+    .sortMenuSpanDiv:hover{
+        background-color: rgba(49, 49, 49, 0.78);
     }
 }
 

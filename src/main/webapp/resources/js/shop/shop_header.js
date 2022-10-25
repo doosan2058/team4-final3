@@ -20,6 +20,10 @@ const authCheckHiddenInput = document.querySelector('#authCheckHiddenInput');
 const draw = document.querySelector('.draw');
 //메뉴 설명 앵커
 const headerAnchorTextSpan = document.querySelectorAll('.headerAnchorTextSpan');
+//로그인 디비전 보기 아이콘
+const more_horiz = document.querySelector('.more_horiz');
+//헤더 네비 플래그
+let IsloginDivShow = false;
 // ===============================================================================
 
 window.addEventListener('load', mediaQueryHeader);
@@ -37,12 +41,29 @@ joinBtn.addEventListener('mouseenter', showToolTipBox);
 joinBtn.addEventListener('mouseleave', hideToolTipBox);
 loginName.addEventListener('mouseenter', showToolTipBox);
 loginName.addEventListener('mouseleave', hideToolTipBox);
-
+more_horiz.addEventListener('click', showLoginDiv);
 
 
 
 
 // ===============================================================================
+function showLoginDiv(){
+	if(IsloginDivShow == false){
+		this.style.transform = 'translateY(-50%) rotateZ(0deg)';
+		document.querySelector('.login').style.right = '0px';
+		IsloginDivShow = true;
+	}
+	else{
+		this.style.transform = 'translateY(-50%) rotateZ(90deg)';
+		document.querySelector('.login').style.right = '-100%';
+		IsloginDivShow = false;
+	}
+
+
+
+
+
+}
 //로그인 체크 여부
 function initShopHeader(){
 	//프로필 앵커 초기화

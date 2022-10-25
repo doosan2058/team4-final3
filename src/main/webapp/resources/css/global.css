@@ -34,7 +34,7 @@ body{
 	background-color: var(--subColor);
 	ffont-family: 'GimpoGothicRegular00';
 	color: var(--basicFontColor);
-	min-width: 320px;
+	overflow-x: hidden;
 }
 h1, h2, h3, h4, h5, p, span, i, a{
 	color: var(--basicFontColor);

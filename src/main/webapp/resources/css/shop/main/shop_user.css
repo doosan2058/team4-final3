@@ -60,7 +60,6 @@
 
 /*상품구역, 네비구역 컨테이너*/
 main {
-    margin-top: 5rem;
     width: 100%;
     display: flex;
 }
@@ -71,8 +70,7 @@ main {
 }
 .itemBestDivCon{
     width: 100%;
-
-
+    margin-top: 5rem;
 }
 /*상품 탑 10 헤드 */
 .itemBestHeader {
@@ -107,7 +105,7 @@ main {
     color: var(--basicFontColor);
     background-color: rgba(33, 33, 33, 0.8);
     cursor: pointer;
-    z-index: 600;
+    z-index: 2;
     padding: 0.5rem;
     border-radius: 20%;
     transition: .3s;
@@ -279,10 +277,12 @@ main {
     text-align: center;
 }
 .moreSpan {
+    display: inline-block;
+    padding: 10px;
     cursor: pointer;
     transition: .3s;
     font-family: 'Black Han Sans';
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .viewMoreDiv i {
@@ -294,20 +294,14 @@ main {
 .side {
     width: 20%;
     position: relative;
+    transition: .3s ease-in-out;
+    top: 0;
+    right: 0;
 }
 /*알림 메시지*/
 .side p {
     font-size: 0.8rem;
 }
-.closeSideSpan{
-    transition: .3s;
-    cursor: pointer;
-    position: absolute;
-    z-index: -1;
-    top: 2rem;
-    right: 2rem;
-}
-
 .side_navBar {
     width: 100%;
     height: 800px;
@@ -318,7 +312,14 @@ main {
     top: 1rem;
     left: 0;
 }
-
+.closeSideSpan{
+    transition: .3s;
+    cursor: pointer;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: -1;
+}
 /*등급 구역 */
 .gradeDiv {
     height: 20%;
@@ -336,15 +337,14 @@ main {
 
 #userProfileImg {
     width: 100%;
-    max-width: 200px;
+    max-width: 120px;
     height: 100%;
-    max-height: 200px;
+    max-height: 120px;
     border-radius: 40%;
 }
 
 .gradeInnerBottom {
     height: 20%;
-    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -369,7 +369,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    overflow-y: auto;
 }
 .sortMenuSpanDiv{
     width: 100%;
@@ -378,6 +378,7 @@ main {
     cursor: pointer;
     display: flex;
     justify-content: center;
+    transition: .3s;
 }
 .sortMenuSpan{
     font-size: 1rem;
@@ -423,9 +424,6 @@ main {
 
 /* 스마트폰 */
 @media screen and (min-width:1px) and (max-width:767px) {
-    body{
-        min-width: 320px;
-    }
     /*광고*/
     .carousel {
         height: 300px;
@@ -474,7 +472,6 @@ main {
         height: 50px;
         border: 3px solid var(--basicFontColor);
     }
-
     .scoreDiv span{
         font-size: 3rem;
     }
@@ -483,18 +480,29 @@ main {
         width: 100%;
         height: 300px;
     }
+    .sortMenuDiv span{
+        font-size: 0.8rem;
+    }
+    /*사이드 꺼내기 버튼*/
     .categorySpanAnchor{
         display: block;
     }
-    .sortMenuDiv span{
-        font-size: 0.7rem;
+    .side{
+        width: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 99;
+    }
+    /*사이드 닫기 버튼*/
+    .closeSideSpan{
+        z-index: 100;
     }
 
 }
 
 /* 타블렛 */
 @media screen and (min-width:768px) and (max-width:1023px) {
-
     /*상품구역*/
     .itemContainer {
         width: 100%;
@@ -523,17 +531,26 @@ main {
         width: 70%;
         height: 100%;
     }
-
     /*일반 상품*/
     .product {
         width: 50%;
         height: 300px;
     }
+    /*사이드 꺼내기 버튼*/
     .categorySpanAnchor{
         display: block;
     }
-
-
+    .side{
+        width: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 99;
+    }
+    /*사이드 닫기 버튼*/
+    .closeSideSpan{
+        z-index: 100;
+    }
 }
 
 /* 데스크탑 */
@@ -546,18 +563,13 @@ main {
         color: var(--hoverColor);
     }
     .moreSpan:hover {
-        color: var(--hoverColor);;
-    }
-    .closeSideSpan:hover{
-        color: var(--fontColor);
-        transform: scale(1.2,1.2);
+        background-color: rgba(38, 38, 38, 0.5);
     }
     .categorySpan:hover, .brandSpan:hover {
-        color: var(--hoverColor);
-        background-color: var(--fontColor);
+        background-color: rgba(38, 38, 38, 0.5);
     }
-    .categorySpanAnchor:hover .moreIcon{
-        color: var(--fontColor);
+    .sortMenuSpanDiv:hover{
+        background-color: rgba(49, 49, 49, 0.78);
     }
 
 }

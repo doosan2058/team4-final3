@@ -61,8 +61,7 @@ product.forEach((item) => {
 })
 sortMenuSpanDiv.forEach((item) => {
     item.addEventListener('click', sortingMenuSlide);
-    item.addEventListener('mouseenter', changeSortingSpanColor);
-    item.addEventListener('mouseleave', rollbackSortingSpanColor);
+
 })
 categorySpanAnchor.addEventListener('click', showCategoryDiv);
 closeSideSpan.addEventListener('click', closeCategoryDiv);
@@ -159,19 +158,7 @@ function showCategoryDiv() {
     side.style.display = 'block';
 }
 
-function rollbackSortingSpanColor() {
-    //데스크탑 사이즈 일때만
-    if (matchMedia("screen and (min-width:1024px)").matches) {
-        this.children[0].style.color = 'var(--basicFontColor)';
-    }
-}
 
-function changeSortingSpanColor() {
-    //데스크탑 사이즈 일때만
-    if (matchMedia("screen and (min-width:1024px)").matches) {
-        this.children[0].style.color = 'var(--fontColor)';
-    }
-}
 
 //소팅 메뉴 슬라이드 함수
 function sortingMenuSlide() {
@@ -192,8 +179,7 @@ function rollbackBackgroundColor() {
         this.style.backgroundColor = 'var(--sub2Color)';
         this.style.border = '3px solid var(--subColor)';
         this.style.transform = 'translateY(0)';
-        //폰트
-        this.children[1].children[0].style.color = 'white';
+
 
     }
 
@@ -208,8 +194,7 @@ function changeBackgroundColor() {
         this.style.border = '3px solid var(--subColor)';
         this.style.transform = 'translateY(-5px)';
 
-        //폰트
-        this.children[1].children[0].style.color = 'var(--hoverColor)';
+
 
     }
 
