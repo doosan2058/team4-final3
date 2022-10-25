@@ -56,11 +56,11 @@
         </div>
     </div>
     <div class="adNaviCon">
-        <div class="adNavi"></div>
-        <div class="adNavi"></div>
-        <div class="adNavi"></div>
-        <div class="adNavi"></div>
-        <div class="adNavi"></div>
+        <div class="adNavi" data-index="0"></div>
+        <div class="adNavi" data-index="1"></div>
+        <div class="adNavi" data-index="2"></div>
+        <div class="adNavi" data-index="3"></div>
+        <div class="adNavi" data-index="4"></div>
     </div>
 </div>
 <!--carousel-->

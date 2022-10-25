@@ -5,7 +5,6 @@ body{
 /*비밀번호 찾기 컨테이너*/
 .forgotContainer{
 	width: 500px;
-	min-height: 400px; 
 	padding: 1rem;
 	display: flex;
 	flex-direction: column;
@@ -43,4 +42,38 @@ body{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+}
+
+#backBtn{
+	background-color: transparent;
+	text-decoration: underline;
+}
+
+/* 스마트폰 */
+@media screen and (min-width:1px) and (max-width:767px) {
+	.forgotContainer{
+		width: 320px;
+		margin: 0 auto;
+		padding: 0;
+
+	}
+	.btnDiv{
+		flex-direction: column;
+		padding: 0;
+	}
+	.btnDiv input{
+		margin-top: 1rem;
+	}
+
+}
+/* 태블릿 */
+@media screen and (min-width:768px) and (max-width:1023px) {
+
+}
+/* 데스크탑 */
+@media screen and (min-width:1024px) {
+	#backBtn:hover{
+		color: var(--fontColor);
+	}
+
 }

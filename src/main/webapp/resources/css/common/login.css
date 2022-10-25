@@ -42,13 +42,14 @@
 	left: 10px;
 	transform: translateY(-50%);
 	color: var(--subFontColor);
-
+	font-family: GimpoGothicBold00;
+	user-select: none;
 
 }
 .formInputs:focus ~ .placeholderSpan{
 	top: 0;
 	transform: translateY(-50%) scale(0.8,0.8);
-	color: var(--fontColor);
+
 
 }
 /*버튼 구역 */

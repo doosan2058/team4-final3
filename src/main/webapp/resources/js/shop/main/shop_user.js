@@ -34,6 +34,8 @@ const forwardSpan = document.querySelector('.forwardSpan');
 const backSpan = document.querySelector('.backSpan');
 //광고 네비
 const adNavi = document.querySelectorAll('.adNavi');
+//네비 전역 카운트
+let count = 0;
 // ==================================================================================================
 
 window.addEventListener('load', loadFunc);
@@ -65,15 +67,28 @@ categorySpanAnchor.addEventListener('click', showCategoryDiv);
 closeSideSpan.addEventListener('click', closeCategoryDiv);
 categorySpanAnchor.addEventListener('mouseenter', showToolTipBox);
 categorySpanAnchor.addEventListener('mouseleave', hideToolTipBox);
-
+adNavi.forEach((item)=> {
+    item.addEventListener('click', moveAd);
+})
 // ==================================================================================================
+function moveAd(){
+    adContainer.style.transition = '.2s';
+    adContainer.style.left = parseInt(this.dataset.index) * -100 + '%';
+    count = parseInt(this.dataset.index);
+    for(let i = 0; i < adNavi.length; i++){
+        adNavi[i].style.backgroundColor = 'white';
+        adNavi[i].style.transform = 'scale(1,1)';
+    }
+    adNavi[count].style.backgroundColor = 'var(--fontColor)';
+    adNavi[count].style.transform = 'scale(1.5,1.5)';
+}
 //시작 함수
 function loadFunc() {
     /* 광고 복사 (1 뒤 , 5 앞) */
     let firstAd = adContainer.children[0].cloneNode(true);
     adContainer.append(firstAd);
 
-    let count = 1;
+    count = 1;
     let interval = setInterval(() => {
         adContainer.style.transition = '.2s';
         adContainer.style.left = count * -100 + '%';
@@ -177,7 +192,7 @@ function rollbackBackgroundColor() {
         this.style.transform = 'translateY(0)';
         //폰트
         this.children[1].children[0].style.color = 'white';
-        this.children[2].children[0].style.transform = 'scale(1,1)';
+
     }
 
 }
@@ -193,7 +208,7 @@ function changeBackgroundColor() {
 
         //폰트
         this.children[1].children[0].style.color = 'var(--hoverColor)';
-        this.children[2].children[0].style.transform = 'scale(1.1,1.1)';
+
     }
 
 }

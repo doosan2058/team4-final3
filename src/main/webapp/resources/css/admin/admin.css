@@ -32,7 +32,7 @@
 }
 /*네비 메뉴 아이콘*/
 .menuIcons{
-	padding: 0 1rem;
+	padding: 0.5rem 1rem;
 }
 /*네비바 아이콘*/
 .navIcon{
@@ -239,11 +239,9 @@
 }
 /* 데스크탑 */
 @media screen and (min-width:1024px) {
-	.navIcon:hover{
-		color: var(--fontColor);
-	}
-	.navInnerBottom a:hover{
-		background-color: var(--fontColor);
+
+	.navIcon:hover, .navInnerBottom a:hover{
+		background-color: var(--sub2Color);
 	}
 	.memberIdSpan:hover{
 		color: var(--fontColor);

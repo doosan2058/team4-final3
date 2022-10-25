@@ -56,26 +56,33 @@
                 <div class="descriptionDiv">
                     <table class="descriptionTable">
                         <tr>
-                            <td id="productNameTd">${product.product_name }</td>
+                            <td id="productNameTd"> 이름 : ${product.product_name }</td>
                         <tr>
                         <input type="hidden" id="priceHiddenInput" value="${product.product_price}">
-                        <td id="productPriceTd">
-                                <fmt:formatNumber value="${product.product_price}" type="number"/>
-                                원
+                            <td>
+                                가격 :
+                                <span id="productPriceTd">
+                                    <fmt:formatNumber value="${product.product_price}" type="number"/>
+                                    원
+                                </span>
+
                             </td>
                         </tr>
                         <tr>
                             <!-- 상품 코멘트가 있을때만 표시 -->
                             <!-- 상품 코멘트 없을때 == no comment -->
                             <c:if test="${product.product_comment ne 'no comment' }">
-                                <td>${product.product_comment }</td>
+                                <td>설명 : ${product.product_comment }</td>
+                            </c:if>
+                            <c:if test="${product.product_comment eq 'no comment' }">
+                                <td>설명 : no comment</td>
                             </c:if>
                         </tr>
                         <tr>
                             <td>배송일 : ${product.product_delivery_day } 일</td>
                         </tr>
                         <tr>
-                            <td>카테고리 : ${product.product_category_id } 제조사 : ${product.product_brand_id }</td>
+                            <td>카테고리 : ${product.product_category_id } / 제조사 : ${product.product_brand_id }</td>
                         </tr>
                         <tr>
                             <td>재고 : ${product.product_stock }</td>

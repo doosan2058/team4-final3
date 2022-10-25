@@ -27,6 +27,9 @@
         <p>전화: 02-837-9922 / 010-8556-9922</p>
         <p>운영시간 : 09:30 ~ 18:30</p>
     </div>
+    <div class="footer_copyright">
+        <p>COPYRIGHTⓒ  구트아카데미  All Rights reserved</p>
+    </div>
 </footer>
 </body>
 </html>

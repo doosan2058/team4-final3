@@ -386,8 +386,9 @@ function navInOut() {
             textSpan.forEach((item) => {
                 item.style.opacity = 1;
             })
-            navIcon.style.transform = 'rotateZ(90deg)';
-            return;
+
+
+
         }
         //태블릿, 데크크탑 사이즈
         else {
@@ -397,8 +398,10 @@ function navInOut() {
             textSpan.forEach((item) => {
                 item.style.opacity = 1;
             })
-            navIcon.style.transform = 'rotateZ(90deg)';
         }
+        //navIcon.style.transform = 'rotateZ(90deg)';
+        navIcon.style.transform = 'scale(2,1)';
+        navIcon.style.color = 'var(--fontColor)';
 
     }
     //네비 닫기
@@ -409,7 +412,9 @@ function navInOut() {
         textSpan.forEach((item) => {
             item.style.opacity = 0;
         })
-        navIcon.style.transform = 'rotateZ(0)';
+        //navIcon.style.transform = 'rotateZ(0)';
+        navIcon.style.transform = 'scale(1,1)';
+        navIcon.style.color = 'var(--basicFontColor)';
     }
 }
 
