@@ -30,10 +30,11 @@
     box-sizing: border-box;
 }
 
-body{
+html,body{
 	background-color: var(--subColor);
-	ffont-family: 'GimpoGothicRegular00';
+	font-family: 'GimpoGothicRegular00';
 	color: var(--basicFontColor);
+	min-width: 280px;
 	overflow-x: hidden;
 }
 h1, h2, h3, h4, h5, p, span, i, a{
@@ -45,11 +46,6 @@ a{
 a:visited{
 	color: var(--basicFontColor);
 }
-
-.EmphasisSpan{
-	color: var(--fontColor);
-}
-
 /*버튼 */
 .formBtns {
 	width: 150px;
@@ -62,9 +58,6 @@ a:visited{
 	font-size: 1.1rem;
 	border: none;
 }
-
-
-
 /*폼 텍스트 인풋 공통 */
 .formInputs {
 	width: 100%;
@@ -97,7 +90,7 @@ a:visited{
 }
 
 /* 스마트폰 */
-@media screen and (min-width:320px) and (max-width:767px) {
+@media screen and (min-width:1px) and (max-width:767px) {
 
 }
 /* 태블릿 */

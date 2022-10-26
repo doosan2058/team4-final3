@@ -24,6 +24,8 @@ const headerAnchorTextSpan = document.querySelectorAll('.headerAnchorTextSpan');
 const more_horiz = document.querySelector('.more_horiz');
 //헤더 네비 플래그
 let IsloginDivShow = false;
+//헤더 로그인 구역
+const login = document.querySelector('.login');
 // ===============================================================================
 
 window.addEventListener('load', mediaQueryHeader);
@@ -41,13 +43,14 @@ joinBtn.addEventListener('mouseenter', showToolTipBox);
 joinBtn.addEventListener('mouseleave', hideToolTipBox);
 loginName.addEventListener('mouseenter', showToolTipBox);
 loginName.addEventListener('mouseleave', hideToolTipBox);
-more_horiz.addEventListener('click', showLoginDiv);
+more_horiz.addEventListener('click', toggleLoginDiv);
 
 
 
 
 // ===============================================================================
-function showLoginDiv(){
+
+function toggleLoginDiv(){
 	if(IsloginDivShow == false){
 		this.style.transform = 'translateY(-50%) rotateZ(0deg)';
 		document.querySelector('.login').style.right = '0px';
@@ -176,13 +179,21 @@ function mediaQueryHeader(){
 		headerAnchorTextSpan.forEach((item) => {
 			item.style.display = 'none';
 		});
-
+		//로그인 구역 숨기기
+		login.style.position = 'absolute';
+		login.style.width = '100vw';
+		login.style.top = '80px';
+		login.style.right = '-100%';
 	}
 	// 태블릿
 	if (matchMedia("screen and (min-width:768px)").matches && matchMedia("screen and (max-width:1023px)").matches) {
 		headerAnchorTextSpan.forEach((item) => {
 			item.style.display = 'none';
 		});
+		//로그인 구역 초기화
+		login.style.position = 'static';
+		login.style.width = '60%';
+
 
 	}
 	// 데스크탑
@@ -190,5 +201,9 @@ function mediaQueryHeader(){
 		headerAnchorTextSpan.forEach((item) => {
 			item.style.display = 'block';
 		});
+		//로그인 구역 초기화
+		login.style.position = 'static';
+		login.style.width = '60%';
+
 	}
 }

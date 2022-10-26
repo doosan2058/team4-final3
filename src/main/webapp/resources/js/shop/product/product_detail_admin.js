@@ -22,8 +22,6 @@ const toReviewCon = document.querySelector('.toReviewCon');
 const currentPage = document.querySelector('#currentPage');
 //리뷰 더보기 디비전
 const viewMoreReviewsDiv = document.querySelector('.viewMoreReviewsDiv');
-//리뷰 컨테이너
-const reviewBottom = document.querySelector('.reviewBottom');
 //수정하기 버튼
 const modifyBtn = document.querySelector('#modifyBtn');
 //수정하기 버튼

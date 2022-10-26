@@ -39,7 +39,7 @@ header a{
     justify-content: start;
 }
 .menu a{
-    margin: 0 1rem;
+    margin: 0 0.5rem;
 }
 
 .login{
@@ -102,8 +102,6 @@ header a{
 
 }
 
-
-
 footer{
     margin-top: 5rem;
     width: 100%;
@@ -160,25 +158,29 @@ footer{
 @media screen and (min-width:1px) and (max-width:767px) {
 
     /*로고*/
+    .logo{
+        width: 50%;
+    }
     .logo h1{
         font-size: 0.7rem;
+    }
+    .menu{
+        width: 50%;
     }
     /*메뉴*/
     .menu a{
         font-size: 0.5rem;
         margin:0 0.2rem;
     }
-    .login{
-        position: absolute;
-        width: 100%;
-        top: 80px;
-        right: -100%;
-    }
+
     .more_horiz{
         display: block;
     }
     .loginUserIdSpan{
         display: none;
+    }
+    footer h1{
+        font-size: 1.3rem;
     }
     footer p{
         font-size: 0.8rem;
@@ -187,6 +189,7 @@ footer{
 }
 /* 타블렛 */
 @media screen and (min-width:768px) and (max-width:1023px) {
+
     .logo h1{
         font-size: 1.5rem;
     }

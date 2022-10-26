@@ -40,8 +40,8 @@
                         <thead>
                         <tr>
                             <th></th>
-                            <th>상품 이미지</th>
-                            <th>상품 이름</th>
+                            <th>상품사진</th>
+                            <th>상품명</th>
                             <th>수량</th>
 
                         </tr>

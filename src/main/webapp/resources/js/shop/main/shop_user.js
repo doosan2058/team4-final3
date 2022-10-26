@@ -24,8 +24,6 @@ const sortMenuSpanDiv = document.querySelectorAll('.sortMenuSpanDiv');
 const categorySpanAnchor = document.querySelector('.categorySpanAnchor');
 //사이드 컨테이너
 const side = document.querySelector('.side');
-//사이드 컨테이너 닫기
-const closeSideSpan = document.querySelector('.closeSideSpan');
 //탑10 상품 디비전
 const itemBestDiv = document.querySelector('.itemBestDiv');
 //탑10 오른쪽 이동 스팬
@@ -36,6 +34,8 @@ const backSpan = document.querySelector('.backSpan');
 const adNavi = document.querySelectorAll('.adNavi');
 //네비 전역 카운트
 let count = 0;
+//사이드 전역 변수
+let isSideOpen = false;
 // ==================================================================================================
 
 window.addEventListener('load', loadFunc);
@@ -63,9 +63,7 @@ sortMenuSpanDiv.forEach((item) => {
 
 })
 categorySpanAnchor.addEventListener('click', showCategoryDiv);
-closeSideSpan.addEventListener('click', closeCategoryDiv);
-categorySpanAnchor.addEventListener('mouseenter', showToolTipBox);
-categorySpanAnchor.addEventListener('mouseleave', hideToolTipBox);
+
 adNavi.forEach((item)=> {
     item.addEventListener('click', moveAd);
 })
@@ -147,12 +145,18 @@ function loadFunc() {
     //미디어쿼리
     mediaQuery();
 }
-function closeCategoryDiv() {
-    side.style.right = '-100%';
-}
 
 function showCategoryDiv() {
-    side.style.right = '0px';
+    if(isSideOpen == false){
+        side.style.transform = 'translateX(0)';
+        isSideOpen = true;
+    }
+    else{
+        side.style.transform = 'translateX(100%)';
+        isSideOpen = false;
+    }
+
+
 }
 
 
@@ -424,6 +428,7 @@ function mediaQuery() {
 
     // 스마트폰
     if (matchMedia("screen and (min-width:1px)").matches && matchMedia("screen and (max-width:767px)").matches) {
+
 
         //탑10 상품 이동
         itemBestDiv.style.left = '-500%';

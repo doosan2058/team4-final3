@@ -209,7 +209,7 @@
                             <div class="reviewsPhotoInner reviewsPhotoInnerPhoto">
                                 <!-- 조건 처리 작업 -->
                                 <c:if test="${item.product_review_img_url eq 'no url'}">
-                                    <p>리뷰 이미지를 업로드 하지 않았습니다.</p>
+                                    <p class="test">리뷰 이미지를 업로드 하지 않았습니다.</p>
                                 </c:if>
                                 <c:if test="${item.product_review_img_url ne 'no url'}">
                                     <img alt="이미지 준비중" src="/reviewFiles/${item.product_review_img_url }" class="reviewImage">
@@ -263,7 +263,7 @@
                 <h1>유튜브 광고가 없는 제품 입니다.</h1>
             </c:if>
             <c:if test="${product.product_youtube_url ne 'no url'}">
-                <input type="hidden" id="product_youtube_url_hidden" value="${product.product_youtube_url}">
+                <input type="hidden" class="product_youtube_url_hidden" value="${product.product_youtube_url}">
                 <iframe class="adIframe" allowfullscreen></iframe>
             </c:if>
         </div>

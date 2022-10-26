@@ -9,9 +9,9 @@
 <body>
 <form action="/admin/send" method="post">
 	<div class="mailCon">
-		<input type="text" name="subject" class="formInputs" placeholder="제목을 입력하세요." style="border-bottom: 3px solid var(--mainColor);">
-		<textarea rows="" cols="" name="content" id="mailTextArea" placeholder="내용을 입력하세요."></textarea>
-		<input type="submit" class="formBtns" value="전송">	
+		<input type="text" name="subject" class="formInputs" placeholder="제목을 입력하세요." required>
+		<textarea rows="" cols="" name="content" id="mailTextArea" placeholder="내용을 입력하세요." required></textarea>
+		<input type="submit" class="formBtns" value="전송" id="mailBtn">
 	</div>
 </form>
 </body>

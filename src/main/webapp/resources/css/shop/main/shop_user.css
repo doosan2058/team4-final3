@@ -62,10 +62,13 @@
 main {
     width: 100%;
     display: flex;
+    position: relative;
 }
 /*상품 구역*/
 .itemContainer {
-    width: 80%;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
     background-color: var(--subColor);
 }
 .itemBestDivCon{
@@ -80,7 +83,6 @@ main {
     justify-content: start;
     padding: 0.5rem;
     font-family: 'GimpoGothicBold00';
-    font-size: 2rem;
 
 }
 .itemBestHeader h1 {
@@ -88,7 +90,7 @@ main {
 }
 .itemBestHeader h1 span {
     color: var(--fontColor);
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 /*상품 탑 10 내용*/
 .itemBestBody {
@@ -123,7 +125,6 @@ main {
     width: 400%;
     height: 100%;
     display: flex;
-    /*flex-wrap: wrap;*/
     color: var(--subFontColor);
 }
 .itemBestDiv a {
@@ -199,14 +200,15 @@ main {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: space-between;
     padding: 0.5rem;
     font-family: 'GimpoGothicBold00';
-    font-size: 2rem;
+
 }
 .itemAllHeader h1 {
     margin-left: 0.5rem;
 }
+
 /*상품 내용*/
 .itemAllBody {
     width: 100%;
@@ -292,34 +294,47 @@ main {
 }
 /*사이드바 디비전*/
 .side {
-    width: 20%;
-    position: relative;
+    width: 220px;
+    position: fixed;
     transition: .3s ease-in-out;
     top: 0;
     right: 0;
+    transform: translateX(100%);
+    z-index: 999;
+
 }
 /*알림 메시지*/
 .side p {
     font-size: 0.8rem;
 }
+/*사이드 버튼*/
+.categorySpanAnchor{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 160px;
+    left: -25px;
+    background-color: var(--mainColor);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.categorySpanAnchor span{
+    transition: .3s;
+}
 .side_navBar {
     width: 100%;
-    height: 800px;
+    max-height: 100vh;
     background-color: var(--mainColor);
     border-radius: 4px;
     padding: 0.5rem;
-    position: sticky;
-    top: 1rem;
-    left: 0;
+    overflow-y: scroll;
 }
-.closeSideSpan{
-    transition: .3s;
-    cursor: pointer;
-    position: absolute;
-    top: 2rem;
-    right: 2rem;
-    z-index: -1;
-}
+
 /*등급 구역 */
 .gradeDiv {
     height: 20%;
@@ -336,10 +351,8 @@ main {
 }
 
 #userProfileImg {
-    width: 100%;
-    max-width: 120px;
-    height: 100%;
-    max-height: 120px;
+    width: 120px;
+    height: 120px;
     border-radius: 40%;
 }
 
@@ -349,6 +362,7 @@ main {
     align-items: center;
     justify-content: center;
     font-size: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.35);
 }
 .gradeInnerBottom span{
     margin-left: 0.3rem;
@@ -369,7 +383,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: auto;
 }
 .sortMenuSpanDiv{
     width: 100%;
@@ -391,7 +404,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 /*정렬 세부 내용 */
 .categorySpan, .brandSpan {
@@ -405,19 +417,6 @@ main {
 }
 
 
-/*태블릿, 스마트폰 용 카테고리 스팬*/
-.categorySpanAnchor{
-    display: none;
-    cursor: pointer;
-    transition: .3s;
-    position: absolute;
-    right: 1rem;
-}
-.moreIcon{
-    transition: .3s;
-
-}
-
 
 
 /* ------------------------------------------------------------------------------------------------------*/
@@ -428,13 +427,12 @@ main {
     .carousel {
         height: 300px;
     }
-    /*상품구역*/
-    .itemContainer {
-        width: 100%;
-    }
-    /*탑 10 컨테이너*/
+    /*탑 10*/
     .itemBestBody{
         height: 100px;
+    }
+    .forwardSpan, .backSpan{
+        top: 70%;
     }
     .itemBestDiv{
         width: 2000%;
@@ -483,30 +481,11 @@ main {
     .sortMenuDiv span{
         font-size: 0.8rem;
     }
-    /*사이드 꺼내기 버튼*/
-    .categorySpanAnchor{
-        display: block;
-    }
-    .side{
-        width: 100%;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        z-index: 99;
-    }
-    /*사이드 닫기 버튼*/
-    .closeSideSpan{
-        z-index: 100;
-    }
 
 }
 
 /* 타블렛 */
 @media screen and (min-width:768px) and (max-width:1023px) {
-    /*상품구역*/
-    .itemContainer {
-        width: 100%;
-    }
     /*탑 10 컨테이너*/
     .itemBestBody{
         height: 200px;
@@ -536,21 +515,7 @@ main {
         width: 50%;
         height: 300px;
     }
-    /*사이드 꺼내기 버튼*/
-    .categorySpanAnchor{
-        display: block;
-    }
-    .side{
-        width: 100%;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        z-index: 99;
-    }
-    /*사이드 닫기 버튼*/
-    .closeSideSpan{
-        z-index: 100;
-    }
+
 }
 
 /* 데스크탑 */

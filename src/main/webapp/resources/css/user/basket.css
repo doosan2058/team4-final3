@@ -6,7 +6,9 @@
 .basketMiddle {
 	min-height: calc(100vh - 80px);
 	padding: 1rem;
+	text-align: center;
 }
+
 
 /*장바구니 상품 테이블*/
 #basketTable {
@@ -34,11 +36,15 @@
 }
 
 @media screen and (min-width: 1px) and (max-width: 767px) {
+
+	.basketMiddle h1{
+		font-size: 1.3rem;
+	}
 	#basketTable{
 		width: 100%;
 	}
 	#basketTable th{
-		font-size: 0.7rem;
+		font-size: 0.5rem;
 	}
 	#basketTable td{
 		font-size: 0.5rem;

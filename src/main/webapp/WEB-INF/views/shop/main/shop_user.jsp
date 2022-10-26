@@ -77,7 +77,7 @@
             <!--상품 탑 10 헤드-->
             <div class="itemBestHeader">
                 <h1>
-                    Best
+                    인기상품
                     <span>10</span>
                 </h1>
                 <!-- 인기 상품 -->
@@ -116,12 +116,7 @@
         <div class="itemAllDivCon">
             <!--상품 헤더-->
             <div class="itemAllHeader">
-                <h1>Item</h1>
-                <a class="categorySpanAnchor" data-tooltip="상품 정렬 보기">
-                    <span class="material-symbols-outlined moreIcon">
-                    more_horiz
-                    </span>
-                </a>
+                <h1>상품 목록</h1>
             </div>
 
             <!-- 현재 페이지 정보 -->
@@ -140,7 +135,6 @@
                             <div class="nameDiv">
                                 <a href="/product/detail?product_id=${item.product_id }"> ${item.product_name } </a>
                             </div>
-
                             <div class="thumbnailDiv">
                                 <img src="/productImg/${item.product_thumbnail_img_url }" class="thumbnailImg"
                                      alt="이미지 준비중 입니다.">
@@ -153,81 +147,77 @@
         </div>
 
         <div class="viewMoreDiv">
-            <!-- <i class="xi-angle-down view_more_btn"></i> -->
             <span class="moreSpan">더보기</span>
         </div>
     </div>
 
-    <!--오른쪽 사이드-->
-    <div class="side">
 
-        <div class="side_navBar">
-            <span class="material-symbols-outlined closeSideSpan">
-                        close
-            </span>
-            <!-- 등급 구역 -->
-            <div class="gradeDiv" style="background-color: ${userInfo.grade_color};">
-                <div class="gradeInnerTop">
-                    <c:if test="${empty userInfo }">
-                        <p>로그인후 이용하실수 있습니다.</p>
-                    </c:if>
-                    <c:if test="${!empty userInfo }">
-                        <img alt="이미지 준비중 입니다." src="/gradeImg/${userInfo.grade_img_url}" id="userProfileImg" data-profile="${userInfo.member_profile_img_url }">
-                    </c:if>
-                </div>
-                <div class="gradeInnerBottom">
-                    <c:if test="${!empty userInfo }">
+
+</main>
+<!--사이드-->
+<div class="side">
+    <div class="side_navBar">
+        <div class="categorySpanAnchor">
+            <span class="material-symbols-outlined">youtube_searched_for</span>
+        </div>
+
+        <!-- 등급 구역 -->
+        <div class="gradeDiv" style="background-color: ${userInfo.grade_color};">
+            <div class="gradeInnerTop">
+                <c:if test="${empty userInfo }">
+                    <p>로그인후 이용하실수 있습니다.</p>
+                </c:if>
+                <c:if test="${!empty userInfo }">
+                    <img alt="이미지 준비중 입니다." src="/gradeImg/${userInfo.grade_img_url}" id="userProfileImg" data-profile="${userInfo.member_profile_img_url }">
+                </c:if>
+            </div>
+            <div class="gradeInnerBottom">
+                <c:if test="${!empty userInfo }">
                         <span class="userGradeSpan"
                               style="color: ${userInfo.grade_font_color}">${userInfo.grade_name }
                         </span> 등급
-                        <span class="userGradeSpan" style="color: ${userInfo.grade_font_color}">
+                    <span class="userGradeSpan" style="color: ${userInfo.grade_font_color}">
                             ${userInfo.grade_discount * 100}%
                         </span> 할인
-                        <span class="userGradeSpan" style="color: ${userInfo.grade_font_color}">
+                    <span class="userGradeSpan" style="color: ${userInfo.grade_font_color}">
                             ${userInfo.grade_accrual_rate * 100}%
                         </span> 적립
-                    </c:if>
-                </div>
+                </c:if>
             </div>
-            <!-- 카테고리 구역 -->
-            <div class="categoryDiv">
+        </div>
+        <!-- 카테고리 구역 -->
+        <div class="categoryDiv">
+            <div class="sortMenuDiv">
+                <div class="sortMenuSpanDiv">
+                    <span class="sortMenuSpan">카테고리</span>
+                </div>
 
-                <div class="sortMenuDiv">
-                    <div class="sortMenuSpanDiv">
-                        <span class="sortMenuSpan">카테고리</span>
-                    </div>
-
-                    <div class="sortInnerDiv">
-                        <span class="categorySpan" data-category-id="0">All Category</span>
-                        <c:forEach var="item" items="${categoryList }">
+                <div class="sortInnerDiv">
+                    <span class="categorySpan" data-category-id="0">All Category</span>
+                    <c:forEach var="item" items="${categoryList }">
                         <span class="categorySpan"
                               data-category-id="${item.product_category_id }">${item.product_category_name }
                         </span>
-                        </c:forEach>
-                    </div>
+                    </c:forEach>
                 </div>
-
-                <div class="sortMenuDiv">
-                    <div class="sortMenuSpanDiv">
-                        <span class="sortMenuSpan">브랜드</span>
-                    </div>
-                    <div class="sortInnerDiv">
-                        <span class="brandSpan" data-brand-id="0">All Brand</span>
-                        <c:forEach var="item" items="${brandList }">
+            </div>
+            <div class="sortMenuDiv">
+                <div class="sortMenuSpanDiv">
+                    <span class="sortMenuSpan">브랜드</span>
+                </div>
+                <div class="sortInnerDiv">
+                    <span class="brandSpan" data-brand-id="0">All Brand</span>
+                    <c:forEach var="item" items="${brandList }">
                         <span class="brandSpan"
                               data-brand-id="${item.product_brand_id }">${item.product_brand_name }
                         </span>
-                        </c:forEach>
-                    </div>
+                    </c:forEach>
                 </div>
-
             </div>
-
         </div>
-    </div>
 
-</main>
-<div class=""></div>
+    </div>
+</div>
 
 <!-- 푸터 -->
 <jsp:include page="../shop_footer.jsp"/>

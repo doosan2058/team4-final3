@@ -381,7 +381,7 @@ function navInOut() {
         // 스마트폰 사이즈
         if (matchMedia("screen and (min-width:1px)").matches && matchMedia("screen and (max-width:767px)").matches ||
             matchMedia("screen and (min-width:768px)").matches && matchMedia("screen and (max-width:1023px)").matches) {
-            main.style.zIndex = '-1';
+            main.style.zIndex = '0';
             navFlag = true;
             textSpan.forEach((item) => {
                 item.style.opacity = 1;

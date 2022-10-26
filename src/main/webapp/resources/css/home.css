@@ -94,8 +94,7 @@
     align-items: center;
     color: white;
 	border: 3px solid var(--basicFontColor);
-	border-left: 0px;
-    cursor: pointer;
+	cursor: pointer;
     transition: .2s;
     overflow: hidden;
 }
@@ -105,11 +104,18 @@
 	.homeMain{
 		flex-direction: column;
 	}
+	.loginNameSpan{
+		font-size: 0.8rem;
+	}
+	.idDiv{
+		font-size: 0.5rem;
+	}
 	.shopDiv{
 		width: 100%;
 	}
 	.communityDiv{
 		width: 100%;
+		border-top: 0px;
 	}
 
 
@@ -124,6 +130,7 @@
 	}
 	.communityDiv{
 		width: 100%;
+		border-top: 0px;
 	}
 }
 /* 데스크탑 */
@@ -138,6 +145,9 @@
 	.shopDiv:hover h1, .communityDiv:hover h1{
 		transform: translate(-50%,-70%);
 		color: var(--hoverColor);;
+	}
+	.communityDiv{
+		border-left: 0px;
 	}
 }
 

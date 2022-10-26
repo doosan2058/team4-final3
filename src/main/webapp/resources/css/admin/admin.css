@@ -116,7 +116,8 @@
 .memberImg{
 	width: 50px;
 	height: 50px;
-	border-radius: 40%;
+	border-radius: 50%;
+	border: 3px solid dodgerblue;
 }
 .memberIdDiv{
 	width: 70%;
@@ -156,12 +157,14 @@
 	border: none;
 	outline: none;
 	resize: none;
-	border-bottom: 3px solid var(--mainColor);
 }
-
 #mailTextArea:focus{
 	background-color: var(--mainColor);
 }
+#mailBtn{
+	background-color: rgba(52, 52, 52, 0.8);
+}
+
 /*모니터 정보*/
 .monitorContainer{
 	display: flex;
@@ -223,6 +226,12 @@
 	.canvasWrapDiv{
 		width: 100%;
 	}
+	#mailTextArea{
+		margin-bottom: 0;
+	}
+	#mailBtn{
+		width: 100%;
+	}
 }
 /* 태블릿 */
 @media screen and (min-width:768px) and (max-width:1023px) {
@@ -246,5 +255,6 @@
 	.memberIdSpan:hover{
 		color: var(--fontColor);
 	}
+
 
 }
