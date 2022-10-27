@@ -143,10 +143,16 @@ function setOrderMassage(){
 
 /*쿠폰 컨테이너 닫는 함수 */
 function closeCouponCon(e){
-    if(e.target.className === 'couponUseCon')
-        this.style.display = 'none';
+    if(e.target.className === 'couponUseCon'){
+		couponUseCon.children[0].style.animation = 'hiddenModal 0.3s 1 forwards';
+		setTimeout(function(){
+			couponUseCon.style.display = 'none';
+		}, 301);
+
+	}
 }
 /*쿠폰 컨테이너 여는 함수 */
 function openCouponCon(){
     couponUseCon.style.display = 'block'
+	couponUseCon.children[0].style.animation = 'showModal 0.3s 1 forwards';
 }

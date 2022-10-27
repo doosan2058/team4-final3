@@ -10,7 +10,9 @@
 	font-family: 'GimpoGothicBold00';
 	src: url(/resources/font/cts2688_file2.ttf) format('truetype');
 }
-
+/* Google Font Import - Poppins */
+/* font-family: 'Poppins', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 :root{
     --mainColor : rgb(24, 24, 24);
     --subColor : rgb(59, 59, 59);
@@ -37,6 +39,17 @@ html,body{
 	min-width: 280px;
 	overflow-x: hidden;
 }
+
+body::-webkit-scrollbar{
+	width: 10px;
+}
+body::-webkit-scrollbar-track{
+	background-color: rgb(94, 94, 94);
+}
+body::-webkit-scrollbar-thumb{
+	background-color: rgba(31, 31, 31, 0.47);
+}
+
 h1, h2, h3, h4, h5, p, span, i, a{
 	color: var(--basicFontColor);
 }
@@ -87,6 +100,30 @@ a:visited{
 /*숨기기 */
 .noneClass{
 	display: none;
+}
+
+@keyframes showModal {
+	0%{
+		display: block;
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(1.1,1.1);
+	}
+	100%{
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1,1);
+	}
+}
+@keyframes hiddenModal {
+
+	0%{
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1,1);
+	}
+	100%{
+		display: block;
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(1.1,1.1);
+	}
 }
 
 /* 스마트폰 */

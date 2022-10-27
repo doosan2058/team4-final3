@@ -1,12 +1,3 @@
-/*내정보*/
-.myInfoCon{
-    width: 100%;
-    height: 700px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
 /*네비구역*/
 .navDiv{
 	width: 100%;
@@ -17,7 +8,6 @@
 	background-color: var(--sub2Color);
 	font-family: "Black Han Sans";
 }
-
 .navDiv a{
 	color: var(--basicFontColor);
 	text-decoration: none;
@@ -31,206 +21,152 @@
 	font-size: 1.5rem;
 	transition: .3s;
 }
-
+.navDiv span{
+	font-size: 0.7rem;
+}
+/*유저 정보 변경 네비*/
+.userModifyDiv{
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.userModifyDiv a{
+	display: inline-block;
+	width: calc(100% / 6);
+	padding: 7px;
+	background-color: #3f3f46;
+	text-align: center;
+	transition: .3s;
+	cursor: pointer;
+	font-family: "Black Han Sans";
+	color: var(--subFontColor);
+}
 /*사진, 유저정보 */
 .infoTopDiv{
-    width: 80%;
-    height: 50%;
-
-    display: flex;    
-    background-color: var(--subColor);
-}
-
-.infoBottomDiv{
-	background-color: var(--subColor);
+    width: 100%;
+	max-width: 1600px;
+	margin: 3rem auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	background-color: rgba(45, 45, 45, 0.64);
+	border-radius: 20px;
 }
 /*이미지*/
 .userImgDiv{
-    width: 30%;
-    height: 100%;
+    width: 400px;
+	height: 400px;
 
-    padding: 1rem;
+
 }
-
 .userImgDivInnerTop{
 	width: 100%;
 	height: 80%;
-	border-bottom: 3px solid var(--borderColor);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-
+.profileImgWrapDiv{
+	width: 260px;
+	height: 260px;
+	border-radius: 50%;
+	background: linear-gradient(blue, pink);
+	padding: 3px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#userImg{
+	width: 250px;
+	height: 250px;
+	object-fit: fill;
+	border-radius : 50%;
+	border: 3px solid white;
+}
 .userImgDivInnerBottom{
 	width: 100%;
 	height: 20%;
-	/* border: 3px solid white; */
+}
+#profileImgForm{
+	display: block;
+	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 }
-
-#userImg{
-    width: 80%;
-    height: 80%;
-    object-fit: fill;
-    /* border: 3px solid black; */
-    border-radius : 10%;
-}
-
-
-
 .imgSubmit, .imgCancel{
 	display: none;
 	text-decoration: none;
 	cursor: pointer;
 	transition: .3s;
-	color: white;
+	font-size: 0.7rem;
 }
-
-.imgSubmit:hover, .imgCancel:hover{
-	color: var(--fontColor);
-}
-
-
 .userInfoDiv{
-    width: 60%;
-    height: 100%;
-    /* border: 3px solid saddlebrown; */
-    padding: 1rem;
-    font-family: 'Black Han Sans';
+	padding: 2rem;
+}
+.userInfoDiv li{
+	margin-bottom: 1rem;
+}
+.userInfoDiv li span:first-child{
+	display: inline-block;
+	width: 100px;
+	font-weight: bolder;
+}
+.userInfoDiv li span:last-child{
+	color: var(--subFontColor);
 }
 
-.userNameSpan{
-    font-size: 2rem;
-    color: var(--fontColor);
-}
-
-.userModifyDiv{
-    /* border: 3px solid blue; */
-    width: 10%;
-    height: 100%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.userModifyDiv span{
-    margin-bottom: 1rem;
-}
-
-.infoBottomDiv{
-    width: 80%;
-    height: 40%;
-    /* border: 3px solid chocolate; */
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem;
-    
-}
-
-.userGradeDiv, .userQuoponHistoryDiv, .userOrderHistoryDiv{
-    width: 33%;
-    height: 100%;
-    /* border: 3px solid green; */
-    padding: 1rem;
-	cursor: pointer;
-	transition: .3s;
-	background-color: var(--sub2Color);
-}
-
-.userGradeDiv:hover{
-	background-color: red;
-}
-
-.userOrderHistoryDiv:hover{
-	background-color: red;
-}
-
-/*유저 활동 내역 컨테이너 */
+/*진행 주문 내역 컨테이너 */
 .userHistoryCon{
     width: 100%;
-    
-    /* border: 3px solid blue; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--subColor);
+    max-width: 1600px;
+	margin: 2rem auto;
+	border: 1px solid whitesmoke;
+	border-radius: 10px;
 }
-
-.userModifyDiv a{
-	color: white;
-	transition: .3s;
-	cursor: pointer;
-	margin-bottom: 0.5rem;
-	text-decoration: underline;
-}
-
-.userModifyDiv a:hover{
-	color: red;
+.userHistoryCon h3{
+	position: absolute;
+	transform: translate(5%, -125%);
+	color: var(--subFontColor);
 }
 /*진행중인 주문내역 */
 .deliveryHisroyDiv{
-    width: 80%;
-    height: 50%;
-    min-height: 300px;
-    max-height: 500px;
-    overflow-y: scroll;
-    /* border: 3px solid blue; */
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    background-color: var(--subColor);
-    
+    width: 95%;
+	height: 500px;
+	margin: 0 auto;
+	padding: 1rem 0;
+	overflow-y: auto;
+}
+.deliveryHisroyDiv::-webkit-scrollbar{
+	width: 10px;
+}
+.deliveryHisroyDiv::-webkit-scrollbar-track{
+	background-color: rgba(148, 148, 148, 0.78);
+}
+.deliveryHisroyDiv::-webkit-scrollbar-thumb{
+	background-color: rgba(0, 0, 0, 0.78);
 }
 /*진행주문내역 테이블*/
 .deliveryHisroyTable{
 	border-collapse: collapse;
-	color: var(--subFontColor);
-	font-size: 1.2rem;
+	width: 100%;
 	
 }
-
 .deliveryHisroyTable th{
-	font-size: 1.4rem;
-	font-family: 'GimpoGothicBold00';
-	margin-bottom: 2rem;
+	text-align: left;
+	font-weight: bolder;
+	font-size: 1.2rem;
+	width: calc(100% / 7);
 }
 .deliveryHisroyTable td{
-	padding: 0.5rem;
-	border-bottom: 3px solid var(--borderColor);
+	color: var(--subFontColor);
+	padding: 1rem 0;
 }
-/*기타 내역 */
-.etcHistoryDiv{
-    width: 80%;
-    height: 50%;
-    /* border: 3px solid red; */
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--subColor);
-    
-}
-
-.etcHistoryDiv a{
-	color: white;
-	transition: .3s;
-	cursor: pointer;
-	margin-bottom: 0.5rem;
-}
-
-.etcHistoryDiv a:hover{
-	color: red;
-}
-
-.etcHistoryDiv span{
-    margin-bottom: 1rem;
-}
-
 /*구매내역 보기 모달 컨테이너 */
 .orderHistoryModalCon{
-	
-    display: none;
+	display: none;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.21);
     backdrop-filter: blur(4px);
@@ -242,61 +178,60 @@
 }
 /*구매내역 테이블 */
 .orderHistoryDiv{
-    
-    position: absolute;
+	position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: 700px;
-    height: 500px;
-    background-color: var(--subColor);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: scroll;
-    
+    width: 80%;
+    height: 80%;
+	background-color: rgba(58, 58, 58, 0.79);
+	border-radius: 20px;
+	border: 1px solid whitesmoke;
 }
-
+.orderHistoryDiv h3{
+	position: absolute;
+	transform: translate(5%, -125%);
+	text-shadow: 0px 0px 5px black, 0px 0px 10px black;
+}
+/*진행중인 주문내역 */
+.orderHistoryTableDiv{
+	width: 95%;
+	height: 80%;
+	margin: 1rem auto;
+	overflow-y: auto;
+}
+.orderHistoryTableDiv::-webkit-scrollbar{
+	width: 10px;
+}
+.orderHistoryTableDiv::-webkit-scrollbar-track{
+	background-color: rgba(148, 148, 148, 0.78);
+}
+.orderHistoryTableDiv::-webkit-scrollbar-thumb{
+	background-color: rgba(0, 0, 0, 0.78);
+}
 .orderHistoryTable{
-    border-collapse: collapse;
+	border-collapse: collapse;
     width: 100%;
-    margin: 0 auto;
-    text-align: center;
 }
 
 .orderHistoryTable th{
-    font-size: 1.4rem;
-    padding: 1rem;
-    color: var(--subFontColor);
+	text-align: left;
+	width: 20%;
+	font-weight: bolder;
 }
 
 .orderHistoryTable td{
-	font-size: 1.2rem;
-	padding: 1rem;
-	border-bottom: 3px solid var(--mainColor);
+	padding: 1rem 0;
 }
 
-.reviewTd{
-	
+.writeReviewAnchor{
 	cursor: pointer;
 	transition: .3s;
-	
 }
-
 .reviewTd a{
 	color: white;
 	transition: .3s;
 	text-decoration: none;
-}
-
-.reviewTd a:hover{
-	color: red;
-}
-
-
-.writeReviewSpan{
-    color: var(--fontColor);
-    cursor: pointer;
 }
 
 .confirmBuy{
@@ -305,9 +240,7 @@
 	transition: .3s;
 }
 
-.confirmBuy:hover{
-	color: red;
-}
+
 
 /*회원탈퇴컨테이너*/
 .deleteMemberContainer{
@@ -317,7 +250,6 @@
 	height: 100%;
 	top: 0;
 	left: 0;
-	
 	background-color: rgba(0, 0, 0, 0.339);
     backdrop-filter: blur(4px);
 }
@@ -329,8 +261,7 @@
 	transform: translate(-50%,-50%);
 	width: 500px;
 	height: 500px;
-	border: 3px solid black;
-	background-color: white;
+	background-color: rgba(143, 143, 143, 0.62);
 	font-family: 'GimpoGothicBold00';
 }
 
@@ -340,27 +271,29 @@
 }
 .deleteInner:nth-child(1){
 	width: 100%;
-	/* border: 3px solid black; */
 	height: 10%;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: #f6f8fa;
+	background-color: rgba(246, 248, 250, 0.66);
+
 	
+}
+.deleteInner p{
+	color: var(--mainColor);
 }
 .deleteInner:nth-child(2){
 	width: 100%;
 	border-top: 2px solid #fff5ab;
 	border-bottom: 2px solid #fff5ab;
 	height: 20%;
-	background-color: #fff8c5;
+	background-color: rgba(255, 248, 197, 0.62);
 	display:flex;
 	align-items: center;
 	
 }
 .deleteInner:nth-child(3){
 	width: 100%;
-	/* border: 3px solid black; */
 	height: 30%;
 	color: rgb(35, 35, 35);
 	
@@ -383,9 +316,7 @@
 	transition: .3s;
 }
 
-.closeIcon:hover{
-	color: rgb(139, 197, 255);
-}
+
 
 .boldSpan{
 	color: black;
@@ -414,10 +345,7 @@
 	text-decoration: line-through;
 }
 
-.deleteBtns:hover {
-	background-color: var(--mainColor);
-	
-}
+
 
 .deleteInputs {
 	width: 100%;
@@ -444,10 +372,8 @@
 	height: 100%;
 	top: 0;
 	left: 0;
-	
 	background-color: rgba(0, 0, 0, 0.339);
     backdrop-filter: blur(4px);
-	
 }
 
 .changePasswordDiv{
@@ -457,16 +383,15 @@
 	transform: translate(-50%,-50%);
 	width: 500px;
 	height: 300px;
-	/* border: 3px solid black; */
-	background-color: var(--subFontColor);
+	background-color: rgba(66, 66, 66, 0.83);
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.91);
+	border-radius: 10px;
 	font-family: 'GimpoGothicBold00';
-	
 }
 
 .changePasswordInnerTop{
 	width: 100%;
 	height: 30%;
-	/* border: 3px solid red; */
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
@@ -475,18 +400,19 @@
 .changePasswordInnerBottom{
 	width: 100%;
 	height: 40%;
-	/* border: 3px solid green; */
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-around;
 }
 .changePasswordInnerResult{
 	width: 100%;
 	height: 30%;
-	border-top: 3px solid var(--borderColor);
 	padding: 1rem;
 }
-
+.pwCheckSpan{
+	color: crimson;
+}
 .myListContainer{
 	display: none;
 	position: fixed;
@@ -494,31 +420,29 @@
 	height: 100%;
 	top: 0;
 	left: 0;
-	
 	background-color: rgba(0, 0, 0, 0.339);
     backdrop-filter: blur(4px);
 }
 
 .myListDiv{
-	position: absolute;
+	position: relative;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 	width: 80%;
 	height: 80%;
-	/* border: 3px solid black; */
-	background-color: white;
-	font-family: 'GimpoGothicBold00';
-	position: relative;
-	background-color: var(--subColor);
+	background-color: rgba(44, 44, 44, 0.68);
 	color: white;
-	padding: 1rem;
 	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.myListDiv h2{
+	margin: 0.5rem 0;
 }
 
+
 .myListHeader{
-	
-	
 	width: 40px;
 	height: 40px;
 	display: flex;
@@ -530,39 +454,169 @@
 	cursor: pointer;
 	transition: .3s;
 }
-.myListHeader:hover{
-	color: var(--fontColor);
-	transform: scale(1.3,1.3);
-}
 
 .freeBoard, .camping, .review{
-	width: 33%;
+	width: 30%;
 	height: 100%;
-	/* border: 3px solid white; */
-	overflow-y: scroll;
-	
+	overflow-y: auto;
 }
 
 .lineDiv{
 	width: 100%;
-	padding: 0.5rem;
-	border-bottom: 3px solid var(--mainColor);
+	margin: 0.5rem 0;
+	padding: 0.5rem 0 0.5rem 0.5rem;
+	background-color: rgba(35, 35, 35, 0.9);
+	transition: .3s;
+	border-radius: 10px;
+	cursor: pointer;
+
 }
 .idxSpan{
 	color: var(--fontColor);
-	font-size: 1.5rem;
+	font-size: 1.2rem;
+	font-weight: bolder;
 }
 .titleSpan{
 	color: var(--subFontColor);
 }
 
+@media screen and (min-width: 1px) and (max-width: 767px) {
+	.userModifyDiv a{
+		width: calc(100% / 3);
+		font-size: 0.8rem;
+	}
+	.userImgDiv{
+		width: 100%;
+	}
+	.profileImgWrapDiv{
+		width: 240px;
+		height: 240px;
+	}
+	#userImg{
+		width: 230px;
+		height: 230px;
+	}
+	.file{
+		width: 150px;
+	}
+	.userInfoDiv li span{
+		display: inline-block;
+		width: 100%;
+	}
+	.userInfoDiv li span{
+		font-size: 0.9rem;
+	}
+	.userInfoDiv li span:last-child{
+		font-size: 0.7rem;
+	}
+	.userHistoryCon h3{
+		font-size: 0.8rem;
+	}
+	.deliveryHisroyDiv{
+		width: 95%;
+	}
+	.deliveryHisroyTable th{
+		width: calc(100% / 7);
+		font-size: 0.5rem;
+		text-align: center;
+	}
+	.deliveryHisroyTable td{
+		width: calc(100% / 7);
+		font-size: 0.5rem;
+		text-align: center;
+	}
+	.changePasswordContainer{
+		width: 100%;
+		height: 100vh;
+	}
+	.changePasswordDiv{
+		width: 95%;
+		height: 60%;
+	}
+	.changePasswordInnerTop p{
+		font-size: 0.7rem;
+	}
+	.changePasswordInnerBottom{
+		padding: 0.5rem;
+	}
+	#passwordInput, #passwordBtn{
+		width: 100%;
+	}
+	.pwCheckSpan{
+		font-size: 0.7rem;
+	}
+	.deleteMemberDiv{
+		width: 100%;
+		height: 80%;
+	}
+	.deleteInputs, .deleteBtns{
+		font-size: 0.7rem;
+	}
+	.userHistoryCon{
+		width: 95%;
+	}
+	.orderHistoryDiv h3{
+		font-size: 0.7rem;
+	}
+	.orderHistoryTable th{
+		font-size: 0.6rem;
+		text-align: center;
+	}
+	.orderHistoryTable td{
+		font-size: 0.5rem;
+	}
+	.myListDiv{
+		flex-direction: column;
+	}
+	.myListDiv h2{
+		font-size: 0.8rem;
+	}
+	.freeBoard, .camping, .review{
+		width: 100%;
+		height: 30%;
+		border: 1px solid white;
+	}
+	.idxSpan, .titleSpan{
+		font-size: 0.5rem;
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.myListDiv{
+		flex-direction: column;
+	}
+	.freeBoard, .camping, .review{
+		width: 100%;
+		height: 30%;
+		border: 1px solid white;
+	}
+}
+
 @media screen and (min-width: 1024px) {
-	.navDiv a:hover{
-		transform: translateY(-10%);
+	.imgSubmit:hover, .imgCancel:hover{
 		color: var(--fontColor);
 	}
-	.navDiv a:hover i{
+	.writeReviewAnchor:hover{
+		color: var(--fontColor)
+	}
+	.confirmBuy:hover{
 		color: var(--fontColor);
+	}
+	.closeIcon:hover{
+		color: rgb(139, 197, 255);
+	}
+	.deleteBtns:hover {
+		background-color: var(--mainColor);
+	}
+	.myListHeader:hover{
+		color: var(--fontColor);
+		transform: scale(1.3,1.3);
+	}
+	.lineDiv:hover{
+		background-color: #2e383c;
+	}
+	.userModifyDiv a:hover{
+		background-color: #50646c;
 	}
 }
 

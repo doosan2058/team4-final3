@@ -15,7 +15,6 @@ p{
 	width: 100%;
 	max-width: 1000px;
 	min-height: 500px;
-	
 	border: 3px solid white;
 	font-family: 'GimpoGothicBold00';
 	margin: 0 auto;
@@ -23,18 +22,25 @@ p{
 	color: white;
 }
 .innerTop{
-	
 	width: 100%;
 	height: 30%;
-	/* border: 3px solid blue; */
 	padding: 1rem;
 	display: flex;
+	flex-wrap: wrap;
 }
 .topLeft{
 	width: 50%;
-	max-height: 300px;
-	/* border: 3px solid black; */
 	padding: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.profileImgWrapDiv{
+	width: 310px;
+	height: 310px;
+	border-radius: 50%;
+	background: linear-gradient(blue, pink);
+	padding: 3px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -43,7 +49,6 @@ p{
 	width: 300px;
 	height: 300px;
 	border-radius: 50%;
-	border: 3px solid dodgerblue;
 }
 .topRight{
 	width: 50%;
@@ -67,9 +72,7 @@ p{
 	cursor: pointer;
 }
 
-.arrowIcon:hover{
-	color: var(--fontColor);
-}
+
 
 .innerBottom{
 	width: 100%;
@@ -82,7 +85,6 @@ p{
 .bottomLeft{
 	width: 20%;
 	height: 100%;
-	
 	padding: 1rem;
 	background-color: var(--sub2Color);
 	margin-top: 2rem;
@@ -100,8 +102,8 @@ p{
 	width: 100%;
 	height: 33%;
 	max-height: 500px;
-	overflow-y: scroll;
-	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 0 0.5rem;
 }
 .camping{
 	background-color: var(--sub2Color);
@@ -109,8 +111,8 @@ p{
 	width: 100%;
 	max-height: 500px;
 	height: 33%;
-	overflow-y: scroll;
-	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 0 0.5rem;
 }
 .qna{
 	background-color: var(--sub2Color);
@@ -118,8 +120,8 @@ p{
 	width: 100%;
 	max-height: 500px;
 	height: 33%;
-	overflow-y: scroll;
-	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 0 0.5rem;
 }
 .buy{
 	background-color: var(--sub2Color);
@@ -127,13 +129,16 @@ p{
 	width: 100%;
 	max-height: 500px;
 	height: 33%;
-	overflow-y: scroll;
-	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 0 0.5rem;
 }
 .lineDiv{
 	width: 100%;
-	padding: 0.5rem;
-	border-bottom: 3px solid var(--borderColor);
+	margin: 0.5rem 0;
+	padding: 0.5rem 0 0.5rem 0.5rem;
+	background-color: rgba(48, 52, 56, 0.69);
+	border-radius: 10px;
+	transition: .3s;
 }
 .lineDiv a span {
 	transition: .3s;
@@ -148,41 +153,77 @@ p{
 
 .subjectSpan{
 	color: var(--fontColor);
+	font-weight: bolder;
 }
 
 @media screen and (min-width: 1px) and (max-width: 767px) {
-	.profileImg{
+	.innerTop, .innerBottom{
+		padding: 0;
+	}
+	.topLeft {
+		width: 100%;
+	}
+	.topRight {
+		width: 100%;
+	}
+	.profileImgWrapDiv{
+		width: 90px;
+		height: 90px;
+	}
+	.profileImg {
 		width: 80px;
 		height: 80px;
 	}
-	.topRight span{
+
+	.topRight span {
 		font-size: 0.8rem;
 	}
-	.topRight p{
+
+	.topRight p {
 		font-size: 0.7rem;
 	}
-	.bottomLeft{
+
+	.bottomLeft {
 		width: 100%;
 	}
-	.bottomRight{
+
+	.bottomRight {
 		width: 100%;
 		padding: 0;
 	}
-	.bottomLeft span{
+
+	.bottomLeft span {
 		font-size: 0.8rem;
 	}
-	.bottomLeft p{
-		font-size: 0.7rem;
-	}
-	.bottomRight span{
+	.bottomRight h2{
 		font-size: 0.8rem;
 	}
-	.bottomRight p{
+	.bottomLeft p {
 		font-size: 0.7rem;
+	}
+
+	.bottomRight p {
+		font-size: 0.7rem;
+	}
+
+	.lineDiv {
+		font-size: 0.7rem;
+	}
+
+	.freeBoard, .camping, .qna, .buy {
+		height: 50vh;
+		justify-content: center;
 	}
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+	.innerTop, .innerBottom{
+		padding: 0rem;
+	}
+	.profileImgWrapDiv{
+		width: 160px;
+		height: 160px;
+	}
 	.profileImg{
 		width: 150px;
 		height: 150px;
@@ -192,6 +233,12 @@ p{
 @media screen and (min-width: 1023px) {
 	.lineDiv a:hover span{
 		color: var(--fontColor);
+	}
+	.arrowIcon:hover{
+		color: var(--fontColor);
+	}
+	.lineDiv:hover{
+		background-color: #626e72;
 	}
 }
 

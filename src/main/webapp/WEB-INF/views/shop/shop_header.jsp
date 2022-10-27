@@ -35,7 +35,7 @@
     <!--로그인 권한-->
     <input type="hidden" id="authCheckHiddenInput" value="${sessionScope.login_auth}">
     <div class="logo">
-        <h1>Team4</h1>
+        <h1 data-text="Camping">Camping</h1>
     </div>
     <div class="menu">
         <a id="shop" href="/shop">Shop</a>

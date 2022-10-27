@@ -117,6 +117,7 @@
             <!--상품 헤더-->
             <div class="itemAllHeader">
                 <h1>상품 목록</h1>
+                <span class="material-symbols-outlined categorySpanAnchor">youtube_searched_for</span>
             </div>
 
             <!-- 현재 페이지 정보 -->
@@ -157,10 +158,6 @@
 <!--사이드-->
 <div class="side">
     <div class="side_navBar">
-        <div class="categorySpanAnchor">
-            <span class="material-symbols-outlined">youtube_searched_for</span>
-        </div>
-
         <!-- 등급 구역 -->
         <div class="gradeDiv" style="background-color: ${userInfo.grade_color};">
             <div class="gradeInnerTop">
@@ -213,6 +210,9 @@
                         </span>
                     </c:forEach>
                 </div>
+            </div>
+            <div class="sortMenuCloseDiv">
+                <span class="material-symbols-outlined closeSideSpan">close</span>
             </div>
         </div>
 

@@ -56,9 +56,7 @@ const myListContainer = document.querySelector('.myListContainer');
 //내글보기 닫기
 const myListHeader = document.querySelector('.myListHeader');
 // ==================================================================================================
-writeReviewSpan.forEach((item) => {
-    item.addEventListener('click', writeReview);
-});
+
 
 confirmBuy.forEach((item) => {
 	item.addEventListener('click' , purchaseProduct);
@@ -88,12 +86,15 @@ myListHeader.addEventListener('click', closeList);
 // =====================================================================================================
 
 function closeList(){
-	myListContainer.style.display = 'none';
+	myListContainer.children[0].style.animation = 'hiddenModal 0.3s 1 forwards';
+	setTimeout(function(){
+		myListContainer.style.display = 'none';
+	}, 300);
 }
 
 function showList(){
-	
 	myListContainer.style.display = 'block';
+	myListContainer.children[0].style.animation = 'showModal 0.3s 1 forwards';
 }
 
 //비밀번호 체크 
@@ -113,6 +114,7 @@ function checkPw(){
 		},
 		success: function(data){
 			document.querySelector('.pwCheckSpan').innerHTML = data;
+			document.querySelector('.pwCheckSpan').style.color = 'var(--fontColor)';
 			if(document.querySelector('.pwCheckSpan').innerHTML == '일치'){
 				location.href = '/user/change_password';
 			}
@@ -122,11 +124,16 @@ function checkPw(){
 //비밀번호 변경 컨테이너 보이기
 function showChangeCon(){
 	changePasswordContainer.style.display = 'block';
+	changePasswordContainer.children[0].style.animation = 'showModal 0.3s 1 forwards';
 }
 //비밀번호 변경 컨테이너 닫기
 function closeChangeCon(e){
 	if(e.target.className == 'changePasswordContainer'){
-		changePasswordContainer.style.display = 'none';
+		changePasswordContainer.children[0].style.animation = 'hiddenModal 0.3s 1 forwards';
+		setTimeout(function(){
+			changePasswordContainer.style.display = 'none';
+		}, 300);
+
 	}
 }
 //비동기 프로필 이미지 업로드
@@ -247,22 +254,32 @@ function checkDeleteText(){
 
 //닫기 아이콘 으로 회원탈퇴창 컨테이너 닫기
 function closeIconFunc(){
-	deleteMemberContainer.style.display = 'none';
+	deleteMemberContainer.children[0].style.animation = 'hiddenModal 0.3s 1 forwards';
+	setTimeout(function(){
+		deleteMemberContainer.style.display = 'none';
+	}, 300);
 }
 
 //회원탈퇴창 컨테이너 닫기
 function closeDeleteMemberCon(e){
-	if(e.target.className == 'deleteMemberContainer')
-		this.style.display = 'none';
+	if(e.target.className == 'deleteMemberContainer'){
+		deleteMemberContainer.children[0].style.animation = 'hiddenModal 0.3s 1 forwards';
+		setTimeout(function(){
+			deleteMemberContainer.style.display = 'none';
+		}, 300);
+	}
+
 }
 //회원탈퇴창 컨테이너 열기
 function showDeleteMemberCon(){
 	deleteMemberContainer.style.display = 'block';
+	deleteMemberContainer.children[0].style.animation = 'showModal 0.3s 1 forwards';
 }
 
 //구매확정하기 글자 변경 이벤트
 function changeUpText(){
-	this.innerHTML = '구매확정';
+	if(matchMedia('screen and (min-width: 1024px)').matches)
+		this.innerHTML = '구매확정';
 }
 //구매확정하기 글자 변경 이벤트
 function changeDownText(){
@@ -271,11 +288,18 @@ function changeDownText(){
 //구매 확정 목록 보기
 function showSalesDiv(){
 	orderHistoryModalCon.style.display = 'block';
+	orderHistoryModalCon.children[0].style.animation = 'showModal 0.3s 1 forwards';
+
 }
 //구매 확정 목록 닫기
 function closeSalesDiv(e){
-	if(e.target.className == 'orderHistoryModalCon')
-		orderHistoryModalCon.style.display = 'none';
+	if(e.target.className == 'orderHistoryModalCon'){
+		orderHistoryModalCon.children[0].style.animation = 'hiddenModal 0.3s 1 forwards';
+		setTimeout(function(){
+			orderHistoryModalCon.style.display = 'none';
+		}, 300);
+	}
+
 }
 //구매 확정하기 버튼
 function purchaseProduct(){
@@ -291,7 +315,6 @@ function purchaseProduct(){
 
 //내등급 정보 보기
 function showMyGrade(){
-	
 	location.href = '/grade?member_id=' + userNameSpan.innerHTML;
 }
 //로그아웃 함수
@@ -303,7 +326,4 @@ function doLogOut(e){
 	}
 }
 
-/*리뷰 작성하러 가기 함수 */
-function writeReview(){
-    location.href = 'review.html';
-}
+

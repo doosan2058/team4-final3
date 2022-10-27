@@ -121,7 +121,7 @@
 	<!-- 회원 정보 가져오기 -->
 	<select id="selectMemberInfo" parameterType="String" resultType="com.goott.domain.MemberVO">
 		<![CDATA[
-			select member_id, member_name, member_phone, member_age, member_gender, member_postal_code, member_address,
+			select member_id, member_name, member_email, member_phone, member_age, member_gender, member_postal_code, member_address,
 				   member_email_agree, grade_id, member_purchase_point, member_write_point, member_profile_img_url
 			from t_member 
 			where member_id = #{member_id}

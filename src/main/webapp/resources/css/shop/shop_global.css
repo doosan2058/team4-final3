@@ -16,7 +16,7 @@ header a{
 	transition: .3s;
 }
 .logo{
-    width: 15%;
+    width: 25%;
     height: 100%;
     color: var(--fontColor);
     display: flex;
@@ -27,9 +27,30 @@ header a{
     background-color: var(--mainColor);
 }
 .logo h1{
-	color: var(--fontColor);
-	transition: .3s;
+    color: transparent;
+    text-decoration: none;
+    -webkit-text-stroke: 1px #fff;
+    position: relative;
+    transition: 0.3s;
 }
+.logo h1:before,
+.logo h1:after {
+    content: attr(data-text);
+    -webkit-text-stroke: 1px transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+    opacity: 0;
+}
+.logo h1:before {
+    color: royalblue;
+}
+.logo h1:after {
+    color: crimson;
+}
+
+
 
 .menu{
     width: 25%;
@@ -43,7 +64,7 @@ header a{
 }
 
 .login{
-    width: 60%;
+    width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -162,7 +183,7 @@ footer{
         width: 50%;
     }
     .logo h1{
-        font-size: 0.7rem;
+        font-size: 1rem;
     }
     .menu{
         width: 50%;
@@ -185,16 +206,50 @@ footer{
     footer p{
         font-size: 0.8rem;
     }
+    .logo h1{
+        color: #fff;
+        transform: translate(0px, 8px);
+    }
+    .logo h1:before {
+        opacity: 1;
+        transform: translate(8px, -8px);
+    }
+    .logo h1:after {
+        opacity: 1;
+        transform: translate(16px, -16px);
+    }
+
 
 }
 /* 타블렛 */
 @media screen and (min-width:768px) and (max-width:1023px) {
-
+    /*로고*/
+    .logo{
+        width: 50%;
+    }
+    .menu{
+        width: 50%;
+    }
+    .more_horiz{
+        display: block;
+    }
     .logo h1{
         font-size: 1.5rem;
     }
     .loginUserIdSpan{
         display: none;
+    }
+    .logo h1{
+        color: #fff;
+        transform: translate(0px, 8px);
+    }
+    .logo h1:before {
+        opacity: 1;
+        transform: translate(8px, -8px);
+    }
+    .logo h1:after {
+        opacity: 1;
+        transform: translate(16px, -16px);
     }
 
 }
@@ -215,6 +270,19 @@ footer{
     }
     .loginMenuAnchor:hover{
         background-color: rgba(126, 126, 126, 0.38);
+    }
+
+    .logo h1:hover {
+        color: #fff;
+        transform: translate(0px, 8px);
+    }
+    .logo h1:hover:before {
+        opacity: 1;
+        transform: translate(8px, -8px);
+    }
+    .logo h1:hover:after {
+        opacity: 1;
+        transform: translate(16px, -16px);
     }
 
 }

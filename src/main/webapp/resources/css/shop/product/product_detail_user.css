@@ -9,8 +9,8 @@ main {
 .productTop {
     width: 100%;
     height: calc(100vh - 80px);
-
     display: flex;
+
 }
 
 /*상단 왼쪽 상품 이미지 구역*/
@@ -68,7 +68,7 @@ main {
 /*상단 오른쪽 상품 설명 구역*/
 .descriptionDiv {
     width: 100%;
-    height: 80%;
+    height: 65%;
     padding: 1rem;
     display: flex;
     align-items: center;
@@ -159,7 +159,7 @@ main {
 /*상단 오른쪽 버튼 구역*/
 .btnDiv {
     width: 100%;
-    height: 15%;
+    height: 20%;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -172,6 +172,7 @@ main {
 
 /*중단*/
 .productMiddle {
+    margin-top: 5rem;
     width: 100%;
     position: relative;
 }
@@ -216,6 +217,7 @@ main {
 
 /*하단 상품 리뷰 구역*/
 .productBottom {
+    margin-top: 5rem;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -371,10 +373,8 @@ main {
 }
 
 
-.reviewsContent {
-    overflow-y: scroll;
 
-}
+
 
 .reviewsContent, .reviewsPhoto {
     width: 50%;

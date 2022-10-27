@@ -16,81 +16,113 @@
     <!-- 구글 폰트 -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-	<!--xeicon-->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
-	<title>내정보 페이지</title>
+    <!--xeicon-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
+    <title>내정보 페이지</title>
 </head>
 <body>
 <!--내정보-->
-<div class="myInfoCon">
-    <div class="navDiv">
-        <a href="/">
-			<i class="xi-home-o"></i>
-			메인
-		</a>
-        <a href="/shop">
-			<i class="xi-shop"></i>
-			쇼핑몰
-		</a>
-        <a href="/community/main">
-			<i class="xi-forum"></i>
-			커뮤니티
-		</a>
-    </div>
-    <div class="infoTopDiv">
-        <div class="userImgDiv">
 
-            <div class=userImgDivInnerTop>
+<div class="navDiv">
+    <a href="/">
+        <i class="xi-home-o"></i>
+        <span>메인</span>
+    </a>
+    <a href="/shop">
+        <i class="xi-shop"></i>
+        <span>쇼핑몰</span>
+    </a>
+    <a href="/community/main">
+        <i class="xi-forum"></i>
+        <span>커뮤니티</span>
+    </a>
+</div>
+<div class="userModifyDiv">
+    <a id="logOutBtn">로그아웃</a>
+    <a class="changePasswordAnchor">비밀번호 변경</a>
+    <a class="deleteMemberAnchor">회원탈퇴</a>
+    <a class="myListAnchor">글 내역</a>
+    <a class="userOrderHistoryDiv">구매 내역</a>
+    <a class="userGradeDiv">회원등급</a>
+</div>
+
+<div class="infoTopDiv">
+    <div class="userImgDiv">
+        <div class=userImgDivInnerTop>
+            <div class="profileImgWrapDiv">
                 <img src="${memberVO.member_profile_img_url }" alt="프로필 이미지가 없습니다." id="userImg">
-
-                <input type="hidden" value="${memberVO.member_profile_img_url }" name="member_profile_img_url"
-                       id="member_profile_img_url">
-
             </div>
-            <form id="profileImgForm">
-                <div class=userImgDivInnerBottom>
-                    <input type="hidden" value="${memberVO.member_id }" name="member_id" id="member_id">
-                    <input type="file" class="file" name="file">
-                    <a class="imgSubmit">변경</a>
-                    <a class="imgCancel">취소</a>
-                </div>
-            </form>
+            <input type="hidden" value="${memberVO.member_profile_img_url }" name="member_profile_img_url"
+                   id="member_profile_img_url">
+        </div>
 
-        </div>
-        <div class="userInfoDiv">
-            <span class="userNameSpan">${sessionScope.login_id }</span>
-            님
-            <p>Point Of Purchase : ${memberVO.member_purchase_point }</p>
-            <p>Point Of Write : ${memberVO.member_write_point }</p>
-        </div>
-        <div class="userModifyDiv">
-            <a id="logOutBtn">로그아웃</a>
-            <a class="changePasswordAnchor">비밀번호 변경</a>
-            <a class="deleteMemberAnchor">회원탈퇴</a>
+        <div class=userImgDivInnerBottom>
+            <form id="profileImgForm">
+                <input type="hidden" value="${memberVO.member_id }" name="member_id" id="member_id">
+                <input type="file" class="file" name="file">
+                <a class="imgSubmit">변경</a>
+                <a class="imgCancel">취소</a>
+            </form>
         </div>
     </div>
-
-    <div class="infoBottomDiv">
-        <div class="userGradeDiv">회원등급</div>
-        <!-- <div class="userQuoponHistoryDiv">쿠폰 사용내역</div> -->
-        <div class="userOrderHistoryDiv">구매 내역</div>
+    <div class="userInfoDiv">
+        <ul>
+            <li>
+                <span>아이디</span>
+                <span class="userNameSpan">${sessionScope.login_id }</span>
+            </li>
+            <li>
+                <span>이름</span>
+                <span>${memberVO.member_name }</span>
+            </li>
+            <li>
+                <span>전화번호</span>
+                <span>${memberVO.member_phone }</span>
+            </li>
+            <li>
+                <span>나이</span>
+                <span>${memberVO.member_age }</span>
+            </li>
+            <li>
+                <span>성별</span>
+                <span>${memberVO.member_gender }</span>
+            </li>
+            <li>
+                <span>주소지</span>
+                <span>${memberVO.member_postal_code }, ${memberVO.member_address }</span>
+            </li>
+            <li>
+                <span>이메일</span>
+                <span>${memberVO.member_email }</span>
+            </li>
+            <li>
+                <span>구매 포인트</span>
+                <span>${memberVO.member_purchase_point } p</span>
+            </li>
+            <li>
+                <span>작성 포인트</span>
+                <span>${memberVO.member_write_point } p</span>
+            </li>
+        </ul>
     </div>
 </div>
-<!--내 활동 내역-->
-<div class="userHistoryCon">
 
+
+<!--진행 주문 내역-->
+<div class="userHistoryCon">
+    <h3>현재 주문중인 상품 목록 입니다.</h3>
     <div class="deliveryHisroyDiv">
         <c:if test="${!empty orderList }">
             <table class="deliveryHisroyTable">
                 <thead>
                 <tr>
-                    <th>주문 번호</th>
-                    <th>상품 번호</th>
+                    <th>주문번호</th>
+                    <th>상품번호</th>
                     <th>주문일</th>
-                    <th>도착 예상일</th>
-                    <th>구매 금액</th>
+                    <th>도착일</th>
+                    <th>구매금액</th>
                     <th>상태</th>
-                    <th>적립 예정 포인트</th>
+                    <th>포인트</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -106,69 +138,62 @@
                         </td>
                         <td>${item.order_purchase_amount }</td>
                         <td class="confirmBuy" data-state="${item.order_state }">${item.order_state }</td>
-                        <td>${item.member_purchase_point }</td>
+                        <td>${item.member_purchase_point } p</td>
                     </tr>
                 </c:forEach>
-
                 </tbody>
             </table>
         </c:if>
         <c:if test="${empty orderList }">
             <h3>현재 주문중인 상품이 없습니다.</h3>
         </c:if>
-
-    </div>
-    <div class="etcHistoryDiv">
-        <a class="myListAnchor">글 내역</a>
-
-
     </div>
 </div>
 <!-- 구매내역 보기 모달 -->
 <div class="orderHistoryModalCon">
     <div class="orderHistoryDiv">
-
-        <c:if test="${!empty salesList }">
-            <table class="orderHistoryTable">
-                <thead>
-                <tr>
-                    <th>매출번호</th>
-                    <th>주문번호</th>
-                    <th>구매일</th>
-                    <th>리뷰작성여부</th>
-                    <th>확정일</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach var="item" items="${salesList }">
+        <h3>회원님의 전체 구매 내역 입니다.</h3>
+        <div class="orderHistoryTableDiv">
+            <c:if test="${!empty salesList }">
+                <table class="orderHistoryTable">
+                    <thead>
                     <tr>
-                        <td>${item.sales_id }</td>
-
-                        <td>${item.order_id }</td>
-                        <td>
-                            <fmt:formatDate value="${item.sales_date }"/>
-                        </td>
-                        <td class="reviewTd">
-                            <c:if test="${item.sales_review eq 'n'}">
-                                <a href="/user/review?sales_id=${item.sales_id }">작성하기</a>
-                            </c:if>
-                            <c:if test="${item.sales_review eq 'y'}">
-                                <a>작성완료</a>
-                            </c:if>
-                        </td>
-                        <td>
-                            <fmt:formatDate value="${item.sales_review_date }"/>
-                        </td>
+                        <th>매출번호</th>
+                        <th>주문번호</th>
+                        <th>구매일</th>
+                        <th>리뷰작성여부</th>
+                        <th>확정일</th>
                     </tr>
-                </c:forEach>
-                </tbody>
-            </table>
-        </c:if>
-        <c:if test="${empty salesList }">
-            <h3>회원님의 구매 내역이 없습니다.</h3>
-        </c:if>
+                    </thead>
+                    <tbody>
+                    <c:forEach var="item" items="${salesList }">
+                        <tr>
+                            <td>${item.sales_id }</td>
 
+                            <td>${item.order_id }</td>
+                            <td>
+                                <fmt:formatDate value="${item.sales_date }"/>
+                            </td>
+                            <td class="reviewTd">
+                                <c:if test="${item.sales_review eq 'n'}">
+                                    <a href="/user/review?sales_id=${item.sales_id }" class="writeReviewAnchor">작성하기</a>
+                                </c:if>
+                                <c:if test="${item.sales_review eq 'y'}">
+                                    <a style="color: rgba(121, 121, 121, 0.85);">작성완료</a>
+                                </c:if>
+                            </td>
+                            <td>
+                                <fmt:formatDate value="${item.sales_review_date }"/>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </c:if>
+            <c:if test="${empty salesList }">
+                <h3>회원님의 구매 내역이 없습니다.</h3>
+            </c:if>
+        </div>
     </div>
 </div>
 
@@ -177,11 +202,12 @@
     <!-- 회원 탈퇴 디비전 -->
     <div class="deleteMemberDiv">
         <div class="deleteInner">
-            <span> 탈퇴 하시겠어요? </span>
+            <p> 탈퇴 하시겠어요? </p>
             <span class="material-symbols-outlined closeIcon"> close </span>
-
         </div>
-        <div class="deleteInner">만약 이글을 읽지 않으면 엄청난 일이 생길수 있습니다!</div>
+        <div class="deleteInner">
+            <p>만약 이글을 읽지 않으면 엄청난 일이 생길수 있습니다!</p>
+        </div>
         <div class="deleteInner">
             <p>
                 탈퇴 신청은
@@ -237,10 +263,11 @@
             <h2>자유 게시판 글목록</h2>
             <c:forEach var="item" items="${freeMapList }">
                 <div class="lineDiv">
-                    <span class="idxSpan">${item.board_id }</span>
-                    <span class="titleSpan">${item.board_title }</span>
+                    <span class="idxSpan">${item.board_id }</span>&nbsp;
+                    <a href="/community/freeNotice/detail_user?board_id=${item.board_id}">
+                        <span class="titleSpan">${item.board_title }</span>
+                    </a>
                 </div>
-
             </c:forEach>
         </div>
         <!-- 캠핑 -->
@@ -249,7 +276,9 @@
             <c:forEach var="item" items="${campingMapList }">
                 <div class="lineDiv">
                     <span class="idxSpan">${item.camping_id }</span>
-                    <span class="titleSpan">${item.camping_title }</span>
+                    <a href="/community/freeNotice/detail_user?board_id=${item.camping_id }">
+                        <span class="titleSpan">${item.camping_title }</span>
+                    </a>
                 </div>
             </c:forEach>
         </div>
@@ -259,7 +288,9 @@
             <c:forEach var="item" items="${qnaMapList }">
                 <div class="lineDiv">
                     <span class="idxSpan">${item.qna_id }</span>
-                    <span class="titleSpan">${item.qna_title }</span>
+                    <a href="/shop/qna_detail?qna_id=${item.qna_id }">
+                        <span class="titleSpan">${item.qna_title }</span>
+                    </a>
                 </div>
             </c:forEach>
         </div>

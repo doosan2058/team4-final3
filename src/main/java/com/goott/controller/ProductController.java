@@ -137,6 +137,7 @@ public class ProductController {
         // 상품 리뷰 목록
         List<ProductReviewVO> reviewList = productService.getProductReviewList(pageReview);
         model.addAttribute("reviewList", reviewList);
+        log.info(reviewList);
         model.addAttribute("pageReview", pageReview);
         return "/shop/product/productReview";
     }

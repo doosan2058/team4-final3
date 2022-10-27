@@ -7,6 +7,7 @@
 	min-height: calc(100vh - 80px);
 	padding: 1rem;
 	text-align: center;
+
 }
 
 
@@ -15,11 +16,14 @@
 	margin: 1rem auto;
 	width: 60%;
 	border-collapse: collapse;
+	background-color: #2e383c;
+	border-radius: 20px;
 }
 #basketTable th {
 	font-size: 1.2rem;
 	color: var(--subFontColor);
 	padding: 1rem;
+	width: calc(100% / 4);
 }
 #basketTable td {
 	padding: 1rem;
@@ -34,6 +38,10 @@
 .productAnchor{
 	transition: .3s;
 }
+#deleteBtn, #buyBtn{
+	border-radius: 10px;
+
+}
 
 @media screen and (min-width: 1px) and (max-width: 767px) {
 
@@ -45,12 +53,16 @@
 	}
 	#basketTable th{
 		font-size: 0.5rem;
+		padding: 0.5rem 0;
 	}
 	#basketTable td{
 		font-size: 0.5rem;
+		padding: 0.5rem 0;
 	}
 	#deleteBtn, #buyBtn{
-		width: 50px;
+		width: 100px;
+		background-color: transparent;
+		text-decoration: underline;
 		font-size: 0.5rem;
 	}
 }

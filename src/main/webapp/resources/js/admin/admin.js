@@ -356,23 +356,6 @@ function goMemberDetailPage() {
     location.href = tempUrl;
 }
 
-//회원 목록 배경 이벤트
-function changeMemberDivBackground() {
-    //데스크탑 크기 일시
-    if (matchMedia("screen and (min-width:1024px)").matches) {
-        this.style.transform = 'translateY(-3px)';
-        this.children[1].children[0].children[0].style.color = 'var(--fontColor)';
-    }
-}
-
-//회원 목록 배경 이벤트
-function rollbackMemberDivBackground() {
-    //데스크탑 크기 일시
-    if (matchMedia("screen and (min-width:1024px)").matches) {
-        this.style.transform = 'translateY(0)';
-        this.children[1].children[0].children[0].style.color = 'var(--basicFontColor)';
-    }
-}
 
 //네비 인아웃
 function navInOut() {

@@ -190,9 +190,11 @@ function mediaQueryHeader(){
 		headerAnchorTextSpan.forEach((item) => {
 			item.style.display = 'none';
 		});
-		//로그인 구역 초기화
-		login.style.position = 'static';
-		login.style.width = '60%';
+		//로그인 구역 숨기기
+		login.style.position = 'absolute';
+		login.style.width = '100vw';
+		login.style.top = '80px';
+		login.style.right = '-100%';
 
 
 	}

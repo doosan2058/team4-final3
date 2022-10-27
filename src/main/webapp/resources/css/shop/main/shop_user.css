@@ -1,11 +1,13 @@
 /*광고*/
 .carousel {
-    margin: 0 auto;
-    width: 100%;
+    margin: 2rem auto;
+    width: 95%;
     height: 800px;
     background-color: var(--mainColor);
     position: relative;
     overflow: hidden;
+    border-radius: 15px;
+    border: 3px solid var(--basicFontColor);
 }
 .adContainer {
     width: 600%;
@@ -25,7 +27,7 @@
 .carouselImgDiv {
     width: 100%;
     height: 100%;
-    border: 3px solid var(--basicFontColor);
+
 }
 .carouselImgDiv img {
     width: 100%;
@@ -208,7 +210,10 @@ main {
 .itemAllHeader h1 {
     margin-left: 0.5rem;
 }
-
+.categorySpanAnchor{
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
 /*상품 내용*/
 .itemAllBody {
     width: 100%;
@@ -294,10 +299,11 @@ main {
 }
 /*사이드바 디비전*/
 .side {
-    width: 220px;
+    width: 10vw;
+    min-width: 280px;
     position: fixed;
     transition: .3s ease-in-out;
-    top: 0;
+    top: 160px;
     right: 0;
     transform: translateX(100%);
     z-index: 999;
@@ -307,32 +313,13 @@ main {
 .side p {
     font-size: 0.8rem;
 }
-/*사이드 버튼*/
-.categorySpanAnchor{
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    position: absolute;
-    top: 160px;
-    left: -25px;
-    background-color: var(--mainColor);
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-.categorySpanAnchor span{
-    transition: .3s;
-}
+
 .side_navBar {
     width: 100%;
     max-height: 100vh;
     background-color: var(--mainColor);
     border-radius: 4px;
     padding: 0.5rem;
-    overflow-y: scroll;
 }
 
 /*등급 구역 */
@@ -378,11 +365,17 @@ main {
 }
 /*정렬 메뉴*/
 .sortMenuDiv{
-    width: 50%;
+    width: 40%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.sortMenuCloseDiv{
+    width: 20%;
+    text-align: center;
+    padding-top: 0.6rem;
+    cursor: pointer;
 }
 .sortMenuSpanDiv{
     width: 100%;
@@ -404,6 +397,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto;
 }
 /*정렬 세부 내용 */
 .categorySpan, .brandSpan {
@@ -474,14 +468,19 @@ main {
         font-size: 3rem;
     }
     /*일반 상품*/
+    .itemAllHeader h1{
+        font-size: 1rem;
+    }
     .product {
         width: 100%;
         height: 300px;
     }
     .sortMenuDiv span{
-        font-size: 0.8rem;
+        font-size: 0.5rem;
     }
-
+    .gradeDiv{
+        display: none;
+    }
 }
 
 /* 타블렛 */

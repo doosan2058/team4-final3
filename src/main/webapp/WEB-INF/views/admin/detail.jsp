@@ -28,7 +28,10 @@
     <!-- 상단 -->
     <div class="innerTop">
         <div class="topLeft">
-            <img alt="" src="${member.member_profile_img_url }" class="profileImg">
+            <div class="profileImgWrapDiv">
+                <img alt="" src="${member.member_profile_img_url }" class="profileImg">
+            </div>
+
 
         </div>
         <div class="topRight">

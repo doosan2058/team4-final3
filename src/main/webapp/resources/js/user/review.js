@@ -80,9 +80,9 @@ function checkForm(){
 function selectSpeed(){
     speedDiv.forEach((item) => {
         item.style.backgroundColor = 'white';
-        item.style.color = 'black';
+        item.style.color = 'var(--sub2Color)';
     })
-    this.style.backgroundColor = 'black';
+    this.style.backgroundColor = 'var(--sub2Color)';
     this.style.color = 'white';
     productSpeedInput.value = this.innerHTML;
 //    console.log(`선택한 배송속도 : ${productSpeedInput.value}`);
@@ -96,7 +96,7 @@ function drawStar(e){
 
     for(let i = 0; i < star.length; i++){
         star[i].style.fontVariationSettings = `'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48`;
-        productGradeSpan.innerHTML = `${i + 1}점`;
+        productGradeSpan.innerHTML = `${i + 1}`;
         productGradeInput.value = `${i + 1}`;
         // console.log(star[i].className);
         // console.log(e.target.className);

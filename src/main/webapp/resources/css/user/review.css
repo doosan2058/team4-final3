@@ -1,96 +1,87 @@
-/*네비구역*/
-body{
-	background-color: var(--subColor);
-}
 .navDiv{
 	width: 100%;
-	height: 50px;
-	max-width: 1200px;
-	margin: 0 auto;
-	display: flex;
+	height: 80px;
+    display: flex;
 	justify-content: space-around;
     align-items: center;
     font-family: 'Black Han Sans';
-    background-color: var(--mainColor);
-    border-bottom : 3px solid var(--borderColor);
+    background-color: var(--sub2Color);
+    font-family: "Black Han Sans";
 }
 
 .navDiv a{
-	color: white;
-	text-decoration: none;
-	transition: .3s;
-	font-size: 1.5rem;
-}
-
-.navDiv a:hover{
-	color: red;
-	transform: translateY(-10%);
-}
-
-/*리뷰컨테이너*/
-.reviewCon{
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    color: white;
-   /*  border: 3px solid black; */
+    color: var(--basicFontColor);
+    text-decoration: none;
+    transition: .3s;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--sub2Color);
-    font-family: 'GimpoGothicBold00';
-    
+    justify-content: center;
+}
+
+.reviewSubTitle{
+    color: var(--subFontColor);
+    padding: 0.5rem;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.19);
+    width: 100%;
+    top: 0;
+}
+
+
+/*리뷰컨테이너*/
+.reviewCon{
+    position: relative;
+    margin: 5rem auto;
+    width: 100%;
+    max-width: 1600px;
+    display: flex;
+    flex-direction: column;
 }
 /*별점 */
 .reviewGradeDiv{
-	
+    position: relative;
     width: 100%;
-    max-width: 1200px;
-    height: 300px;
-    /* border: 3px solid dodgerblue; */
-}
+    min-height: 300px;
+    background-color: rgba(45, 45, 45, 0.78);
 
+
+}
 .productGradeSpan{
 	color: var(--fontColor);
-	font-size: 1.3rem;
+    font-weight: bolder;
+	font-size: 2rem;
 }
 
 .gradeTop{
     width: 100%;
-    height: 30%;
-   /*  border: 3px solid white; */
+    height: 20%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 2.5rem;
     color: var(--subFontColor);
 }
-
+/*별점*/
 .gradeBottom{
-    
     width: 100%;
     height: 70%;
-    /* border:3px solid red; */
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 2rem;
+    padding: 1rem;
 }
-
 .stars{
     width: 180px;
     height: 180px;
-    /* border: 3px solid blue; */
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 .stars span{
     font-size: 10rem;
-    color: rgb(199, 199, 55);
-    
+    color: rgba(199, 199, 55, 0.83);
 }
 
 .material-symbols-outlined {
@@ -103,33 +94,42 @@ body{
 
 /*배송 */
 .reviewDeliveryDiv{
+    position: relative;
     width: 100%;
-    max-width: 1200px;
-    height: 300px;
-    /* border: 3px solid orange; */
+    min-height: 300px;
+    background-color: rgba(45, 45, 45, 0.78);
+
     padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
     color: black;
+    margin-top: 5rem;
 }
 
 .speedDiv{
     width: 30%;
-    height: 50%;
-    /* border: 3px solid black; */
+    height: 100px;
+    border-radius: 10px;
     background-color: white;
     padding: 1rem;
     font-family: 'Black Han Sans';
     transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 /*리뷰작성 */
 .reviewWriteDiv{
+    position: relative;
     width: 100%;
-    max-width: 1200px;
-    height: 300px;
-    /* border: 3px solid violet; */
-    padding: 1rem;
+    min-height: 300px;
+    background-color: rgba(45, 45, 45, 0.78);
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #reviewTextArea{
@@ -137,7 +137,7 @@ body{
     height: 100%;
     padding: 0.5rem;
 	background-color: var(--sub2Color);
-	color: white;
+    color: white;
 	font-family: 'GimpoGothicBold00';
 	transition: .3s;
 	border: none;
@@ -150,35 +150,55 @@ body{
 }
 /*첨부 */
 .reviewAttachDiv{
+    position: relative;
     width: 100%;
-    max-width: 1200px;
-    height: 300px;
-    /* border: 3px solid blue; */
-    padding: 1rem;
+    min-height: 300px;
+    background-color: rgba(45, 45, 45, 0.78);
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+}
+.reviewAttachInnerDiv{
+    padding: 3rem 1rem;
+    width: 50%;
+}
+.reviewAttachInnerDiv p{
+    padding-bottom: 2rem;
 }
 /*저장하기 */
 .reviewBtnDiv{
+    position: relative;
     width: 100%;
-    max-width: 1200px;
-    
- /*    border: 3px solid yellowgreen; */
-    padding: 1rem;
+    min-height: 100px;
+    background-color: rgba(45, 45, 45, 0.78);
     display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
+    align-items: end;
     justify-content: center;
-
+    margin-top: 5rem;
 }
 
-/* #reviewBtn{
-	cursor: pointer;
-    background-color: var(--mainColor);
-    color: white;
-    padding: 0.5rem;
+@media screen and (min-width: 1px) and (max-width: 767px) {
+    .reviewAttachInnerDiv{
+        width: 100%;
+    }
+    .stars{
+        width: fit-content;
+        height: auto;
+    }
+    .stars span{
+        font-size: 2rem;
+    }
+    .reviewCon{
+        width: 95%;
+    }
+    .speedDiv{
+        font-size: 0.7rem;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .navDiv a:hover{
+        color: var(--fontColor);
+    }
 
-} */
-
-
+}
 

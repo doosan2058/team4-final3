@@ -36,6 +36,8 @@ const adNavi = document.querySelectorAll('.adNavi');
 let count = 0;
 //사이드 전역 변수
 let isSideOpen = false;
+//사이드 닫기 아이콘
+const closeSideSpan = document.querySelector('.closeSideSpan');
 // ==================================================================================================
 
 window.addEventListener('load', loadFunc);
@@ -63,7 +65,7 @@ sortMenuSpanDiv.forEach((item) => {
 
 })
 categorySpanAnchor.addEventListener('click', showCategoryDiv);
-
+closeSideSpan.addEventListener('click', showCategoryDiv);
 adNavi.forEach((item)=> {
     item.addEventListener('click', moveAd);
 })

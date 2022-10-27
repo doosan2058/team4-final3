@@ -1,14 +1,14 @@
 @charset "UTF-8";
 /*홈 컨테이너*/
 .homeContainer{
-	height: 100vh;
 	background-color: var(--mainColor);
+	height: 100vh;
 }
 /*상단*/
 .homeTop{
 	height: 80px;
 	display: flex;
-	
+	background-color: rgba(56, 56, 56, 0.2);
 }
 /*아이디 구역*/
 .idDiv{
@@ -49,88 +49,121 @@
 .homeMain{
 	height: calc(100vh - 80px);
 	display: flex;
+	flex-wrap: wrap;
 	transition: .3s;
-	
+	font-family: 'Black Han Sans';
 }
-
-.homeMain h1{
+.shopDiv, .communityDiv{
+	width: 50%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.homeImgWrapDiv{
+	position: relative;
+	width: 70%;
+	height: 70%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	transition: .3s;
+	overflow: hidden;
+}
+.homeImgWrapDiv img{
+	width: 100%;
+	height: 100%;
+	object-fit : fill;
+	transition: .3s;
+	opacity: 0;
+	filter: blur(4px);
+}
+.homeImgWrapDiv h1 {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
 	z-index: 99;
 	transition: .3s;
-	font-family: "Black Han Sans";
+	text-shadow: 0 0  30px crimson,
+	0 0  60px crimson,
+	0 0  90px crimson,
+	0 0 120px crimson;
+	animation: hue-rotate 3s linear infinite;
+	font-size: 5rem;
 }
-.homeMain img{
-	width: 100%;
-	height: 100%;
-	object-fit : fill;
+
+.homeImgWrapDiv p{
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 99;
 	transition: .3s;
-}
-/*쇼핑몰*/
-.shopDiv{
-	position: relative;
-	width: 50%;
-	height: 100%;
-	display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    border: 3px solid var(--basicFontColor);
-    cursor: pointer;
-    transition: .3s;
-    overflow: hidden;
-
+	font-size: 2rem;
+	opacity: 0;
 }
 
-/*커뮤니티*/
-.communityDiv{
-	position: relative;
-	width: 50%;
-	height: 100%;
-	display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-	border: 3px solid var(--basicFontColor);
-	cursor: pointer;
-    transition: .2s;
-    overflow: hidden;
+@keyframes hue-rotate {
+	0% {
+		filter: hue-rotate(0deg);
+	}
+	100% {
+		filter: hue-rotate(360deg);
+	}
 }
 
 /* 스마트폰 */
 @media screen and (min-width:1px) and (max-width:767px) {
-	.homeMain{
-		flex-direction: column;
-	}
-	.loginNameSpan{
-		font-size: 0.8rem;
-	}
-	.idDiv{
-		font-size: 0.5rem;
+
+	.homeTop{
+		font-size: 0.7rem;
 	}
 	.shopDiv{
 		width: 100%;
+		height: 50%;
 	}
 	.communityDiv{
 		width: 100%;
-		border-top: 0px;
+		height: 50%;
+	}
+	.homeImgWrapDiv{
+		width: 90%;
+		height: 90%;
+		box-shadow: 0px 0px 2px white, 0px 0px 4px white, 0px 0px 8px white;
+	}
+	.homeImgWrapDiv img{
+		opacity: 0.5;
+	}
+	.homeImgWrapDiv p{
+		opacity: 1;
+		font-size: 0.5rem;
 	}
 
 
 }
 /* 태블릿 */
 @media screen and (min-width:768px) and (max-width:1023px) {
-	.homeMain{
-		flex-direction: column;
-	}
+
 	.shopDiv{
 		width: 100%;
+		height: 50%;
 	}
 	.communityDiv{
 		width: 100%;
-		border-top: 0px;
+		height: 50%;
+	}
+	.homeImgWrapDiv{
+		width: 90%;
+		height: 90%;
+		box-shadow: 0px 0px 2px white, 0px 0px 4px white, 0px 0px 8px white;
+	}
+	.homeImgWrapDiv img{
+		opacity: 0.5;
+	}
+	.homeImgWrapDiv p{
+		opacity: 1;
 	}
 }
 /* 데스크탑 */
@@ -139,15 +172,14 @@
 		color: var(--hoverColor);;
 		transform: translateY(-10%);
 	}
-	.shopDiv:hover img, .communityDiv:hover img{
-		opacity: 0.2;
+	.homeImgWrapDiv:hover{
+		box-shadow: 0px 0px 2px white, 0px 0px 4px white, 0px 0px 8px white;
 	}
-	.shopDiv:hover h1, .communityDiv:hover h1{
-		transform: translate(-50%,-70%);
-		color: var(--hoverColor);;
+	.homeImgWrapDiv:hover img{
+		opacity: 0.5;
 	}
-	.communityDiv{
-		border-left: 0px;
+	.homeImgWrapDiv:hover p{
+		opacity: 1;
 	}
 }
 
