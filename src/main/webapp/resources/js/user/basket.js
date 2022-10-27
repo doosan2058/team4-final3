@@ -7,8 +7,6 @@ const buyBtn = document.querySelector('#buyBtn');
 // =====================================================
 deleteBtn.addEventListener('click', deleteBasket);
 buyBtn.addEventListener('click', buyBasket);
-
-
 // =====================================================
 
 //장바구니 삭제

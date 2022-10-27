@@ -29,58 +29,50 @@
     <main>
         <!--장바구니 컨테이너-->
         <div class="basketContainer">
-
+            <div class="basketHeader">
+                <h2>나의 장바구니</h2>
+            </div>
             <!--장바구니 상품 정보 구역-->
             <div class="basketMiddle">
                 <c:if test="${empty list }">
                     <h1>장바구니가 비었습니다.</h1>
                 </c:if>
                 <c:if test="${!empty list }">
-                    <table id="basketTable">
-                        <thead>
-                        <tr>
-                            <th></th>
-                            <th>상품사진</th>
-                            <th>상품명</th>
-                            <th>수량</th>
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <c:forEach var="item" items="${list }">
-                            <tr>
-                                <td>
-                                    <input type="radio" name="basketRadio" value="${item.basket_id }"
-                                           class="basketRadio">
-                                </td>
-                                <td>
-                                    <img src="/productImg/${item.product_img_url1 }" width="50" height="50">
-                                </td>
-                                <td>
-                                    <a href="/product/detail?product_id=${item.product_id}" class="productAnchor">
-                                            ${item.product_name }
-                                    </a>
-                                </td>
-                                <td>${item.basket_amount }</td>
-                            </tr>
-                        </c:forEach>
-
-                        <tr>
-                            <td colspan="4" class="btnTd">
-                                <input type="button" id="deleteBtn" value="삭제하기" class="formBtns">
-                                <input type="button" id="buyBtn" value="구매하기" class="formBtns">
-                            </td>
-                        </tr>
-
-
-                        </tbody>
-                    </table>
-
+                    <div id="basketTable">
+                        <div class="basketTableTop">
+                            <span></span>
+                            <span>상품사진</span>
+                            <span>상품명</span>
+                            <span>수량</span>
+                        </div>
+                        <div class="basketTableBottom">
+                            <c:forEach var="item" items="${list }">
+                                <div class="basketLineDiv">
+                                    <div class="basketLineInnerDiv">
+                                        <input type="radio" name="basketRadio" value="${item.basket_id }"
+                                               class="basketRadio">
+                                    </div>
+                                    <div class="basketLineInnerDiv">
+                                        <img src="/productImg/${item.product_img_url1 }" class="productImg">
+                                    </div>
+                                    <div class="basketLineInnerDiv">
+                                        <a href="/product/detail?product_id=${item.product_id}" class="productAnchor">
+                                                ${item.product_name }
+                                        </a>
+                                    </div>
+                                    <div class="basketLineInnerDiv">
+                                            ${item.basket_amount }
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </div>
+                    <div class="btnDiv">
+                        <input type="button" id="deleteBtn" value="삭제하기" class="formBtns">
+                        <input type="button" id="buyBtn" value="구매하기" class="formBtns">
+                    </div>
                 </c:if>
-
             </div>
-
-
         </div>
     </main>
 </form>

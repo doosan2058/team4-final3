@@ -113,39 +113,37 @@
     <h3>현재 주문중인 상품 목록 입니다.</h3>
     <div class="deliveryHisroyDiv">
         <c:if test="${!empty orderList }">
-            <table class="deliveryHisroyTable">
-                <thead>
-                <tr>
-                    <th>주문번호</th>
-                    <th>상품번호</th>
-                    <th>주문일</th>
-                    <th>도착일</th>
-                    <th>구매금액</th>
-                    <th>상태</th>
-                    <th>포인트</th>
-                </tr>
-                </thead>
-                <tbody>
+            <div class="deliveryHisroyTable">
+                <div class="deliveryHisroyTableTop">
+                    <span>주문번호</span>
+                    <span>상품번호</span>
+                    <span>주문일</span>
+                    <span>도착일</span>
+                    <span>구매금액</span>
+                    <span>상태</span>
+                    <span>포인트</span>
+                </div>
+                <div class="deliveryHisroyTableBottom">
                 <c:forEach var="item" items="${orderList }">
-                    <tr>
-                        <td>${item.order_id }</td>
-                        <td>${item.product_id }</td>
-                        <td>
+                    <div class="deliveryHisroyTableBottomLineDiv">
+                        <span>${item.order_id }</span>
+                        <span>${item.product_id }</span>
+                        <span>
                             <fmt:formatDate value="${item.order_start_date }"/>
-                        </td>
-                        <td>
+                        </span>
+                        <span>
                             <fmt:formatDate value="${item.order_end_date }"/>
-                        </td>
-                        <td>${item.order_purchase_amount }</td>
-                        <td class="confirmBuy" data-state="${item.order_state }">${item.order_state }</td>
-                        <td>${item.member_purchase_point } p</td>
-                    </tr>
+                        </span>
+                        <span>${item.order_purchase_amount }</span>
+                        <span class="confirmBuy" data-state="${item.order_state }">${item.order_state }</span>
+                        <span>${item.member_purchase_point } p</span>
+                    </div>
                 </c:forEach>
-                </tbody>
-            </table>
+                </div>
+            </div>
         </c:if>
         <c:if test="${empty orderList }">
-            <h3>현재 주문중인 상품이 없습니다.</h3>
+            <p>현재 주문중인 상품이 없습니다.</p>
         </c:if>
     </div>
 </div>
@@ -155,40 +153,40 @@
         <h3>회원님의 전체 구매 내역 입니다.</h3>
         <div class="orderHistoryTableDiv">
             <c:if test="${!empty salesList }">
-                <table class="orderHistoryTable">
-                    <thead>
-                    <tr>
-                        <th>매출번호</th>
-                        <th>주문번호</th>
-                        <th>구매일</th>
-                        <th>리뷰작성여부</th>
-                        <th>확정일</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="item" items="${salesList }">
-                        <tr>
-                            <td>${item.sales_id }</td>
+                <div class="orderHistoryTable">
+                    <div class="orderHistoryTableTop">
+                        <span>매출번호</span>
+                        <span>주문번호</span>
+                        <span>구매일</span>
+                        <span>리뷰작성</span>
+                        <span>확정일</span>
+                    </div>
 
-                            <td>${item.order_id }</td>
-                            <td>
+                    <div class="orderHistoryTableBottom">
+                        <c:forEach var="item" items="${salesList }">
+                            <div class="orderHistoryTableBottomLineDiv">
+                                <span>${item.sales_id }</span>
+
+                                <span>${item.order_id }</span>
+                                <span>
                                 <fmt:formatDate value="${item.sales_date }"/>
-                            </td>
-                            <td class="reviewTd">
+                            </span>
+                                <span class="reviewTd">
                                 <c:if test="${item.sales_review eq 'n'}">
                                     <a href="/user/review?sales_id=${item.sales_id }" class="writeReviewAnchor">작성하기</a>
                                 </c:if>
                                 <c:if test="${item.sales_review eq 'y'}">
                                     <a style="color: rgba(121, 121, 121, 0.85);">작성완료</a>
                                 </c:if>
-                            </td>
-                            <td>
+                            </span>
+                                <span>
                                 <fmt:formatDate value="${item.sales_review_date }"/>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
+                            </span>
+                            </div>
+                        </c:forEach>
+                    </div>
+
+                </div>
             </c:if>
             <c:if test="${empty salesList }">
                 <h3>회원님의 구매 내역이 없습니다.</h3>
@@ -260,39 +258,47 @@
 
         <!-- 자유 -->
         <div class="freeBoard">
-            <h2>자유 게시판 글목록</h2>
-            <c:forEach var="item" items="${freeMapList }">
-                <div class="lineDiv">
-                    <span class="idxSpan">${item.board_id }</span>&nbsp;
-                    <a href="/community/freeNotice/detail_user?board_id=${item.board_id}">
-                        <span class="titleSpan">${item.board_title }</span>
-                    </a>
-                </div>
-            </c:forEach>
+            <h3>자유 게시글 작성 목록 입니다.</h3>
+            <div class="myListDivInnerDiv">
+                <c:forEach var="item" items="${freeMapList }">
+                    <div class="lineDiv">
+                        <span class="idxSpan">${item.board_id }</span>&nbsp;
+<%--                        <a href="/community/freeNotice/detail_user?board_id=${item.board_id}">--%>
+                            <span class="titleSpan">${item.board_title }</span>
+<%--                        </a>--%>
+                    </div>
+                </c:forEach>
+            </div>
         </div>
         <!-- 캠핑 -->
         <div class="camping">
-            <h2>캠핑 게시판 글목록</h2>
-            <c:forEach var="item" items="${campingMapList }">
-                <div class="lineDiv">
-                    <span class="idxSpan">${item.camping_id }</span>
-                    <a href="/community/freeNotice/detail_user?board_id=${item.camping_id }">
-                        <span class="titleSpan">${item.camping_title }</span>
-                    </a>
-                </div>
-            </c:forEach>
+            <h3>캠핑 게시글 작성 목록 입니다.</h3>
+            <div class="myListDivInnerDiv">
+                <c:forEach var="item" items="${campingMapList }">
+                    <div class="lineDiv">
+                        <span class="idxSpan">${item.camping_id }</span>
+                        <a href="/community/freeNotice/detail_user?board_id=${item.camping_id }">
+                            <span class="titleSpan">${item.camping_title }</span>
+                        </a>
+                    </div>
+                </c:forEach>
+            </div>
+
         </div>
         <!-- 리뷰 -->
         <div class="review">
-            <h2>질문 글목록</h2>
-            <c:forEach var="item" items="${qnaMapList }">
-                <div class="lineDiv">
-                    <span class="idxSpan">${item.qna_id }</span>
-                    <a href="/shop/qna_detail?qna_id=${item.qna_id }">
-                        <span class="titleSpan">${item.qna_title }</span>
-                    </a>
-                </div>
-            </c:forEach>
+            <h3>질문 게시글 작성 목록 입니다.</h3>
+            <div class="myListDivInnerDiv">
+                <c:forEach var="item" items="${qnaMapList }">
+                    <div class="lineDiv">
+                        <span class="idxSpan">${item.qna_id }</span>
+                        <a href="/shop/qna_detail?qna_id=${item.qna_id }">
+                            <span class="titleSpan">${item.qna_title }</span>
+                        </a>
+                    </div>
+                </c:forEach>
+            </div>
+
         </div>
 
     </div>

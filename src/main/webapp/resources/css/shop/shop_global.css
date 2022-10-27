@@ -207,7 +207,7 @@ footer{
         font-size: 0.8rem;
     }
     .logo h1{
-        color: #fff;
+
         transform: translate(0px, 8px);
     }
     .logo h1:before {
@@ -240,7 +240,7 @@ footer{
         display: none;
     }
     .logo h1{
-        color: #fff;
+
         transform: translate(0px, 8px);
     }
     .logo h1:before {
@@ -273,7 +273,7 @@ footer{
     }
 
     .logo h1:hover {
-        color: #fff;
+
         transform: translate(0px, 8px);
     }
     .logo h1:hover:before {

@@ -18,7 +18,6 @@ const WS_REG = /\s/g;
 
 // ======================================================================
 member_pw.addEventListener('keyup', checkPw);
-
 member_pw2.addEventListener('keyup', checkPw2);
 cancelBtn.addEventListener('click', cancelChangePw)
 // ======================================================================
@@ -51,7 +50,6 @@ function checkForm(){
 
 ////비밀번호 입력시 정규식 + 비밀번호 확인 인풋 초기화 하는 함수
 function checkPw(){
-	
 	//비밀번호 정규식
 	//9~20 영문 소문자 + 숫자 + 특수문자의 조합
 	const PW_REG = /^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*#?&])[a-z\d@$!%*#?&]{9,20}$/;

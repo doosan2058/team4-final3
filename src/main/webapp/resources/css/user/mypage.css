@@ -122,48 +122,72 @@
 .userHistoryCon{
     width: 100%;
     max-width: 1600px;
+	height: 50vh;
 	margin: 2rem auto;
-	border: 1px solid whitesmoke;
-	border-radius: 10px;
+
 }
 .userHistoryCon h3{
-	position: absolute;
-	transform: translate(5%, -125%);
+	display: inline-block;
+	width: 100%;
+	height: 50px;
 	color: var(--subFontColor);
+	padding-left: 5px;
 }
 /*진행중인 주문내역 */
 .deliveryHisroyDiv{
-    width: 95%;
-	height: 500px;
-	margin: 0 auto;
-	padding: 1rem 0;
-	overflow-y: auto;
+    width: 100%;
+	height: calc(50vh - 50px);
 }
-.deliveryHisroyDiv::-webkit-scrollbar{
+
+.deliveryHisroyTable{
+	width: 100%;
+}
+.deliveryHisroyTableTop{
+	width: 100%;
+	height: 30px;
+	display: flex;
+}
+.deliveryHisroyTableTop span{
+	display: flex;
+	align-items: center;
+	width: calc(100% / 7);
+	height: 30px;
+	padding-left: 5px;
+	background-color: rgba(0, 0, 0, 0.43);
+}
+.deliveryHisroyTableBottom{
+	width: 100%;
+	height: calc(50vh - 80px);
+	overflow-y: scroll;
+
+}
+.deliveryHisroyTableBottom::-webkit-scrollbar{
 	width: 10px;
+	height: 100%;
 }
-.deliveryHisroyDiv::-webkit-scrollbar-track{
+.deliveryHisroyTableBottom::-webkit-scrollbar-track{
 	background-color: rgba(148, 148, 148, 0.78);
 }
-.deliveryHisroyDiv::-webkit-scrollbar-thumb{
+.deliveryHisroyTableBottom::-webkit-scrollbar-thumb{
 	background-color: rgba(0, 0, 0, 0.78);
 }
-/*진행주문내역 테이블*/
-.deliveryHisroyTable{
-	border-collapse: collapse;
+.deliveryHisroyTableBottomLineDiv{
 	width: 100%;
-	
+	height: 50px;
+	margin-bottom: 5px;
+	display: flex;
 }
-.deliveryHisroyTable th{
-	text-align: left;
-	font-weight: bolder;
-	font-size: 1.2rem;
+.deliveryHisroyTableBottomLineDiv span{
+	display: inline-block;
 	width: calc(100% / 7);
+	height: 50px;
+	padding-left: 5px;
 }
-.deliveryHisroyTable td{
-	color: var(--subFontColor);
-	padding: 1rem 0;
+.confirmBuy{
+	cursor: pointer;
+	transition: .3s;
 }
+
 /*구매내역 보기 모달 컨테이너 */
 .orderHistoryModalCon{
 	display: none;
@@ -176,16 +200,14 @@
     height: 100%;
     z-index: 99;
 }
-/*구매내역 테이블 */
 .orderHistoryDiv{
 	position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     width: 80%;
-    height: 80%;
+    height: 80vh;
 	background-color: rgba(58, 58, 58, 0.79);
-	border-radius: 20px;
 	border: 1px solid whitesmoke;
 }
 .orderHistoryDiv h3{
@@ -193,52 +215,61 @@
 	transform: translate(5%, -125%);
 	text-shadow: 0px 0px 5px black, 0px 0px 10px black;
 }
-/*진행중인 주문내역 */
 .orderHistoryTableDiv{
-	width: 95%;
-	height: 80%;
-	margin: 1rem auto;
+	width: 100%;
+	height: 100%;
+
+}
+.orderHistoryTableTop{
+	width: 100%;
+	height: 30px;
+	display: flex;
+}
+.orderHistoryTableTop span{
+	width: 25%;
+	height: 100%;
+	font-weight: bolder;
+	background-color: rgba(0, 0, 0, 0.6);
+	display: flex;
+	align-items: center;
+	padding-left: 5px;
+}
+.orderHistoryTableBottom{
+	width: 100%;
+	height: calc(80vh - 30px);
 	overflow-y: auto;
 }
-.orderHistoryTableDiv::-webkit-scrollbar{
+.orderHistoryTableBottom::-webkit-scrollbar{
 	width: 10px;
 }
-.orderHistoryTableDiv::-webkit-scrollbar-track{
+.orderHistoryTableBottom::-webkit-scrollbar-track{
 	background-color: rgba(148, 148, 148, 0.78);
 }
-.orderHistoryTableDiv::-webkit-scrollbar-thumb{
+.orderHistoryTableBottom::-webkit-scrollbar-thumb{
 	background-color: rgba(0, 0, 0, 0.78);
 }
-.orderHistoryTable{
-	border-collapse: collapse;
-    width: 100%;
+.orderHistoryTableBottomLineDiv{
+	width: 100%;
+	height: 50px;
+	display: flex;
 }
-
-.orderHistoryTable th{
-	text-align: left;
+.orderHistoryTableBottomLineDiv span{
+	display: block;
 	width: 20%;
-	font-weight: bolder;
-}
-
-.orderHistoryTable td{
-	padding: 1rem 0;
-}
-
-.writeReviewAnchor{
-	cursor: pointer;
-	transition: .3s;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	padding-left: 5px;
 }
 .reviewTd a{
 	color: white;
 	transition: .3s;
 	text-decoration: none;
 }
-
-.confirmBuy{
-	width: 100px;
+.writeReviewAnchor{
 	cursor: pointer;
-	transition: .3s;
 }
+
 
 
 
@@ -253,7 +284,6 @@
 	background-color: rgba(0, 0, 0, 0.339);
     backdrop-filter: blur(4px);
 }
-/*회원탈퇴디비전*/
 .deleteMemberDiv{
 	position: absolute;
 	top: 50%;
@@ -264,8 +294,6 @@
 	background-color: rgba(143, 143, 143, 0.62);
 	font-family: 'GimpoGothicBold00';
 }
-
-/*회원탈퇴디비전 구역 1~4*/
 .deleteInner{
 	padding: 1rem;
 }
@@ -276,8 +304,6 @@
 	align-items: center;
 	justify-content: space-between;
 	background-color: rgba(246, 248, 250, 0.66);
-
-	
 }
 .deleteInner p{
 	color: var(--mainColor);
@@ -290,15 +316,11 @@
 	background-color: rgba(255, 248, 197, 0.62);
 	display:flex;
 	align-items: center;
-	
 }
 .deleteInner:nth-child(3){
 	width: 100%;
 	height: 30%;
 	color: rgb(35, 35, 35);
-	
-	
-	
 }
 .deleteInner:nth-child(4){
 	width: 100%;
@@ -309,27 +331,20 @@
 	align-items: center;
 	justify-content: space-around;
 }
-
 .closeIcon{
 	cursor: pointer;
 	color: black;
 	transition: .3s;
 }
-
-
-
 .boldSpan{
 	color: black;
 	font-size: 1.1rem;
 }
-
 .deleteSpan{
 	color: red;
 	font-size: 1.1rem;
 	text-decoration: underline;
-	
 }
-
 .deleteBtns {
 	width: 100%;
 	height: 50px;
@@ -337,20 +352,14 @@
 	transition: .3s;
 	color: var(--subFontColor);
 	cursor: not-allowed;
-	
 	font-family: 'GimpoGothicBold00';
 	font-size: 1.1rem;
-	/* margin-bottom: 0.5rem; */
 	border: none;
 	text-decoration: line-through;
 }
-
-
-
 .deleteInputs {
 	width: 100%;
 	height: 50px;
-	/* margin-bottom: 0.5rem; */
 	padding-left: 0.5rem;
 	background-color: var(--sub2Color);
 	color: white;
@@ -359,7 +368,6 @@
 	border: none;
 	outline: none;
 }
-
 .deleteInputs:focus{
 	background-color: var(--mainColor);
 }
@@ -413,6 +421,7 @@
 .pwCheckSpan{
 	color: crimson;
 }
+/*내글 내역*/
 .myListContainer{
 	display: none;
 	position: fixed;
@@ -430,18 +439,18 @@
 	left: 50%;
 	transform: translate(-50%,-50%);
 	width: 80%;
-	height: 80%;
+	height: 80vh;
 	background-color: rgba(44, 44, 44, 0.68);
 	color: white;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
-.myListDiv h2{
-	margin: 0.5rem 0;
+.myListDiv h3{
+	display: inline-block;
+	height: 30px;
+	text-shadow: 0px 0px 5px black, 0px 0px 10px black;
 }
-
-
 .myListHeader{
 	width: 40px;
 	height: 40px;
@@ -454,26 +463,31 @@
 	cursor: pointer;
 	transition: .3s;
 }
-
 .freeBoard, .camping, .review{
 	width: 30%;
 	height: 100%;
+
+}
+.myListDivInnerDiv{
+	width: 100%;
+	height: calc(80vh - 30px);
 	overflow-y: auto;
 }
 
 .lineDiv{
 	width: 100%;
-	margin: 0.5rem 0;
-	padding: 0.5rem 0 0.5rem 0.5rem;
+	height: 50px;
 	background-color: rgba(35, 35, 35, 0.9);
 	transition: .3s;
-	border-radius: 10px;
 	cursor: pointer;
-
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	padding-left: 5px;
 }
 .idxSpan{
 	color: var(--fontColor);
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	font-weight: bolder;
 }
 .titleSpan{
@@ -509,22 +523,6 @@
 	.userInfoDiv li span:last-child{
 		font-size: 0.7rem;
 	}
-	.userHistoryCon h3{
-		font-size: 0.8rem;
-	}
-	.deliveryHisroyDiv{
-		width: 95%;
-	}
-	.deliveryHisroyTable th{
-		width: calc(100% / 7);
-		font-size: 0.5rem;
-		text-align: center;
-	}
-	.deliveryHisroyTable td{
-		width: calc(100% / 7);
-		font-size: 0.5rem;
-		text-align: center;
-	}
 	.changePasswordContainer{
 		width: 100%;
 		height: 100vh;
@@ -552,44 +550,103 @@
 	.deleteInputs, .deleteBtns{
 		font-size: 0.7rem;
 	}
-	.userHistoryCon{
+
+	/*진행 내역*/
+	.userHistoryCon h3{
+		font-size: 1rem;
+	}
+	.deliveryHisroyDiv{
+		width: 95%;
+	}
+	.deliveryHisroyTableTop span:nth-child(2){
+		display: none;
+	}
+	.deliveryHisroyTableTop span:nth-child(3){
+		display: none;
+	}
+	.deliveryHisroyTableTop span:nth-child(4){
+		display: none;
+	}
+	.deliveryHisroyTableTop span{
+		width: calc(100% / 4);
+		font-size: 0.8rem;
+	}
+	.deliveryHisroyTableBottomLineDiv span:nth-child(2){
+		display: none;
+	}
+	.deliveryHisroyTableBottomLineDiv span:nth-child(3){
+		display: none;
+	}
+	.deliveryHisroyTableBottomLineDiv span:nth-child(4){
+		display: none;
+	}
+	.deliveryHisroyTableBottomLineDiv span{
+		width: calc(100% / 4);
+		font-size: 0.7rem;
+	}
+
+	/*스마트폰 전체 구매 내역 시작*/
+	.orderHistoryDiv{
 		width: 95%;
 	}
 	.orderHistoryDiv h3{
 		font-size: 0.7rem;
 	}
-	.orderHistoryTable th{
+	.orderHistoryTableTop span{
 		font-size: 0.6rem;
-		text-align: center;
+		width: 25%;
 	}
-	.orderHistoryTable td{
+	.orderHistoryTableTop span:first-child{
+		display: none;
+	}
+	.orderHistoryTableBottom span{
 		font-size: 0.5rem;
+		width: 25%;
 	}
+	.orderHistoryTableBottom span:first-child{
+		display: none;
+	}
+
+	/*내 게시글 내역*/
 	.myListDiv{
+		width: 95%;
 		flex-direction: column;
 	}
-	.myListDiv h2{
+	.myListDiv h3{
 		font-size: 0.8rem;
 	}
 	.freeBoard, .camping, .review{
 		width: 100%;
-		height: 30%;
-		border: 1px solid white;
+		height: 33%;
+	}
+	.myListDivInnerDiv{
+		height: calc((80vh / 3) - 30px);
 	}
 	.idxSpan, .titleSpan{
-		font-size: 0.5rem;
+		font-size: 0.8rem;
 	}
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+	/*내 게시글 내역*/
 	.myListDiv{
 		flex-direction: column;
 	}
+	.myListDiv h3{
+		font-size: 0.8rem;
+	}
 	.freeBoard, .camping, .review{
 		width: 100%;
-		height: 30%;
+		height: 33%;
 		border: 1px solid white;
 	}
+	.myListDivInnerDiv{
+		height: calc((80vh / 3) - 30px);
+	}
+	.idxSpan, .titleSpan{
+		font-size: 0.8rem;
+	}
+
 }
 
 @media screen and (min-width: 1024px) {
