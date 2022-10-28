@@ -119,8 +119,9 @@ header a{
 }
 #loginShop {
     pointer-events: none;
-    background-color: rgba(61, 61, 61, 0.5);
-
+    /*background-color: rgba(61, 61, 61, 0.5);*/
+    border-bottom: 3px solid white;
+    border-radius: 0px;
 }
 
 footer{

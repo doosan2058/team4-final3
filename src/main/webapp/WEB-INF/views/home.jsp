@@ -51,7 +51,7 @@
         <div class="shopDiv">
             <div class="homeImgWrapDiv">
                 <img alt="" src="/resources/img/bg-img1.jpg">
-                <h1>쇼핑몰</h1>
+                <h1>쇼핑</h1>
                 <p>캠핑 용품을 구매하세요.</p>
             </div>
 

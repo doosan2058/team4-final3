@@ -275,6 +275,7 @@ main {
 }
 /*상품 더 불러오기 디비전*/
 .viewMoreDiv {
+    height: 50px;
     width: 100%;
     padding: 0.5rem;
     background-color: var(--subColor);
@@ -282,21 +283,22 @@ main {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    position: relative;
+    border-bottom: 1px solid white;
 }
 .moreSpan {
     display: inline-block;
     padding: 10px;
     cursor: pointer;
-    transition: .3s;
+    transition: .3s ease-in;
     font-family: 'Black Han Sans';
     font-size: 1.5rem;
+    background-color: var(--subColor);
+    position: absolute;
+    bottom: -25px;
 }
 
-.viewMoreDiv i {
-    font-size: 2rem;
-    color: var(--fontColor);
-    cursor: pointer;
-}
+
 /*사이드바 디비전*/
 .side {
     width: 10vw;
@@ -520,10 +522,9 @@ main {
     }
     .forwardSpan:hover, .backSpan:hover{
         transform: scale(1.1,1.1) translateY(-50%);
-        color: var(--hoverColor);
     }
     .moreSpan:hover {
-        background-color: rgba(38, 38, 38, 0.5);
+        color: var(--subFontColor);
     }
     .categorySpan:hover, .brandSpan:hover {
         background-color: rgba(38, 38, 38, 0.5);
