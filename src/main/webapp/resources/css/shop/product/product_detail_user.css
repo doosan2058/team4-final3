@@ -10,20 +10,19 @@ main {
     width: 100%;
     height: calc(100vh - 80px);
     display: flex;
-
 }
 
 /*상단 왼쪽 상품 이미지 구역*/
 .topLeft {
     width: 50%;
     height: 100%;
+    border: 3px solid red;
 }
 
 /*메인 이미지*/
 .mainImgDiv {
     width: 100%;
     height: 80%;
-    padding: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,9 +30,9 @@ main {
 
 .productMainImg {
     width: 100%;
-    max-width: 700px;
+    max-width: 500px;
     height: 100%;
-    max-height: 700px;
+    max-height: 500px;
     object-fit: fill;
 }
 
@@ -42,134 +41,88 @@ main {
     width: 100%;
     height: 20%;
     display: flex;
-    padding: 1rem;
+    justify-content: center;
+    align-items: center;
 }
-
+.subImgWrapDiv{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin: 0 3px;
+}
 .productSubImg {
-    width: 20%;
-    max-width: 100px;
-    height: 100%;
-    max-height: 100px;
+    width: 100px;
+    height: 100px;
     object-fit: fill;
-    margin-right: 1rem;
-}
-
-.subImgDiv img {
-    transition: .3s;
 }
 
 /*상단 오른쪽*/
 .topRight {
     width: 50%;
     height: 100%;
+    border: 3px solid blue;
+}
+.topRightTop{
+    width: 100%;
+    height: 80%;
+}
+.topRight span{
+    display: inline-block;
+    /*font-weight: bolder;*/
+    font-family: "Black Han Sans";
+    padding: 0.5rem;
+    background-color: #1c61a4;
+    color: #adadad;
+    border-radius: 20px;
+    margin: 0.5rem;
 
 }
-
-/*상단 오른쪽 상품 설명 구역*/
-.descriptionDiv {
+.topRightBottom{
     width: 100%;
-    height: 65%;
-    padding: 1rem;
+    height: 20%;
     display: flex;
     align-items: center;
 }
-
-.descriptionTable {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 700px;
-    height: 100%;
-    max-height: 700px;
-    color: var(--basicFontColor);
-    background-color: rgba(31, 31, 31, 0.72);
-}
-
-.descriptionTable td {
-    padding: 1rem;
-}
-
 /*상단 오른쪽 수량 선택 구역*/
 .quantityDiv {
-    width: 100%;
-    height: 15%;
+    width: 250px;
+    height: 100px;
     display: flex;
 }
-
-.quantityLeft {
-    width: 80%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.quantityCon {
-    width: 90%;
-    height: 70%;
-    display: flex;
-}
-
-.quantityConLeft {
-    width: 50%;
-    height: 100%;
-}
-
+/*수량 입력 텍스트*/
 #quantityText {
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 100px;
     text-align: center;
-    font-size: 1.5rem;
     background-color: var(--mainColor);
     color: var(--subFontColor);
     border: none;
     user-select: none;
 }
-
-#productPriceSpan {
-    font-size: 2rem;
-}
-
-.quantityConRight {
-    width: 20%;
-    height: 100%;
+.quantitySubDiv{
+    width: 50px;
+    height: 100px;
     display: flex;
     flex-direction: column;
 }
-
+/*수량 입력 버튼*/
 .quantityBtn {
-    width: 100%;
-    height: 50%;
+    width: 50px;
+    height: 50px;
     color: var(--basicFontColor);
     background-color: var(--sub2Color);
     transition: .3s;
     cursor: pointer;
     border: none;
 }
-
-.quantityRight {
-    width: 50%;
+/*기타 구역*/
+.orderDiv{
+    width: calc(100% - 250px);
     height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: white;
-
+    border: 3px solid red;
 }
-
-/*상단 오른쪽 버튼 구역*/
-.btnDiv {
-    width: 100%;
-    height: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.productBtn {
-    width: 100px;
-    height: 50px;
-}
-
 /*중단*/
 .productMiddle {
     margin-top: 5rem;
@@ -556,7 +509,22 @@ main {
             'opsz' 48
 }
 
+/*메인 상품 이미지 변경 애니메이션 클래스*/
+.productMainImg.changeProductMainImg{
+    animation: changeProductMainImg 1s 1 forwards;
+}
 
+/*상품 이미지 변경 애니메이션*/
+@keyframes changeProductMainImg {
+    0%{
+        transition: 0s;
+        opacity: 0;
+    }
+    100%{
+        transition: .3s ease-in;
+        opacity: 1;
+    }
+}
 @keyframes aniThumb {
     33% {
         transform: rotateZ(-15deg);
@@ -571,44 +539,7 @@ main {
 
 /* 스마트폰 */
 @media screen and (min-width: 1px) and (max-width: 767px) {
-    .productTop {
-        flex-direction: column;
-        height: fit-content;
-    }
 
-    .topLeft, .topRight {
-        width: 100%;
-    }
-
-    .descriptionDiv {
-        padding: 0;
-    }
-
-    .descriptionTable td {
-        padding: 0.5rem;
-        font-size: 0.5rem;
-    }
-
-    .quantityDiv {
-        height: 100px;
-        padding: 0;
-    }
-
-    .quantityBtn {
-        font-size: 0.5rem;
-    }
-
-    #productPriceSpan {
-        font-size: 1rem;
-    }
-
-    .btnDiv {
-        margin: 0.5rem 0;
-    }
-    #basketBtn, #submitBtn{
-        font-size: 0.8rem;
-        width: 100px;
-    }
 
     .reviewGraphDiv {
         flex-direction: column;
@@ -656,33 +587,11 @@ main {
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .productTop {
         flex-direction: column;
-        height: fit-content;
+        height: calc((100vh - 80px) * 2);
     }
 
     .topLeft, .topRight {
         width: 100%;
-    }
-
-    .descriptionDiv {
-        padding: 0rem;
-    }
-
-    .descriptionTable td {
-        padding: 0.5rem;
-        font-size: 0.8rem;
-    }
-
-    .quantityDiv {
-        height: 150px;
-        padding: 0.5rem;
-    }
-
-    #productPriceSpan {
-        font-size: 1.2rem;
-    }
-
-    .btnDiv {
-        margin: 0.5rem 0;
     }
 
     .reviewGraphDiv p, .reviewBottom p {

@@ -89,7 +89,6 @@ function closeFullImageContainer(){
 	fullImageContainer.children[1].src = '';
 }
 function reviewImageFullSize(){
-
 	if(document.querySelectorAll('.reviewImage').length > 0){
 		const reviewImage = document.querySelectorAll('.reviewImage');
 		reviewImage.forEach((item) => {
@@ -336,7 +335,10 @@ function fullHeightContainer(){
 }
 /*서브이미지에 마우스 호버시 메인 이미지 바뀌는 함수*/
 function changeMainImg(){
+	productMainImg.classList.remove('changeProductMainImg');
+	void productMainImg.offsetWidth;
     productMainImg.src = this.src;
+	productMainImg.classList.add('changeProductMainImg');
 }
 /*상품 갯수 추가 함수 */
 function quantityUp(){

@@ -40,80 +40,58 @@
                 <div class="subImgDiv">
                     <!-- 상품 이미지 1~3 -->
                     <c:if test="${product.product_img_url1 ne 'no url' }">
-                        <img src="/productImg/${product.product_img_url1 }" alt="" class="productSubImg">
+                        <div class="subImgWrapDiv">
+                            <img src="/productImg/${product.product_img_url1 }" alt="" class="productSubImg">
+                        </div>
                     </c:if>
 
                     <c:if test="${product.product_img_url2 ne 'no url' }">
-                        <img src="/productImg/${product.product_img_url2 }" alt="" class="productSubImg">
+                        <div class="subImgWrapDiv">
+                            <img src="/productImg/${product.product_img_url2 }" alt="" class="productSubImg">
+                        </div>
                     </c:if>
 
                     <c:if test="${product.product_img_url3 ne 'no url' }">
-                        <img src="/productImg/${product.product_img_url3 }" alt="" class="productSubImg">
+                        <div class="subImgWrapDiv">
+                            <img src="/productImg/${product.product_img_url3 }" alt="" class="productSubImg">
+                        </div>
                     </c:if>
                 </div>
             </div>
             <div class="topRight">
-                <div class="descriptionDiv">
-                    <table class="descriptionTable">
-                        <tr>
-                            <td id="productNameTd"> 이름 : ${product.product_name }</td>
-                        <tr>
-                        <input type="hidden" id="priceHiddenInput" value="${product.product_price}">
-                            <td>
-                                가격 :
-                                <span id="productPriceTd">
-                                    <fmt:formatNumber value="${product.product_price}" type="number"/>
-                                    원
-                                </span>
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <!-- 상품 코멘트가 있을때만 표시 -->
-                            <!-- 상품 코멘트 없을때 == no comment -->
-                            <c:if test="${product.product_comment ne 'no comment' }">
-                                <td>설명 : ${product.product_comment }</td>
-                            </c:if>
-                            <c:if test="${product.product_comment eq 'no comment' }">
-                                <td>설명 : no comment</td>
-                            </c:if>
-                        </tr>
-                        <tr>
-                            <td>배송일 : ${product.product_delivery_day } 일</td>
-                        </tr>
-                        <tr>
-                            <td>카테고리 : ${product.product_category_id } / 제조사 : ${product.product_brand_id }</td>
-                        </tr>
-                        <tr>
-                            <td>재고 : ${product.product_stock }</td>
-                        </tr>
-                        <tr>
-                            <td>유튜브 링크 : ${product.product_youtube_url }</td>
-                        </tr>
-                    </table>
+                <div class="topRightTop">
+                    <span id="productNameTd">${product.product_name }</span>
+                    <input type="hidden" id="priceHiddenInput" value="${product.product_price}">
+                    <span id="productPriceTd">
+                    <fmt:formatNumber value="${product.product_price}" type="number"/>원
+                </span>
+                    <span>배송에 ${product.product_delivery_day }일 걸려요</span>
+                    <span>${product.product_category_id }</span>
+                    <span>${product.product_brand_id }</span>
+                    <span>${product.product_stock }개 남았어요</span>
+                    <span>${product.product_comment }</span>
+                    <span>${product.product_youtube_url }</span>
                 </div>
-                <div class="quantityDiv">
-                    <div class="quantityLeft">
-                        <div class="quantityCon">
-                            <div class="quantityConLeft">
-                                <!-- 상품 수량 -->
-                                <input type="text" id="quantityText" value="1" name="order_quantity">
-                            </div>
-                            <div class="quantityConRight">
-                                <input type="button" value="추가" class="quantityBtn" id="quantityUpBtn">
-                                <input type="button" value="제거" class="quantityBtn" id="quantityDownBtn">
-                            </div>
+
+                <div class="topRightBottom">
+                    <!-- 상품 수량 -->
+                    <div class="quantityDiv">
+                        <input type="text" id="quantityText" value="1" name="order_quantity">
+                        <div class="quantitySubDiv">
+                            <input type="button" value="추가" class="quantityBtn" id="quantityUpBtn">
+                            <input type="button" value="제거" class="quantityBtn" id="quantityDownBtn">
                         </div>
                     </div>
-                    <div class="quantityRight">
+                    <!--기타 구역-->
+                    <div class="orderDiv">
+                        <!--상품 가격 -->
                         <span id="productPriceSpan"></span>
+                        <!--장바구니 담기는 ajax-->
+                        <input type="button" value="장바구니 담기" class="formBtns" id="basketBtn">
+                        <!--구매하기는 submit-->
+                        <input type="submit" value="구매하기" class="formBtns" id="submitBtn">
                     </div>
-                </div>
-                <div class="btnDiv">
-                    <!--장바구니 담기는 ajax-->
-                    <input type="button" value="장바구니 담기" class="formBtns" id="basketBtn">
-                    <!--구매하기는 submit-->
-                    <input type="submit" value="구매하기" class="formBtns" id="submitBtn">
                 </div>
             </div>
         </div>
@@ -227,7 +205,8 @@
                                     <p>리뷰 이미지를 업로드 하지 않았습니다.</p>
                                 </c:if>
                                 <c:if test="${item.product_review_img_url ne 'no url'}">
-                                    <img alt="이미지 준비중" src="/reviewFiles/${item.product_review_img_url }" class="reviewImage">
+                                    <img alt="이미지 준비중" src="/reviewFiles/${item.product_review_img_url }"
+                                         class="reviewImage">
                                 </c:if>
                             </div>
                             <div class="reviewsPhotoInner reviewsPhotoInnerVideo">
