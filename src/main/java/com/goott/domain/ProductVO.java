@@ -6,31 +6,6 @@ import lombok.Data;
 
 @Data
 public class ProductVO {
-	/**
-	 * 상품 엔티티
-	 *  product_id int unsigned  primary key auto_increment comment "상품 pk",
-		product_category_id int unsigned, 
-		product_brand_id int unsigned,
-		product_limited varchar(3) not null comment "한정판 여부(일반/한정판)",
-		product_stock int unsigned not null comment "재고량",
-		product_name varchar(20) not null comment "상품 이름",
-		product_comment varchar(200) not null comment "상품 설명",
-		product_price int unsigned not null comment "상품 가격",
-		product_thumbnail_img_url varchar(100) not null comment "상품 썸네일 이미지 주소",
-		product_img_url1 varchar(100) not null comment "상품 이미지 주소1",
-		product_img_url2 varchar(100) not null comment "상품 이미지 주소2",
-		product_img_url3 varchar(100) not null comment "상품 이미지 주소3",
-		product_description_img_url1 varchar(100) not null comment "상품 설명 이미지 주소1",
-		product_description_img_url2 varchar(100) not null comment "상품 설명 이미지 주소2",
-		product_youtube_url varchar(100) not null comment "상품 유튜브 주소",
-		product_regdate datetime default now() comment "상품 등록일",
-		product_delivery_day int unsigned not null comment "상품 배송기간", 
-		product_delete varchar(1) not null default "n" comment  "상품 공개 여부(y/n)",
-		
-		foreign key (product_category_id) references t_product_category (product_category_id),
-		foreign key (product_brand_id) references t_product_brand (product_brand_id)
-	 * 
-	 */
 	private int product_id; //상품 pk
 	private int product_category_id; //상품 카테고리 FK
 	private int product_brand_id; //상품 브랜드 FK
@@ -49,7 +24,8 @@ public class ProductVO {
 	private Date product_regdate; //상품 등록일
 	private int product_delivery_day; //상품 배송기간
 	private String product_delete; //상품 공개 여부(y/n)
-	
+	private String product_category_name;
+	private String product_brand_name;
 	
 	//주소 입력 안했을시 초기화
 	public ProductVO() {

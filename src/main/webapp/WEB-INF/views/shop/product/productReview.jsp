@@ -50,7 +50,7 @@
 				<div class="reviewsPhotoInner reviewsPhotoInnerPhoto">
 					<!-- 조건 처리 작업 -->
 					<c:if test="${item.product_review_img_url eq 'no url'}">
-						<p>리뷰 이미지를 업로드 하지 않았습니다.</p>
+						<p></p>
 					</c:if>
 					<c:if test="${item.product_review_img_url ne 'no url'}">
 						<img alt="이미지 준비중" src="/reviewFiles/${item.product_review_img_url }" class="reviewImage">
@@ -62,7 +62,7 @@
 				<div class="reviewsPhotoInner reviewsPhotoInnerVideo">
 					<!-- 조건 처리 작업 -->
 					<c:if test="${item.product_review_video_url eq 'no url' }">
-						<p>리뷰 동영상을 업로드 하지 않았습니다.</p>
+						<p></p>
 					</c:if>
 					<c:if test="${item.product_review_video_url ne 'no url' }">
 						<video controls width="100%" height="100%">

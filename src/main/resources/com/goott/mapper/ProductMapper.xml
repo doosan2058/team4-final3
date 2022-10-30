@@ -49,25 +49,31 @@
     <!-- 상품 자세히  -->
     <select id="get" parameterType="_int" resultType="com.goott.domain.ProductVO">
 		<![CDATA[
-        select product_id,
-               product_category_id,
-               product_brand_id,
-               product_limited,
-               product_stock,
-               product_name,
-               product_comment,
-               product_price,
-               product_thumbnail_img_url,
-               product_img_url1,
-               product_img_url2,
-               product_img_url3,
-               product_description_img_url1,
-               product_description_img_url2,
-               product_youtube_url,
-               product_regdate,
-               product_delivery_day,
-               product_delete
-        from t_product
+        select p.product_id                   as product_id,
+               p.product_category_id          as product_category_id,
+               p.product_brand_id             as product_brand_id,
+               p.product_limited              as product_limited,
+               p.product_stock                as product_stock,
+               p.product_name                 as product_name,
+               p.product_comment              as product_comment,
+               p.product_price                as product_price,
+               p.product_thumbnail_img_url    as product_thumbnail_img_url,
+               p.product_img_url1             as product_img_url1,
+               p.product_img_url2             as product_img_url2,
+               p.product_img_url3             as product_img_url3,
+               p.product_description_img_url1 as product_description_img_url1,
+               p.product_description_img_url2 as product_description_img_url2,
+               p.product_youtube_url          as product_youtube_url,
+               p.product_regdate              as product_regdate,
+               p.product_delivery_day         as product_delivery_day,
+               p.product_delete               as product_delete,
+               b.product_brand_name           as product_brand_name,
+               c.product_category_name        as product_category_name
+        from t_product p
+                 inner join t_product_brand b
+                            on p.product_brand_id = b.product_brand_id
+                 inner join t_product_category c
+                            on p.product_category_id = c.product_category_id
         where product_id = #{product_id}
         ]]>
 	</select>
@@ -118,13 +124,13 @@
 					order by product_id limit #{startNum},#{endNum}
 					]]>
         </if>
-		<if test="category_id != 0 and brand_id != 0">
-			<![CDATA[
+        <if test="category_id != 0 and brand_id != 0">
+            <![CDATA[
 					where product_category_id = #{category_id}
 					and product_brand_id = #{brand_id}
 					order by product_id limit #{startNum},#{endNum}
 					]]>
-		</if>
+        </if>
 
     </select>
     <!-- 전체 페이지 수 유저 -->
@@ -239,20 +245,20 @@
     <select id="selectReviewAll" parameterType="com.goott.domain.PageReview"
             resultType="com.goott.domain.ProductReviewVO">
 		<![CDATA[
-        select r.product_review_id as product_review_id,
-               r.product_id as product_id,
-               r.member_id as member_id,
-               r.product_review_regdate as product_review_regdate,
-               r.product_review_text as product_review_text,
-               r.product_review_grade as product_review_grade,
-               r.product_review_helpful as product_review_helpful,
-               r.product_review_img_url as product_review_img_url,
+        select r.product_review_id        as product_review_id,
+               r.product_id               as product_id,
+               r.member_id                as member_id,
+               r.product_review_regdate   as product_review_regdate,
+               r.product_review_text      as product_review_text,
+               r.product_review_grade     as product_review_grade,
+               r.product_review_helpful   as product_review_helpful,
+               r.product_review_img_url   as product_review_img_url,
                r.product_review_video_url as product_review_video_url,
-               r.product_review_speed as product_review_speed,
-               m.member_profile_img_url as member_profile_img_url
+               r.product_review_speed     as product_review_speed,
+               m.member_profile_img_url   as member_profile_img_url
         from t_product_review r
-        inner join t_member m
-        on r.member_id = m.member_id
+                 inner join t_member m
+                            on r.member_id = m.member_id
         where r.product_id = #{product_id} limit #{searchStartNum}
             , #{searchCount}
         ]]>

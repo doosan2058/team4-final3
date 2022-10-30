@@ -6,10 +6,9 @@
 	position: fixed;
 	top: 40px;
 	right: 20px;
-	/* border: 3px solid pink; */
-	width: 200px;
-	height: 50px;
-	color: black;
+    width: 150px;
+	height: 40px;
+    background-color: rgba(0, 0, 0, 0.19);
 }
 
 .one{
@@ -17,142 +16,114 @@
 }	
 
 .oneDot{
-	/* animation: colorChange 1s leaner infinite normal forwards; */
-	animation: colorChange 1s infinite linear alternate;
+    animation: colorChange 1s infinite linear alternate;
 }
 
 @keyframes colorChange {
 	0%{
-		color: yellow;
+		color: var(--fontColor);
 	}
 	
 	50%{
 		color: white;
 	}
 }
-
-h1,h2,h3,h4{
-	font-family: 'GimpoGothicBold00';
-	color: var(--subFontColor);
+h3, h4, p{
+    margin: 0.5rem 0;
 }
-
-p{
-	font-family: 'GimpoGothicRegular00';
+input[type="checkbox"]{
+    margin: 0 1rem;
+    width: 20px;
+    height: 20px;
 }
-
 /*회원가입 컨테이너 */
 .loginContainer{
     margin: 0 auto;
+    width: 90%;
+    max-width: 1600px;
+    height: 100vh;
+}
+/*회원가입 헤더 */
+.loginHeader{
     width: 100%;
-    max-width: 1200px;
-    min-height: 800px;
-    /* border: 3px solid black; */
-    padding: 1rem;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
-
-.loginContainer h2, .loginContainer h3, .loginContainer h4, .loginContainer p{
-    margin-top: 0.5rem;
+/*모두 동의 */
+.allAgreeDiv{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
 }
-
-/*모두 동의 체크 박스 */
-#allAgreeCheckBox{
-    width: 20px;
-    height: 20px;   
+.allAgreeDiv p{
+    font-weight: bolder;
 }
-
 /*수집 동의 체크 박스들 */
 .agreeCheckBoxs{
     width: 20px;
     height: 20px;   
 }
-
-/*회원가입 헤더 */
-.loginHeader{
-    display: flex;
-    justify-content: center;
-    /* border: 3px solid aqua; */
-    font-size: 2rem;
-    color: white;
-}
-
-/*모두 동의 */
-.allAgreeDiv{
-    /* border: 3px solid saddlebrown; */
-    display: flex;
-    
-}
-
-/*모두 동의 왼쪽, 오른쪽 */
-.allAgreeDivLeft, .allAgreeDivRight{
-    height: 100%;
-    padding: 1rem;
-}
-
-.allAgreeDivLeft{
-    width: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.allAgreeDivRight{
-    width: 95%;
-    
-}
 /*사이트 이용약관 동의 */
 .serviceAgreeDiv{
-    /* border: 3px solid green; */
-    display: flex;
-    height: 100%;
-    
+    width: 100%;
+    height: 500px;
+    margin-top: 1rem;
 }
-/*사이트 이용약관 동의 왼쪽, 오른쪽 */
-.serviceAgreeDivLeft, .serviceAgreeDivRight{
-    height: 100%;
-    padding: 1rem;
-}
-
-.serviceAgreeDivLeft{
-    width: 5%;
+.serviceAgreeDivTop{
+    width: 100%;
+    height: 40px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    background-color: var(--sub2Color);
 }
-
-
-
-.serviceAgreeDivRight{
-    width: 95%;
-    max-height: 300px;
-    overflow-y: scroll;
+.serviceAgreeDivBottom{
+    width: 100%;
+    height: 460px;
+    overflow-y: auto;
+    padding: 0 1rem;
+}
+.serviceAgreeDivBottom::-webkit-scrollbar{
+    width: 10px;
+}
+.serviceAgreeDivBottom::-webkit-scrollbar-track{
+    background-color: rgb(94, 94, 94);
+}
+.serviceAgreeDivBottom::-webkit-scrollbar-thumb{
+    background-color: rgba(31, 31, 31, 0.47);
 }
 /*개인정보 수집 동의 */
 .personalAgreeDiv{
-    /* border: 3px solid blue; */
-    display: flex;
-    height: 100%;
-    
+    width: 100%;
+    height: 500px;
+    margin-top: 1rem;
 }
-/*개인정보 수집 동의 왼쪽, 오른쪽 */
-.personalAgreeDivLeft, .personalAgreeDivRight{
-    height: 100%;
-    padding: 1rem;
-}
-
-.personalAgreeDivLeft{
-    width: 5%;
+.personalAgreeDivTop{
+    width: 100%;
+    height: 40px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    background-color: var(--sub2Color);
 }
 
-.personalAgreeDivRight{
-    width: 95%;
-    max-height: 300px;
-    overflow-y: scroll;
+.personalAgreeDivBottom{
+    width: 100%;
+    height: 460px;
+    overflow-y: auto;
+    padding: 0 1rem;
 }
-
+.personalAgreeDivBottom::-webkit-scrollbar{
+    width: 10px;
+}
+.personalAgreeDivBottom::-webkit-scrollbar-track{
+    background-color: rgb(94, 94, 94);
+}
+.personalAgreeDivBottom::-webkit-scrollbar-thumb{
+    background-color: rgba(31, 31, 31, 0.47);
+}
 .personalAgreeTable{
     border-collapse: collapse;
     margin-top: 0.5rem;
@@ -163,38 +134,80 @@ p{
     border: 1px solid var(--borderColor);
     padding: 0.5rem;
 }
+.personalAgreeTable th{
+    font-weight: bolder;
+}
 
 /*프로모션 email 수신 동의 */
 .emailAgreeDiv{
-    /* border: 1px solid var(--mainColor); */
-    display: flex;
-    height: 100%;
-    
+    width: 100%;
+    height: 100px;
+    margin-top: 1rem;
 }
-/*프로모션 email 수신 동의 왼쪽, 오른쪽 */
-.emailAgreeDivLeft, .emailAgreeDivRight{
-    height: 100%;
-    padding: 1rem;
-}
-
-.emailAgreeDivLeft{
-    width: 5%;
+.emailAgreeDivTop{
+    width: 100%;
+    height: 40px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    background-color: var(--sub2Color);
 }
-
-.emailAgreeDivRight{
-    width: 95%;
-    max-height: 300px;
-    overflow-y: scroll;
+.emailAgreeDivBottom{
+    width: 100%;
+    height: 60px;
+    overflow-y: auto;
+    padding: 0 1rem;
+}
+.emailAgreeDivBottom::-webkit-scrollbar{
+    width: 10px;
+}
+.emailAgreeDivBottom::-webkit-scrollbar-track{
+    background-color: rgb(94, 94, 94);
+}
+.emailAgreeDivBottom::-webkit-scrollbar-thumb{
+    background-color: rgba(31, 31, 31, 0.47);
 }
 
 /* 다음으로 넘어가기 버튼 구역 */
 .btnDiv{
-   /*  border: 3px solid burlywood; */
+    width: 100%;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+}
+
+@media screen and (min-width: 1px) and (max-width: 767px) {
+    h2{
+        font-size: 0.7rem;
+    }
+    h3{
+        font-size: 0.6rem;
+    }
+    h4{
+        font-size: 0.5rem;
+    }
+    p{
+        font-size: 0.5rem;
+    }
+    .personalAgreeTable{
+        font-size: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    h2{
+        font-size: 1rem;
+    }
+    h3{
+        font-size: 0.9rem;
+    }
+    h4{
+        font-size: 0.8rem;
+    }
+    p{
+        font-size: 0.7rem;
+    }
+    .personalAgreeTable{
+        font-size: 0.7rem;
+    }
 }

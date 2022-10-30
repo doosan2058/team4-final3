@@ -225,8 +225,6 @@
         </div>
         <div class="deleteInner">
             <input type="text" class="deleteInputs">
-            <!-- <input type="button" class="deleteBtns" value="상기 내용에 동의하고, 삭제 신청합니다." disabled="disabled"> -->
-
             <button class="deleteBtns" disabled="disabled">상기 내용에 동의하고, 삭제 신청합니다.</button>
         </div>
     </div>
@@ -263,9 +261,9 @@
                 <c:forEach var="item" items="${freeMapList }">
                     <div class="lineDiv">
                         <span class="idxSpan">${item.board_id }</span>&nbsp;
-<%--                        <a href="/community/freeNotice/detail_user?board_id=${item.board_id}">--%>
+                        <a href="/community/freeNotice/detail_user?board_id=${item.board_id}">
                             <span class="titleSpan">${item.board_title }</span>
-<%--                        </a>--%>
+                        </a>
                     </div>
                 </c:forEach>
             </div>

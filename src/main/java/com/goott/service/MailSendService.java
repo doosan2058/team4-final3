@@ -35,7 +35,9 @@ public class MailSendService {
 		String to = member_email;
 		String subject = "팀4 프로젝트 회원가입 인증 이메일 입니다.";
 		String text = "인증 번호는 [ " + code + " ] 입니다.";
+		//인증 메일 전송
 		mailSend(from, to, subject, text);
+		//확인 코드 auth_mail.jsp 로 전송
 		return code;
 	}
 	/**

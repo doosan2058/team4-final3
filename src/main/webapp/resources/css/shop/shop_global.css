@@ -44,10 +44,10 @@ header a{
     opacity: 0;
 }
 .logo h1:before {
-    color: royalblue;
+    color: rgb(65, 105, 225);
 }
 .logo h1:after {
-    color: crimson;
+    color: rgb(220, 20, 60);
 }
 
 

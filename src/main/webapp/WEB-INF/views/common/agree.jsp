@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="/resources/css/common/agree.css">
 <!-- 글로벌 css -->
 <link rel="stylesheet" href="/resources/css/global.css">
-<!-- 구글 아이콘 닷닷닷 -->
+<!-- 구글 아이콘 -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 <title>회원가입</title>
@@ -19,10 +19,10 @@
 <body>
 	<!-- 진행상태 -->
 	<div class="progressDiv">
-		<span class="material-symbols-outlined one"> looks_one </span> 
-		<span class="material-symbols-outlined oneDot"> more_horiz </span> 
-		<span class="material-symbols-outlined"> looks_two </span> 
-		<span class="material-symbols-outlined"> more_horiz </span> 
+		<span class="material-symbols-outlined one"> looks_one </span>
+		<span class="material-symbols-outlined oneDot"> more_horiz </span>
+		<span class="material-symbols-outlined"> looks_two </span>
+		<span class="material-symbols-outlined"> more_horiz </span>
 		<span class="material-symbols-outlined"> looks_3 </span>
 	</div>
 	<!--회원가입 컨테이너-->
@@ -34,34 +34,28 @@
 		<!--모두 동의-->
 		<div class="allAgreeDiv">
 
-			<div class="allAgreeDivLeft">
 				<input type="checkbox" id="allAgreeCheckBox">
-			</div>
 
-			<div class="allAgreeDivRight">
-				<h1>
-					<span class="EmphasisSpan">(필수)</span>사이트 이용약관, <span class="EmphasisSpan">(필수)</span>개인정보 수집 및 이용, (선택)프로모션 정보 email 수신 에 모두 동의합니다.
-				</h1>
-			</div>
+				<p>
+					(필수) 약관과 (선택) 약관에 모두 동의합니다.
+				</p>
 
 		</div>
 		<!--사이트 이용약관 동의-->
 		<div class="serviceAgreeDiv">
-
-			<div class="serviceAgreeDivLeft">
+			<div class="serviceAgreeDivTop">
 				<input type="checkbox" class="agreeCheckBoxs">
+				<h2>
+					(필수)서비스 이용약관
+				</h2>
 			</div>
 			<!--사이트 이용약관 동의 오른쪽-->
-			<div class="serviceAgreeDivRight">
+			<div class="serviceAgreeDivBottom">
 				<!--
 		                    장 : h3
 		                    조 : h4
 		                    본문 : p
                 -->
-				<h2>
-					<span class="EmphasisSpan">(필수)</span>서비스 이용약관
-				</h2>
-
 				<h3>제 1 장 일반 조건</h3>
 
 				<h4>제 1 조 (목적)</h4>
@@ -316,20 +310,20 @@
 		<!--사이트 이용약관 동의 끝-->
 		<!--개인정보 수집 동의-->
 		<div class="personalAgreeDiv">
-
-			<div class="personalAgreeDivLeft">
+			<div class="personalAgreeDivTop">
 				<input type="checkbox" class="agreeCheckBoxs">
+				<h2>
+					(필수)개인정보 수집 및 이용에 대한 안내
+				</h2>
 			</div>
 			<!--사이트 이용약관 동의 오른쪽-->
-			<div class="personalAgreeDivRight">
+			<div class="personalAgreeDivBottom">
 				<!--
                     장 : h3
                     조 : h4
                     조항 : p
                 -->
-				<h2>
-					<span class="EmphasisSpan">(필수)</span>개인정보 수집 및 이용에 대한 안내
-				</h2>
+
 				<h3>개인정보의 수집 및 이용 내역</h3>
 				<p>팀4프로젝트 서비스(이하 "서비스")는 개인정보를 다음의 목적을 위해 처리합니다. 처리한 개인정보는 목적 이외의 용도로는 사용되지 않으며 이용 목적이 변경될 시에는 사전동의를 구할 예정입니다.</p>
 				<p>① 서비스는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집시에 동의 받은 개인정보 보유, 이용기간 내에서 개인정보를 처리, 보유합니다.</p>
@@ -371,17 +365,18 @@
 		<!--프로모션 email 수신 동의-->
 		<div class="emailAgreeDiv">
 
-			<div class="emailAgreeDivLeft">
+			<div class="emailAgreeDivTop">
 				<input type="checkbox" class="agreeCheckBoxs">
+				<h2>(선택)프로모션 email 수신</h2>
 			</div>
 			<!--프로모션 email 수신 동의 오른쪽-->
-			<div class="emailAgreeDivRight">
+			<div class="emailAgreeDivBottom">
 				<!--
                     장 : h3
                     조 : h4
                     조항 : p
                 -->
-				<h3>(선택)프로모션 email 수신</h3>
+
 				<p>사이트에서 제공하는 이벤트/혜택 등 다양한 정보를 이메일로 받아보실 수 있습니다. 일부 서비스(별도 회원 체계로 운영하거나 sns계정 가입 이후 이용하는 서비스 등)의 경우, 개별 서비스에 대해 별도 수신 동의를 받을 수 있으며, 이때에도 수신 동의에 대해 별도로 안내하고 동의를 받습니다.</p>
 
 			</div>

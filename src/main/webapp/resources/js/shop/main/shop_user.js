@@ -83,6 +83,8 @@ function moveAd(){
 }
 //시작 함수
 function loadFunc() {
+
+
     /* 광고 복사 (1 뒤 , 5 앞) */
     let firstAd = adContainer.children[0].cloneNode(true);
     adContainer.append(firstAd);

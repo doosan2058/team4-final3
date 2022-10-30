@@ -1,39 +1,32 @@
-body{
-	background-color: var(--subColor);
-}
-
 /*진행상태*/
 .progressDiv{
 	display: flex;
 	justify-content: space-around;
-    align-items: center;
+	align-items: center;
 	position: fixed;
 	top: 40px;
 	right: 20px;
-	/* border: 3px solid pink; */
-	width: 200px;
-	height: 50px;
-	color: black;
+	width: 150px;
+	height: 40px;
+	background-color: rgba(0, 0, 0, 0.19);
+	z-index: 999;
 }
-
 .backOne{
-	color: yellow;
+	color: var(--fontColor);
 }
-
 .one{
 	animation: colorChange 1s infinite linear alternate;
-}	
+}
 
 .oneDot{
-	/* animation: colorChange 1s leaner infinite normal forwards; */
 	animation: colorChange 1s infinite linear alternate;
 }
 
 @keyframes colorChange {
 	0%{
-		color: yellow;
+		color: var(--fontColor);
 	}
-	
+
 	50%{
 		color: white;
 	}
@@ -41,68 +34,135 @@ body{
 
 /*회원가입 컨테이너 */
 .joinContainer{
-    width: 100%;
-    max-width: 1200px;
-    min-height: 800px;
-    /* border: 3px solid black; */
-    margin: 0 auto;
-    padding: 1rem;
+    width: 95%;
+    max-width: 1600px;
+	margin: 0 auto;
 }
-
+.joinContainer span{
+	transition: .2s;
+}
 /*회원가입 디비전 공통 */
 .joinDivs{
     width: 100%;
-    /* min-height: 250px; */
-    /* border: 3px solid coral; */
-    margin-bottom: 1rem;
-    padding: 1rem;
     display: flex;
-    flex-direction: column;
+	flex-direction: column;
+	margin: 1rem 0;
 }
-
-.joinDivs:last-child{
-    align-items: center;
+.joinDivsTop{
+	width: 100%;
+	height: 50px;
+	padding-left: 10px;
+	display: flex;
+	align-items: center;
+	background-color: var(--mainColor);
+	margin-bottom: 1rem;
 }
-.at{
-	font-size: 1.5rem;
-	background-color: transparent;
+.joinDivsCenter{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+.joinDivBottom{
+	width: 100%;
+	height: 25px;
+	display: flex;
+	align-items: center;
 }
 /*양식 체크 스팬 */
 .checkSpans{
-	color: red;
-	font-family: 'Black Han Sans';
-	
+	color: crimson;
 }
 
 label{
-	font-family: 'Black Han Sans';
-	color: white;
-	font-size: 1.1rem;
+	padding: 0 10px;
+	font-weight: bolder;
+
 }
 
 /*회원가입 제목 스팬 공통 */
 .joinSpans{
-    font-family: 'GimpoGothicBold00';
-    margin: 0.5rem 0;
+	margin: 0.5rem 0;
     color: var(--subFontColor);
+	font-weight: bolder;
 }
-
-/*회원가입 인풋 공통 */
-/* .joinInputs{
-    width: 100%;
-    max-width: 250px;
-    height: 50px;
-    padding-left: 0.5rem;
-    margin: 0.5rem 0;
-} */
-
-.subDiv{
+/*이메일 도메인*/
+#emailSelect{
+	cursor: pointer;
+}
+/*우편번호 찾기*/
+#addressSearchBtn{
+	background-color: var(--subColor);
+	text-decoration: underline;
+}
+.formInputs{
+	width: 200px;
+}
+.formBtns{
+	font-size: 0.8rem;
+}
+.checkDiv{
+	position: relative;
 	width: fit-content;
-    /* border: 3px solid dodgerblue; */
-    margin: 0.5rem 0;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    background-color: var(--sub2Color);
+	height: fit-content;
 }
+.checkDiv span{
+	position: absolute;
+	top: 0;
+	right: 10px;
+	font-size: 0.7rem;
+}
+@media screen and (min-width: 1px) and (max-width: 767px) {
+	.joinSpans{
+		font-size: 0.6rem;
+	}
+	.joinDivsCenter{
+		justify-content: center;
+	}
+	.checkDiv{
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	.checkDiv span{
+		font-size: 0.8rem;
+		right: calc(5% + 10px);
+	}
+	.formInputs{
+		width: 90%;
+		max-width: 90%;
+		font-size: 0.7rem;
+	}
+	.joinDivBottom{
+		justify-content: center;
+		font-size: 0.7rem;
+	}
+	.formBtns{
+		width: 90%;
+	}
+	#addressSearchBtn{
+		width: 100px;
+		margin: 0 auto;
+	}
+
+
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.formInputs{
+		width: 170px;
+		font-size: 0.8rem;
+	}
+	.checkDiv span{
+		font-size: 0.6rem;
+	}
+	#addressSearchBtn{
+		width: 100px;
+		margin: 0 auto;
+	}
+
+}
+
+
+
 

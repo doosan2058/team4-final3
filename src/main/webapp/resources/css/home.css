@@ -132,12 +132,14 @@
 		width: 70%;
 		height: 70%;
 		box-shadow: 0px 0px 2px white, 0px 0px 4px white, 0px 0px 8px white;
+		box-shadow: 0px 0px 2px crimson, 0px 0px 4px crimson, 0px 0px 8px crimson;
+		animation: hue-rotate 3s linear infinite;
 	}
 	.homeImgWrapDiv h1{
 		font-size: 1.5rem;
 	}
 	.homeImgWrapDiv img{
-		opacity: 0.5;
+		opacity: 0;
 	}
 	.homeImgWrapDiv p{
 		opacity: 1;
@@ -161,12 +163,14 @@
 		width: 80%;
 		height: 80%;
 		box-shadow: 0px 0px 2px white, 0px 0px 4px white, 0px 0px 8px white;
+		box-shadow: 0px 0px 2px crimson, 0px 0px 4px crimson, 0px 0px 8px crimson;
+		animation: hue-rotate 3s linear infinite;
 	}
 	.homeImgWrapDiv h1{
 		font-size: 3rem;
 	}
 	.homeImgWrapDiv img{
-		opacity: 0.5;
+		opacity: 0;
 	}
 	.homeImgWrapDiv p{
 		opacity: 1;

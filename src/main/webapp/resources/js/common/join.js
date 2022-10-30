@@ -70,7 +70,7 @@ function checkDupEmail(){
         alert('이메일 이름양식을 확인해 주세요');
         return;
     }
-    if(domainSpan.innerHTML != '성공'){
+    else if(domainSpan.innerHTML != '성공'){
         alert('도메인 양식을 확인해 주세요');
         return;
     }
@@ -79,7 +79,7 @@ function checkDupEmail(){
 	const param = {
 			"email" : emailText
 	}
-	
+
 	$.ajax({
 		
 		url : 'checkDupEmailAjax',
@@ -109,7 +109,7 @@ function checkDupEmail(){
 }
 //아이디 중복 확인 함수
 function checkDupId(){
-	if((member_id.value).trim().length == 0){
+	if((member_id.value).trim().length == 0 || idSpan.innerHTML != '성공'){
         idDupCheckSpan.innerHTML = '';
         return;
     }
@@ -274,8 +274,9 @@ function checkPw2(){
 //도메인 양식 체크 함수
 function checkDomain(){
     const DOMAIN_REG = /[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
-
-    if(domain.value.length == 0){
+    if(emailSpan.innerHTML != '성공')
+        return;
+    else if(domain.value.length == 0){
         domainSpan.innerHTML = '';
      }
      else if(WS_REG.test(domain.value)){
@@ -295,7 +296,9 @@ function checkDomain(){
 function checkEmailName(){
      //4~20 영문소문자로 시작 + 숫자
      const EMAILNAME_REG = /^[a-z]+[a-z0-9]{3,19}$/;
-
+    domainSpan.innerHTML = '';
+    emailDupCheckSpan.innerHTML = '';
+    domain.value = '';
      if(emailName.value.length == 0){
         emailSpan.innerHTML = '';
      }
@@ -315,10 +318,12 @@ function checkEmailName(){
 
 //도메인 선택 하는 함수
 function selectDomain(){
+
 	//이메일 중복 확인 초기화
 	emailDupCheckSpan.innerHTML = '';
-	
-    if(emailSelect.value == 'self'){
+	if(emailSpan.innerHTML != '성공')
+        return;
+    else if(emailSelect.value == 'self'){
         domain.readOnly = false;
         domain.placeholder = '직접 입력해 주세요.';
         domain.value = '';
@@ -334,11 +339,10 @@ function selectDomain(){
         domainSpan.innerHTML = '';
         
     }
-    else{
-    	domain.value = emailSelect.value;
-    	domainSpan.innerHTML = '성공';
+    else {
+        domain.value = emailSelect.value;
+        domainSpan.innerHTML = '성공';
         domainSpan.style.color = 'var(--fontColor)';
-    	
     }
 }
 //핸드폰 체크 함수

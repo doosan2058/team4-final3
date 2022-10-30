@@ -22,7 +22,6 @@ main {
 .mainImgDiv {
     width: 100%;
     height: 80%;
-    padding: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,10 +29,11 @@ main {
 
 .productMainImg {
     width: 100%;
-    max-width: 700px;
+    max-width: 500px;
     height: 100%;
-    max-height: 700px;
+    max-height: 500px;
     object-fit: fill;
+    cursor: pointer;
 }
 
 /*서브이미지*/
@@ -41,104 +41,152 @@ main {
     width: 100%;
     height: 20%;
     display: flex;
-    padding: 1rem;
+    justify-content: center;
+    align-items: center;
 }
-
+.subImgWrapDiv{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin: 0 3px;
+}
 .productSubImg {
-    width: 20%;
-    max-width: 100px;
-    height: 100%;
-    max-height: 100px;
+    width: 100px;
+    height: 100px;
     object-fit: fill;
-    margin-right: 1rem;
-}
-
-.subImgDiv img {
-    transition: .3s;
 }
 
 /*상단 오른쪽*/
 .topRight {
     width: 50%;
     height: 100%;
-
 }
-
-/*상단 오른쪽 상품 설명 구역*/
-.descriptionDiv {
+.topRightTop{
     width: 100%;
-    height: 65%;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-}
-
-.descriptionTable {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 700px;
-    height: 100%;
-    max-height: 700px;
-    color: var(--basicFontColor);
-    background-color: rgba(31, 31, 31, 0.72);
-}
-
-.descriptionTable td {
-    padding: 1rem;
-}
-
-/*상단 오른쪽 수량 선택 구역*/
-.quantityDiv {
-    width: 100%;
-    height: 15%;
-    display: flex;
-}
-
-.quantityLeft {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.quantityCon {
-    width: 90%;
-    height: 70%;
-    display: flex;
-}
-
-.quantityConLeft {
-    width: 70%;
-    height: 100%;
-}
-
-.quantityConRight {
-    width: 30%;
-    height: 100%;
+    height: 80%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
-
-.quantityRight {
-    width: 50%;
+.topRightTopInfoDiv{
+    margin: 5rem auto;
+    width: 95%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+    padding: 1rem 0;
+    border: 1px solid white;
+    position: relative;
+}
+.productNameH3{
+    padding: 0 5px;
+    background-color: var(--subColor);
+    position: absolute;
+    top: -24px;
+    left: 12px;
+    font-size: 1.5rem;
 
 }
+.productInfoSpanDiv{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+.productInfoSpanDiv::-webkit-scrollbar{
+    width: 10px;
+}
+.productInfoSpanDiv::-webkit-scrollbar-track{
+    background-color: rgb(94, 94, 94);
+}
+.productInfoSpanDiv::-webkit-scrollbar-thumb{
+    background-color: rgba(31, 31, 31, 0.47);
+}
+.productInfoSpan{
+    display: inline-block;
+    font-weight: bolder;
+    padding: 0.5rem;
+    background-color: #3f87c5;
+    color: #d9d9d9;
+    border-radius: 20px;
+    margin: 0.5rem;
 
-/*상단 오른쪽 버튼 구역*/
-.btnDiv {
+}
+.shareDiv{
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.shareIconsWrapDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #111111;
+    /*background-color: #ffffff;*/
+    border-radius: 10px;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: .3s;
+}
+.shareIcons{
+    font-size: 30px;
+}
+.fa-youtube{
+    color: #c4302b;
+}
+.fa-facebook{
+    color: #3b5998;
+}
+.fa-square-twitter{
+    color: #00acee;
+}
+.shareIconsImg{
+    width: 30px;
+    height: 30px;
+    object-fit: fill;
+}
+.fa-copy{
+    /*color: var(--mainColor);*/
+}
+.topRightBottom{
     width: 100%;
     height: 20%;
     display: flex;
     align-items: center;
+}
+/*상단 오른쪽 수량 선택 구역*/
+.quantityDiv {
+    width: 208px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 8px;
+}
+.quantitySubDiv{
+    width: 50px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+/*기타 구역*/
+.orderDiv {
+    width: calc(100% - 208px);
+    height: 100%;
+    display: flex;
+    align-items: center;
     justify-content: space-around;
 }
-
+.orderDivBtnDiv{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.formBtns{
+    border-radius: 10px;
+    margin: 0 0.5rem;
+}
 /*중단*/
 .productMiddle {
     margin-top: 5rem;
@@ -300,6 +348,7 @@ main {
     margin-right: 0.5rem;
     border-radius: 40%;
 }
+
 /*리뷰작성자*/
 .reviewWriterSpan {
     font-size: 1.4rem;
@@ -339,6 +388,7 @@ main {
     'GRAD' 0,
     'opsz' 48;
 }
+
 
 
 
@@ -385,8 +435,7 @@ main {
 .navigatorContainer {
     font-family: 'Black Han Sans';
     width: 50px;
-    height: 250px;
-    background-color: var(--fontColor);
+    height: 50px;
     position: fixed;
     right: 20px;
     top: 50%;
@@ -394,53 +443,28 @@ main {
     pointer-events: none;
     opacity: 0;
     transition: .5s;
+    border-radius: 50%;
+    transform: rotate(-180deg);
 }
-
-
-.toTopDiv {
+.naviDiv, .toTopDiv, .toReviewCon, .toBottomDiv, .youtubeDiv{
+    position: absolute;
     width: 100%;
-    height: 25%;
-    border: 1px solid white;
+    height: 100%;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: .3s;
+    transition: .5s;
+    background-color: var(--sub2Color);
+    border-radius: 50%;
 }
-
-.toReviewCon {
-    width: 100%;
-    height: 25%;
-    border: 1px solid white;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: .3s;
+.naviDiv i{
+    font-size: 25px;
 }
-
-.toBottomDiv {
-    width: 100%;
-    height: 25%;
-    border: 1px solid white;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: .3s;
+.toTopDiv, .toReviewCon, .toBottomDiv, .youtubeDiv{
+    opacity: 0;
+    z-index: -1;
 }
-
-.youtubeDiv {
-    width: 100%;
-    height: 25%;
-    border: 1px solid white;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: .3s;
-}
-
 .playIconSpan{
     transition: .3s;
 }
@@ -455,8 +479,8 @@ main {
     left: 0;
     background-color: rgba(0, 0, 0, 0.339);
     backdrop-filter: blur(4px);
-    z-index: 997;
 }
+
 .closeYoutubeContainerIcon{
     cursor: pointer;
     position: absolute;
@@ -491,7 +515,6 @@ main {
 }
 
 
-
 .fullImageContainer{
     display: none;
     position: fixed;
@@ -502,6 +525,8 @@ main {
     z-index: 997;
     overflow: scroll;
     background-color: var(--mainColor);
+    align-items: center;
+    justify-content: center;
 }
 .fullImageContainer img{
     display: block;
@@ -524,7 +549,22 @@ main {
             'opsz' 48
 }
 
+/*메인 상품 이미지 변경 애니메이션 클래스*/
+.productMainImg.changeProductMainImg{
+    animation: changeProductMainImg 1s 1 forwards;
+}
 
+/*상품 이미지 변경 애니메이션*/
+@keyframes changeProductMainImg {
+    0%{
+        transition: 0s;
+        opacity: 0;
+    }
+    100%{
+        transition: .3s ease-in;
+        opacity: 1;
+    }
+}
 @keyframes aniThumb {
     33% {
         transform: rotateZ(-15deg);
@@ -541,42 +581,64 @@ main {
 @media screen and (min-width: 1px) and (max-width: 767px) {
     .productTop {
         flex-direction: column;
-        height: fit-content;
+        height: calc((100vh - 80px) * 2);
     }
 
     .topLeft, .topRight {
         width: 100%;
+        height: calc(100vh - 80px);
     }
-
-    .descriptionDiv {
-        padding: 0;
+    .productMainImg{
+        width: 250px;
+        height: 250px;
     }
-
-    .descriptionTable td {
-        padding: 0.5rem;
-        font-size: 0.5rem;
+    .subImgWrapDiv{
+        width: 70px;
+        height: 70px;
     }
-
-    .quantityDiv {
-        height: 100px;
-        padding: 0;
-        font-size: 0.8rem;
+    .productSubImg{
+        width: 70px;
+        height: 70px;
     }
-
-    .quantityBtn {
-        font-size: 0.5rem;
+    .topRightTop{
+        height: calc(100% - 200px);
     }
-
-    #productPriceSpan {
+    .topRightTopInfoDiv {
+        margin: 1rem auto 0;
+        height: 60%;
+    }
+    .productNameH3{
         font-size: 1rem;
+        top: -16px;
     }
-
-    .btnDiv {
-        margin: 0.5rem 0;
+    .shareDiv{
+        justify-content: end;
     }
-    #modifyBtn, #deleteBtn{
-        font-size: 0.8rem;
+    .shareIconsWrapDiv{
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+    }
+    .shareIcons{
+        font-size: 20px;
+    }
+    .shareIconsImg{
+        width: 20px;
+        height: 20px;
+    }
+    .topRightBottom{
+        height: 400px;
+        flex-direction: column;
+    }
+    .quantityDiv, .orderDiv{
+        width: 100%;
+        height: 100px;
+    }
+    .formBtns{
         width: 100px;
+        height: 30px;
+        font-size: 0.7rem;
+        border-radius: 5px;
     }
     .reviewGraphDiv {
         flex-direction: column;
@@ -602,6 +664,7 @@ main {
     .reviews, .reviewsDiv {
         padding: 0.2rem;
     }
+
     .navigatorContainer{
         right: 2px;
     }
@@ -617,42 +680,25 @@ main {
 
     }
 
-
 }
 
 /* 타블렛 */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .productTop {
         flex-direction: column;
-        height: fit-content;
+        height: calc((100vh - 80px) * 2);
     }
 
     .topLeft, .topRight {
         width: 100%;
     }
-
-    .descriptionDiv {
-        padding: 0rem;
+    .topRightTopInfoDiv {
+        margin: 2rem auto;
+        height: 70%;
     }
-
-    .descriptionTable td {
-        padding: 0.5rem;
-        font-size: 0.8rem;
+    .shareDiv{
+        justify-content: end;
     }
-
-    .quantityDiv {
-        height: 150px;
-        padding: 0.5rem;
-    }
-
-    #productPriceSpan {
-        font-size: 1.2rem;
-    }
-
-    .btnDiv {
-        margin: 0.5rem 0;
-    }
-
     .reviewGraphDiv p, .reviewBottom p {
         font-size: 0.8rem;
     }
@@ -668,10 +714,16 @@ main {
     .reviews, .reviewsDiv {
         padding: 0.5rem;
     }
+
+    .youtubeInnerDiv{
+        width: 100%;
+        height: 100%;
+    }
     .adIframe{
         width: 100%;
         height: 500px;
     }
+
 
 }
 
@@ -680,11 +732,6 @@ main {
     .subImgDiv img:hover {
         transform: scale(1.1, 1.1);
     }
-
-    .quantityBtn:hover {
-        background-color: var(--mainColor);
-    }
-
     .viewMoreDiv:hover {
         color: var(--fontColor);
     }
@@ -693,16 +740,12 @@ main {
         color: var(--fontColor);
     }
 
-    .navigatorContainer div:hover {
-        color: var(--hoverColor);
-    }
-
-    .navigatorContainer div:hover .playIconSpan{
-        color: var(--hoverColor);
+    .navigatorContainer div:hover, .navigatorContainer div:hover i {
+        background-color: #1e1e1e;
     }
 
     .thumb:hover {
-        cursor: not-allowed;
+        color: rgb(0, 128, 255);
     }
     .closeFullImageContainerIcon:hover, closeYoutubeContainerIcon:hover{
         color: var(--fontColor);
@@ -712,6 +755,10 @@ main {
         width: 1280px;
         height: 720px;
     }
+    .shareIconsWrapDiv:hover{
+        background-color: #262626;
+    }
+
 
 }
 
