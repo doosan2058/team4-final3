@@ -321,8 +321,11 @@ function selectDomain(){
 
 	//이메일 중복 확인 초기화
 	emailDupCheckSpan.innerHTML = '';
-	if(emailSpan.innerHTML != '성공')
+	if(emailSpan.innerHTML != '성공'){
+        alert('이메일을 입력해 주세요.');
         return;
+    }
+
     else if(emailSelect.value == 'self'){
         domain.readOnly = false;
         domain.placeholder = '직접 입력해 주세요.';

@@ -64,6 +64,7 @@ viewMoreReviewsDiv.addEventListener('click', viewMoreReview);
 modifyBtn.addEventListener('click', goModify);
 deleteBtn.addEventListener('click', goDelete);
 youtubeDiv.addEventListener('click', showYoutubeCon);
+youtubeIcon.addEventListener('click', showYoutubeCon);
 youtubeContainer.addEventListener('click', closeYoutubeCon);
 closeFullImageContainerIcon.addEventListener('click', closeFullImageContainer);
 closeYoutubeContainerIcon.addEventListener('click', closeYoutubeCon);

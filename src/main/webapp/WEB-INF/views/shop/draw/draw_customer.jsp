@@ -1,186 +1,123 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
-<!-- ±€∑Œπ˙ css -->
-<link rel="stylesheet" href="/resources/css/global.css">
-<link rel="stylesheet" href="/resources/css/shop/draw/draw_customer.css">
+    <!-- Í∏ÄÎ°úÎ≤å css -->
+    <link rel="stylesheet" href="/resources/css/global.css">
+    <link rel="stylesheet" href="/resources/css/shop/draw/draw_customer.css">
 
-<title>Document</title>
+    <title>Ïù¥Î≤§Ìä∏ ÌéòÏù¥ÏßÄ</title>
 </head>
 
 <body>
-	<!-- «Ï¥ı -->
-	<jsp:include page="../shop_header.jsp" />
-
-	<main>
-		<div class="draw_container">
-			<%--  <c:if test="${sessionScope.login_auth eq '»∏ø¯'} || ${sessionScope.login_auth eq null}" >  --%>
-
-			<%--     </c:if>  --%>
-			<div class="">
-				<div class="section1">
-					<h1>
-						Camping
-						<span> Draw</span>
-					</h1>
-					<div class="section1_img">
-						<img src="/resources/img/shop/draw/ƒ∑«Œ2.jpg" alt="" id=section1_img_img>
-					</div>
-				</div>
-				<div class="section2">
-					<div class="section2-top">
-						<span>µÂ∑ŒøÏ ∏Ò∑œ</span>
-					</div>
-
-					<div class="section2-bottom">
-						<!--foreach π›∫π µ∫Ò¿¸-->
-						<c:forEach var="row" items="${data}">
-							<div class="section2_img">
-								<!--¿Ã∫•∆Æ ¿ÃπÃ¡ˆ-->
-								<c:if test="${row.product_img_url1 ne 'no url' }">
-									<img src="/productImg/${row.product_img_url1 }" alt="" class="productMainImg">f
-								</c:if>
-							</div>
-							<div class="section2_font">
-								<!--¿Ã∫•∆Æ ≈ÿΩ∫∆Æ-->
-								<div class="font_top">
-									<h3>
-										<span class="deadlineSpan">${row.draw_deadline }</span>
-										<span>${row.draw_title}</span>
-									</h3>
-									<!--¿Ã∫•∆Æ ¡¶∏Ò-->
-									<div class="adminBtnsContainer">
-										<input type="hidden" value="ºˆ¡§" class="adminBtns">
-										<input type="hidden" value="ªË¡¶" class="adminBtns">
-									</div>
-								</div>
-								<div class="font_bottom">
-									<table>
-										<tbody>
-											<tr>
-												<td class="font_bottom_td">ªÛ«∞ ¡¶∏Ò</td>
-												<td>${row.draw_title}</td>
-											</tr>
-											<tr>
-												<td class="font_bottom_td">∞°∞›</td>
-												<td>${row.draw_price}</td>
-											</tr>
-											<tr>
-												<td class="font_bottom_td">¿Œø¯</td>
-												<td>${row.draw_reqruit}</td>
-											</tr>
-											<tr>
-												<td class="font_bottom_td">¿Ã∫•∆Æ Ω√¿€¿œ</td>
-												<td>
-													<fmt:formatDate value="${row.draw_event_start_date}" />
-													<%-- <fmt:parseDate value="${row.draw_event_start_date}" pattern="yyyy-MM-dd'T'HH:mm" var="date1" type="both" />
-                                     <fmt:formatDate value="${date1}" pattern="yyyy-MM-dd a HH:mm:ss" /> --%>
-												</td>
-											</tr>
-											<tr>
-												<td class="font_bottom_td">¿Ã∫•∆Æ ¡æ∑·¿œ</td>
-												<td>
-													<fmt:formatDate value="${row.draw_event_end_date}" />
-												</td>
-
-											</tr>
-											<tr>
-												<td class="font_bottom_td">±∏∏≈ Ω√¿€¿œ</td>
-												<td>
-													<fmt:formatDate value="${row.draw_pur_start_date}" />
-												</td>
-											<tr>
-												<td class="font_bottom_td">±∏∏≈ ¡æ∑·¿œ</td>
-												<td>
-													<fmt:formatDate value="${row.draw_pur_end_date}" />
-												</td>
-											</tr>
-
-											<tr>
-												<td class="font_bottom_td">ƒ⁄∏‡∆Æ</td>
-												<td>${row.draw_comment}</td>
-											</tr>
-
-										</tbody>
-									</table>
-									<div class="button_container">
-										
-										<input type="button" value="${row.draw_deadline }" name="draw_deadline" class="font_top_button" id="font_top_button">
-										<input type="hidden" name="draw_id" id="draw_id" value="${row.draw_id}">
-										&nbsp; &nbsp;
-										<input type="button" value="¿¿∏∞·∞˙∫∏±‚" class="font_top_button_end">
-										<input type="hidden" value="${row.product_id}">
-									</div>
-
-								</div>
-							</div>
-							<form method="POST" class="list_form" action="shop/draw_customer_draw" class="draw_modal_form">
-								<%-- <input type="hidden" name="member_id" id="user_id" value="${sessionScope.member_id}"> --%>
-								<input type="hidden" name="login_id" id="login_id" value="${sessionScope.login_id}">
-							</form>
-						</c:forEach>
-					</div>
-
-					<!-- ¿¿∏ º∫∞¯ ∏¥ﬁ -->
-					<!-- <div class="modal_container">
-						<div class="modal_body">
-							<div class="modal_top">¿¿∏ø° º∫∞¯«œºÃΩ¿¥œ¥Ÿ</div>
-							<div class="modal_bottom">
-								<button class="modal_bottom_btn">»Æ¿Œ</button>
-							</div>
-						</div>
-					</div> -->
+<!-- Ìó§Îçî -->
+<jsp:include page="../shop_header.jsp"/>
 
 
-					<div class="modal_final_container">
-						<!-- ªÛ¥‹ -->
-						<div class="modal_final_body">
-							<!-- ¡¶∏Ò -->
-							<div class="modal_final_top">√ﬂ√∑∞·∞˙</div>
-							<!-- ¥Á√∑¿⁄ ∏Ò∑œ -->
-							<div class="modal_final_middle">
-								<%-- <c:forEach var="row" items="${draw_customer_button}">
-									<div class="modal_final_middle_ajax"></div>
-								</c:forEach> --%>
-							</div>
+<div class="drawContainer">
+    <div class="drawHeaderDiv">
+        <span>Ïù¥Î≤§Ìä∏ Î™©Î°ù</span>
+    </div>
+    <div class="drawBodyDiv">
+        <c:forEach var="item" items="${draw}">
+            <div class="oneDrawDiv">
+                <div class="oneDrawTop">
+                    <h3>
+                        <c:if test="${item.draw_close eq 'n'}">
+                            <span style="color: var(--fontColor);">[ÏßÑÌñâÏ§ë]</span>
+                        </c:if>
+                        <c:if test="${item.draw_close eq 'y'}">
+                            <span style="color: rgba(96,96,96,0.66);">[ÎßàÍ∞ê]</span>
+                        </c:if>
+                        <span>${item.draw_title}</span>
+                    </h3>
+                </div>
+                <div class="drawCenterDiv">
+                    <div class="drawImgDiv">
+                        <!--Ïù¥Î≤§Ìä∏ Ïù¥ÎØ∏ÏßÄ-->
+                        <c:if test="${item.product_img_url1 ne 'no url' }">
+                            <img src="/productImg/${item.product_img_url1 }" alt="Ïù¥ÎØ∏ÏßÄ Ï§ÄÎπÑÏ§ë ÏûÖÎãàÎã§." class="productMainImg">
+                        </c:if>
+                    </div>
+                    <div class="drawBottomDiv">
+                        <ul>
+                            <li>
+                                <span class="font_bottom_td">ÏÉÅÌíà Ïù¥Î¶Ñ</span>
+                                <span>
+                                    <a href="/product/detail?product_id=${item.product_id}" class="productAnchor">${item.product_name}</a>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="font_bottom_td">Í∞ÄÍ≤©</span>
+                                <span><fmt:formatNumber value="${item.product_price}"/> Ïõê</span>
+                            </li>
+                            <li>
+                                <span class="font_bottom_td">Ïù∏Ïõê</span>
+                                <span>${item.draw_reqruit} Î™Ö</span>
+                            </li>
+                            <li>
+                                <span class="font_bottom_td">Ïù¥Î≤§Ìä∏ Îì±Î°ùÏùº</span>
+                                <fmt:parseDate value="${item.draw_regdate}" pattern="yyyy-MM-dd'T'HH:mm" var="parseRegDate" />
+                                <span>
+                                     <fmt:formatDate value="${parseRegDate}" pattern="yyyy/MM/dd"/>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="font_bottom_td">Ïù¥Î≤§Ìä∏ Í∏∞Í∞Ñ</span>
+                                <span>
+                                    <fmt:parseDate value="${item.draw_event_start_date}" pattern="yyyy-MM-dd'T'HH:mm" var="parseStartDate" />
+                                    <fmt:formatDate value="${parseStartDate}" pattern="yyyy/MM/dd"/>
+                                    ~
+                                    <fmt:parseDate value="${item.draw_event_end_date}" pattern="yyyy-MM-dd'T'HH:mm" var="parseEndDate" />
+                                    <fmt:formatDate value="${parseEndDate}" pattern="yyyy/MM/dd"/>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="font_bottom_td">Ïù¥Î≤§Ìä∏ ÎÇ¥Ïö©</span>
+                                <span>${item.draw_comment}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="drawBtnDiv">
+                    <input type="hidden" value="<fmt:formatDate value="${parseStartDate}" pattern="yyyy/MM/dd"/>">
+                    <input type="hidden" value="<fmt:formatDate value="${parseEndDate}" pattern="yyyy/MM/dd"/>">
+                    <input type="hidden" value="${item.draw_id}">
+                    <input type="button" value="ÏùëÎ™®ÌïòÍ∏∞" class="drawApplicationBtn">
+                    <input type="button" value="ÏùëÎ™® Í≤∞Í≥º Î≥¥Í∏∞" class="showWinnerBtn">
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+</div>
+
+<div class="winnerListContainer">
+    <div class="winnerListDiv">
+        <div class="winnerListTop">
+            <span>ÎãπÏ≤®Ïûê Î™©Î°ù</span>
+            <span class="material-symbols-outlined closeWinnerListContainerIcon">close</span>
+        </div>
+        <div class="winnerListBottom">
+
+        </div>
+    </div>
+</div>
 
 
+<!-- Ìë∏ÌÑ∞ -->
+<jsp:include page="../shop_footer.jsp"/>
+<script src="/resources/js/shop/draw/draw_customer.js"></script>
 
-							<!-- «œ¥‹ -->
-							<div class="modal_final_bottom">
-
-								<button class="modal_final_bottom_btn">»Æ¿Œ</button>
-								<button class="modal_final_bottom_btn" id="limitedBtns">±∏∏≈«œ±‚</button>
-
-							</div>
-
-						</div>
-						<input type="hidden" id="limiteProduct">
-					</div>
-
-
-				</div>
-			</div>
-		</div>
-
-		</div>
-
-	</main>
-
-	<!-- «™≈Õ -->
-	<jsp:include page="../shop_footer.jsp" />
-	<script src="/resources/js/shop/draw/draw_customer.js"></script>
-	
 </body>
 
 </html>

@@ -12,9 +12,7 @@ import lombok.extern.log4j.Log4j;
 public class CommonInterceptor implements HandlerInterceptor{
 
 	
-	/**
-	 * 테스트용으로 shop 페이지 로그인 되있지 않으면 로그인 페이지로 이동
-	 */
+
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {

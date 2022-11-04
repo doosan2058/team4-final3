@@ -18,11 +18,6 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class SessionConfig implements HttpSessionListener {
 	
-//	@Inject
-//	SessionService sessionService;
-//	@Inject
-//	SessionMapper sessionMapper;
-	
 	//세션 생성시
 	@Override
 	public void sessionCreated(HttpSessionEvent se) {
@@ -30,15 +25,8 @@ public class SessionConfig implements HttpSessionListener {
 		ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(session.getServletContext());
 		SessionService sessionService = (SessionService) context.getBean("sessionService");
 		
-       
-		
-        //request를 파라미터에 넣지 않고도 사용할수 있도록 설정
+		//request를 파라미터에 넣지 않고도 사용할수 있도록 설정
 		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
-		
-//		log.info("세션리스너 테스트");
-//		
-//		log.info("접속 브라우저 : " + request.getHeader("User-Agent"));
-//		log.info("접속 아이피 : " + request.getRemoteAddr());
 		
 		SessionVO sessionVO = new SessionVO();
 		sessionVO.setBrowser(request.getHeader("User-Agent"));

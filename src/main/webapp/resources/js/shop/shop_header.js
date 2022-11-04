@@ -106,9 +106,9 @@ function initShopHeader(){
 	}
 	//이벤트 페이지 이동 앵커 주소 초기화
 	if(authCheckHiddenInput.value != '관리자')
-		draw.href = '/shop/draw_customer';
+		draw.href = '/draw/draw_customer';
 	else
-		draw.href = '/shop/draw_admin';
+		draw.href = '/draw/draw_admin';
 
 	//장바구니 앵커 초기화
 	if(authCheckHiddenInput.value == '회원')
@@ -184,6 +184,8 @@ function mediaQueryHeader(){
 		login.style.width = '100vw';
 		login.style.top = '80px';
 		login.style.right = '-100%';
+		document.querySelector('.more_horiz').style.transform = 'translateY(-50%) rotateZ(90deg)';
+		IsloginDivShow = false;
 	}
 	// 태블릿
 	if (matchMedia("screen and (min-width:768px)").matches && matchMedia("screen and (max-width:1023px)").matches) {
@@ -195,7 +197,8 @@ function mediaQueryHeader(){
 		login.style.width = '100vw';
 		login.style.top = '80px';
 		login.style.right = '-100%';
-
+		document.querySelector('.more_horiz').style.transform = 'translateY(-50%) rotateZ(90deg)';
+		IsloginDivShow = false;
 
 	}
 	// 데스크탑

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goott.mapper.DrawMapper">
+
+    <!-- 이벤트 -->
+    <select id="select" resultType="Map" parameterType="_int">
+        <![CDATA[
+        select d.draw_id               as draw_id,
+               d.draw_title            as draw_title,
+               d.product_id            as product_id,
+               d.draw_regdate          as draw_regdate,
+               d.draw_event_start_date as draw_event_start_date,
+               d.draw_event_end_date   as draw_event_end_date,
+               d.draw_comment          as draw_comment,
+               d.draw_reqruit          as draw_reqruit,
+               d.draw_close            as draw_close,
+               p.product_name          as product_name,
+               p.product_price         as product_price,
+               p.product_img_url1      as product_img_url1
+        from t_draw_remake d
+                 inner join t_product p on d.product_id = p.product_id
+        where d.draw_id = #{draw_id}
+        order by d.draw_regdate desc
+        ]]>
+    </select>
+
+    <!-- 이벤트 목록 -->
+    <select id="selectList" resultType="Map">
+        <![CDATA[
+        select d.draw_id               as draw_id,
+               d.draw_title            as draw_title,
+               d.product_id            as product_id,
+               d.draw_regdate          as draw_regdate,
+               d.draw_event_start_date as draw_event_start_date,
+               d.draw_event_end_date   as draw_event_end_date,
+               d.draw_comment          as draw_comment,
+               d.draw_reqruit          as draw_reqruit,
+               d.draw_close            as draw_close,
+               p.product_name          as product_name,
+               p.product_price         as product_price,
+               p.product_img_url1      as product_img_url1
+        from t_draw_remake d
+                 inner join t_product p on d.product_id = p.product_id
+        order by d.draw_regdate desc
+        ]]>
+    </select>
+
+    <!-- 이벤트 중복 지원 확인 -->
+    <select id="selectCount" parameterType="com.goott.domain.DrawEnterVO" resultType="_int">
+        <![CDATA[
+        select count(member_id) as count
+        from t_draw_enter_remake
+        where draw_id = #{draw_id}
+          and member_id = #{member_id}
+        ]]>
+    </select>
+
+    <!-- 이벤트 응모 -->
+    <insert id="insertDrawEnter" parameterType="com.goott.domain.DrawEnterVO">
+        <![CDATA[
+        insert into t_draw_enter_remake(draw_id, member_id)
+        values (#{draw_id}, #{member_id})
+        ]]>
+    </insert>
+
+    <!-- 응모자 확인 -->
+    <select id="selectDrawEnterList" resultType="com.goott.domain.DrawEnterVO" parameterType="_int">
+        <![CDATA[
+        select draw_enter_id, draw_id, draw_enter_regdate, member_id, draw_winning
+        from t_draw_enter_remake
+        where draw_id = #{draw_id}
+        order by draw_enter_regdate asc
+        ]]>
+    </select>
+
+    <!-- 모집인원, 응모자수, 당첨자수 확인 -->
+    <select id="selectDrawEnterInfo" parameterType="_int" resultType="map">
+        <![CDATA[
+        select e.draw_id                                                             as draw_id,
+               d.draw_reqruit                                                        as draw_reqruit,
+               (select count(*)
+                from t_draw_enter_remake
+                where draw_id = #{draw_id}
+                  and draw_winning = 'y')                                            as draw_winning,
+               (select count(*) from t_draw_enter_remake where draw_id = #{draw_id}) as application
+        from t_draw_enter_remake e
+                 inner join t_draw_remake d on e.draw_id = d.draw_id
+        where e.draw_id = #{draw_id}
+        group by e.draw_id
+        ]]>
+    </select>
+
+    <!-- 유저 당첨 처리 -->
+    <update id="updateDrawEnter" parameterType="Map">
+        <![CDATA[
+        update t_draw_enter_remake
+        set draw_winning = 'y'
+        where draw_id = #{draw_id}
+          and member_id = #{member_id}
+        ]]>
+    </update>
+
+    <!-- 이벤트 수정 -->
+    <update id="updateDraw" parameterType="com.goott.domain.DrawVO">
+        <![CDATA[
+        update t_draw_remake
+        set draw_title = #{draw_title},
+            draw_reqruit = #{draw_reqruit},
+            draw_event_start_date = #{draw_event_start_date},
+            draw_event_end_date = #{draw_event_end_date},
+            draw_comment = #{draw_comment}
+        where draw_id = #{draw_id}
+        ]]>
+    </update>
+</mapper>

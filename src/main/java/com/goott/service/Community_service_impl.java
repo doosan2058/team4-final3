@@ -6,7 +6,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.goott.domain.DrawVO;
 import com.goott.domain.T_board_VO;
 import com.goott.domain.T_camping_VO;
 import com.goott.mapper.Community_mapper;

@@ -1,0 +1,211 @@
+/*이벤트*/
+.drawContainer {
+    width: 100%;
+    max-width: 1600px;
+    margin: 5rem auto 0;
+    border-top: 1px solid whitesmoke;
+}
+
+/*이벤트 상단*/
+.drawHeaderDiv {
+    width: 100%;
+    position: relative;
+
+}
+
+.drawHeaderDiv span {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--subColor);
+    padding: 0 10px;
+    font-weight: bold;
+}
+
+.drawCenterDiv {
+    width: 100%;
+}
+
+/*이벤트 내용, foreach 반복 디비전*/
+.drawBodyDiv {
+    width: 100%;
+}
+
+.oneDrawDiv {
+    margin: 5rem 0;
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.oneDrawTop {
+    width: 100%;
+    height: 50px;
+    background-color: var(--sub2Color);
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.oneDrawTop input[type="text"]{
+    margin-left: 1rem;
+    transition: .3s;
+    font-family: "Black Han Sans";
+    height: 30px;
+    padding-left: 0.5rem;
+    color: black;
+}
+
+
+.drawCenterDiv {
+    width: 100%;
+    height: 600px;
+    display: flex;
+}
+
+/*이벤트 각각 이미지*/
+.drawImgDiv {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.productAnchor{
+    text-decoration: none;
+}
+
+.productMainImg {
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: var(--sub2Color) 0px 0px 5px 3px;
+}
+
+.drawBottomDiv {
+    width: 50%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.drawBottomDiv::-webkit-scrollbar{
+    width: 10px;
+}
+.drawBottomDiv::-webkit-scrollbar-track{
+    background-color: rgb(94, 94, 94);
+}
+.drawBottomDiv::-webkit-scrollbar-thumb{
+    background-color: rgba(31, 31, 31, 0.47);
+}
+
+.infoWrapDiv {
+    width: 100%;
+    height: calc( 100% / 7);
+    display: flex;
+}
+.infoTop{
+    width: 30%;
+    height: 100%;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    padding-left: 7px;
+}
+.infoBottom{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.infoBottom input[type="number"]{
+    font-family: "Black Han Sans";
+}
+.infoBottom input[type="date"]{
+    font-family: "Black Han Sans";
+}
+.infoBottom textarea{
+    width: 90%;
+    height: 50px;
+    padding: 0.5rem;
+    background-color: var(--sub2Color);
+    color: white;
+    resize: none;
+    transition: .3s;
+    font-family: "Black Han Sans";
+}
+.infoBottom textarea:focus{
+    background-color: var(--mainColor);
+}
+
+
+.drawBtnDiv {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--sub2Color);
+}
+
+.drawModifyBtn {
+    width: 100px;
+    height: 50px;
+    font-size: 1rem;
+    background-color: transparent;
+    color: white;
+    font-family: "Black Han Sans";
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+
+
+
+@media screen and (min-width: 1px) and (max-width: 767px) {
+    .oneDrawDiv {
+        height: 1000px;
+    }
+
+    .drawCenterDiv {
+        height: 900px;
+        flex-direction: column;
+    }
+    .drawImgDiv{
+        width: 100%;
+        height: 300px;
+    }
+    .drawBottomDiv {
+        width: 100%;
+        height: 600px;
+    }
+    .infoTop{
+        font-size: 0.7rem;
+    }
+    .drawImgDiv img {
+        width: 250px;
+        height: 250px;
+    }
+
+
+}
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+    .oneDrawDiv {
+        height: 1300px;
+    }
+
+    .drawCenterDiv {
+        height: 1200px;
+        flex-direction: column;
+    }
+
+    .drawImgDiv, .drawBottomDiv {
+        width: 100%;
+        height: 600px;
+    }
+
+
+}

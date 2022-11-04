@@ -30,15 +30,11 @@ public class AdminController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String adminGet() {
-//		 log.info("관리자 메인 ========================================"); 
-
         return "/admin/admin";
     }
 
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String list(Model model) {
-//		log.info("회원 리스트 보기 =======================================");
-
         List<MemberVO> list = adminService.getMemberAllList();
 
         model.addAttribute("list", list);
@@ -48,7 +44,7 @@ public class AdminController {
 
     @RequestMapping(value = "detail", method = RequestMethod.GET)
     public String detail(@RequestParam String member_id, Model model) {
-//		log.info("회원 디테일 ===========================================");
+
 
         MemberVO member = adminService.getMemberInfo(member_id);
         List<Map<String, Object>> freeMapList = adminService.getFreeList(member_id);
