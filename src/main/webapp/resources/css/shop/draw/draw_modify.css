@@ -1,16 +1,36 @@
+.drawHeaderNavDiv{
+    width: 100%;
+    height: 40px;
+    background-color: #2e383c;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.addDrawBtn{
+    width: 100px;
+    height: 40px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-family: "Black Han Sans";
+    transition: .3s;
+}
+
 /*이벤트*/
 .drawContainer {
     width: 100%;
     max-width: 1600px;
-    margin: 5rem auto 0;
-    border-top: 1px solid whitesmoke;
+    margin: 0 auto;
+
 }
 
 /*이벤트 상단*/
 .drawHeaderDiv {
+    margin: 5rem 0 5rem;
     width: 100%;
     position: relative;
-
+    border-top: 1px solid whitesmoke;
 }
 
 .drawHeaderDiv span {
@@ -46,13 +66,13 @@
     background-color: var(--sub2Color);
     display: flex;
     align-items: center;
+    justify-content: center;
     padding-left: 1rem;
 }
 
 .oneDrawTop input[type="text"]{
-    margin-left: 1rem;
-    transition: .3s;
     font-family: "Black Han Sans";
+    width: 80%;
     height: 30px;
     padding-left: 0.5rem;
     color: black;
@@ -75,6 +95,7 @@
 }
 .productAnchor{
     text-decoration: none;
+    transition: .3s;
 }
 
 .productMainImg {
@@ -207,5 +228,13 @@
         height: 600px;
     }
 
+}
 
+@media screen and (min-width: 1024px) {
+    .addDrawBtn:hover{
+        background-color: var(--sub2Color);
+    }
+    .productAnchor:hover{
+        color: var(--fontColor);
+    }
 }

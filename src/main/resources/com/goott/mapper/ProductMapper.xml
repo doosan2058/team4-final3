@@ -336,4 +336,33 @@
         group by p.product_id limit 0, 10;
         ]]>
 	</select>
+
+    <!-- 이벤트용 한정판 상품 검색 -->
+    <select id="selectDrawLimitedProduct" parameterType="_int" resultType="com.goott.domain.ProductVO">
+        <![CDATA[
+        select product_id, product_name, product_price, product_img_url1
+        from t_product
+        where product_limited = '한정판'
+        ]]>
+        <if test="product_category_id != 0 and product_brand_id != 0">
+            <![CDATA[
+            and product_category_id = #{product_category_id}
+            and product_brand_id = #{product_brand_id}
+            ]]>
+        </if>
+        <if test="product_category_id != 0 and product_brand_id == 0">
+            <![CDATA[
+            and product_category_id = #{product_category_id}
+            ]]>
+        </if>
+        <if test="product_category_id == 0 and product_brand_id != 0">
+            <![CDATA[
+            and product_brand_id = #{product_brand_id}
+            ]]>
+        </if>
+        <if test="product_category_id == 0 and product_brand_id == 0">
+
+        </if>
+        order by product_id asc;
+    </select>
 </mapper>

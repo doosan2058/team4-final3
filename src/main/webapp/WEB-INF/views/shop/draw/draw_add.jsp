@@ -5,7 +5,7 @@
   Time: 오후 4:51
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -28,22 +28,33 @@
 <body>
 <!-- 헤더 -->
 <jsp:include page="../shop_header.jsp"/>
-<div class="drawContainer">
-    <div class="drawHeaderDiv">
-        <span>이벤트 수정</span>
-    </div>
-    <div class="drawBodyDiv">
-        <form method="post" action="modify" id="drawModifyForm">
+<div class="drawHeaderNavDiv">
+    <button class="addDrawBtn">이벤트 등록</button>
+</div>
+<form method="post" action="/draw/add" id="drawAddForm" onsubmit="return checkDrawAdd();">
+    <div class="drawContainer">
+        <div class="drawHeaderDiv">
+            <span>이벤트 등록</span>
+            <input type="hidden" name="product_id" id="product_id">
+        </div>
+        <div class="drawBodyDiv">
             <div class="oneDrawDiv">
                 <div class="oneDrawTop">
-                    <h3>
-                        [이벤트 제목]
-                    </h3>
-                    <input type="text" value="" name="draw_title" required>
+                    <input type="text" name="draw_title" id="draw_title" required placeholder="이벤트 제목을 입력하세요.(최대 20자)"
+                           maxlength="20">
                 </div>
                 <div class="drawCenterDiv">
                     <div class="drawImgDiv">
-                        <img src="" alt="이미지 준비중 입니다." class="productMainImg">
+                        <div class="productMainImgWrapDiv">
+                            <div class="productMainImgWrapDivCloseDiv">
+                                <i class="xi-close closeImgWrapDivIcon"></i>
+                            </div>
+
+                            <img src="" alt="이미지 준비중 입니다." class="productMainImg">
+                        </div>
+                        <div class="addDrawProductDiv">
+                            <i class="xi-plus plusIcon"></i>
+                        </div>
                     </div>
                     <div class="drawBottomDiv">
                         <div class="infoWrapDiv">
@@ -51,7 +62,7 @@
                                 상품 이름
                             </div>
                             <div class="infoBottom">
-
+                                <span class="selectedProductNameSpan"></span>
                             </div>
                         </div>
                         <div class="infoWrapDiv">
@@ -59,7 +70,7 @@
                                 가격
                             </div>
                             <div class="infoBottom">
-
+                                <span class="selectedProductPriceSpan"></span>
                             </div>
                         </div>
                         <div class="infoWrapDiv">
@@ -69,14 +80,6 @@
                             <div class="infoBottom">
                                 <input type="number" value="" name="draw_reqruit" min="1" max="99"
                                        required> &nbsp;명
-                            </div>
-                        </div>
-                        <div class="infoWrapDiv">
-                            <div class="infoTop">
-                                이벤트 등록일
-                            </div>
-                            <div class="infoBottom">
-
                             </div>
                         </div>
                         <div class="infoWrapDiv">
@@ -102,17 +105,49 @@
                                 이벤트 내용
                             </div>
                             <div class="infoBottom">
-                                <textarea name="draw_comment" required></textarea>
+                                <textarea name="draw_comment" id="draw_comment" required
+                                          placeholder="이벤트 내용을 입력해 주세요.(최대 100자)" maxlength="100"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="drawBtnDiv">
-                    <input type="button" value="등록" class="drawAddBtn">
+                    <input type="submit" value="등록" class="drawAddBtn">
                 </div>
             </div>
-        </form>
+        </div>
+    </div>
+</form>
+
+<!-- 이벤트 상품 등록 컨테이너 -->
+<div class="selectProductContainer">
+    <div class="selectProductDiv">
+        <div class="selectProductDivLeft">
+            <img class="drawProductImg">
+        </div>
+        <div class="selectProductDivRight">
+            <i class="xi-close closeIcon"></i>
+            <div class="selectProductDivRightHeader">
+                <select id="categorySelect">
+                    <option value="0">All Category</option>
+                    <c:forEach var="item" items="${categoryList}">
+                        <option value="${item.product_category_id}">${item.product_category_name}</option>
+                    </c:forEach>
+                </select>
+                <select id="brandSelect">
+                    <option value="0">All Brand</option>
+                    <c:forEach var="item" items="${brandList}">
+                        <option value="${item.product_brand_id}">${item.product_brand_name}</option>
+                    </c:forEach>
+                </select>
+                <span class="selectSpan">검색</span>
+
+            </div>
+            <div class="selectProductDivRightMain">
+
+            </div>
+        </div>
     </div>
 </div>
 <!-- 푸터 -->

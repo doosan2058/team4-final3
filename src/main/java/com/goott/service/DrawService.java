@@ -64,5 +64,11 @@ public interface DrawService {
      * @param drawVO
      */
     public void modifyDraw(DrawVO drawVO);
+
+    /**
+     * 신규 이벤트 등록
+     * @param drawVO
+     */
+    public void addDraw(DrawVO drawVO);
 }
 

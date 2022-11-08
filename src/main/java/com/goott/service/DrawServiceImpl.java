@@ -3,11 +3,14 @@ package com.goott.service;
 import com.goott.domain.DrawEnterVO;
 import com.goott.domain.DrawVO;
 import com.goott.mapper.DrawMapper;
+import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+
+@Log4j
 @Service
 public class DrawServiceImpl implements DrawService {
 
@@ -44,10 +47,9 @@ public class DrawServiceImpl implements DrawService {
         //이벤트 중복 등록 확인
         int resultCount = this.getCount(drawEnterVO);
 
-        if(resultCount != 0){
+        if (resultCount != 0) {
             return "이미 응모하였습니다.";
-        }
-        else{
+        } else {
             this.applicationDraw(drawEnterVO);
             return "이벤트에 응모 하였습니다.";
         }
@@ -55,6 +57,7 @@ public class DrawServiceImpl implements DrawService {
 
     @Override
     public Map<String, Object> getDrawEnterInfo(int draw_id) {
+
         return drawMapper.selectDrawEnterInfo(draw_id);
     }
 
@@ -66,6 +69,11 @@ public class DrawServiceImpl implements DrawService {
     @Override
     public void modifyDraw(DrawVO drawVO) {
         drawMapper.updateDraw(drawVO);
+    }
+
+    @Override
+    public void addDraw(DrawVO drawVO) {
+        drawMapper.insert(drawVO);
     }
 
 

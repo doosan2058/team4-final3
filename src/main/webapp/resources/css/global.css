@@ -14,13 +14,13 @@
 /* font-family: 'Poppins', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 :root{
-    --mainColor : rgb(24, 24, 24);
-    --subColor : rgb(59, 59, 59);
-    --sub2Color : rgb(40, 40, 40);
-    --borderColor : rgba(209, 209, 209, 0.486);
-    --fontColor : rgb(142, 206, 231);
-    --subFontColor : rgb(209, 209, 209);
-    --sub2FontColor : rgba(142, 206, 231, 0.82);
+	--mainColor : rgb(24, 24, 24);
+	--subColor : rgb(59, 59, 59);
+	--sub2Color : rgb(40, 40, 40);
+	--borderColor : rgba(209, 209, 209, 0.486);
+	--fontColor : rgb(142, 206, 231);
+	--subFontColor : rgb(209, 209, 209);
+	--sub2FontColor : rgba(142, 206, 231, 0.82);
 	--hoverColor: rgb(69, 175, 227);
 	--basicFontColor: white;
 	--alterFontColor: black;

@@ -22,14 +22,16 @@
 <body>
 <!-- 헤더 -->
 <jsp:include page="../shop_header.jsp"/>
-
+<div class="drawHeaderNavDiv">
+    <button class="addDrawBtn">이벤트 등록</button>
+</div>
 
 <div class="drawContainer">
 
     <div class="drawHeaderDiv">
         <span>이벤트 목록</span>
-        <button class="addDrawBtn">이벤트 등록</button>
     </div>
+
     <div class="drawBodyDiv">
         <c:forEach var="item" items="${draw}">
             <div class="oneDrawDiv">

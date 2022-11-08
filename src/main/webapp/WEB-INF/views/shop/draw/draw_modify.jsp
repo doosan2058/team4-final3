@@ -24,7 +24,9 @@
 </head>
 <body>
 <jsp:include page="../shop_header.jsp"/>
-
+<div class="drawHeaderNavDiv">
+    <button class="addDrawBtn">이벤트 등록</button>
+</div>
 <div class="drawContainer">
     <div class="drawHeaderDiv">
         <span>이벤트 수정</span>
@@ -33,10 +35,7 @@
         <form method="post" action="modify" id="drawModifyForm">
             <div class="oneDrawDiv">
                 <div class="oneDrawTop">
-                    <h3>
-                        [이벤트 제목]
-                    </h3>
-                    <input type="text" value="${item.draw_title}" name="draw_title" required>
+                    <input type="text" value="${item.draw_title}" name="draw_title" id="draw_title" required placeholder="이벤트 제목을 입력하세요.(최대 20자)" maxlength="20">
                 </div>
                 <div class="drawCenterDiv">
                     <div class="drawImgDiv">
@@ -114,7 +113,7 @@
                                 이벤트 내용
                             </div>
                             <div class="infoBottom">
-                                <textarea name="draw_comment" required>${item.draw_comment}</textarea>
+                                <textarea name="draw_comment" id="draw_comment" required placeholder="이벤트 내용을 입력해 주세요.(최대 100자)" maxlength="100">${item.draw_comment}</textarea>
                             </div>
                         </div>
                     </div>

@@ -113,4 +113,12 @@ public interface ProductService {
 	 * @return map(product_id, count, product_name, product_thumbnail_img_url) 상위 10개
 	 */
 	public List<Map<String, Object>> getProductTopSales();
+
+	/**
+	 * 이벤트 등록용 한정판 상품 리스트 검색
+	 * @param product_category_id
+	 * @param product_brand_id
+	 * @return
+	 */
+	public List<ProductVO> getDrawLimitedProductList(int product_category_id, int product_brand_id);
 }

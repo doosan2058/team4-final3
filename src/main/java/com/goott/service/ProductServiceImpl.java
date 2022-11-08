@@ -371,7 +371,11 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return productMapper.selectTopProduct();
 	}
-	
-	
+
+	@Override
+	public List<ProductVO> getDrawLimitedProductList(int product_category_id, int product_brand_id) {
+		return productMapper.selectDrawLimitedProduct(product_category_id, product_brand_id);
+	}
+
 
 }

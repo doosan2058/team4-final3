@@ -59,4 +59,10 @@ public interface DrawMapper {
      */
     public void updateDraw(DrawVO drawVO);
 
+    /**
+     * 신규 이벤트 등록
+     * @param drawVO
+     */
+    public void insert(DrawVO drawVO);
+
 }

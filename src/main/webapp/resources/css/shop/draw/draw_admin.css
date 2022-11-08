@@ -1,16 +1,35 @@
+.drawHeaderNavDiv{
+    width: 100%;
+    height: 40px;
+    background-color: #2e383c;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.addDrawBtn{
+    width: 100px;
+    height: 40px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-family: "Black Han Sans";
+    transition: .3s;
+}
 /*이벤트*/
 .drawContainer {
     width: 100%;
     max-width: 1600px;
-    margin: 5rem auto 0;
-    border-top: 1px solid whitesmoke;
+    margin: 0 auto;
+
 }
 
 /*이벤트 상단*/
 .drawHeaderDiv {
+    margin: 5rem 0 5rem;
     width: 100%;
     position: relative;
-
+    border-top: 1px solid whitesmoke;
 }
 
 .drawHeaderDiv span {
@@ -22,17 +41,7 @@
     padding: 0 10px;
     font-weight: bold;
 }
-.addDrawBtn{
-    position: absolute;
-    width: 100px;
-    height: 40px;
-    background-color: var(--mainColor);
-    color: white;
-    cursor: pointer;
-    top: 10px;
-    right: 0;
-    border-radius: 5px;
-}
+
 
 .drawCenterDiv {
     width: 100%;
@@ -44,7 +53,6 @@
 }
 
 .oneDrawDiv {
-    margin: 5rem 0;
     width: 100%;
     height: 500px;
     display: flex;
@@ -76,6 +84,7 @@
 }
 .productAnchor{
     text-decoration: none;
+    transition: .3s;
 }
 
 .productMainImg {
@@ -101,7 +110,9 @@
 .drawBottomDiv::-webkit-scrollbar-thumb{
     background-color: rgba(31, 31, 31, 0.47);
 }
-
+.drawBottomDiv ul{
+    list-style: none;
+ }
 .drawBottomDiv li {
     margin-bottom: 0.5rem;
 }
@@ -122,7 +133,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--sub2Color);
 }
 
 .drawModifyBtn {
@@ -249,6 +259,9 @@
     .oneDrawDiv {
         height: 900px;
     }
+    .oneDrawTop h3{
+        font-size: 0.8rem;
+    }
 
     .drawCenterDiv {
         height: 800px;
@@ -266,9 +279,10 @@
     }
 
     .drawBottomDiv {
+        padding: 0.5rem;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: start;
     }
 
     .drawBottomDiv li span {
@@ -297,9 +311,19 @@
     }
 
     .drawBottomDiv {
+        padding: 0.5rem;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: start;
     }
 
+}
+
+@media screen and (min-width: 1024px) {
+    .addDrawBtn:hover{
+        background-color: var(--sub2Color);
+    }
+    .productAnchor:hover{
+        color: var(--fontColor);
+    }
 }

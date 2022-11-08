@@ -36,7 +36,6 @@ function showWinnerList(){
     // 당첨자 리스트 비동기 호출
     const draw_id = this.previousElementSibling.previousElementSibling.value;
     const param = { draw_id : draw_id};
-
     document.querySelector('#winnerListContainerDrawId').value = draw_id;
 
     $.ajax({
@@ -49,26 +48,29 @@ function showWinnerList(){
             alert('죄송합니다. 잠시후 다시 시도해 주세요.');
         },
         success : function (data){
-            const tempContainer = document.createElement('div');
+            if(data.length > 0){
+                const tempContainer = document.createElement('div');
 
-            // 리스트 길이만큼 반복
-            for(let i = 0; i < data.length; i++){
-                const tempDiv = document.createElement('div');
-                tempDiv.className = 'winnerLineDiv';
-                const tempIdAnchor = document.createElement('a');
-                tempIdAnchor.innerHTML = data[i].member_id;
-                tempIdAnchor.href = `/admin/detail?member_id=${data[i].member_id}`;
-                const tempResultSpan = document.createElement('span');
+                // 리스트 길이만큼 반복
+                for(let i = 0; i < data.length; i++){
+                    const tempDiv = document.createElement('div');
+                    tempDiv.className = 'winnerLineDiv';
+                    const tempIdAnchor = document.createElement('a');
+                    tempIdAnchor.innerHTML = data[i].member_id;
+                    tempIdAnchor.href = `/admin/detail?member_id=${data[i].member_id}`;
+                    const tempResultSpan = document.createElement('span');
 
-                tempResultSpan.innerHTML = ( data[i].draw_winning == 'y' ) ? '당첨' : '미당첨';
-                tempDiv.appendChild(tempIdAnchor);
-                tempDiv.appendChild(tempResultSpan);
-                tempResultSpan.addEventListener('click', enterUser);
-                tempContainer.appendChild(tempDiv);
+                    tempResultSpan.innerHTML = ( data[i].draw_winning == 'y' ) ? '당첨' : '미당첨';
+                    tempDiv.appendChild(tempIdAnchor);
+                    tempDiv.appendChild(tempResultSpan);
+                    tempResultSpan.addEventListener('click', enterUser);
+                    tempContainer.appendChild(tempDiv);
+                }
+                $('.winnerListBottom').html(tempContainer);
             }
-
-            $('.winnerListBottom').html(tempContainer);
-
+            else{
+                $('.winnerListBottom').html('');
+            }
         }
     });
 
@@ -80,12 +82,16 @@ function showWinnerList(){
         contentType: 'application/json',
         dataType : 'json',
         error : function(){
-            alert('죄송합니다. 잠시후 다시 시도해 주세요.');
+            alert('이벤트 인원 정보 조회중 오류가 발생하였습니다.');
         },
         success : function (data){
+            if(data.application == 0){
+                alert('응모자가 없습니다.');
+            }
             document.querySelector('.reqruitSpan').innerHTML = `${data.draw_reqruit}`;
             document.querySelector('.applicationSpan').innerHTML = `${data.application}`;
             document.querySelector('.winningSpan').innerHTML = `${data.draw_winning}`;
+
         }
     });
 }

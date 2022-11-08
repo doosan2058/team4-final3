@@ -41,7 +41,7 @@
                p.product_img_url1      as product_img_url1
         from t_draw_remake d
                  inner join t_product p on d.product_id = p.product_id
-        order by d.draw_regdate desc
+        order by d.draw_id desc
         ]]>
     </select>
 
@@ -76,17 +76,15 @@
     <!-- 모집인원, 응모자수, 당첨자수 확인 -->
     <select id="selectDrawEnterInfo" parameterType="_int" resultType="map">
         <![CDATA[
-        select e.draw_id                                                             as draw_id,
-               d.draw_reqruit                                                        as draw_reqruit,
-               (select count(*)
+        select ifnull(draw_id, #{draw_id})                                         as draw_id,
+               count(member_id)                                                    as application,
+               (select draw_reqruit from t_draw_remake where draw_id = #{draw_id}) as draw_reqruit,
+               (select count(member_id)
                 from t_draw_enter_remake
-                where draw_id = #{draw_id}
-                  and draw_winning = 'y')                                            as draw_winning,
-               (select count(*) from t_draw_enter_remake where draw_id = #{draw_id}) as application
-        from t_draw_enter_remake e
-                 inner join t_draw_remake d on e.draw_id = d.draw_id
-        where e.draw_id = #{draw_id}
-        group by e.draw_id
+                where draw_winning = 'y'
+                  and draw_id = #{draw_id})                                        as draw_winning
+        from t_draw_enter_remake
+        where draw_id = #{draw_id};
         ]]>
     </select>
 
@@ -104,12 +102,22 @@
     <update id="updateDraw" parameterType="com.goott.domain.DrawVO">
         <![CDATA[
         update t_draw_remake
-        set draw_title = #{draw_title},
-            draw_reqruit = #{draw_reqruit},
+        set draw_title            = #{draw_title},
+            draw_reqruit          = #{draw_reqruit},
             draw_event_start_date = #{draw_event_start_date},
-            draw_event_end_date = #{draw_event_end_date},
-            draw_comment = #{draw_comment}
+            draw_event_end_date   = #{draw_event_end_date},
+            draw_comment          = #{draw_comment}
         where draw_id = #{draw_id}
         ]]>
     </update>
+
+    <!-- 이벤트 등록 -->
+    <insert id="insert" parameterType="com.goott.domain.DrawVO">
+        <![CDATA[
+        insert into t_draw_remake(draw_title, product_id, draw_event_start_date, draw_event_end_date, draw_comment,
+                                  draw_reqruit)
+        values (#{draw_title}, #{product_id}, #{draw_event_start_date}, #{draw_event_end_date}, #{draw_comment},
+                #{draw_reqruit})
+        ]]>
+    </insert>
 </mapper>
