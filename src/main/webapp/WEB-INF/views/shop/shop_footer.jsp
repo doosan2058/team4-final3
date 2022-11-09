@@ -18,6 +18,9 @@
 </head>
 <body>
 <!--푸터-->
+<div class="shopFooterMapDiv">
+
+</div>
 <footer>
     <div class="footer_content">
         <h1>GOOTT IT Developer Class</h1>
@@ -28,8 +31,11 @@
         <p>운영시간 : 09:30 ~ 18:30</p>
     </div>
     <div class="footer_copyright">
-        <p>COPYRIGHTⓒ  구트아카데미  All Rights reserved</p>
+        <p>COPYRIGHTⓒ 구트아카데미 All Rights reserved</p>
     </div>
 </footer>
+<script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b3fddae03c72f192c7b74da13d2a55b0&libraries=services"></script>
+<script src="/resources/js/shop/shop_footer.js"></script>
 </body>
 </html>

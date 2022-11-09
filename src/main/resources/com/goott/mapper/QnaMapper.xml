@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goott.mapper.QnaMapper">
+    <!-- 회원 질문글 목록 가져오기 -->
+    <select id="selectList" resultType="com.goott.domain.QnaVO" parameterType="com.goott.domain.PageQna">
+        <![CDATA[
+        select qna_id,
+               member_id,
+               qna_category,
+               qna_public,
+               qna_title,
+               qna_text,
+               qna_picture_url,
+               qna_regdate,
+               qna_update_date,
+               qna_admin_answer
+        from t_qna_remake
+        where qna_delete = 'n'
+        and qna_title like CONCAT('%',#{qnaSearchText},'%') or qna_text like CONCAT('%',#{qnaSearchText},'%')
+        ]]>
+        <if test="qna_category != all">
+            <![CDATA[
+					and qna_category = #{qna_category}
+            ]]>
+        </if>
+        <![CDATA[
+        order by qna_id desc
+        limit #{startRownum},#{rownumEndCount}
+        ]]>
+    </select>
+
+    <!-- 질문글 총 개수 -->
+    <select id="countQna" parameterType="String" resultType="_int">
+        <![CDATA[
+        select count(*)
+        from t_qna_remake
+         ]]>
+        <if test="qna_category != all">
+            <![CDATA[
+					where qna_category = #{qna_category}
+            ]]>
+        </if>
+    </select>
+</mapper>

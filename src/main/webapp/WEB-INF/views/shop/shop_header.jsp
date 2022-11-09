@@ -40,7 +40,7 @@
     <div class="menu">
         <a id="shop" href="/shop">Shop</a>
         <a class="draw">Draw</a>
-        <a id="qna" href="/shop/qna">Q&A</a>
+        <a id="qna" href="/qna">Q&A</a>
     </div>
     <div class="login">
         <a id="loginBtn" href="/login" data-tooltip="로그인 하기" class="loginMenuAnchor">
