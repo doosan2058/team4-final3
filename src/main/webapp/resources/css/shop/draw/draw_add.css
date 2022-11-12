@@ -1,7 +1,8 @@
 .drawHeaderNavDiv{
     width: 100%;
     height: 40px;
-    background-color: #2e383c;
+    background-color: var(--subMenuColor);
+
     display: flex;
     align-items: center;
     justify-content: end;
@@ -13,8 +14,8 @@
     color: white;
     cursor: pointer;
     border: none;
-    font-family: "Black Han Sans";
     transition: .3s;
+    font-family: GimpoGothicBold00;
 }
 
 /*이벤트*/
@@ -67,19 +68,28 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+.oneDrawTop::after{
+    content: '제목을 입력하세요';
+    font-size: 0.7rem;
+    position: absolute;
+    top: -10px;
+    left: 5px;
 }
 
 .oneDrawTop input[type="text"]{
-    margin-left: 1rem;
-    transition: .3s;
-    font-family: "Black Han Sans";
     width: 80%;
-    height: 30px;
+    height: 100%;
     padding-left: 0.5rem;
-    color: black;
+    color: var(--subFontColor);
+    background-color: var(--sub2Color);
+    border: none;
+    outline: none;
+    transition: .3s;
+    font-weight: bolder;
 
 }
-
 
 .drawCenterDiv {
     width: 100%;
@@ -180,7 +190,7 @@
     font-weight: bolder;
     display: flex;
     align-items: center;
-    padding-left: 7px;
+
 }
 .infoBottom{
     width: 70%;
@@ -188,12 +198,7 @@
     display: flex;
     align-items: center;
 }
-.infoBottom input[type="number"]{
-    font-family: "Black Han Sans";
-}
-.infoBottom input[type="date"]{
-    font-family: "Black Han Sans";
-}
+
 .infoBottom textarea{
     width: 90%;
     height: 50px;
@@ -202,7 +207,7 @@
     color: white;
     resize: none;
     transition: .3s;
-    font-family: "Black Han Sans";
+
 }
 .infoBottom textarea:focus{
     background-color: var(--mainColor);
@@ -224,11 +229,11 @@
     font-size: 1rem;
     background-color: transparent;
     color: white;
-    font-family: "Black Han Sans";
     cursor: pointer;
     outline: none;
     border: none;
     border-radius: 10px;
+    font-family: GimpoGothicBold00;
 }
 
 /*상품 선택 컨테이너*/
@@ -242,6 +247,7 @@
     backdrop-filter: blur(4px);
     align-items: center;
     justify-content: center;
+    z-index: 990;
 }
 .selectProductDiv{
     width: 80%;
@@ -273,18 +279,27 @@
 .selectProductDivRightHeader{
     width: 100%;
     height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 .selectProductDivRightHeader select{
     width: 100px;
+    margin: 0 0.5rem;
 }
 .selectSpan{
     cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
 }
 .closeIcon{
     position: absolute;
     top: -32px;
     right: 0;
     font-size: 2rem;
+    cursor: pointer;
 }
 .selectProductDivRightMain{
     width: 100%;
@@ -340,8 +355,17 @@
         width: 100%;
         height: 600px;
     }
+    .infoWrapDiv{
+        width: 90%;
+        margin: 0 auto;
+    }
     .infoTop{
+        padding-left: 1rem;
         font-size: 0.7rem;
+    }
+    .infoBottom{
+        justify-content: end;
+        padding-right: 1rem;
     }
     .productMainImgWrapDiv{
         width: 250px;
@@ -371,6 +395,7 @@
     }
     .selectProductDivRightHeader select{
         width: 40%;
+        margin: 0;
     }
     .selectProductDivRightMain{
         height: calc(100% - 100px);
@@ -415,6 +440,17 @@
     }
     .selectProductDivRight{
         width: 100%;
+    }
+    .infoWrapDiv{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .infoTop{
+        padding-left: 1rem;
+    }
+    .infoBottom{
+        justify-content: end;
+        padding-right: 1rem;
     }
 
 

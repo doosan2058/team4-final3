@@ -33,16 +33,14 @@
     object-fit: fill;
 }
 .carouselImgDiv img:first-child{
-    animation: loadCarouselMainImg 2s 1 linear forwards;
+    animation: loadCarouselMainImg 1s 1 linear forwards;
 }
 @keyframes loadCarouselMainImg {
     0%{
         opacity: 0;
-        transform: scale(1, 1.1);
     }
     100%{
         opacity: 1;
-        transform: scale(1, 1);
     }
 }
 .adNaviCon{
@@ -213,7 +211,6 @@ main {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0.5rem;
     font-family: 'GimpoGothicBold00';
 
@@ -238,10 +235,10 @@ main {
 }
 /*상품*/
 .product {
-    width: 20%;
-    height: 350px;
+    width: 19%;
+    margin: 1px;
+    height: 340px;
     background-color: var(--sub2Color);
-    border: 3px solid var(--subColor);
     padding: 1rem;
     display: flex;
     align-items: center;

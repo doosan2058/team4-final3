@@ -47,3 +47,29 @@
 .sampleQnaInnerBottom.active{
     height: 150px;
 }
+
+@media screen and (min-width: 1px) and (max-width: 767px){
+    .sampleQnaInnerTop p{
+        font-size: 1rem;
+    }
+    .sampleQnaInnerBottom{
+        font-size: 0.6rem;
+    }
+    .sampleQnaInnerBottom.active{
+        height: 250px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px){
+    .sampleQnaInnerTop p{
+        font-size: 1rem;
+    }
+    .sampleQnaInnerBottom{
+        font-size: 0.8rem;
+    }
+    .sampleQnaInnerBottom.active{
+        height: 250px;
+    }
+}
+@media screen and (min-width: 1024px){
+
+}

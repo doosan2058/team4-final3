@@ -29,7 +29,7 @@
 </div>
 <div class="drawContainer">
     <div class="drawHeaderDiv">
-        <span>이벤트 수정</span>
+       <span>Lucky Draw</span>
     </div>
     <div class="drawBodyDiv">
         <form method="post" action="modify" id="drawModifyForm">

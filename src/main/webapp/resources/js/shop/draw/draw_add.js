@@ -21,16 +21,23 @@ const draw_event_end_date = document.querySelector('#draw_event_end_date');
 const draw_title = document.querySelector('#draw_title');
 // 이벤트 내용
 const draw_comment = document.querySelector('#draw_comment');
+// 이벤트 등록 버튼
+const addDrawBtn = document.querySelector('.addDrawBtn');
 // =======================================================================================
 window.addEventListener('load', initDrawAdd);
 addDrawProductDiv.addEventListener('click', showSelectContainer);
 closeIcon.addEventListener('click', closeSelectContainer)
 selectSpan.addEventListener('click', searchLimitedProduct);
 closeImgWrapDivIcon.addEventListener('click', cancelProduct);
-
+addDrawBtn.addEventListener('click', addDraw);
 draw_event_start_date.addEventListener('change', initDrawEndDate);
 
 // =======================================================================================
+
+/*새로운 이벤트 등록*/
+function addDraw(){
+    location.href = '/draw/add';
+}
 
 function checkDrawAdd() {
     const product_id = document.querySelector('#product_id').value;

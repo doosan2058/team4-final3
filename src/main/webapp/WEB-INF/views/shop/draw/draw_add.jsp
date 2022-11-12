@@ -34,7 +34,7 @@
 <form method="post" action="/draw/add" id="drawAddForm" onsubmit="return checkDrawAdd();">
     <div class="drawContainer">
         <div class="drawHeaderDiv">
-            <span>이벤트 등록</span>
+            <span>Lucky Draw</span>
             <input type="hidden" name="product_id" id="product_id">
         </div>
         <div class="drawBodyDiv">

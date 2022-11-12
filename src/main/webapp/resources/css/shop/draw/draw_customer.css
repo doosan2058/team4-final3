@@ -1,21 +1,3 @@
-.drawHeaderNavDiv{
-    width: 100%;
-    height: 40px;
-    background-color: #2e383c;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-}
-.addDrawBtn{
-    width: 100px;
-    height: 40px;
-    background-color: transparent;
-    color: white;
-    cursor: pointer;
-    border: none;
-    font-family: "Black Han Sans";
-    transition: .3s;
-}
 /*이벤트*/
 .drawContainer {
     width: 100%;
@@ -26,20 +8,27 @@
 
 /*이벤트 상단*/
 .drawHeaderDiv {
-    margin: 5rem 0 5rem;
     width: 100%;
-    position: relative;
-    border-top: 1px solid whitesmoke;
+    margin: 2rem 0;
 }
 
-.drawHeaderDiv span {
-    position: absolute;
-    top: -16px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--subColor);
-    padding: 0 10px;
-    font-weight: bold;
+.drawHeaderDiv span:first-child {
+    margin-left: 1rem;
+    display: inline-block;
+    font-family: GimpoGothicBold00;
+    font-size: 2rem;
+    color: var(--basicFontColor);
+    color: transparent;
+    text-decoration: none;
+    font-family: "Black Han Sans";
+    -webkit-text-stroke: 1px #8cd550;
+}
+.drawHeaderDiv span:last-child{
+    display: block;
+    font-size: 1rem;
+    color: var(--subFontColor);
+    padding-left: 10rem;
+    font-family: GimpoGothicBold00;
 }
 
 .drawCenterDiv {
@@ -49,6 +38,7 @@
 /*이벤트 내용, foreach 반복 디비전*/
 .drawBodyDiv {
     width: 100%;
+    background-color: var(--sub2Color);
 }
 
 .oneDrawDiv {
@@ -61,7 +51,7 @@
 .oneDrawTop {
     width: 100%;
     height: 50px;
-    background-color: var(--sub2Color);
+    background-color: rgba(21, 21, 21, 0.69);
     display: flex;
     align-items: center;
     padding-left: 1rem;
@@ -96,7 +86,7 @@
 .drawBottomDiv {
     width: 50%;
     height: 100%;
-    padding: 1rem 0 0 2rem;
+    padding-top: 2rem;
     overflow-y: auto;
 }
 
@@ -140,11 +130,11 @@
     font-size: 1rem;
     background-color: transparent;
     color: white;
-    font-family: "Black Han Sans";
     cursor: pointer;
     outline: none;
     border: none;
     border-radius: 10px;
+    font-family: GimpoGothicBold00;
 }
 
 .showWinnerBtn {
@@ -154,7 +144,7 @@
     text-decoration: underline;
     background-color: transparent;
     color: white;
-    font-family: "Black Han Sans";
+    font-family: GimpoGothicBold00;
     cursor: pointer;
     outline: none;
     border: none;
@@ -236,6 +226,8 @@
     }
 
     .drawCenterDiv {
+        width: 90%;
+        margin: 0 auto;
         height: 800px;
         flex-direction: column;
     }
@@ -251,10 +243,9 @@
     }
 
     .drawBottomDiv {
-        padding: 0.5rem;
         display: flex;
         align-items: center;
-        justify-content: start;
+        justify-content: center;
     }
 
     .drawBottomDiv li span {
@@ -263,6 +254,14 @@
     }
 
     .drawBottomDiv li span:nth-child(2) {
+        font-size: 0.7rem;
+        text-align: right;
+    }
+    .drawHeaderDiv span:first-child{
+        font-size: 1.2rem;
+    }
+    .drawHeaderDiv span:last-child{
+        padding-left: 5rem;
         font-size: 0.7rem;
     }
 }
@@ -282,11 +281,11 @@
         height: 400px;
     }
 
+
     .drawBottomDiv {
-        padding: 0.5rem;
         display: flex;
         align-items: center;
-        justify-content: start;
+        justify-content: center;
     }
 }
 

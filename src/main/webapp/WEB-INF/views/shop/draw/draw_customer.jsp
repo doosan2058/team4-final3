@@ -21,13 +21,10 @@
 <body>
 <!-- 헤더 -->
 <jsp:include page="../shop_header.jsp"/>
-<div class="drawHeaderNavDiv">
-    <button class="addDrawBtn">이벤트 등록</button>
-</div>
-
 <div class="drawContainer">
     <div class="drawHeaderDiv">
-        <span>이벤트 목록</span>
+        <span>Lucky Draw</span>
+        <span> - 한정판 상품 구매 이벤트에 응모하세요!</span>
     </div>
     <div class="drawBodyDiv">
         <c:forEach var="item" items="${draw}">

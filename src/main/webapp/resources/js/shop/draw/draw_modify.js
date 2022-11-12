@@ -4,13 +4,20 @@ const draw_event_start_date = document.querySelector('#draw_event_start_date');
 const draw_event_end_date = document.querySelector('#draw_event_end_date');
 // 수정 버튼
 const drawModifyBtn = document.querySelector('.drawModifyBtn');
-
+// 이벤트 등록 버튼
+const addDrawBtn = document.querySelector('.addDrawBtn');
 // ==========================================================================================
 
 window.addEventListener('load', initDrawModify);
 draw_event_start_date.addEventListener('change', initDrawEndDate);
 drawModifyBtn.addEventListener('click', checkForm);
+addDrawBtn.addEventListener('click', addDraw);
 // ==========================================================================================
+
+/*새로운 이벤트 등록*/
+function addDraw(){
+    location.href = '/draw/add';
+}
 
 // 수정 확인
 function checkForm(){

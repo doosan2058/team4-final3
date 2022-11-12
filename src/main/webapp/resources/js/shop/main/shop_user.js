@@ -51,8 +51,6 @@ brandSpan.forEach(item => {
 })
 viewMoreDiv.addEventListener('click', loadMoreItem);
 productBest.forEach((item) => {
-    item.addEventListener('mouseenter', changeBackgroundColor);
-    item.addEventListener('mouseleave', rollbackBackgroundColor);
     item.addEventListener('click', goDetailPage);
 });
 product.forEach((item) => {
@@ -181,9 +179,7 @@ function rollbackBackgroundColor() {
     //데스크탑 사이즈일때만
     if (matchMedia("screen and (min-width:1024px)").matches){
         //배경
-        this.style.backgroundColor = 'var(--sub2Color)';
-        this.style.border = '3px solid var(--subColor)';
-        this.style.transform = 'translateY(0)';
+        this.style.boxShadow = 'none';
 
 
     }
@@ -195,10 +191,7 @@ function changeBackgroundColor() {
     //데스크탑 사이즈일때만
     if (matchMedia("screen and (min-width:1024px)").matches){
         //배경
-        this.style.backgroundColor = 'var(--mainColor)';
-        this.style.border = '3px solid var(--subColor)';
-        this.style.transform = 'translateY(-5px)';
-
+        this.style.boxShadow = '1px 1px 7px 3px rgba(0, 0, 0, 0.8)';
 
 
     }

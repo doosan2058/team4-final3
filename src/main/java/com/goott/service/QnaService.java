@@ -1,33 +1,30 @@
-package com.goott.mapper;
+package com.goott.service;
 
 import com.goott.domain.PageQna;
 import com.goott.domain.QnaVO;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-@Mapper
-public interface QnaMapper {
+public interface QnaService {
     /**
      * 검색 조건 별 총 게시글 수
      * @param qnaSearchText
      * @param qna_category
      * @return 게시글 수
      */
-    public int countQna(@Param("qnaSearchText") String qnaSearchText, @Param("qna_category") String qna_category);
+    public int totalQnaCount(String qnaSearchText, String qna_category);
 
     /**
      * 검색된 게시글 list
      * @param pageQna
      * @return 게시글 list
      */
-    public List<QnaVO> selectList(PageQna pageQna);
+    public List<QnaVO> getQnaList(PageQna pageQna);
 
     /**
-     * 게시글 상세
+     * qna 상세
      * @param qna_id
      * @return QnaVO
      */
-    public QnaVO select(int qna_id);
+    public QnaVO getQna(int qna_id);
 }

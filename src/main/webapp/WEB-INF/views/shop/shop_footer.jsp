@@ -18,9 +18,11 @@
 </head>
 <body>
 <!--푸터-->
-<div class="shopFooterMapDiv">
-
+<div class="mapHeaderDiv">
+    <span>찾아 오시는 길</span>
+    <div class="shopFooterMapDiv"></div>
 </div>
+
 <footer>
     <div class="footer_content">
         <h1>GOOTT IT Developer Class</h1>

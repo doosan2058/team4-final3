@@ -29,7 +29,8 @@
 <div class="drawContainer">
 
     <div class="drawHeaderDiv">
-        <span>이벤트 목록</span>
+        <span>Lucky Draw</span>
+        <span> - 한정판 상품 구매 이벤트에 응모하세요!</span>
     </div>
 
     <div class="drawBodyDiv">

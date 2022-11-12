@@ -1,6 +1,12 @@
 package com.goott.domain;
 
+import lombok.Data;
+
+@Data
 public class PageQna {
+    // 사용자 호출 페이지 번호
+    int clientPageNum;
+
     // page rownum 시작 번호
     int startRownum;
 
@@ -20,16 +26,36 @@ public class PageQna {
     int totalBlock;
 
     // 현재 블럭 번호
-    int blockNum;
+    int currentBlockNum;
 
     boolean nextPage;
-    boolean endPage;
+    boolean endPageBlock;
     boolean prePage;
-    boolean startPage;
+    boolean startPageBlock;
 
     // 카테고리
     String qna_category;
 
     // 검색어
     String qnaSearchText;
+
+    public PageQna(int clientPageNum, int totalCount, String qna_category, String qnaSearchText){
+        this.clientPageNum = clientPageNum;
+        this.startRownum = (clientPageNum - 1) * 10;
+        this.rownumEndCount = 10;
+        this.totalCount = totalCount;
+        this.totalPage =(int) Math.ceil(totalCount / (rownumEndCount * 1.0));
+
+        this.blockCount = 10;
+        this.totalBlock =(int) Math.ceil(this.totalPage / (this.blockCount * 1.0));
+        this.currentBlockNum = (int) Math.ceil(this.clientPageNum / (this.blockCount * 1.0));
+
+        this.endPageBlock = (this.clientPageNum == totalPage) ? false : true;
+        this.startPageBlock = (this.clientPageNum == 1) ? false : true;
+        this.nextPage = (this.clientPageNum == totalPage) ? false : true;
+        this.prePage = (this.clientPageNum == 1) ? false : true;
+
+        this.qna_category = qna_category;
+        this.qnaSearchText = qnaSearchText;
+    }
 }

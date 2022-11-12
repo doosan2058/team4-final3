@@ -1,0 +1,290 @@
+
+.qnaListContainer{
+    width: 90%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.qnaListHeader{
+    width: 100%;
+    margin: 2rem 0;
+    padding-left: 1rem;
+}
+.qnaListHeader span{
+    font-family: "Black Han Sans";
+    font-size: 2rem;
+}
+.qnaListHeader p{
+    margin-left: 3rem;
+    font-family: GimpoGothicBold00;
+    color: var(--subFontColor);
+}
+.qnaMeduDiv{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-family: GimpoGothicBold00;
+    background-color: rgba(19, 19, 19, 0.6);
+}
+.qnaMeduDiv a{
+    display: inline-block;
+    padding: 5px;
+    margin: 0 0.5rem;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+    transition: .3s;
+}
+.qnaListBodyDiv{
+    background-color: var(--sub2Color);
+}
+.qnaLineHeadDiv{
+    width: 100%;
+    height: 50px;
+    font-family: GimpoGothicBold00;
+    color: var(--subFontColor);
+    border-bottom: 1px solid var(--borderColor);
+    display: flex;
+    align-items: center;
+}
+.qnaLineHeadDiv span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.qnaLineHeadDiv span:first-child{
+    width: 50%;
+}
+
+.qnaLineHeadDiv span:nth-child(2){
+    width: 20%;
+}
+
+.qnaLineHeadDiv span:nth-child(3){
+    width: 20%;
+}
+
+.qnaLineHeadDiv span:nth-child(4){
+    width: 10%;
+}
+
+.qnaLineDiv{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid var(--borderColor);
+    display: flex;
+    transition: .3s;
+    cursor: pointer;
+}
+.qnaLineTitleDiv{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+}
+.qnaLineTitleDiv span:first-child{
+    padding: 0 1rem;
+}
+.qnaLineTitleDiv span:nth-child(2){
+    color: var(--fontColor);
+}
+.qnaLineTitleDiv span:nth-child(3){
+    max-width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.qnaLineWriterDiv{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.qnaLineDateDiv{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.qnaLineAnswerDiv{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.qnaListSearchDiv{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.qnaListSearchDiv select{
+    height: 70%;
+    outline: none;
+    border: none;
+    font-family: GimpoGothicBold00;
+}
+.qnaListSearchDiv input[type="text"]{
+    height: 70%;
+    width: 200px;
+    outline: none;
+    border: none;
+    font-family: GimpoGothicBold00;
+}
+.qnaListSearchDiv input[type="submit"]{
+    height: 70%;
+    width: 60px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    font-family: GimpoGothicBold00;
+    color: white;
+    background-color: var(--mainColor);
+}
+
+.qnaPageDiv{
+    width: 100%;
+    height: 50px;
+    display: flex;
+}
+.qnaPagePreDiv{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.qnaPageCenterDiv{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.qnaPageNextDiv{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.qnaPagePreDiv a, .qnaPageNextDiv a{
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: bolder;
+}
+
+@media screen and (min-width: 1px) and (max-width: 767px) {
+    .qnaListContainer{
+        width: 100%;
+    }
+    .qnaListHeader span{
+        font-size: 1.1rem;
+    }
+    .qnaListHeader p{
+        font-size: 0.8rem;
+        margin-left: 2rem;
+    }
+    .qnaMeduDiv a{
+        font-size: 0.8rem;
+    }
+    .qnaLineHeadDiv span{
+        font-size: 0.7rem;
+    }
+    .qnaLineTitleDiv span{
+        font-size: 0.5rem;
+
+    }
+    .qnaLineTitleDiv span:first-child{
+        display: none;
+    }
+    .qnaLineTitleDiv span:nth-child(2){
+        max-width: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .qnaLineTitleDiv span:nth-child(3){
+        max-width: 60%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .qnaLineWriterDiv span{
+        font-size: 0.5rem;
+        max-width: 60px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .qnaLineDateDiv span{
+        font-size: 0.5rem;
+        max-width: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .qnaLineAnswerDiv span{
+        font-size: 0.5rem;
+        max-width: 30px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .qnaPagePreDiv, .qnaPageNextDiv{
+        width: 20%;
+    }
+    .qnaPageCenterDiv{
+        width: 60%;
+    }
+    .qnaPagePreDiv a, .qnaPageNextDiv a{
+        font-size: 0.5rem;
+    }
+    .qnaPageCenterDiv a{
+        font-size: 0.5rem;
+    }
+    .qnaListSearchDiv select{
+        width: 80px;
+    }
+    .qnaListSearchDiv input[type="text"]{
+        width: 100px;
+    }
+    .qnaListSearchDiv input[type="submit"]{
+        width: 50px;
+
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .qnaLineTitleDiv span{
+        font-size: 0.8rem;
+
+    }
+    .qnaLineWriterDiv span{
+        font-size: 0.8rem;
+    }
+    .qnaLineDateDiv span{
+        font-size: 0.8rem;
+    }
+    .qnaLineAnswerDiv span{
+        font-size: 0.8rem;
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+    .qnaLineDiv:hover{
+        box-shadow: 1px 1px 7px 3px rgba(0, 0, 0, 0.8);
+        background-color: #2a2a2a;
+    }
+
+}

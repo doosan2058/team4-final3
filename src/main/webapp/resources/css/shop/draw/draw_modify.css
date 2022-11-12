@@ -1,7 +1,7 @@
 .drawHeaderNavDiv{
     width: 100%;
     height: 40px;
-    background-color: #2e383c;
+    background-color: var(--subMenuColor);
     display: flex;
     align-items: center;
     justify-content: end;
@@ -13,8 +13,8 @@
     color: white;
     cursor: pointer;
     border: none;
-    font-family: "Black Han Sans";
     transition: .3s;
+    font-family: GimpoGothicBold00;
 }
 
 /*이벤트*/
@@ -67,15 +67,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: 1rem;
+    position: relative;
+}
+.oneDrawTop::after{
+    content: '제목을 입력하세요';
+    font-size: 0.7rem;
+    position: absolute;
+    top: -10px;
+    left: 5px;
 }
 
 .oneDrawTop input[type="text"]{
-    font-family: "Black Han Sans";
     width: 80%;
-    height: 30px;
+    height: 100%;
     padding-left: 0.5rem;
-    color: black;
+    color: var(--subFontColor);
+    background-color: var(--sub2Color);
+    border: none;
+    outline: none;
+    transition: .3s;
+    font-weight: bolder;
+
 }
 
 
@@ -132,7 +144,6 @@
     font-weight: bolder;
     display: flex;
     align-items: center;
-    padding-left: 7px;
 }
 .infoBottom{
     width: 70%;
@@ -140,12 +151,7 @@
     display: flex;
     align-items: center;
 }
-.infoBottom input[type="number"]{
-    font-family: "Black Han Sans";
-}
-.infoBottom input[type="date"]{
-    font-family: "Black Han Sans";
-}
+
 .infoBottom textarea{
     width: 90%;
     height: 50px;
@@ -154,7 +160,7 @@
     color: white;
     resize: none;
     transition: .3s;
-    font-family: "Black Han Sans";
+
 }
 .infoBottom textarea:focus{
     background-color: var(--mainColor);
@@ -176,11 +182,11 @@
     font-size: 1rem;
     background-color: transparent;
     color: white;
-    font-family: "Black Han Sans";
     cursor: pointer;
     outline: none;
     border: none;
     border-radius: 10px;
+    font-family: GimpoGothicBold00;
 }
 
 
@@ -188,6 +194,12 @@
 @media screen and (min-width: 1px) and (max-width: 767px) {
     .oneDrawDiv {
         height: 1000px;
+    }
+    .oneDrawTop{
+        padding: 0;
+    }
+    #draw_title{
+        width: 90%;
     }
 
     .drawCenterDiv {
@@ -202,12 +214,21 @@
         width: 100%;
         height: 600px;
     }
-    .infoTop{
-        font-size: 0.7rem;
-    }
     .drawImgDiv img {
         width: 250px;
         height: 250px;
+    }
+    .infoWrapDiv{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .infoTop{
+        padding-left: 1rem;
+        font-size: 0.7rem;
+    }
+    .infoBottom{
+        justify-content: end;
+        padding-right: 1rem;
     }
 
 
@@ -226,6 +247,17 @@
     .drawImgDiv, .drawBottomDiv {
         width: 100%;
         height: 600px;
+    }
+    .infoWrapDiv{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .infoTop{
+        padding-left: 1rem;
+    }
+    .infoBottom{
+        justify-content: end;
+        padding-right: 1rem;
     }
 
 }
