@@ -51,14 +51,14 @@
                 <span class="qnaSubjectSpan">
                     작성일
                     <span class="qnaDateSpan"><fmt:formatDate
-                            value="${qnaVO.qna_regdate}" pattern="yyyy.MM.dd hh:mm:ss"/></span>
+                            value="${qnaVO.qna_regdate}" pattern="yyyy.MM.dd HH:mm"/></span>
                     <span class="dateDashSpan">|</span>
                 </span>
 
                 <span class="qnaSubjectSpan">
                     수정일
                      <span class="qnaDateSpan"><fmt:formatDate
-                             value="${qnaVO.qna_update_date}" pattern="yyyy.MM.dd hh:mm:ss"/></span>
+                             value="${qnaVO.qna_update_date}" pattern="yyyy.MM.dd HH:mm"/></span>
                 </span>
                 <span class="dateDashSpan">|</span>
                 <span class="qnaSubjectSpan">

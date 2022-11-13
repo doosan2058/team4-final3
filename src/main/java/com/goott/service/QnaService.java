@@ -2,6 +2,7 @@ package com.goott.service;
 
 import com.goott.domain.PageQna;
 import com.goott.domain.QnaVO;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -27,4 +28,20 @@ public interface QnaService {
      * @return QnaVO
      */
     public QnaVO getQna(int qna_id);
+
+    /**
+     * 회원 질문글 등록
+     * @param qnaVO
+     * @param qna_picture_url
+     * @return
+     */
+    public String registerQna(QnaVO qnaVO, MultipartFile qna_picture_url);
+
+    /**
+     * 질문글 사진 등록
+     * @param qna_picture_url
+     * @return
+     */
+    public String saveQnaImg(MultipartFile qna_picture_url);
+
 }

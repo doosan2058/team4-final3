@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 		String today = sdf.format(date);
 		today.replace("/", File.separator);
-//		log.info("저장 위치 : " + today);
+
 		//폴더 생성
 		File folder = new File(filePath + today);
 		folder.mkdirs();

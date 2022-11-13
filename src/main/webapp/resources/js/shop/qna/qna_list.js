@@ -53,7 +53,7 @@ function writeQna(e){
     if(document.querySelector('#authCheckHiddenInput').value != '회원' )
         alert('로그인이 필요한 서비스 입니다.');
     else
-        alert('test');
+        location.href = '/qna/add';
 }
 
 function qnaListInit() {

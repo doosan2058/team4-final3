@@ -109,10 +109,14 @@
 .qnaDateSpan{
     color: rgba(141,141,141,0.87);
     font-size: 0.9rem;
+
 }
 .qnaSubjectSpan{
     font-weight: bolder;
     margin-bottom: 0.5rem;
+}
+.dateDashSpan{
+    font-weight: bolder;
 }
 
 

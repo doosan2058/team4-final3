@@ -77,7 +77,7 @@
                         <span>${item.member_id}</span>
                     </div>
                     <div class="qnaLineDateDiv">
-                        <span><fmt:formatDate value="${item.qna_regdate}" pattern="yyyy/MM/dd hh:mm:ss" /></span>
+                        <span><fmt:formatDate value="${item.qna_regdate}" pattern="yyyy/MM/dd HH:mm" /></span>
                     </div>
                     <div class="qnaLineAnswerDiv">
                         <c:if test="${item.qna_admin_answer eq 'n'}">

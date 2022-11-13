@@ -71,4 +71,12 @@
             ]]>
         </if>
     </select>
+
+    <!-- 질문글 등록 -->
+    <select id="insert" parameterType="com.goott.domain.QnaVO">
+        <![CDATA[
+        insert into t_qna_remake(member_id, qna_category, qna_public, qna_title, qna_text, qna_picture_url)
+        values (#{member_id}, #{qna_category}, #{qna_public}, #{qna_title}, #{qna_text}, #{qna_picture_url})
+        ]]>
+    </select>
 </mapper>

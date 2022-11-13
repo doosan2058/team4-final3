@@ -25,10 +25,13 @@
                location="file:/C:/uploadtest/uploadUserProfileImg/"/>
     <resources mapping="/reviewFiles/**"
                location="file:/C:/uploadtest/reviewFiles/"/>
+    <resources mapping="/qnaImg/**"
+               location="file:/C:/uploadtest/qnaImg/"/>
     <resources location="file:/C:/gradeImg/" mapping="/gradeImg/**"></resources>
 
     <!-- Resolves views selected for rendering by @Controllers to .jsp resources
         in the /WEB-INF/views directory -->
+
     <beans:bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="prefix" value="/WEB-INF/views/"/>
@@ -56,6 +59,8 @@
             <!-- <mapping path="/shop/draw_customer" /> -->
 			<mapping path="/user"/>
             <mapping path="/user/*"/>
+            <mapping path="/qna/add"/>
+
 
             <beans:ref bean="commonInterceptor"/>
         </interceptor>

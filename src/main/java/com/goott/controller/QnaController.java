@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -92,5 +93,25 @@ public class QnaController {
 
 
         return "/shop/qna/qna_detail";
+    }
+
+    @RequestMapping(value = "/qna/add", method = RequestMethod.GET)
+    public String add(){
+        return "/shop/qna/qna_add";
+    }
+
+    @RequestMapping(value = "/qna/add", method = RequestMethod.POST)
+    public String addPost(HttpServletRequest request, QnaVO qnaVO, @RequestParam MultipartFile file, Model model){
+
+        String member_id = request.getSession().getAttribute("login_id").toString();
+
+        qnaVO.setMember_id(member_id);
+
+        String resultText = qnaService.registerQna(qnaVO, file);
+
+        model.addAttribute("msg", resultText);
+        model.addAttribute("url", "/qna");
+
+        return "/common/alert";
     }
 }
