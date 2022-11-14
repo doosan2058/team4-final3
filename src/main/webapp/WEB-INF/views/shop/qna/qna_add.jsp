@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/resources/css/global.css">
     <link rel="stylesheet" href="/resources/css/shop/qna/qna_add.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
-    <title>질문 상세 페이지</title>
+    <title>질문 등록 페이지</title>
 </head>
 <body>
 <jsp:include page="../shop_header.jsp"/>

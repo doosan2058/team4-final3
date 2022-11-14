@@ -181,10 +181,10 @@ public class UserServiceImpl implements UserService {
 			
 			if(oldImg.exists()) {
 				oldImg.delete();
-				log.info("이전 프로필 이미지 삭제 완료.");
+
 			}
-			else
-				log.info("이전 프로필 이미지를 찾을수 없습니다.");
+//			else
+//				log.info("이전 프로필 이미지를 찾을수 없습니다.");
 		}
 		
 			

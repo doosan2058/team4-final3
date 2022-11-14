@@ -39,6 +39,9 @@ public class PageQna {
     // 검색어
     String qnaSearchText;
 
+    // 관리자용 답변 여부
+    String qna_admin_answer;
+
     public PageQna(int clientPageNum, int totalCount, String qna_category, String qnaSearchText){
         this.clientPageNum = clientPageNum;
         this.startRownum = (clientPageNum - 1) * 10;

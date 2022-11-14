@@ -2,6 +2,15 @@
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goott.mapper.QnaMapper">
 
+    <!-- 질문글 사진 주소 가져오기 -->
+    <select id="selectExImgUrl" parameterType="_int" resultType="String">
+        <![CDATA[
+        select qna_picture_url
+        from from t_qna_remake
+        where qna_id = #{qna_id}
+        ]]>
+    </select>
+
     <!-- 질문글 상세 -->
     <select id="select" parameterType="_int" resultType="com.goott.domain.QnaVO">
         <![CDATA[
@@ -72,11 +81,152 @@
         </if>
     </select>
 
+    <!-- 관리자용 질문글 목록 가져오기 -->
+    <select id="selectListAdmin" resultType="com.goott.domain.QnaVO" parameterType="com.goott.domain.PageQna">
+        <![CDATA[
+        select qna_id,
+               member_id,
+               qna_category,
+               qna_public,
+               qna_title,
+               qna_text,
+               qna_picture_url,
+               qna_regdate,
+               qna_update_date,
+               qna_admin_answer,
+               qna_delete
+        from t_qna_remake
+        where 1 = 1
+        ]]>
+        <if test="qnaSearchText != ''">
+            <![CDATA[
+					and qna_title like CONCAT('%',#{qnaSearchText},'%') or qna_text like CONCAT('%',#{qnaSearchText},'%')
+        ]]>
+        </if>
+        <if test="qna_category != 'all'">
+            <![CDATA[
+					and qna_category = #{qna_category}
+            ]]>
+        </if>
+        <if test="qna_admin_answer != 'all'">
+            <![CDATA[
+					and qna_admin_answer = #{qna_admin_answer}
+            ]]>
+        </if>
+        <![CDATA[
+        order by qna_id desc
+        limit #{startRownum},#{rownumEndCount}
+        ]]>
+    </select>
+
+    <!-- 관리자용 질문글 총 개수 -->
+    <select id="countQnaAdmin" parameterType="String" resultType="_int">
+        <![CDATA[
+        select count(*)
+        from t_qna_remake
+        where 1 = 1
+         ]]>
+        <if test="qnaSearchText != ''">
+            <![CDATA[
+					and qna_title like CONCAT('%',#{qnaSearchText},'%') or qna_text like CONCAT('%',#{qnaSearchText},'%')
+            ]]>
+        </if>
+        <if test="qna_category != 'all'">
+            <![CDATA[
+					and qna_category = #{qna_category}
+            ]]>
+        </if>
+        <if test="qna_admin_answer != 'all'">
+            <![CDATA[
+					and qna_admin_answer = #{qna_admin_answer}
+            ]]>
+        </if>
+
+
+    </select>
+
     <!-- 질문글 등록 -->
     <select id="insert" parameterType="com.goott.domain.QnaVO">
         <![CDATA[
         insert into t_qna_remake(member_id, qna_category, qna_public, qna_title, qna_text, qna_picture_url)
         values (#{member_id}, #{qna_category}, #{qna_public}, #{qna_title}, #{qna_text}, #{qna_picture_url})
+        ]]>
+    </select>
+
+    <!-- 질문글 수정 -->
+    <update id="update" parameterType="com.goott.domain.QnaVO">
+        <![CDATA[
+        update t_qna_remake
+        set qna_category    = #{qna_category},
+            qna_public      = #{qna_public},
+            qna_title       = #{qna_title},
+            qna_text        = #{qna_text},
+            qna_picture_url = #{qna_picture_url},
+            qna qna_update_date = now()
+        where qna_id = #{qna_id}
+        ]]>
+    </update>
+
+    <!-- 질문글 삭제 -->
+    <update id="delete" parameterType="_int">
+        <![CDATA[
+        update t_qna
+        set qna_delete = 'y'
+        where qna_id = #{qna_id}
+        ]]>
+    </update>
+
+    <!-- 답변글 등록 -->
+    <insert id="insertAnswer" parameterType="com.goott.domain.AnswerVO">
+        <![CDATA[
+        insert into t_qna_answer_remake(qna_id, answer_text)
+        values (#{qna_id}, #{answer_text})
+        ]]>
+    </insert>
+
+    <!-- 답변글 수정 -->
+    <update id="updateAnswer" parameterType="com.goott.domain.AnswerVO">
+        <![CDATA[
+        update t_qna_answer_remake
+        set answer_text        = #{answer_text},
+            answer_update_date = now()
+        where answer_id = #{answer_id}
+        ]]>
+    </update>
+
+    <!-- 답변글 삭제 -->
+    <delete id="deleteAnswer" parameterType="_int">
+        <![CDATA[
+        delete
+        from t_qna_answer_remake
+        where answer_id = #{answer_id}
+        ]]>
+    </delete>
+
+    <!-- 답변 여부 y -->
+    <update id="updateQnaAnswerY" parameterType="_int">
+        <![CDATA[
+        update t_qna_remake
+        set qna_admin_answer = 'y'
+        where qna_id = #{qna_id}
+        ]]>
+    </update>
+
+    <!-- 답변 여부 n -->
+    <update id="updateQnaAnswerN" parameterType="_int">
+        <![CDATA[
+        update t_qna_remake
+        set qna_admin_answer = 'n'
+        where qna_id = #{qna_id}
+        ]]>
+    </update>
+
+    <!-- 답변 내용 가져오기 -->
+    <select id="selectAnswer" parameterType="_int" resultType="com.goott.domain.AnswerVO">
+        <![CDATA[
+        select answer_id, qna_id, answer_text, answer_regdate, answer_update_date
+        from t_qna_answer_remake
+        where qna_id = #{qna_id}
         ]]>
     </select>
 </mapper>

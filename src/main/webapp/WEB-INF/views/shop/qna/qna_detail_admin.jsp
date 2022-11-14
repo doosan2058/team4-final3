@@ -18,9 +18,9 @@
 
     <!-- 폰트, 색상 공통 -->
     <link rel="stylesheet" href="/resources/css/global.css">
-    <link rel="stylesheet" href="/resources/css/shop/qna/qna_detail.css">
+    <link rel="stylesheet" href="/resources/css/shop/qna/qna_detail_admin.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
-    <title>질문 상세 페이지</title>
+    <title>질문 상세 관리자 페이지</title>
 </head>
 <body>
 <jsp:include page="../shop_header.jsp"/>
@@ -74,7 +74,8 @@
                         <span style="color: rgba(122,122,122,0.87); font-size: 0.8rem">없습니다.</span>
                     </c:if>
                 </span>
-                <a id="qnaDetailModifyAnchor" href="/qna/modify?qna_id=${qnaVO.qna_id}&accessId=${qnaVO.member_id}">수정하기</a>
+                <a id="qnaDetailModifyAnchor"
+                   href="/qna/modify?qna_id=${qnaVO.qna_id}&accessId=${qnaVO.member_id}">수정하기</a>
 
 
             </div>
@@ -86,17 +87,31 @@
             ${qnaVO.qna_text}
         </div>
     </div>
-    <c:if test="${qnaVO.qna_admin_answer eq 'y'}">
-        <div class="answerDiv">
-            <div class="answerText">
-                    ${answerVO.answer_id}
-                    ${answerVO.qna_id}
-                    ${answerVO.answer_text}
-                    ${answerVO.answer_regdate}
-                    ${answerVO.answer_update_date}
-            </div>
+    <div class="answerDiv">
+        <div class="answerText">
+            <form>
+                <c:choose>
+                    <c:when test="${qnaVO.qna_admin_answer eq 'y'}">
+                        ${answerVO.answer_id}
+                        ${answerVO.qna_id}
+                        ${answerVO.answer_text}
+                        ${answerVO.answer_regdate}
+                        ${answerVO.answer_update_date}
+                        <input type="submit" formaction="/qna/answer/modify" formmethod="post" value="수정">
+                        <input type="submit" formaction="/qna/answer/delete" formmethod="post" value="삭제">
+                    </c:when>
+                    <c:when test="${qnaVO.qna_admin_answer eq 'n'}">
+                        <textarea name="answer_text"></textarea>
+                        <input type="submit" formaction="/qna/answer/register" formmethod="post" value="등록">
+                    </c:when>
+                </c:choose>
+                <input type="hidden" name="member_id" value="${qnaVO.member_id}">
+                <input type="hidden" name="qna_id" value="${qnaVO.qna_id}">
+            </form>
+
         </div>
-    </c:if>
+    </div>
+
 
 </div>
 <div class="qnaImgContainer">
@@ -111,6 +126,6 @@
 
 
 <jsp:include page="../shop_footer.jsp"/>
-<script src="/resources/js/shop/qna/qna_detail.js"></script>
+<script src="/resources/js/shop/qna/qna_detail_admin.js"></script>
 </body>
 </html>

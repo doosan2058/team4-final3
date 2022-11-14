@@ -60,6 +60,8 @@
 			<mapping path="/user"/>
             <mapping path="/user/*"/>
             <mapping path="/qna/add"/>
+            <mapping path="/qna/modify"/>
+            <mapping path="/qna/delete"/>
 
 
             <beans:ref bean="commonInterceptor"/>
@@ -73,7 +75,11 @@
 			<mapping path="/draw/draw_admin"/>
 			<mapping path="/draw/modify"/>
 			<mapping path="/draw/add"/>
-            <mapping path="/shop/QnA_admin"/>
+			<mapping path="/qna/admin"/>
+			<mapping path="/qna/answer/register"/>
+			<mapping path="/qna/answer/modify"/>
+			<mapping path="/qna/answer/delete"/>
+
 
 
             <beans:ref bean="adminInterceptor"/>
