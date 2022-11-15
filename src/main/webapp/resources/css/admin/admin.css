@@ -94,14 +94,14 @@
 	width: 100%;
 	height: 90%;
 	overflow-y: scroll;
-	background-color: var(--sub2Color);
+	background-color: var(--subColor2);
 }
 /*회원*/
 .memberDiv{
 	width: 100%;
 	height: 100px;
 	display: flex;
-	border: 2px solid var(--sub2Color);
+	border: 2px solid var(--subColor2);
 	background-color: #1c1e1e;
 	cursor: pointer;
 	transition: .2s;
@@ -150,7 +150,7 @@
     width: 100%;
 	height: 100%;
 	padding: 0.5rem;
-	background-color: var(--sub2Color);
+	background-color: var(--subColor2);
 	color: white;
 	font-family: 'GimpoGothicBold00';
 	transition: .3s;
@@ -250,7 +250,7 @@
 @media screen and (min-width:1024px) {
 
 	.navIcon:hover, .navInnerBottom a:hover{
-		background-color: var(--sub2Color);
+		background-color: var(--subColor2);
 	}
 	.memberIdSpan:hover{
 		color: var(--fontColor);

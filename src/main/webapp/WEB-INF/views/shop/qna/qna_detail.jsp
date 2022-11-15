@@ -25,13 +25,15 @@
 <body>
 <jsp:include page="../shop_header.jsp"/>
 <input type="hidden" id="qna_public" value="${qnaVO.qna_public}">
-<div class="qnaDetailContainer">
-    <div class="detailTopDiv">
-        <div class="detailProfileImgDiv">
-            <img src="${member_profile_img_url}" class="profileImg">
-        </div>
-        <div class="detailInfoDiv">
-            <div>
+<input type="hidden" id="qna_delete" value="${qnaVO.qna_delete}">
+<c:if test="${qnaVO.qna_delete ne 'y'}">
+    <div class="qnaDetailContainer">
+        <div class="detailTopDiv">
+            <div class="detailProfileImgDiv">
+                <img src="${member_profile_img_url}" class="profileImg">
+            </div>
+            <div class="detailInfoDiv">
+                <div>
                 <span class="qnaIdSpan">${qnaVO.qna_id}.
                     <span class="qnaTagSpan">[${qnaVO.qna_category}]</span>
                     <c:if test="${qnaVO.qna_admin_answer eq 'n'}">
@@ -42,13 +44,13 @@
                     </c:if>
                 </span>
 
-                <span class="qnaTitleSpan">${qnaVO.qna_title}</span>
+                    <span class="qnaTitleSpan">${qnaVO.qna_title}</span>
 
-            </div>
-            <div>
-                <span class="qnaSubjectSpan qna_member_id">${qnaVO.member_id}</span>
-            </div>
-            <div>
+                </div>
+                <div>
+                    <span class="qnaSubjectSpan qna_member_id">${qnaVO.member_id}</span>
+                </div>
+                <div>
                 <span class="qnaSubjectSpan">
                     작성일
                     <span class="qnaDateSpan"><fmt:formatDate
@@ -57,14 +59,14 @@
                     <span class="dateDashSpan">|</span>
                 </span>
 
-                <span class="qnaSubjectSpan">
+                    <span class="qnaSubjectSpan">
                     수정일
                      <span class="qnaDateSpan"><fmt:formatDate
                              value="${qnaVO.qna_update_date}" pattern="yyyy.MM.dd HH:mm"/>
                      </span>
                 </span>
-                <span class="dateDashSpan">|</span>
-                <span class="qnaSubjectSpan">
+                    <span class="dateDashSpan">|</span>
+                    <span class="qnaSubjectSpan">
                     첨부파일
                     <c:if test="${qnaVO.qna_picture_url ne 'not url'}">
                         <i class="xi-paperclip attachmentIcon"></i>
@@ -74,31 +76,68 @@
                         <span style="color: rgba(122,122,122,0.87); font-size: 0.8rem">없습니다.</span>
                     </c:if>
                 </span>
-                <a id="qnaDetailModifyAnchor" href="/qna/modify?qna_id=${qnaVO.qna_id}&accessId=${qnaVO.member_id}">수정하기</a>
+                    <div>
+                        <a id="qnaDetailModifyAnchor" href="/qna/modify?qna_id=${qnaVO.qna_id}">수정</a>
+                        <form>
+                            <input type="hidden" name="qna_id" value="${qnaVO.qna_id}">
+                            <input type="submit" formmethod="post" formaction="/qna/delete" id="qnaDetailDeleteAnchor" value="삭제">
+                        </form>
 
+                    </div>
+
+
+
+                </div>
 
             </div>
-
         </div>
-    </div>
-    <div class="detailBodyDiv">
-        <div class="detailText">
-            ${qnaVO.qna_text}
+        <div class="detailBodyDiv">
+            <div class="detailText">
+                    ${qnaVO.qna_text}
+            </div>
         </div>
-    </div>
-    <c:if test="${qnaVO.qna_admin_answer eq 'y'}">
         <div class="answerDiv">
             <div class="answerText">
-                    ${answerVO.answer_id}
-                    ${answerVO.qna_id}
-                    ${answerVO.answer_text}
-                    ${answerVO.answer_regdate}
-                    ${answerVO.answer_update_date}
+
+                <form>
+                    <c:choose>
+                        <c:when test="${qnaVO.qna_admin_answer eq 'y'}">
+                            <h3>[답변 내용]</h3>
+                            <input type="hidden" name="answer_id" value="  ${answerVO.answer_id}" readonly>
+                            <input type="hidden" name="qna_id" value="  ${answerVO.qna_id}" readonly>
+                            <div class="answerTextDateDiv">
+                            <span class="answerTextDateDivInner">
+                                <span class="answerSubjectSpan">등록일</span>
+                                <span class="answerDateSpan">
+                                    <fmt:formatDate value="${answerVO.answer_regdate}" pattern="yyyy/MM/dd HH:mm:ss"/>
+                                </span>
+                            </span>
+                                <span class="dateDashSpan test">|</span>
+                                <span class="answerTextDateDivInner">
+                                <span class="answerSubjectSpan">수정일</span>
+                                <span class="answerDateSpan"><fmt:formatDate value="${answerVO.answer_update_date}" pattern="yyyy/MM/dd HH:mm:ss"/>
+                                </span>
+                            </span>
+                            </div>
+                            <div class="answerTextDetailDiv"> ${answerVO.answer_text}</div>
+
+
+
+                        </c:when>
+                        <c:when test="${qnaVO.qna_admin_answer eq 'n'}">
+
+                        </c:when>
+                    </c:choose>
+                    <input type="hidden" name="member_id" value="${qnaVO.member_id}">
+                    <input type="hidden" name="qna_id" value="${qnaVO.qna_id}">
+                </form>
+
             </div>
         </div>
-    </c:if>
 
-</div>
+    </div>
+</c:if>
+
 <div class="qnaImgContainer">
     <div>
         <i class="xi-close closeQnaImgContainer"></i>

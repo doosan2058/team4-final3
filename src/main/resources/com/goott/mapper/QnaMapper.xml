@@ -48,7 +48,7 @@
         ]]>
         <if test="qnaSearchText != ''">
             <![CDATA[
-					and qna_title like CONCAT('%',#{qnaSearchText},'%') or qna_text like CONCAT('%',#{qnaSearchText},'%')
+					and (qna_title like CONCAT('%',#{qnaSearchText},'%') or qna_text like CONCAT('%',#{qnaSearchText},'%'))
         ]]>
         </if>
         <if test="qna_category != 'all'">
@@ -71,7 +71,7 @@
          ]]>
         <if test="qnaSearchText != ''">
             <![CDATA[
-					and qna_title like CONCAT('%',#{qnaSearchText},'%') or qna_text like CONCAT('%',#{qnaSearchText},'%')
+					and (qna_title like CONCAT('%',#{qnaSearchText},'%') or qna_text like CONCAT('%',#{qnaSearchText},'%'))
             ]]>
         </if>
         <if test="qna_category != 'all'">
@@ -170,7 +170,7 @@
     <!-- 질문글 삭제 -->
     <update id="delete" parameterType="_int">
         <![CDATA[
-        update t_qna
+        update t_qna_remake
         set qna_delete = 'y'
         where qna_id = #{qna_id}
         ]]>

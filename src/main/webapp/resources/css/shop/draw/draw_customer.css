@@ -38,7 +38,7 @@
 /*이벤트 내용, foreach 반복 디비전*/
 .drawBodyDiv {
     width: 100%;
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
 }
 
 .oneDrawDiv {
@@ -80,7 +80,7 @@
     width: 350px;
     height: 350px;
     border-radius: 10px;
-    box-shadow: var(--sub2Color) 0px 0px 5px 3px;
+    box-shadow: var(--subColor2) 0px 0px 5px 3px;
 }
 
 .drawBottomDiv {
@@ -291,7 +291,7 @@
 
 @media screen and (min-width: 1024px) {
     .addDrawBtn:hover{
-        background-color: var(--sub2Color);
+        background-color: var(--subColor2);
     }
     .productAnchor:hover{
         color: var(--fontColor);

@@ -16,11 +16,13 @@
 :root{
 	--mainColor : rgb(24, 24, 24);
 	--subColor : rgb(59, 59, 59);
-	--sub2Color : rgb(40, 40, 40);
+	--subColor2 : rgb(40, 40, 40);
 	--borderColor : rgba(209, 209, 209, 0.486);
 	--fontColor : rgb(142, 206, 231);
 	--subFontColor : rgb(209, 209, 209);
-	--sub2FontColor : rgba(142, 206, 231, 0.82);
+	--subFontColor2 : rgba(142, 206, 231, 0.82);
+	--subFontColor3 : rgba(141,141,141,0.87);
+	--subFontColor4 : #b9b9b9;
 	--hoverColor: rgb(69, 175, 227);
 	--basicFontColor: white;
 	--alterFontColor: black;
@@ -64,7 +66,7 @@ a:visited{
 .formBtns {
 	width: 150px;
 	height: 50px;
-	background-color: var(--sub2Color);
+	background-color: var(--subColor2);
 	transition: .3s;
 	color: var(--subFontColor);
 	cursor: pointer;
@@ -79,7 +81,7 @@ a:visited{
 	min-width: 50px;
 	height: 50px;
 	padding-left: 0.5rem;
-	background-color: var(--sub2Color);
+	background-color: var(--subColor2);
 	font-family: 'GimpoGothicBold00';
 	transition: .3s;
 	border: none;

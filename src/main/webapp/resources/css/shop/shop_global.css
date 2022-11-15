@@ -131,7 +131,7 @@ header a{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
 }
 .mapHeaderDiv span{
     display: inline-block;
@@ -160,7 +160,7 @@ footer{
     align-items: center;
     padding: 1rem;
     color: var(--subFontColor);
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
 }
 .footer_content h1{
     margin-bottom: 2rem;
@@ -179,7 +179,7 @@ footer{
 
 /*설명 디비전*/
 .headerToolTipBox{
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
     width: fit-content;
     padding: 0.5rem;
     display: none;

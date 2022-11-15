@@ -78,7 +78,7 @@ input[type="checkbox"]{
     height: 40px;
     display: flex;
     align-items: center;
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
 }
 .serviceAgreeDivBottom{
     width: 100%;
@@ -106,7 +106,7 @@ input[type="checkbox"]{
     height: 40px;
     display: flex;
     align-items: center;
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
 }
 
 .personalAgreeDivBottom{
@@ -149,7 +149,7 @@ input[type="checkbox"]{
     height: 40px;
     display: flex;
     align-items: center;
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
 }
 .emailAgreeDivBottom{
     width: 100%;

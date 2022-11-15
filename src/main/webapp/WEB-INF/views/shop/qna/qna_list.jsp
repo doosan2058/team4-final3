@@ -37,7 +37,7 @@
     </div>
     <div class="qnaListBodyDiv">
         <c:if test="${pageQna.totalCount == 0}">
-            <p>검색 결과가 없습니다.</p>
+            <p class="searchResultP">검색 결과가 없습니다.</p>
         </c:if>
         <c:if test="${pageQna.totalCount != 0}">
             <div class="qnaLineHeadDiv">

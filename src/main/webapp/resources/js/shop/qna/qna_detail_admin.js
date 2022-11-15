@@ -26,6 +26,14 @@ function qnaDetailInit() {
             location.href = '/qna';
         }
     }
+    // 삭제 게시글
+    else if (document.querySelector('#qna_delete').value == 'y') {
+        // 관리자제외 접근 불허
+        if(document.querySelector('#authCheckHiddenInput').value != '관리자'){
+            alert('삭제된 게시글 입니다.');
+            location.href = '/qna';
+        }
+    }
     // 공개 게시글
     else {
         // 작성자 == 로그인유저

@@ -31,18 +31,14 @@
             <p> - 궁금한 점을 물어보세요!</p>
         </div>
         <div class="qnaMeduDiv">
-            <select name="qna_admin_answer">
-                <option value="all">all</option>
-                <option value="y">완료</option>
-                <option value="n">대기중</option>
-            </select>
+
             <a href="/qna/sample">
                 자주 묻는 질문
             </a>
         </div>
         <div class="qnaListBodyDiv">
             <c:if test="${pageQna.totalCount == 0}">
-                <p>검색 결과가 없습니다.</p>
+                <p class="searchResultP">검색 결과가 없습니다.</p>
             </c:if>
             <c:if test="${pageQna.totalCount != 0}">
                 <div class="qnaLineHeadDiv">
@@ -89,7 +85,11 @@
                     </div>
                 </c:forEach>
                 <div class="qnaListSearchDiv">
-
+                    <select name="qna_admin_answer">
+                        <option value="all">All</option>
+                        <option value="y">완료</option>
+                        <option value="n">대기중</option>
+                    </select>
                     <select name="qna_category">
                         <option value="all">All</option>
                         <option value="배송">배송</option>
@@ -107,11 +107,11 @@
                     <input type="hidden" value="${pageQna.clientPageNum}" id="clientPageNumHiddenInput">
                     <div class="qnaPagePreDiv">
                         <c:if test="${pageQna.startPageBlock eq true}">
-                            <a href="/qna?clientPageNum=1&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
+                            <a href="/qna/admin?clientPageNum=1&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
                                style="color: #9b9b9b;">처음</a>
                         </c:if>
                         <c:if test="${pageQna.prePage eq true}">
-                            <a href="/qna?clientPageNum=${pageQna.clientPageNum - 1}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
+                            <a href="/qna/admin?clientPageNum=${pageQna.clientPageNum - 1}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
                                style="color: #9b9b9b;">이전</a>
                         </c:if>
                     </div>
@@ -119,25 +119,25 @@
                         <c:if test="${pageQna.currentBlockNum eq pageQna.totalBlock}">
                             <c:forEach var="i" begin="${pageQna.currentBlockNum * pageQna.blockCount - 9}"
                                        end="${pageQna.totalPage}">
-                                <a href="/qna?clientPageNum=${i}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
+                                <a href="/qna/admin?clientPageNum=${i}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
                                    class="qnaPageAnchor">${i}</a>
                             </c:forEach>
                         </c:if>
                         <c:if test="${pageQna.currentBlockNum ne pageQna.totalBlock}">
                             <c:forEach var="i" begin="${pageQna.currentBlockNum * pageQna.blockCount - 9}"
                                        end="${pageQna.currentBlockNum * pageQna.blockCount}">
-                                <a href="/qna?clientPageNum=${i}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
+                                <a href="/qna/admin?clientPageNum=${i}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
                                    class="qnaPageAnchor">${i}</a>
                             </c:forEach>
                         </c:if>
                     </div>
                     <div class="qnaPageNextDiv">
                         <c:if test="${pageQna.nextPage eq true}">
-                            <a href="/qna?clientPageNum=${pageQna.clientPageNum + 1}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
+                            <a href="/qna/admin?clientPageNum=${pageQna.clientPageNum + 1}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
                                style="color: #9b9b9b;">다음</a>
                         </c:if>
                         <c:if test="${pageQna.endPageBlock eq true}">
-                            <a href="/qna?clientPageNum=${pageQna.totalPage}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
+                            <a href="/qna/admin?clientPageNum=${pageQna.totalPage}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
                                style="color: #9b9b9b;">끝</a>
                         </c:if>
                     </div>

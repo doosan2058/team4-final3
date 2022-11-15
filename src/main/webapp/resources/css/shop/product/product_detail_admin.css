@@ -316,7 +316,7 @@ main {
     min-height: 300px;
     height: fit-content;
     border: 3px solid var(--subColor);
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
     padding: 1rem;
     color: var(--subFontColor);
     font-family: 'GimpoGothicBold00';
@@ -455,7 +455,7 @@ main {
     justify-content: center;
     align-items: center;
     transition: .5s;
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
     border-radius: 50%;
 }
 .naviDiv i{

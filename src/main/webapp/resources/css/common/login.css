@@ -8,7 +8,7 @@
 	left: 50%;
 	transform: translate(-50%,-50%);
 	padding: 1rem;
-	box-shadow: var(--sub2Color) 0px 0px 5px 3px;
+	box-shadow: var(--subColor2) 0px 0px 5px 3px;
 }
 /*아이디 구역 */
 .idDiv {

@@ -36,7 +36,8 @@
     transition: .3s;
 }
 .qnaListBodyDiv{
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
+    min-height: 70vh;
 }
 .qnaLineHeadDiv{
     width: 100%;
@@ -183,6 +184,10 @@
     font-weight: bolder;
 }
 
+.searchResultP{
+    padding: 1rem;
+}
+
 @media screen and (min-width: 1px) and (max-width: 767px) {
     .qnaListContainer{
         width: 100%;
@@ -253,7 +258,7 @@
         font-size: 0.5rem;
     }
     .qnaListSearchDiv select{
-        width: 80px;
+        width: 40px;
     }
     .qnaListSearchDiv input[type="text"]{
         width: 100px;

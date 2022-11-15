@@ -150,7 +150,7 @@ main {
     height: 350px;
     padding: 1rem;
     position: relative;
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
     border: 3px solid var(--subColor);
     transition: .3s;
     display: flex;
@@ -247,7 +247,7 @@ main {
     width: 19%;
     margin: 1px;
     height: 340px;
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
     padding: 1rem;
     display: flex;
     align-items: center;
@@ -412,7 +412,7 @@ main {
 .sortMenuSpanDiv{
     width: 100%;
     border: 3px solid var(--mainColor);
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
     cursor: pointer;
     display: flex;
     justify-content: center;

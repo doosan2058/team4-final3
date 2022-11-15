@@ -2,7 +2,7 @@
     width: 100%;
     max-width: 1600px;
     margin: 5rem auto;
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
 }
 .detailTopDiv{
     width: 100%;
@@ -49,7 +49,7 @@
 }
 .attachmentIcon{
     cursor: pointer;
-    color: #b9b9b9;
+    color: var(--subFontColor4);
     font-size: 1rem;
 }
 .detailBodyDiv{
@@ -60,8 +60,8 @@
 .detailText{
     background-color: rgba(30, 30, 30, 0.83);
     width: 100%;
-    overflow-y: auto;
     padding: 1rem;
+    min-height: 100px;
 }
 /* qna이미지컨테이너 */
 .qnaImgContainer{
@@ -104,7 +104,7 @@
 }
 
 .qnaDateSpan{
-    color: rgba(141,141,141,0.87);
+    color: var(--subFontColor3);
     font-size: 0.9rem;
 
 }
@@ -116,6 +116,50 @@
 }
 .dateDashSpan{
     font-weight: bolder;
+}
+.answerDiv{
+    padding: 1rem;
+}
+.answerText{
+    background-color: var(--mainColor);
+    padding: 1rem;
+}
+
+.answerSubjectSpan{
+    color: var(--basicFontColor);
+    font-size: 1rem;
+    font-weight: bolder;
+}
+.answerDateSpan{
+    font-weight: bolder;
+    font-size: 0.9rem;
+    color: var(--subFontColor4);
+}
+.answerText textarea{
+    display: inline-block;
+    width: 100%;
+    background-color: var(--subColor2);
+    color: white;
+    resize: none;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    min-height: 100px;
+    font-family: GimpoGothicRegular00;
+}
+.answerText input[type="submit"]{
+    display: inline-block;
+    background-color: transparent;
+    color: var(--fontColor);
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+    font-family: GimpoGothicBold00;
+    transition: .3s;
+
+}
+
+.deleteP{
+    padding: 1rem;
 }
 
 
@@ -136,13 +180,22 @@
         display: flex;
         flex-direction: column;
     }
-
     .dateDashSpan{
         display: none;
     }
     .qnaTitleSpan{
         margin-top: 3px;
     }
+
+
+    .answerText input[type="submit"]{
+        width: fit-content;
+    }
+    .answerTextDateDivInner{
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
@@ -159,5 +212,7 @@
 
 }
 @media screen and (min-width: 1024px) {
-
+    .answerText input[type="submit"]:hover{
+        border-bottom: 1px solid var(--fontColor);
+    }
 }

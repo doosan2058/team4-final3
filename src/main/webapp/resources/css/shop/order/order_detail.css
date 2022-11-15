@@ -29,7 +29,7 @@
 .orderInputs{
 	width: 100%;
 	padding: 1rem;
-	background-color: var(--sub2Color);
+	background-color: var(--subColor2);
     transition: .3s;
 	border: none;
 	outline: none;

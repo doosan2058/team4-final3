@@ -64,7 +64,7 @@
 .oneDrawTop {
     width: 100%;
     height: 50px;
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,7 +83,7 @@
     height: 100%;
     padding-left: 0.5rem;
     color: var(--subFontColor);
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
     border: none;
     outline: none;
     transition: .3s;
@@ -140,14 +140,14 @@
     width: 500px;
     height: 500px;
     border-radius: 10px;
-    box-shadow: var(--sub2Color) 0px 0px 5px 3px;
+    box-shadow: var(--subColor2) 0px 0px 5px 3px;
 }
 
 .addDrawProductDiv{
     width: 500px;
     height: 500px;
     border-radius: 10px;
-    box-shadow: var(--sub2Color) 0px 0px 5px 3px;
+    box-shadow: var(--subColor2) 0px 0px 5px 3px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -157,7 +157,7 @@
 
 .plusIcon{
     color: var(--subColor);
-    text-shadow: var(--sub2Color) 0px 0px 5px;
+    text-shadow: var(--subColor2) 0px 0px 5px;
     font-size: 5rem;
     transition: .3s;
 
@@ -203,7 +203,7 @@
     width: 90%;
     height: 50px;
     padding: 0.5rem;
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
     color: white;
     resize: none;
     transition: .3s;
@@ -220,7 +220,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--sub2Color);
+    background-color: var(--subColor2);
 }
 
 .drawAddBtn {
@@ -465,7 +465,7 @@
         text-shadow: black 0px 0px 7px;
     }
     .addDrawBtn:hover{
-        background-color: var(--sub2Color);
+        background-color: var(--subColor2);
     }
     .productAnchor:hover{
         color: var(--fontColor);

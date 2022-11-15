@@ -5,7 +5,7 @@
 	display: flex;
 	justify-content: space-around;
     align-items: center;
-	background-color: var(--sub2Color);
+	background-color: var(--subColor2);
 	font-family: "Black Han Sans";
 }
 .navDiv a{
@@ -348,7 +348,7 @@
 .deleteBtns {
 	width: 100%;
 	height: 50px;
-	background-color: var(--sub2Color);
+	background-color: var(--subColor2);
 	transition: .3s;
 	color: var(--subFontColor);
 	cursor: not-allowed;
@@ -361,7 +361,7 @@
 	width: 100%;
 	height: 50px;
 	padding-left: 0.5rem;
-	background-color: var(--sub2Color);
+	background-color: var(--subColor2);
 	color: white;
 	font-family: 'GimpoGothicBold00';
 	transition: .3s;
