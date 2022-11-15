@@ -92,11 +92,11 @@
             <form>
                 <c:choose>
                     <c:when test="${qnaVO.qna_admin_answer eq 'y'}">
-                        ${answerVO.answer_id}
-                        ${answerVO.qna_id}
-                        ${answerVO.answer_text}
-                        ${answerVO.answer_regdate}
-                        ${answerVO.answer_update_date}
+                        <input type="text" name="answer_id" value="  ${answerVO.answer_id}" readonly>
+                        <input type="text" name="qna_id" value="  ${answerVO.qna_id}" readonly>
+                        <textarea name="answer_text"> ${answerVO.answer_text}</textarea>
+                        등록일 ${answerVO.answer_regdate},
+                        수정일 ${answerVO.answer_update_date}
                         <input type="submit" formaction="/qna/answer/modify" formmethod="post" value="수정">
                         <input type="submit" formaction="/qna/answer/delete" formmethod="post" value="삭제">
                     </c:when>

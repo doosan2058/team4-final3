@@ -18,7 +18,7 @@
 
     <!-- 폰트, 색상 공통 -->
     <link rel="stylesheet" href="/resources/css/global.css">
-    <link rel="stylesheet" href="/resources/css/shop/qna/qna_admin_list.css">
+    <link rel="stylesheet" href="/resources/css/shop/qna/qna_list_admin.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
     <title>질문 페이지</title>
 </head>
@@ -152,6 +152,6 @@
 </form>
 
 <jsp:include page="../shop_footer.jsp"/>
-<script src="/resources/js/shop/qna/qna_admin_list.js"></script>
+<script src="/resources/js/shop/qna/qna_list_admin.js"></script>
 </body>
 </html>

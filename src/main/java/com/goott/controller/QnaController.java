@@ -58,7 +58,7 @@ public class QnaController {
     }
 
 
-    @RequestMapping(value = "/qna/admin")
+    @RequestMapping(value = "/qna/admin", method = RequestMethod.GET)
     public String qnaAdmin(@RequestParam(value = "clientPageNum", defaultValue = "1") int clientPageNum,
                            @RequestParam(value = "qna_category", defaultValue = "all") String qna_category,
                            @RequestParam(value = "qnaSearchText", defaultValue = "") String qnaSearchText,
@@ -79,7 +79,7 @@ public class QnaController {
         model.addAttribute("pageQna", pageQna);
         model.addAttribute("list", list);
 
-        return "/shop/qna/qna_admin_list";
+        return "/shop/qna/qna_list_admin";
     }
 
     // 자주 묻는 질문
@@ -90,9 +90,9 @@ public class QnaController {
 
     // qna 게시글 상세
     @RequestMapping(value = "/qna/detail", method = RequestMethod.GET)
-    public String detail(@RequestParam int qna_id, @RequestParam String member_id, Model model) {
+    public String detail(@RequestParam int qna_id, Model model) {
         QnaVO qnaVO = qnaService.getQna(qna_id);
-        String member_profile_img_url = userService.getUserImgUrl(member_id);
+        String member_profile_img_url = userService.getUserImgUrl(qnaVO.getMember_id());
 
         // 괸리자가 답변을 작성 하였다면
         if (qnaVO.getQna_admin_answer().equals("y")) {
@@ -110,16 +110,15 @@ public class QnaController {
 
     // qna 게시글 상세 관리자
     @RequestMapping(value = "/qna/detail/admin", method = RequestMethod.GET)
-    public String detailAdmin(@RequestParam int qna_id, @RequestParam String member_id, Model model) {
+    public String detailAdmin(@RequestParam int qna_id, Model model) {
         QnaVO qnaVO = qnaService.getQna(qna_id);
-        String member_profile_img_url = userService.getUserImgUrl(member_id);
+        String member_profile_img_url = userService.getUserImgUrl(qnaVO.getMember_id());
 
         // 괸리자가 답변을 작성 하였다면
         if (qnaVO.getQna_admin_answer().equals("y")) {
             AnswerVO answerVO = qnaService.getAnswer(qna_id);
             model.addAttribute("answerVO", answerVO);
         }
-
 
         model.addAttribute("qnaVO", qnaVO);
         model.addAttribute("member_profile_img_url", member_profile_img_url);
@@ -163,15 +162,15 @@ public class QnaController {
         qnaService.updateQna(qnaVO, file);
         int qna_id = qnaVO.getQna_id();
         String member_id = qnaVO.getMember_id();
-        model.addAttribute("msg", "수정 되었습니다.");
-        model.addAttribute("url", "/qna/detail?qna_id=" + qna_id + "&member_id=" + member_id);
+        model.addAttribute("msg", "질문글을 수정 하였습니다.");
+        model.addAttribute("url", "/qna/detail?qna_id=" + qna_id);
         return "/common/alert";
     }
 
     @RequestMapping(value = "/qna/delete", method = RequestMethod.POST)
     public String deletePost(@RequestParam int qna_id, Model model) {
         qnaService.delete(qna_id);
-        model.addAttribute("msg", "삭제 되었습니다.");
+        model.addAttribute("msg", "질문글을 삭제 하였습니다.");
         model.addAttribute("url", "/qna");
         return "/common/alert";
     }
@@ -181,7 +180,7 @@ public class QnaController {
         qnaService.registerAnswer(answerVO);
         int qna_id = answerVO.getQna_id();
         model.addAttribute("msg", "답변이 등록 되었습니다.");
-        model.addAttribute("url", "/qna/detail?qna_id=" + qna_id + "&member_id=" + member_id);
+        model.addAttribute("url", "/qna/detail/admin?qna_id=" + qna_id);
         return "/common/alert";
     }
 
@@ -189,8 +188,8 @@ public class QnaController {
     public String answerModifyPost(AnswerVO answerVO, Model model, @RequestParam String member_id) {
         qnaService.updateAnswer(answerVO);
         int qna_id = answerVO.getQna_id();
-        model.addAttribute("msg", "답변이 수정 되었습니다.");
-        model.addAttribute("url", "/qna/detail?qna_id=" + qna_id + "&member_id=" + member_id);
+        model.addAttribute("msg", "답변을 수정 하였습니다.");
+        model.addAttribute("url", "/qna/detail/admin?qna_id=" + qna_id);
         return "/common/alert";
     }
 
@@ -198,8 +197,8 @@ public class QnaController {
     public String answerDeletePost(AnswerVO answerVO, Model model, @RequestParam String member_id) {
         qnaService.deleteAnswerAdmin(answerVO);
         int qna_id = answerVO.getQna_id();
-        model.addAttribute("msg", "답변이 삭제 되었습니다.");
-        model.addAttribute("url", "/qna/detail?qna_id=" + qna_id + "&member_id=" + member_id);
+        model.addAttribute("msg", "답변을 삭제 하였습니다.");
+        model.addAttribute("url", "/qna/detail/admin?qna_id=" + qna_id);
         return "/common/alert";
     }
 
