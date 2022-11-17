@@ -16,27 +16,33 @@ qnaLineDiv.forEach((item) => {
 // 질문글 상세보기 이동
 function goQnaDetailPage(){
     const publicText = this.children[0].value;
+    const writerText = this.children[2].children[0].innerHTML;
     if(publicText == 'n'){
-        alert('비공개 게시글 입니다.');
-        return;
+        // 작성자 본인 확인
+        if(writerText == document.querySelector('#loginCheckHiddenInput').value){
+            location.href = '/qna/detail?qna_id=' + this.children[1].children[0].innerHTML;
+        }
+        else{
+            alert('비공개 게시글 입니다.');
+            return;
+        }
+
     }
     else if(publicText == 'y'){
         const url = this.children[1].children[0].innerHTML;
-        const member_id = this.children[2].children[0].innerHTML;
+
         const tempForm = document.createElement('form');
         const qna_id_input = document.createElement('input');
-        const member_id_input = document.createElement('input');
+
         qna_id_input.setAttribute('type', 'hidden');
         qna_id_input.setAttribute('name', 'qna_id');
         qna_id_input.setAttribute('value', url);
-        member_id_input.setAttribute('type', 'hidden');
-        member_id_input.setAttribute('name', 'member_id');
-        member_id_input.setAttribute('value', member_id);
+
 
         tempForm.setAttribute('method','get');
         tempForm.setAttribute('action',`/qna/detail`);
         tempForm.appendChild(qna_id_input);
-        tempForm.appendChild(member_id_input);
+
         document.body.append(tempForm);
 
         tempForm.submit();

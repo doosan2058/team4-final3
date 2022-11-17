@@ -79,7 +79,7 @@ public class AdminController {
 
     @RequestMapping(value = "count", method = RequestMethod.GET)
     public String count(Model model) {
-//		log.info("방문자수 ===============================================");
+		log.info("방문자수 ===============================================");
 
         Map<String, Object> countMap = sessionService.countBasic();
         List<Map<String, Object>> countTotalDayMap = sessionService.countTotalDay();

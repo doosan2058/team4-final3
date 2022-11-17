@@ -175,8 +175,9 @@ public class QnaServiceImpl implements QnaService {
 
     @Override
     public void updateQna(QnaVO qnaVO, MultipartFile file) {
-        this.saveQnaImg(file);
+        String resultUrl = this.saveQnaImg(file);
         this.deleteExImgUrl(qnaVO.getQna_id());
+        qnaVO.setQna_picture_url(resultUrl);
         this.update(qnaVO);
     }
 

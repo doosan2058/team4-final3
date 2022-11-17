@@ -6,7 +6,7 @@
     <select id="selectExImgUrl" parameterType="_int" resultType="String">
         <![CDATA[
         select qna_picture_url
-        from from t_qna_remake
+        from t_qna_remake
         where qna_id = #{qna_id}
         ]]>
     </select>
@@ -162,7 +162,7 @@
             qna_title       = #{qna_title},
             qna_text        = #{qna_text},
             qna_picture_url = #{qna_picture_url},
-            qna qna_update_date = now()
+            qna_update_date = now()
         where qna_id = #{qna_id}
         ]]>
     </update>

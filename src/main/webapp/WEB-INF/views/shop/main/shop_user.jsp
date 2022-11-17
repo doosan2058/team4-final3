@@ -84,12 +84,8 @@
             </div>
             <!--상품 탑 10 내용-->
             <div class="itemBestBody">
-                <span class="material-symbols-outlined backSpan">
-                    arrow_back_ios
-                </span>
-                <span class="material-symbols-outlined forwardSpan">
-                    arrow_forward_ios
-                </span>
+                <i class="xi-angle-left backSpan"></i>
+                <i class="xi-angle-right forwardSpan"></i>
                 <!--탑 10 상품 디비전-->
                 <div class="itemBestDiv">
                     <c:forEach var="item" items="${productList}" varStatus="status">
@@ -117,9 +113,35 @@
             <!--상품 헤더-->
             <div class="itemAllHeader">
                 <h1>상품 목록</h1>
-                <span class="material-symbols-outlined categorySpanAnchor">youtube_searched_for</span>
             </div>
-
+            <div class="itemAllOptionDiv">
+                <div class="itemAllOptionSelectDiv">
+                    <select class="brandSelect">
+                        <option value="0">브랜드</option>
+                        <c:forEach var="item" items="${brandList}">
+                            <option value="${item.product_brand_id}">${item.product_brand_name}</option>
+                        </c:forEach>
+                    </select>
+                    <select class="categorySelect">
+                        <option value="0">카테고리</option>
+                        <c:forEach var="item" items="${categoryList}">
+                            <option value="${item.product_category_id}">${item.product_category_name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="itemAllOptionSpanDiv">
+                    <div class="optionLabelWrapDiv">
+                        <label class="optionLabel" for="searchOptionCheckBoxNew">입고</label>
+                        <input type="checkbox" class="searchOptionCheckBox" id="searchOptionCheckBoxNew" value="regist">
+                        <label class="optionLabel" for="searchOptionCheckBoxSale">판매</label>
+                        <input type="checkbox" class="searchOptionCheckBox" id="searchOptionCheckBoxSale" value="sale">
+                        <label class="optionLabel" for="searchOptionCheckBoxPrice">가격</label>
+                        <input type="checkbox" class="searchOptionCheckBox" id="searchOptionCheckBoxPrice" value="price">
+                        <div id="optionLabelUnderLineDiv"></div>
+                    </div>
+                    <span id="optionSearchSpan">보기</span>
+                </div>
+            </div>
             <!-- 현재 페이지 정보 -->
             <input type="hidden" id="currentPageInput" value="${pageShop.currentPage}">
             <!-- 전체 페이지 정보 -->
@@ -155,69 +177,6 @@
 
 
 </main>
-<!--사이드-->
-<div class="side">
-    <div class="side_navBar">
-        <!-- 등급 구역 -->
-        <div class="gradeDiv" style="background-color: ${userInfo.grade_color};">
-            <div class="gradeInnerTop">
-                <c:if test="${empty userInfo }">
-                    <p>로그인후 이용하실수 있습니다.</p>
-                </c:if>
-                <c:if test="${!empty userInfo }">
-                    <img alt="이미지 준비중 입니다." src="/gradeImg/${userInfo.grade_img_url}" id="userProfileImg" data-profile="${userInfo.member_profile_img_url }">
-                </c:if>
-            </div>
-            <div class="gradeInnerBottom">
-                <c:if test="${!empty userInfo }">
-                        <span class="userGradeSpan"
-                              style="color: ${userInfo.grade_font_color}">${userInfo.grade_name }
-                        </span> 등급
-                    <span class="userGradeSpan" style="color: ${userInfo.grade_font_color}">
-                            ${userInfo.grade_discount * 100}%
-                        </span> 할인
-                    <span class="userGradeSpan" style="color: ${userInfo.grade_font_color}">
-                            ${userInfo.grade_accrual_rate * 100}%
-                        </span> 적립
-                </c:if>
-            </div>
-        </div>
-        <!-- 카테고리 구역 -->
-        <div class="categoryDiv">
-            <div class="sortMenuDiv">
-                <div class="sortMenuSpanDiv">
-                    <span class="sortMenuSpan">카테고리</span>
-                </div>
-
-                <div class="sortInnerDiv">
-                    <span class="categorySpan" data-category-id="0">All Category</span>
-                    <c:forEach var="item" items="${categoryList }">
-                        <span class="categorySpan"
-                              data-category-id="${item.product_category_id }">${item.product_category_name }
-                        </span>
-                    </c:forEach>
-                </div>
-            </div>
-            <div class="sortMenuDiv">
-                <div class="sortMenuSpanDiv">
-                    <span class="sortMenuSpan">브랜드</span>
-                </div>
-                <div class="sortInnerDiv">
-                    <span class="brandSpan" data-brand-id="0">All Brand</span>
-                    <c:forEach var="item" items="${brandList }">
-                        <span class="brandSpan"
-                              data-brand-id="${item.product_brand_id }">${item.product_brand_name }
-                        </span>
-                    </c:forEach>
-                </div>
-            </div>
-            <div class="sortMenuCloseDiv">
-                <span class="material-symbols-outlined closeSideSpan">close</span>
-            </div>
-        </div>
-
-    </div>
-</div>
 
 <!-- 푸터 -->
 <jsp:include page="../shop_footer.jsp"/>

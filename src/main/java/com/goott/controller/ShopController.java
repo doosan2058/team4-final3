@@ -58,7 +58,7 @@ public class ShopController {
 
 		// 전체 페이지 수 조회
 		int totalPage = (int) Math.ceil((productService.getPageTotalNum(0, 0) / (double) 10.0));
-		PageShop pageShop = new PageShop(1, totalPage);
+		PageShop pageShop = new PageShop(1, totalPage, "regist");
 
 		// 카테고리 목록 조회
 		List<ProductCategoryVO> categoryList = productCategoryService.getList();
@@ -99,7 +99,7 @@ public class ShopController {
 
 		// 전체 페이지 수 조회
 		int totalPage = (int) Math.ceil((productService.getPageTotalNumAll(0, 0) / (double) 10.0));
-		PageShop pageShop = new PageShop(1, totalPage);
+		PageShop pageShop = new PageShop(1, totalPage, "regist");
 
 		// 카테고리 목록 조회
 		List<ProductCategoryVO> categoryList = productCategoryService.getList();

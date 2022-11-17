@@ -24,21 +24,57 @@
 </head>
 <body>
 <jsp:include page="../shop_header.jsp"/>
-<form method="post" action="add" enctype="multipart/form-data">
-    <select name="qna_category" id="qna_category">
-        <option value="주문/결제">주문/결제</option>
-        <option value="취소/환불/교환">취소/환불/교환</option>
-        <option value="회원">회원</option>
-        <option value="기타">기타</option>
-    </select>
-    <input type="radio" value="y" name="qna_public" checked>공개
-    <input type="radio" value="n" name="qna_public">비공개
-    <input type="text" name="qna_title" maxlength="30" placeholder="제목을 입력하세요.(최대 30자)" required id="qna_title">
-    <textarea name="qna_text" required id="qna_text"></textarea>
-    <input type="file" name="file" id="qna_picture_url">
-    <input type="submit" value="등록" id="qnaSubmitBtn">
-</form>
+<div class="qnaAddContainer">
+    <form method="post" action="add" enctype="multipart/form-data">
+        <div class="qnaOptionDiv">
+            <span class="qnaOptionTitleSpan">공개 여부</span>
+            <div class="qnaRadioWrapDiv">
+                <input type="radio" value="y" name="qna_public" checked id="qnaRadioPublicY"><label for="qnaRadioPublicY">공개</label>
+                <input type="radio" value="n" name="qna_public" id="qnaRadioPublicN"><label for="qnaRadioPublicN">비공개</label>
+            </div>
 
+        </div>
+        <div class="qnaOptionDiv">
+            <span class="qnaOptionTitleSpan">짊문 유형</span>
+            <select name="qna_category" id="qna_category">
+                <option value="주문/결제">주문/결제</option>
+                <option value="취소/환불/교환">취소/환불/교환</option>
+                <option value="회원">회원</option>
+                <option value="배송">배송</option>
+                <option value="기타">기타</option>
+            </select>
+        </div>
+        <div class="qnaOptionDiv">
+            <span class="qnaOptionTitleSpan">사진 첨부</span>
+            <label for="qna_picture_url" class="fileExplainLabel">
+                첨부하기
+            </label>
+            <input type="file" name="file" id="qna_picture_url">
+            <i class="xi-paperclip fileIcon" style="display: none;"></i>
+            <span class="qnaImgDeleteSpan">취소</span>
+        </div>
+        <div class="qnaSubjectDiv">
+            <input type="text" name="qna_title" maxlength="30" placeholder="제목을 입력하세요.(최대 30자)" required id="qna_title">
+            <span id="qnaTitleLengthSpan">(0/30)</span>
+        </div>
+        <div class="qnaDetailDiv">
+            <textarea name="qna_text" required id="qna_text" placeholder="내용을 입력하세요."></textarea>
+        </div>
+        <div class="qnaDetailDiv">
+            <input type="submit" value="등록" id="qnaSubmitBtn">
+        </div>
+
+    </form>
+
+</div>
+<div class="uploadImgContainer">
+    <div class="uploadImgCloseDiv">
+        <i class="xi-close uploadImgContainerCloseIcon"></i>
+    </div>
+    <div class="uploadImgWrapDiv">
+        <img class="qnaUploadImg">
+    </div>
+</div>
 
 <jsp:include page="../shop_footer.jsp"/>
 <script src="/resources/js/shop/qna/qna_add.js"></script>

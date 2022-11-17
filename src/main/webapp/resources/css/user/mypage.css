@@ -213,7 +213,6 @@
 .orderHistoryDiv h3{
 	position: absolute;
 	transform: translate(5%, -125%);
-	text-shadow: 0px 0px 5px black, 0px 0px 10px black;
 }
 .orderHistoryTableDiv{
 	width: 100%;
@@ -449,7 +448,7 @@
 .myListDiv h3{
 	display: inline-block;
 	height: 30px;
-	text-shadow: 0px 0px 5px black, 0px 0px 10px black;
+	margin: 0.5rem;
 }
 .myListHeader{
 	width: 40px;
@@ -466,32 +465,40 @@
 .freeBoard, .camping, .review{
 	width: 30%;
 	height: 100%;
-
+	border: 1px solid white;
 }
 .myListDivInnerDiv{
 	width: 100%;
 	height: calc(80vh - 30px);
 	overflow-y: auto;
+	padding: 0.5rem;
 }
 
 .lineDiv{
 	width: 100%;
 	height: 50px;
 	background-color: rgba(35, 35, 35, 0.9);
-	transition: .3s;
+	transition: .2s;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
-	margin-bottom: 10px;
-	padding-left: 5px;
+
+
+
 }
 .idxSpan{
 	color: var(--fontColor);
 	font-size: 1.1rem;
 	font-weight: bolder;
+	margin: 0 0.5rem;
 }
 .titleSpan{
 	color: var(--subFontColor);
+	display: inline-block;
+	width: 300px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 @media screen and (min-width: 1px) and (max-width: 767px) {
@@ -618,12 +625,16 @@
 	.freeBoard, .camping, .review{
 		width: 100%;
 		height: 33%;
+		border: 1px solid white;
 	}
 	.myListDivInnerDiv{
 		height: calc((80vh / 3) - 30px);
 	}
 	.idxSpan, .titleSpan{
 		font-size: 0.8rem;
+	}
+	.titleSpan{
+		width: 150px;
 	}
 }
 
@@ -645,6 +656,9 @@
 	}
 	.idxSpan, .titleSpan{
 		font-size: 0.8rem;
+	}
+	.titleSpan{
+		width: 400px;
 	}
 
 }
@@ -670,7 +684,8 @@
 		transform: scale(1.3,1.3);
 	}
 	.lineDiv:hover{
-		background-color: #2e383c;
+		box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.68);
+		transform: translateZ(4px);
 	}
 	.userModifyDiv a:hover{
 		background-color: #50646c;

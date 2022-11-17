@@ -7,7 +7,7 @@
         insert into t_session(browser, ip)
         values (#{browser}, #{ip})
         ]]>
-		
+
 	</insert>
 
     <!-- 총 방문자수 검색 -->
@@ -25,7 +25,7 @@
         from t_session
         where create_time > CURRENT_DATE()
         ]]>
-		
+
 	</select>
 
     <!-- 이번주 방문자수 검색 -->
@@ -66,14 +66,14 @@
     <select id="selectCountQnaTotal" resultType="int">
 		<![CDATA[
         select count(qna_id)
-        from t_qna
+        from t_qna_remake
         ]]>
 	</select>
     <!-- 오늘 질문글 수 -->
     <select id="selectCountQnaToday" resultType="int">
 		<![CDATA[
         select count(qna_id)
-        from t_qna
+        from t_qna_remake
         where qna_regdate > CURRENT_DATE()
         ]]>
 	</select>
@@ -81,7 +81,7 @@
     <select id="selectCountQnaWeek" resultType="int">
 		<![CDATA[
         select count(qna_id)
-        from t_qna
+        from t_qna_remake
         where qna_regdate between date_add(now(), interval -1 week) and now()
         ]]>
 	</select>
@@ -116,7 +116,7 @@
     <!-- 지금까지 일별 접속자 수 -->
     <select id="selectCountTotalDay" resultType="map">
 		<![CDATA[
-        SELECT DATE (`create_time`) AS `date`, count (`idx`) as count
+        SELECT DATE(`create_time`) AS `date`, count(`idx`) as count
         FROM t_session
         GROUP BY `date`
         order by create_time desc limit 0, 7
@@ -137,7 +137,7 @@
     <!-- 지금까지 일별 자유 게시글 수 -->
     <select id="selectCountTotalDayBoard" resultType="map">
 		<![CDATA[
-        SELECT DATE (`board_regdate`) AS `date`, count (`board_id`) as count
+        SELECT DATE(`board_regdate`) AS `date`, count(`board_id`) as count
         FROM t_board
         GROUP BY `date`
         order by board_regdate desc limit 0, 7
@@ -158,8 +158,8 @@
     <!-- 지금까지 일별 질문 게시글 수 -->
     <select id="selectCountTotalDayQna" resultType="map">
 		<![CDATA[
-        SELECT DATE (`qna_regdate`) AS `date`, count (`qna_id`) as count
-        FROM t_qna
+        SELECT DATE(`qna_regdate`) AS `date`, count(`qna_id`) as count
+        FROM t_qna_remake
         GROUP BY `date`
         order by qna_regdate desc limit 0, 7
         ]]>
@@ -170,7 +170,7 @@
         SELECT DATE_FORMAT(DATE_SUB(`qna_regdate`, INTERVAL (DAYOFWEEK(`qna_regdate`)-1) DAY), '%Y/%m/%d') as start,
                DATE_FORMAT(DATE_SUB(`qna_regdate`, INTERVAL (DAYOFWEEK(`qna_regdate`)-7) DAY), '%Y/%m/%d') as end,
 			DATE_FORMAT(`qna_regdate`, '%Y%U') AS `date`, count(`qna_id`) as count
-        FROM t_qna
+        FROM t_qna_remake
         GROUP BY date
         order by qna_regdate desc limit 0, 7
         ]]>
@@ -179,7 +179,7 @@
     <!-- 지금까지 일별 매출 -->
     <select id="selectCountTotalDayShop" resultType="map">
 		<![CDATA[
-        SELECT DATE (s.sales_date) AS `date`, sum (o.order_purchase_amount) as count
+        SELECT DATE(s.sales_date) AS `date`, sum(o.order_purchase_amount) as count
         FROM t_sales s inner join t_order o
         on s.order_id = o.order_id
         GROUP BY `date`

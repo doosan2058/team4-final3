@@ -95,8 +95,23 @@
 					and product_brand_id = #{brand_id}
 				]]>
         </if>
+        <if test="searchOption == 'regist'">
+            <![CDATA[
+					order by product_regdate desc
+				]]>
+        </if>
+        <if test="searchOption == 'price'">
+            <![CDATA[
+					order by product_price desc
+				]]>
+        </if>
+        <if test="searchOption == 'sale'">
+            <![CDATA[
+					order by product_regdate desc
+				]]>
+        </if>
         <![CDATA[
-			order by product_id 
+
 			limit #{startNum},#{endNum}
 		]]>
     </select>

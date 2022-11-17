@@ -165,7 +165,7 @@
                     <c:forEach var="item" items="${qnaMapList }">
                         <div class="lineDiv">
                             <span class="idxSpan">${item.qna_id }</span>
-							<a href="/shop/qna_detail?qna_id=${item.qna_id }">
+							<a href="/qna/detail?qna_id=${item.qna_id }">
 								<span class="titleSpan">${item.qna_title }</span>
 							</a>
                         </div>
