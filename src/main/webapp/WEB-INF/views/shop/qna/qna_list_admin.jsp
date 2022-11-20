@@ -49,7 +49,7 @@
                 </div>
                 <c:forEach var="item" items="${list}">
                     <div class="qnaLineDiv">
-                        <input type="hidden" name="qna_public" value="${item.qna_public}">
+                        <input type="hidden" name="qna_delete" value="${item.qna_delete}">
 
                         <div class="qnaLineTitleDiv">
                             <span>${item.qna_id}</span>

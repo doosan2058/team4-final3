@@ -175,15 +175,14 @@ p{
 	border-radius: 10px;
 	transition: .3s;
 }
-.lineDiv a span {
-	transition: .3s;
-}
+
 .idxSpan{
-	color: var(--fontColor);
-	font-size: 1.5rem;
+	color: var(--subFontColor);
+	font-size: 1.2rem;
+	font-weight: bolder;
 }
 .titleSpan{
-	color: var(--subFontColor);
+	color: var(--subFontColor4);
 }
 
 .subjectSpan{
@@ -240,11 +239,12 @@ p{
 	.bottomRight p {
 		font-size: 0.7rem;
 	}
-
-	.lineDiv {
-		font-size: 0.7rem;
+	.idxSpan {
+		font-size: 0.8rem;
 	}
-
+	.titleSpan{
+		font-size: 0.8rem;
+	}
 	.freeBoard, .camping, .qna, .buy {
 		height: 50vh;
 		justify-content: center;
@@ -266,9 +266,7 @@ p{
 }
 
 @media screen and (min-width: 1023px) {
-	.lineDiv a:hover span{
-		color: var(--fontColor);
-	}
+
 	.arrowIcon:hover{
 		color: var(--fontColor);
 	}

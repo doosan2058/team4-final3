@@ -49,14 +49,11 @@
     font-family: GimpoGothicBold00;
 }
 
-.drawCenterDiv {
-    width: 100%;
-}
 
 /*이벤트 내용, foreach 반복 디비전*/
 .drawBodyDiv {
     width: 100%;
-    background-color: var(--subColor2);
+
 }
 
 .oneDrawDiv {
@@ -64,6 +61,8 @@
     height: 500px;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 5rem;
+    background-color: var(--subColor2);
 }
 
 .oneDrawTop {

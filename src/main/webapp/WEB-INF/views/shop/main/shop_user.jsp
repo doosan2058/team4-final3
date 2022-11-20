@@ -88,11 +88,11 @@
                 <i class="xi-angle-right forwardSpan"></i>
                 <!--탑 10 상품 디비전-->
                 <div class="itemBestDiv">
-                    <c:forEach var="item" items="${productList}" varStatus="status">
+                    <c:forEach var="item" items="${topProduct}" varStatus="status">
                         <div class="productBest">
                             <input type="hidden" value="${item.product_id }">
                             <div class="nameDivBest">
-                                <a href="/product/detail?product_id=${item.product_id }"> ${item.product_name } </a>
+                                <a href="/product/detail?product_id=${item.product_id }"> ${item.product_name }(${item.product_sales_rate}개 판매) </a>
                             </div>
                             <div class="thumbnailDivBest">
                                 <img src="/productImg/${item.product_thumbnail_img_url }" class="thumbnailImg"
@@ -131,12 +131,12 @@
                 </div>
                 <div class="itemAllOptionSpanDiv">
                     <div class="optionLabelWrapDiv">
-                        <label class="optionLabel" for="searchOptionCheckBoxNew">입고</label>
-                        <input type="checkbox" class="searchOptionCheckBox" id="searchOptionCheckBoxNew" value="regist">
-                        <label class="optionLabel" for="searchOptionCheckBoxSale">판매</label>
-                        <input type="checkbox" class="searchOptionCheckBox" id="searchOptionCheckBoxSale" value="sale">
-                        <label class="optionLabel" for="searchOptionCheckBoxPrice">가격</label>
-                        <input type="checkbox" class="searchOptionCheckBox" id="searchOptionCheckBoxPrice" value="price">
+                        <label class="optionLabel" for="searchOptionRadioBoxNew">입고</label>
+                        <input type="radio" name="searchOptionRadioBox" class="searchOptionRadioBox" id="searchOptionRadioBoxNew" value="regist" checked>
+                        <label class="optionLabel" for="searchOptionRadioBoxSale">판매</label>
+                        <input type="radio" name="searchOptionRadioBox" class="searchOptionRadioBox" id="searchOptionRadioBoxSale" value="sale">
+                        <label class="optionLabel" for="searchOptionRadioBoxPrice">가격</label>
+                        <input type="radio" name="searchOptionRadioBox" class="searchOptionRadioBox" id="searchOptionRadioBoxPrice" value="price">
                         <div id="optionLabelUnderLineDiv"></div>
                     </div>
                     <span id="optionSearchSpan">보기</span>
@@ -169,14 +169,15 @@
 
         </div>
 
-        <div class="viewMoreDiv">
-            <span class="moreSpan">더보기</span>
-        </div>
+
     </div>
 
 
 
 </main>
+<div class="viewMoreDiv">
+
+</div>
 
 <!-- 푸터 -->
 <jsp:include page="../shop_footer.jsp"/>

@@ -140,7 +140,7 @@
 									<p>${data.draw_title}</p>
 									<fmt:parseDate value="${data.draw_event_end_date}" pattern="yyyy-MM-dd'T'HH:mm" var="date" type="both" />
 									<p>기간 ~<span><fmt:formatDate value="${date}" pattern="yy-MM-dd" /></span></p>
-									<a href="/shop/draw_customer">이벤트 바로가기</a>
+									<a href="/draw/draw_customer">이벤트 바로가기</a>
 								</div>
 								</c:forEach>
 							</div>

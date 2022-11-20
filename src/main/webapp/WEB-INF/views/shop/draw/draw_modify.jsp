@@ -121,7 +121,7 @@
 
                 <div class="drawBtnDiv">
                     <input type="hidden" value="${item.draw_id}" name="draw_id">
-                    <input type="button" value="저장" class="drawModifyBtn">
+                    <input type="button" value="수정" class="drawModifyBtn">
                 </div>
             </div>
         </form>

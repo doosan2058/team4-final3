@@ -212,13 +212,15 @@ main {
     width: 100%;
     height: auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 0 0.5rem;
 }
 .itemAllOptionSelectDiv{
-    width: 30%;
+    width: 50%;
     height: 50px;
 }
+
 .itemAllOptionSelectDiv select{
     background-color: var(--subColor);
     font-family: GimpoGothicRegular00;
@@ -230,7 +232,7 @@ main {
 }
 
 .itemAllOptionSpanDiv{
-    width: 30%;
+    width: 50%;
     height: 50px;
     display: flex;
     align-items: center;
@@ -262,7 +264,7 @@ main {
     cursor: pointer;
     user-select: none;
 }
-.searchOptionCheckBox{
+.searchOptionRadioBox{
     overflow: hidden;
     width: 0;
 }
@@ -431,6 +433,17 @@ main {
         width: 80%;
         margin: 0 auto;
         height: 300px;
+    }
+    .itemAllOptionSelectDiv, .itemAllOptionSpanDiv{
+        width: 100%;
+    }
+    .itemAllOptionSelectDiv{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .itemAllOptionSpanDiv{
+        justify-content: start;
     }
 
 }

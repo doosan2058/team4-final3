@@ -93,7 +93,6 @@ public class ShopController {
 	// 쇼핑몰 메인 관리자
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String shopMainAdminGet(Model model, HttpServletRequest request) {
-//		log.info("shop 관리자 메인 페이지 -----------------------------------------");
 
 		HttpSession session = request.getSession();
 
@@ -113,62 +112,16 @@ public class ShopController {
 		//전체 상품 10개
 		List<ProductVO> productList = productService.getProductListAll(pageShop);
 
-		// 로그인 되어 있다면 회원 등급, 프로필 이미지 정보
-		Map<String, Object> userInfo = null;
-		// 로그인 중이라면
-		if (session.getAttribute("login_id") != null) {
-			String member_id = session.getAttribute("login_id").toString();
-			userInfo = userService.getUserProfileImgUrlAndGradeName(member_id);
-		}
-
 		model.addAttribute("productList", productList);
 		model.addAttribute("pageShop", pageShop);
 		model.addAttribute("categoryList", categoryList);
 		model.addAttribute("brandList", brandList);
 		model.addAttribute("topProduct", topProduct);
-		model.addAttribute("userInfo", userInfo);
 
 		return "shop/main/shop_admin";
 	}
 
-	@RequestMapping(value = "/list/category", method = RequestMethod.POST)
-	public String getTotalNumWithCategory(@RequestBody Map<String, Integer> map, Model model) {
 
-		int category_id = map.get("category_id");
-		int brand_id = map.get("brand_id");
-		int totalPage = (int) Math.ceil((productService.getPageTotalNum(category_id, brand_id) / (double) 10.0));
-
-		PageShop pageShop = new PageShop(1, totalPage);
-
-		pageShop.setCategory_id(category_id);
-		pageShop.setBrand_id(brand_id);
-		List<ProductVO> productList = productService.getProductList(pageShop);
-
-		model.addAttribute("productList", productList);
-		model.addAttribute("pageShop", pageShop);
-		return "shop/main/productDivUser";
-
-	}
-
-	@RequestMapping(value = "/list/category/admin", method = RequestMethod.POST)
-	public String getTotalNumWithCategoryAdmin(@RequestBody Map<String, Integer> map, Model model) {
-//		log.info("카테고리 관리자  =================================================");
-
-		int category_id = map.get("category_id");
-		int brand_id = map.get("brand_id");
-		int totalPage = (int) Math.ceil((productService.getPageTotalNumAll(category_id, brand_id) / (double) 10.0));
-
-		PageShop pageShop = new PageShop(1, totalPage);
-
-		pageShop.setCategory_id(category_id);
-		pageShop.setBrand_id(brand_id);
-		List<ProductVO> productList = productService.getProductListAll(pageShop);
-
-		model.addAttribute("productList", productList);
-		model.addAttribute("pageShop", pageShop);
-		return "shop/main/productDivAdmin";
-
-	}
 
 	// 상품 더보기
 	@RequestMapping(value = "/list", method = RequestMethod.POST)
@@ -189,6 +142,7 @@ public class ShopController {
 
 		model.addAttribute("productList", productList);
 		model.addAttribute("pageShop", pageShop);
+		log.info(pageShop);
 		return "shop/main/productDivUser";
 	}
 

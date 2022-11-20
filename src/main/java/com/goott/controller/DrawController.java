@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +31,13 @@ public class DrawController {
     ProductService productService;
     //회원 이벤트 등록 페이지
     @RequestMapping(value = "/draw/draw_customer",method = RequestMethod.GET)
-    public String draw(Model model){
+    public String draw(Model model, HttpServletRequest request){
+        // 관리자 접근 리다이렉트
+        if(request.getSession().getAttribute("login_auth") != null){
+            if(request.getSession().getAttribute("login_auth").toString().equals("관리자"))
+                return "redirect:/draw/draw_admin";
+        }
+
         List<Map<String, Object>> returnMap = drawService.getAllDrawList();
         model.addAttribute("draw", returnMap);
         return "/shop/draw/draw_customer";

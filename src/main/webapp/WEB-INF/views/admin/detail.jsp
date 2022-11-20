@@ -164,10 +164,21 @@
                 <c:if test="${!empty qnaMapList }">
                     <c:forEach var="item" items="${qnaMapList }">
                         <div class="lineDiv">
+                            <input type="hidden" value="${item.qna_delete}">
                             <span class="idxSpan">${item.qna_id }</span>
-							<a href="/qna/detail?qna_id=${item.qna_id }">
-								<span class="titleSpan">${item.qna_title }</span>
-							</a>
+                            <c:choose>
+                                <c:when test="${item.qna_delete eq 'y'}">
+                                    <span class="titleSpan">작성자에 의해 삭제된 게시글 입니다.</span>
+                                </c:when>
+                                <c:when test="${item.qna_delete eq 'n'}">
+                                    <a href="/qna/detail?qna_id=${item.qna_id }">
+                                        <span class="titleSpan">${item.qna_title }</span>
+                                    </a>
+                                </c:when>
+                            </c:choose>
+                            <c:if test="${item.qna_picture_url ne 'not url'}">
+                                <i class="xi-paperclip"></i>
+                            </c:if>
                         </div>
                     </c:forEach>
                 </c:if>

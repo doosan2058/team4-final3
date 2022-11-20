@@ -129,18 +129,19 @@
         <div class="selectProductDivRight">
             <i class="xi-close closeIcon"></i>
             <div class="selectProductDivRightHeader">
-                <select id="categorySelect">
-                    <option value="0">All Category</option>
-                    <c:forEach var="item" items="${categoryList}">
-                        <option value="${item.product_category_id}">${item.product_category_name}</option>
-                    </c:forEach>
-                </select>
                 <select id="brandSelect">
-                    <option value="0">All Brand</option>
+                    <option value="0">브랜드</option>
                     <c:forEach var="item" items="${brandList}">
                         <option value="${item.product_brand_id}">${item.product_brand_name}</option>
                     </c:forEach>
                 </select>
+                <select id="categorySelect">
+                    <option value="0">카테고리</option>
+                    <c:forEach var="item" items="${categoryList}">
+                        <option value="${item.product_category_id}">${item.product_category_name}</option>
+                    </c:forEach>
+                </select>
+
                 <span class="selectSpan">검색</span>
 
             </div>

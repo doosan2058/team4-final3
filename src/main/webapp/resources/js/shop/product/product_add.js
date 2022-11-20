@@ -7,7 +7,7 @@ const subFile = document.querySelector('#subFile');
 let fileArrayMain = [];
 let fileArraySub = [];
 // 이미지 타입
-const imgTypeArray = ['image/jpeg','image/png','image/jpg','image/gif'];
+const imgTypeArray = ['image/jpeg', 'image/png', 'image/jpg', 'image/gif'];
 
 // 파일 리스트 출력 컨테이너
 const mainFileListDiv = document.querySelector('.mainFileListDiv');
@@ -23,205 +23,249 @@ const subImgSecond = document.querySelector('.subImgSecond');
 const preBtn = document.querySelector('.preBtn');
 //미리보기 닫기 아이콘
 const closePreDivIcon = document.querySelector('.closePreDivIcon');
+const productMainImgSpan = document.querySelector('#productMainImgSpan');
+const productSubImgSpan = document.querySelector('#productSubImgSpan');
 //==================================================================================================
 // 파일 인풋 파일추가 이벤트
-mainFile.addEventListener('change' , addListMain );
-subFile.addEventListener('change' , addListSub );
+mainFile.addEventListener('change', addListMain);
+subFile.addEventListener('change', addListSub);
 preBtn.addEventListener('click', showPreDiv);
 closePreDivIcon.addEventListener('click', closePreDiv);
+
 //==================================================================================================
-function closePreDiv(){
-	document.querySelector('.prePageDiv').style.display = 'none';
-}
-function showPreDiv(){
-	document.querySelector('.prePageDiv').style.display = 'block';
-}
-// mainDiv에 커스텀 리스트 추가 함수
-function addListMain(){
-	// 만약 기존 이미지 선택 개수와 현재 선택 개수의 합이 3을 넘는다면
-	if((mainFile.files.length + fileArrayMain.length) > 3){
-		alert('이미지는 4개 이상 업로드 할수 없습니다.');
-	}
-	// 이미지 선택 개수가 3개 이하라면
-	else{
-
-		for(let i = 0; i < mainFile.files.length; i++){
-			if( imgTypeArray.indexOf(mainFile.files[i].type) != -1 )
-				fileArrayMain.push(mainFile.files[i]);
-			else{
-				alert('이미지 파일만 등록할수 있습니다.');
-				break;
-			}
-		}
-	}
-	drawListMain(); 
-}
-// subDiv에 커스텀 리스트 추가 함수
-function addListSub(){
-	// 만약 기존 이미지 선택 개수와 현재 선택 개수의 합이 3을 넘는다면
-	if((subFile.files.length + fileArraySub.length) > 2){
-		alert('이미지는 3개 이상 업로드 할수 없습니다.');
-//		console.log('이미지는 3개 이상 업로드 할수 없습니다.');
 
 
-
-	}
-	// 이미지 선택 개수가 3개 이하라면
-	else{
-		for(let i = 0; i < subFile.files.length; i++){
-			if( imgTypeArray.indexOf(subFile.files[i].type) != -1 )
-				fileArraySub.push(subFile.files[i]);
-			else{
-				alert('이미지 파일은 등록할수 없습니다.');
-				break;
-			}
-		}
-
-	}
-	drawListSub(); 
+function closePreDiv() {
+    document.querySelector('.prePageDiv').style.display = 'none';
+    closePreDivIcon.style.display = 'none';
 }
 
-// fileArrayMain의 담긴 파일들 리스트로 출력하는 함수
-function drawListMain(){
-	mainFileListDiv.innerHTML = '';
-	let dataTransfer = new DataTransfer();
-	fileArrayMain.forEach( item => {
-		mainFileListDiv.innerHTML += `<p class = 'imgList'> ${item.name} <button id = '${item.lastModified}${item.name}' class = 'deleteBtn'>X</button> </p>`;
-		dataTransfer.items.add(item);
-	});
-	mainFile.files = dataTransfer.files;
-	const deleteBtns = document.querySelectorAll('.deleteBtn');
-	deleteBtns.forEach(item => item.addEventListener('click' , deleteListMain));
-//	console.log(fileArrayMain);
-	preMainImgs();
-	// 상품이미지 개수에 따른 시각화
-	switch(fileArrayMain.length){
-	case 0:
-		productImgMain.style.border = 'none';
-		productImgMain.style.display = 'none';
-		productImgFirst.style.border = 'none';
-		productImgFirst.style.display = 'none';
-		productImgSecond.style.border = 'none';
-		productImgSecond.style.display = 'none';
-		productImgThird.style.border = 'none';
-		productImgThird.style.display = 'none';
-		return;
-	case 1:
-		productImgMain.style.border = '3px solid red';
-		productImgMain.style.display = 'block';
-		productImgFirst.style.border = '3px solid red';
-		productImgFirst.style.display = 'block';
-		productImgSecond.style.border = 'none';
-		productImgSecond.style.display = 'none';
-		productImgThird.style.border = 'none';
-		productImgThird.style.display = 'none';
-		return;
-	case 2:
-		productImgMain.style.border = '3px solid red';
-		productImgMain.style.display = 'block';
-		productImgFirst.style.border = '3px solid red';
-		productImgFirst.style.display = 'block';
-		productImgSecond.style.border = '3px solid blue';
-		productImgSecond.style.display = 'block';
-		productImgThird.style.border = 'none';
-		productImgThird.style.display = 'none';
-		return;
-	case 3:
-		productImgMain.style.border = '3px solid red';
-		productImgMain.style.display = 'block';
-		productImgFirst.style.border = '3px solid red';
-		productImgFirst.style.display = 'block';
-		productImgSecond.style.border = '3px solid blue';
-		productImgSecond.style.display = 'block';
-		productImgThird.style.border = '3px solid green';
-		productImgThird.style.display = 'block';
-		return;
-	}
+function showPreDiv() {
+    document.querySelector('.prePageDiv').style.display = 'block';
+    closePreDivIcon.style.display = 'block';
 }
-// fileArraySub의 담긴 파일들 리스트로 출력하는 함수
-function drawListSub(){
-	subFileListDiv.innerHTML = '';
-	let dataTransfer = new DataTransfer();
-	fileArraySub.forEach( item => {
-		subFileListDiv.innerHTML += `<p class = 'imgListSub'> ${item.name} <button id = '${item.lastModified}${item.name}' class = 'deleteSubBtn'>X</button> </p>`;
-		dataTransfer.items.add(item);
-	});
-	subFile.files = dataTransfer.files;
-	const deleteSubBtns = document.querySelectorAll('.deleteSubBtn');
-	deleteSubBtns.forEach(item => item.addEventListener('click' , deleteListSub));
-//	console.log(fileArraySub);
-	preSubImgs();
-	// 상품이미지 개수에 따른 시각화
-	switch(fileArraySub.length){
-	case 0:
-		subImgFirst.style.border = 'none';
-		subImgFirst.style.display = 'none';
-		subImgSecond.style.border = 'none';
-		subImgSecond.style.display = 'none';
-		return;
-	case 1:
-		subImgFirst.style.border = '3px solid yellow';
-		subImgFirst.style.display = 'block';
-		subImgSecond.style.border = 'none';
-		subImgSecond.style.display = 'none';
-		return;
-	case 2:
-		subImgFirst.style.border = '3px solid yellow';
-		subImgFirst.style.display = 'block';
-		subImgSecond.style.border = '3px solid orangered';
-		subImgSecond.style.display = 'block';
-		return;
 
-	}
+// 상품 이미지 업로드
+function addListMain() {
+    // 이미지 3개 초과 체크
+    if ((mainFile.files.length + fileArrayMain.length) > 3) {
+        alert('이미지는 4개 이상 업로드 할수 없습니다.');
+    }
+    else {
+        // 이미지 파일 체크
+        for (let i = 0; i < mainFile.files.length; i++) {
+            if (imgTypeArray.indexOf(mainFile.files[i].type) == -1) {
+                alert('이미지 파일만 등록할수 있습니다.');
+                return;
+            }
+        }
+        // 메인 이미지 배열로 복사
+        for(let i = 0; i < mainFile.files.length; i++){
+            fileArrayMain.push(mainFile.files[i]);
+        }
+        drawListMain();
+    }
+}
+
+// 설명 이미지 업로드
+function addListSub() {
+    // 이미지 2개 초과 체크
+    if ((subFile.files.length + fileArraySub.length) > 2) {
+        alert('이미지는 3개 이상 업로드 할수 없습니다.');
+    }
+    else {
+        // 이미지 파일 체크
+        for (let i = 0; i < subFile.files.length; i++) {
+            if (imgTypeArray.indexOf(subFile.files[i].type) == -1) {
+                alert('이미지 파일만 등록할수 있습니다.');
+                return;
+            }
+        }
+        // 설명 이미지 배열로 복사
+        for(let i = 0; i < subFile.files.length; i++){
+            fileArraySub.push(subFile.files[i]);
+        }
+        drawListSub();
+    }
+}
+
+// 상품 이미지 리스트 화면 출력
+function drawListMain() {
+    // 메인 파일 제목 출력
+    if(fileArrayMain.length == 0)
+        productMainImgSpan.innerHTML = '';
+    else if(fileArrayMain.length == 1)
+        productMainImgSpan.innerHTML = fileArrayMain[0].name;
+    else if(fileArrayMain.length > 1)
+        productMainImgSpan.innerHTML = fileArrayMain.length + '개 파일';
+    else{
+        alert('상품 사진 업로드중 오류가 발생하였습니다. 관리자에게 문의해 주세요.');
+        return;
+    }
+
+    mainFileListDiv.innerHTML = '';
+    let dataTransfer = new DataTransfer();
+    fileArrayMain.forEach(item => {
+        mainFileListDiv.innerHTML += `<p class = 'imgList'> ${item.name} <button id = '${item.lastModified}${item.name}' class = 'deleteBtn'>X</button> </p>`;
+        dataTransfer.items.add(item);
+    });
+    mainFile.files = dataTransfer.files;
+    const deleteBtns = document.querySelectorAll('.deleteBtn');
+    deleteBtns.forEach(item => item.addEventListener('click', deleteListMain));
+
+    preMainImgs();
+
+    // 상품이미지 시각화
+    switch (fileArrayMain.length) {
+        case 0:
+            productImgMain.style.border = 'none';
+            productImgMain.style.display = 'none';
+            productImgFirst.style.border = 'none';
+            productImgFirst.style.display = 'none';
+            productImgSecond.style.border = 'none';
+            productImgSecond.style.display = 'none';
+            productImgThird.style.border = 'none';
+            productImgThird.style.display = 'none';
+            return;
+        case 1:
+            productImgMain.style.border = '1px solid red';
+            productImgMain.style.display = 'flex';
+            productImgFirst.style.border = '1px solid red';
+            productImgFirst.style.display = 'block';
+            productImgSecond.style.border = 'none';
+            productImgSecond.style.display = 'none';
+            productImgThird.style.border = 'none';
+            productImgThird.style.display = 'none';
+            return;
+        case 2:
+            productImgMain.style.border = '1px solid red';
+            productImgMain.style.display = 'flex';
+            productImgFirst.style.border = '1px solid red';
+            productImgFirst.style.display = 'block';
+            productImgSecond.style.border = '1px solid blue';
+            productImgSecond.style.display = 'block';
+            productImgThird.style.border = 'none';
+            productImgThird.style.display = 'none';
+            return;
+        case 3:
+            productImgMain.style.border = '1px solid red';
+            productImgMain.style.display = 'flex';
+            productImgFirst.style.border = '1px solid red';
+            productImgFirst.style.display = 'block';
+            productImgSecond.style.border = '1px solid blue';
+            productImgSecond.style.display = 'block';
+            productImgThird.style.border = '1px solid green';
+            productImgThird.style.display = 'block';
+            return;
+    }
+}
+
+// 설명 이미지 리스트 화면 출력
+function drawListSub() {
+    // 설명 파일 제목 출력
+    if(fileArraySub.length == 0)
+        productSubImgSpan.innerHTML = '';
+    else if(fileArraySub.length == 1)
+        productSubImgSpan.innerHTML = fileArraySub[0].name;
+    else if(fileArraySub.length > 1)
+        productSubImgSpan.innerHTML = fileArraySub.length + '개 파일';
+    else{
+        alert('설명 사진 업로드중 오류가 발생하였습니다. 관리자에게 문의해 주세요.');
+        return;
+    }
+
+    subFileListDiv.innerHTML = '';
+    let dataTransfer = new DataTransfer();
+    fileArraySub.forEach(item => {
+        subFileListDiv.innerHTML += `<p class = 'imgListSub'> ${item.name} <button id = '${item.lastModified}${item.name}' class = 'deleteSubBtn'>X</button> </p>`;
+        dataTransfer.items.add(item);
+    });
+    subFile.files = dataTransfer.files;
+    const deleteSubBtns = document.querySelectorAll('.deleteSubBtn');
+    deleteSubBtns.forEach(item => item.addEventListener('click', deleteListSub));
+
+    preSubImgs();
+
+    // 상품이미지 시각화
+    switch (fileArraySub.length) {
+        case 0:
+            subImgFirst.style.border = 'none';
+            subImgFirst.style.display = 'none';
+            subImgSecond.style.border = 'none';
+            subImgSecond.style.display = 'none';
+            return;
+        case 1:
+            subImgFirst.style.border = '1px solid yellow';
+            subImgFirst.style.display = 'block';
+            subImgSecond.style.border = 'none';
+            subImgSecond.style.display = 'none';
+            return;
+        case 2:
+            subImgFirst.style.border = '1px solid yellow';
+            subImgFirst.style.display = 'block';
+            subImgSecond.style.border = '1px solid orangered';
+            subImgSecond.style.display = 'block';
+            return;
+
+    }
 }
 
 // 메인리스트 삭제 함수
-function deleteListMain(){
-	fileArrayMain = fileArrayMain.filter( item => (item.lastModified + item.name) != this.id);
-	this.parentElement.remove();
-	drawListMain();
+function deleteListMain() {
+	// 삭제 버튼 클릭한 파일 제외
+    fileArrayMain = fileArrayMain.filter(item => (item.lastModified + item.name) != this.id);
+    this.parentElement.remove();
+    drawListMain();
 }
 
 // 서브리스트 삭제 함수
-function deleteListSub(){
-	fileArraySub = fileArraySub.filter( item => (item.lastModified + item.name) != this.id);
-	this.parentElement.remove();
-	drawListSub();
+function deleteListSub() {
+	// 삭제 버튼 클릭한 파일 제외
+    fileArraySub = fileArraySub.filter(item => (item.lastModified + item.name) != this.id);
+    this.parentElement.remove();
+    drawListSub();
 }
 
-// 메인 이미지 미리보기 만들기 함수
-function preMainImgs(){
-	let imgs = document.querySelectorAll('.mainImgs');
-	imgs.forEach(item => {
-		item.style.display = 'none';
-	});
+// 상품 이미지 미리보기 태그 생성
+function preMainImgs() {
+    let imgs = document.querySelectorAll('.mainImgs');
+    imgs.forEach(item => {
+        item.style.display = 'none';
+    });
 
-	for(let i = 0; i < fileArrayMain.length; i++){
-		imgs[i].style.display = 'block';
-		let reader = new FileReader();
-		reader.addEventListener('load', function(){
-			imgs[i].src = reader.result;
-		});
-		if(fileArrayMain[i])
-			reader.readAsDataURL(fileArrayMain[i]);
-	}
+    for (let i = 0; i < fileArrayMain.length; i++) {
+        imgs[i].style.display = 'block';
+        let reader = new FileReader();
+        if (fileArrayMain[i])
+            reader.readAsDataURL(fileArrayMain[i]);
+        reader.addEventListener('load', function () {
+            imgs[i].src = reader.result;
+            if(i == 0){
+                document.querySelector('#prevMainImg').src = imgs[0].src;
+            }
+        });
+
+    }
+
+
 }
-// 서브 이미지 미리보기 만들기 함수
-function preSubImgs(){
-	let imgs = document.querySelectorAll('.subImgs');
-	imgs.forEach(item => {
-		item.style.display = 'none';
-	});
 
-	for(let i = 0; i < fileArraySub.length; i++){
-		let reader = new FileReader();
-		imgs[i].style.display = 'block';
-		reader.addEventListener('load', function(){
-			imgs[i].src = reader.result;
-		});
-		if(fileArraySub[i]){
-			reader.readAsDataURL(fileArraySub[i]);
-		}
-	}
+// 설명 이미지 미리보기 태그 생성
+function preSubImgs() {
+    let imgs = document.querySelectorAll('.subImgs');
+    imgs.forEach(item => {
+        item.style.display = 'none';
+    });
+
+    for (let i = 0; i < fileArraySub.length; i++) {
+        let reader = new FileReader();
+        imgs[i].style.display = 'block';
+        if (fileArraySub[i])
+            reader.readAsDataURL(fileArraySub[i]);
+        reader.addEventListener('load', function () {
+            imgs[i].src = reader.result;
+        });
+
+    }
 }
 

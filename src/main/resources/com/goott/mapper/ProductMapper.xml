@@ -67,6 +67,7 @@
                p.product_regdate              as product_regdate,
                p.product_delivery_day         as product_delivery_day,
                p.product_delete               as product_delete,
+               p.product_sales_rate           as product_sales_rate,
                b.product_brand_name           as product_brand_name,
                c.product_category_name        as product_category_name
         from t_product p
@@ -107,7 +108,7 @@
         </if>
         <if test="searchOption == 'sale'">
             <![CDATA[
-					order by product_regdate desc
+					order by product_sales_rate desc
 				]]>
         </if>
         <![CDATA[
@@ -119,33 +120,39 @@
     <!-- 한정판, 비공개 여부 상관 없이 모두 -->
     <select id="listAll" parameterType="com.goott.domain.PageShop" resultType="com.goott.domain.ProductVO">
         <![CDATA[
-			select product_id, product_name, product_img_url1, product_thumbnail_img_url, product_delete, product_limited
+			select product_id, product_name, product_img_url1, product_thumbnail_img_url, product_limited, product_delete
 			from t_product
+			where 1 = 1
 		]]>
-        <if test="category_id != 0 and brand_id == 0">
+        <if test="category_id != 0">
             <![CDATA[
-					where product_category_id = #{category_id}
-					order by product_id limit #{startNum},#{endNum}
+					and product_category_id = #{category_id}
 				]]>
         </if>
-        <if test="category_id == 0 and brand_id != 0">
+        <if test="brand_id != 0">
             <![CDATA[
-					where product_brand_id = #{brand_id}
-					order by product_id limit #{startNum},#{endNum}
-					]]>
-        </if>
-        <if test="category_id == 0 and brand_id == 0">
-            <![CDATA[
-					order by product_id limit #{startNum},#{endNum}
-					]]>
-        </if>
-        <if test="category_id != 0 and brand_id != 0">
-            <![CDATA[
-					where product_category_id = #{category_id}
 					and product_brand_id = #{brand_id}
-					order by product_id limit #{startNum},#{endNum}
-					]]>
+				]]>
         </if>
+        <if test="searchOption == 'regist'">
+            <![CDATA[
+					order by product_regdate desc
+				]]>
+        </if>
+        <if test="searchOption == 'price'">
+            <![CDATA[
+					order by product_price desc
+				]]>
+        </if>
+        <if test="searchOption == 'sale'">
+            <![CDATA[
+					order by product_sales_rate desc
+				]]>
+        </if>
+        <![CDATA[
+
+			limit #{startNum},#{endNum}
+		]]>
 
     </select>
     <!-- 전체 페이지 수 유저 -->
@@ -341,14 +348,14 @@
     <!-- 상품 판매순 탑 10 -->
     <select id="selectTopProduct" resultType="map">
 		<![CDATA[
-        select p.product_id as product_id,
-               count(p.product_id) as count, p.product_name as product_name,
-				   p.product_thumbnail_img_url as product_thumbnail_img_url
-        from t_sales s
-            inner join t_order o
-        on s.order_id = o.order_id inner join t_product p on o.product_id = p.product_id
-        where p.product_delete = 'n' and p.product_limited = '일반'
-        group by p.product_id limit 0, 10;
+        select product_id,
+               product_name,
+               product_thumbnail_img_url,
+               product_sales_rate
+        from t_product
+        where product_delete = 'n'
+          and product_limited = '일반'
+        order by product_sales_rate desc limit 0, 10;
         ]]>
 	</select>
 

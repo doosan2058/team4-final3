@@ -26,6 +26,7 @@ public class ProductVO {
 	private String product_delete; //상품 공개 여부(y/n)
 	private String product_category_name;
 	private String product_brand_name;
+	private int product_sales_rate;
 	
 	//주소 입력 안했을시 초기화
 	public ProductVO() {

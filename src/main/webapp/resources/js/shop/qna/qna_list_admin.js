@@ -15,12 +15,12 @@ qnaLineDiv.forEach((item) => {
 
 // 질문글 상세보기 이동
 function goQnaDetailPage(){
-    const publicText = this.children[0].value;
-    if(publicText == 'n'){
-        alert('비공개 게시글 입니다.');
+    const deleteText = this.children[0].value;
+    if(deleteText == 'y'){
+        alert('작성자에 의해 삭제된 게시글 입니다.');
         return;
     }
-    else if(publicText == 'y'){
+    else if(deleteText == 'n'){
         const url = this.children[1].children[0].innerHTML;
         const member_id = this.children[2].children[0].innerHTML;
         const tempForm = document.createElement('form');

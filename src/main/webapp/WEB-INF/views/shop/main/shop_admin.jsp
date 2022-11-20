@@ -23,8 +23,6 @@
 <body>
 <!-- 헤더 -->
 <jsp:include page="../shop_header.jsp"/>
-
-
 <!--광고-->
 <div class="carousel">
     <!--광고 컨테이너-->
@@ -65,7 +63,8 @@
 </div>
 <!--carousel-->
 
-<!--메인-->
+
+<!--상품, 카테고리 컨테이너-->
 <main>
     <!--왼쪽 섹션-->
     <div class="itemContainer">
@@ -81,21 +80,16 @@
             </div>
             <!--상품 탑 10 내용-->
             <div class="itemBestBody">
-                <span class="material-symbols-outlined backSpan">
-                    arrow_back_ios
-                </span>
-                <span class="material-symbols-outlined forwardSpan">
-                    arrow_forward_ios
-                </span>
+                <i class="xi-angle-left backSpan"></i>
+                <i class="xi-angle-right forwardSpan"></i>
                 <!--탑 10 상품 디비전-->
                 <div class="itemBestDiv">
-                    <c:forEach var="item" items="${productList}" varStatus="status">
+                    <c:forEach var="item" items="${topProduct}" varStatus="status">
                         <div class="productBest">
                             <input type="hidden" value="${item.product_id }">
                             <div class="nameDivBest">
-                                <a href="/product/detail?product_id=${item.product_id }"> ${item.product_name } </a>
+                                <a href="/product/detail?product_id=${item.product_id }"> ${item.product_name }(${item.product_sales_rate}개 판매) </a>
                             </div>
-                            <div></div>
                             <div class="thumbnailDivBest">
                                 <img src="/productImg/${item.product_thumbnail_img_url }" class="thumbnailImg"
                                      alt="이미지 준비중 입니다.">
@@ -115,12 +109,35 @@
             <!--상품 헤더-->
             <div class="itemAllHeader">
                 <h1>상품 목록</h1>
-                <a href="/product/register">
-                    <span class="productRegistSpan">상품 추가하기</span>
-                </a>
-                <span class="material-symbols-outlined categorySpanAnchor">youtube_searched_for</span>
             </div>
-
+            <div class="itemAllOptionDiv">
+                <div class="itemAllOptionSelectDiv">
+                    <select class="brandSelect">
+                        <option value="0">브랜드</option>
+                        <c:forEach var="item" items="${brandList}">
+                            <option value="${item.product_brand_id}">${item.product_brand_name}</option>
+                        </c:forEach>
+                    </select>
+                    <select class="categorySelect">
+                        <option value="0">카테고리</option>
+                        <c:forEach var="item" items="${categoryList}">
+                            <option value="${item.product_category_id}">${item.product_category_name}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="itemAllOptionSpanDiv">
+                    <div class="optionLabelWrapDiv">
+                        <label class="optionLabel" for="searchOptionRadioBoxNew">입고</label>
+                        <input type="radio" name="searchOptionRadioBox" class="searchOptionRadioBox" id="searchOptionRadioBoxNew" value="regist" checked>
+                        <label class="optionLabel" for="searchOptionRadioBoxSale">판매</label>
+                        <input type="radio" name="searchOptionRadioBox" class="searchOptionRadioBox" id="searchOptionRadioBoxSale" value="sale">
+                        <label class="optionLabel" for="searchOptionRadioBoxPrice">가격</label>
+                        <input type="radio" name="searchOptionRadioBox" class="searchOptionRadioBox" id="searchOptionRadioBoxPrice" value="price">
+                        <div id="optionLabelUnderLineDiv"></div>
+                    </div>
+                    <span id="optionSearchSpan">보기</span>
+                </div>
+            </div>
             <!-- 현재 페이지 정보 -->
             <input type="hidden" id="currentPageInput" value="${pageShop.currentPage}">
             <!-- 전체 페이지 정보 -->
@@ -162,78 +179,17 @@
 
         </div>
 
-        <div class="viewMoreDiv">
-            <!-- <i class="xi-angle-down view_more_btn"></i> -->
-            <span class="moreSpan">더보기</span>
-        </div>
+
     </div>
 
 
 
 </main>
-<!--사이드-->
-<div class="side">
-    <div class="side_navBar">
-        <!-- 등급 구역 -->
-        <div class="gradeDiv" style="background-color: ${userInfo.grade_color};">
-            <div class="gradeInnerTop">
-                <c:if test="${empty userInfo }">
-                    <p>로그인후 이용하실수 있습니다.</p>
-                </c:if>
-                <c:if test="${!empty userInfo }">
-                    <img alt="이미지 준비중 입니다." src="/gradeImg/${userInfo.grade_img_url}" id="userProfileImg" data-profile="${userInfo.member_profile_img_url }">
-                </c:if>
-            </div>
-            <div class="gradeInnerBottom">
-                <c:if test="${!empty userInfo }">
-                        <span class="userGradeSpan"
-                              style="color: ${userInfo.grade_font_color}">${userInfo.grade_name }
-                        </span> 등급
-                    <span class="userGradeSpan" style="color: ${userInfo.grade_font_color}">
-                            ${userInfo.grade_discount * 100}%
-                        </span> 할인
-                    <span class="userGradeSpan" style="color: ${userInfo.grade_font_color}">
-                            ${userInfo.grade_accrual_rate * 100}%
-                        </span> 적립
-                </c:if>
-            </div>
-        </div>
-        <!-- 카테고리 구역 -->
-        <div class="categoryDiv">
-            <div class="sortMenuDiv">
-                <div class="sortMenuSpanDiv">
-                    <span class="sortMenuSpan">카테고리</span>
-                </div>
+<div class="viewMoreDiv">
 
-                <div class="sortInnerDiv">
-                    <span class="categorySpan" data-category-id="0">All Category</span>
-                    <c:forEach var="item" items="${categoryList }">
-                        <span class="categorySpan"
-                              data-category-id="${item.product_category_id }">${item.product_category_name }
-                        </span>
-                    </c:forEach>
-                </div>
-            </div>
-            <div class="sortMenuDiv">
-                <div class="sortMenuSpanDiv">
-                    <span class="sortMenuSpan">브랜드</span>
-                </div>
-                <div class="sortInnerDiv">
-                    <span class="brandSpan" data-brand-id="0">All Brand</span>
-                    <c:forEach var="item" items="${brandList }">
-                        <span class="brandSpan"
-                              data-brand-id="${item.product_brand_id }">${item.product_brand_name }
-                        </span>
-                    </c:forEach>
-                </div>
-            </div>
-            <div class="sortMenuCloseDiv">
-                <span class="material-symbols-outlined closeSideSpan">close</span>
-            </div>
-        </div>
-
-    </div>
 </div>
+
+
 <!-- 푸터 -->
 <jsp:include page="../shop_footer.jsp"/>
 

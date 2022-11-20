@@ -43,8 +43,9 @@
 	<!-- 질문 게시판 글목록 -->
 	<select id="selectQnaList" parameterType="String" resultType="map">
 		<![CDATA[
-			select qna_id, qna_title from t_qna 
+			select qna_id, qna_title, qna_delete, qna_picture_url from t_qna_remake
 			where member_id = #{member_id}
+			order by qna_regdate desc
 		]]>
 		
 	</select>

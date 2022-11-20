@@ -1,7 +1,5 @@
 // 광고 컨테이너
 const adContainer = document.querySelector('.adContainer');
-// 상품 더 불러오기 디비전
-const viewMoreDiv = document.querySelector('.viewMoreDiv');
 /* 현재 페이지 번호 */
 const currentPageInput = document.querySelector('#currentPageInput');
 /* 전체 페이지 번호 */
@@ -20,13 +18,17 @@ const backSpan = document.querySelector('.backSpan');
 const adNavi = document.querySelectorAll('.adNavi');
 //네비 전역 카운트
 let count = 0;
+// 입고순, 판매순, 가격순 검색 옵션
 const optionLabel = document.querySelectorAll('.optionLabel');
+// 현재 선택된 검색 옵션 디자인
 const optionLabelUnderLineDiv = document.querySelector('#optionLabelUnderLineDiv');
+// 옵션 선택
+const optionSearchSpan = document.querySelector('#optionSearchSpan');
 // ==================================================================================================
 
 window.addEventListener('load', shopMainInit);
 window.addEventListener('resize', shopMainMediaQuery);
-viewMoreDiv.addEventListener('click', loadMoreItem);
+window.addEventListener('scroll', loadMore);
 productBest.forEach((item) => {
     item.addEventListener('click', goDetailPage);
 });
@@ -39,7 +41,116 @@ adNavi.forEach((item)=> {
 optionLabel.forEach((item) => {
     item.addEventListener('click', changeUnderLineColor);
 });
+optionSearchSpan.addEventListener('click', selectOption);
 // ==================================================================================================
+
+let keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+function preventDefault(e) {
+    e.preventDefault();
+}
+
+function preventDefaultForScrollKeys(e) {
+    if (keys[e.keyCode]) {
+        preventDefault(e);
+        return false;
+    }
+}
+
+// modern Chrome requires { passive: false } when adding event
+let supportsPassive = false;
+try {
+    window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+        get: function () { supportsPassive = true; }
+    }));
+} catch(e) {}
+
+let wheelOpt = supportsPassive ? { passive: false } : false;
+let wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
+// call this to Disable
+function disableScroll() {
+    window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+    window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+    window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+    window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+
+}
+
+// call this to Enable
+function enableScroll() {
+    window.removeEventListener('DOMMouseScroll', preventDefault, false);
+    window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
+    window.removeEventListener('touchmove', preventDefault, wheelOpt);
+    window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+
+
+
+}
+
+
+function loadMore(){
+
+    if(( window.scrollY + window.innerHeight ) >= ( document.querySelector('.viewMoreDiv').offsetTop + (window.innerHeight / 2) )){
+        window.removeEventListener('scroll', loadMore);
+        disableScroll();
+        loadMoreItem();
+    }
+}
+
+function selectOption(){
+    window.addEventListener('scroll', loadMore);
+    let currentPage = 1;
+
+    let searchOption = null;
+    let obj_length = document.getElementsByName("searchOptionRadioBox").length;
+
+    for (let i=0; i<obj_length; i++) {
+        if (document.getElementsByName("searchOptionRadioBox")[i].checked == true) {
+            searchOption = document.getElementsByName("searchOptionRadioBox")[i].value;
+        }
+    }
+    const pageShop = {
+        currentPage: currentPage,
+        totalPage: totalPageInput.value,
+        category_id: document.querySelector('.categorySelect').value,
+        brand_id: document.querySelector('.brandSelect').value,
+        searchOption : searchOption
+    }
+
+    $.ajax({
+        type: 'post',
+        url: '/shop/list',
+        data: JSON.stringify(pageShop),
+        dataType: 'html',
+        contentType: 'application/json; charset=utf-8',
+        error: function (data) {
+            alert('상품 옵션 처리중 오류가 발생하였습니다. 관리자에게 문의해 주세요.');
+        },
+        success: function (data) {
+            $('.itemAllDiv').html(data);
+            // 현제 페이지, 전체 페이지 업데이트
+            const currentPageTemp = $('.currentPageTemp').val();
+            const totalPageTemp = $('.totalPageTemp').val();
+            currentPageInput.value = currentPageTemp;
+            totalPageInput.value = totalPageTemp;
+            if (currentPageInput.value == totalPageInput.value) {
+                window.removeEventListener('scroll', loadMore);
+            } else {
+               window.addEventListener('scroll', loadMore);
+            }
+            //임시 페이지 정보 삭제
+            $('.currentPageTemp').remove();
+            $('.totalPageTemp').remove();
+
+            //클릭 이벤트 추가
+            const product = document.querySelectorAll('.product');
+            product.forEach((item) => {
+                item.addEventListener('click', goDetailPage);
+            });
+        }
+    });
+}
 
 function changeUnderLineColor(){
     optionLabelUnderLineDiv.style.left = this.offsetLeft + 'px';
@@ -134,9 +245,11 @@ function loadMoreItem() {
     const pageShop = {
         currentPage: currentPage,
         totalPage: totalPageInput.value,
-        category_id: category,
-        brand_id: brand
+        category_id: document.querySelector('.categorySelect').value,
+        brand_id: document.querySelector('.brandSelect').value,
+        searchOption : document.querySelector('.searchOptionRadioBox').value
     }
+
 
     $.ajax({
         type: 'post',
@@ -145,7 +258,7 @@ function loadMoreItem() {
         dataType: 'html',
         contentType: 'application/json; charset=utf-8',
         error: function (data) {
-            alert('죄송합니다. 잠시후 다시 시도해 주세요.');
+            alert('상품 더보기 처리중 오류가 발생하였습니다. 관리자에게 문의해 주세요.');
         },
         success: function (data) {
             $('.itemAllDiv').append(data);
@@ -156,9 +269,9 @@ function loadMoreItem() {
             totalPageInput.value = totalPageTemp;
 
             if (currentPageInput.value == totalPageInput.value) {
-                viewMoreDiv.style.display = 'none';
+                window.removeEventListener('scroll', loadMore);
             } else {
-                viewMoreDiv.style.display = 'flex';
+                window.addEventListener('scroll', loadMore);
             }
             //임시 페이지 정보 삭제
             $('.currentPageTemp').remove();
@@ -169,6 +282,8 @@ function loadMoreItem() {
             product.forEach((item) => {
                 item.addEventListener('click', goDetailPage);
             });
+
+            enableScroll();
         }
     });
 

@@ -23,102 +23,95 @@
         <!--상품 등록 컨테이너-->
         <div class="registProductCon">
             <div class="registProductDiv">
-                <table>
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><p>카테고리 선택</p></td>
-                        <td>
-                            <select name="product_category_id" class="productAddInputs">
-                            <c:forEach var="item" items="${categoryList }">
-                                <option value="${item.product_category_id }">${item.product_category_name }</option>
-                            </c:forEach>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><p>브랜드 선택</p></td>
-                        <td><select name="product_brand_id" class="productAddInputs">
-                            <c:forEach var="item" items="${brandList }">
-                                <option value="${item.product_brand_id }">${item.product_brand_name }</option>
-                            </c:forEach>
-                        </select></td>
-                    </tr>
-                    <tr>
-                        <td><p>한정판 여부</p></td>
-                        <td><input type="radio" name="product_limited" value="한정판">한정판 <input type="radio"
-                                                                                                    name="product_limited"
-                                                                                                    value="일반"
-                                                                                                    checked="checked">일반
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><p>상품 재고</p></td>
-                        <td><input type="number" class="productAddInputs" name="product_stock" required="required"
-                                   min="1" max="99" placeholder="개수">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><p>상품 이름</p></td>
-                        <td><input type="text" class="productAddInputs" name="product_name" required="required"
-                                   maxlength="20"></td>
-                    </tr>
-                    <tr>
-                        <td><p>상품 코멘트</p></td>
-                        <td><textarea name="product_comment" id="formText" placeholder="상품 설명 작성(200자)"
-                                      maxlength="200"></textarea></td>
-                    </tr>
-                    <tr>
-                        <td><p>상품 가격</p></td>
-                        <td><input type="number" class="productAddInputs" name="product_price" id="" required="required"
-                                   min="1" max="99999999" placeholder="원">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><p>상품 이미지(최대 3개)</p></td>
-                        <td><input type="file" class="productAddInputs" name="imgs1" id="mainFile" multiple>
-                            <div class="mainFileListDiv"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><p>상품 설명 이미지(최대 2개)</p></td>
-                        <!-- <td><input type="file" name="imgs2" multiple></td> -->
-                        <td><input type="file" class="productAddInputs" name="imgs2" id="subFile" multiple>
-                            <div class="subFileListDiv"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><p>상품 유튜브 주소</p></td>
-                        <td><input type="text" class="productAddInputs" name="product_youtube_url" maxlength="100"></td>
-                    </tr>
-                    <tr>
-                        <td><p>상품 배송일</p></td>
-                        <td><input type="number" class="productAddInputs" name="product_delivery_day"
-                                   required="required" min="1" max="10" placeholder="평균 배송일">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="btnDiv">
-                            <input type="button" class="productAddBtns preBtn" value="미리보기">
-                            <input type="submit" class="productAddBtns" value="등록" id="addBtn">
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div class="productAddLineDiv">
+                    <span class="productAddTitleSpan">브랜드</span>
+                    <select name="product_brand_id" class="productAddInputs">
+                        <c:forEach var="item" items="${brandList}">
+                            <option value="${item.product_brand_id }">${item.product_brand_name }</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="productAddLineDiv">
+                    <span class="productAddTitleSpan">카테고리</span>
+                    <select name="product_category_id" class="productAddInputs">
+                        <c:forEach var="item" items="${categoryList}">
+                            <option value="${item.product_category_id }">${item.product_category_name }</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="productAddLineDiv">
+                    <span class="productAddTitleSpan">한정판</span>
+                    <div class="productAddLineInnerDiv">
+                        <label for="productLimitieN">일반</label>
+                        <input type="radio" name="product_limited" value="일반" checked="checked" id="productLimitieN">
+                        <label for="productLimitieY">한정판</label>
+                        <input type="radio" name="product_limited" value="한정판" id="productLimitieY">
+                    </div>
+
+                </div>
+                <div class="productAddLineDiv">
+                    <span class="productAddTitleSpan">재고</span>
+                    <input type="number" class="productAddInputs" name="product_stock" required="required" min="1" max="99" placeholder="재고를 입력하세요.(1 ~ 99)">
+                </div>
+                <div class="productAddLineDiv">
+                    <span class="productAddTitleSpan">이름</span>
+                    <input type="text" class="productAddInputs" name="product_name" required="required" maxlength="20" placeholder="상품의 이름을 입력하세요.(최대 20자)">
+                </div>
+                <div class="productAddLineDiv">
+                    <span class="productAddTitleSpan">설명</span>
+                    <textarea name="product_comment" id="product_comment" placeholder="상품의 설명을 작성하세요.(최대 200자)" maxlength="200"></textarea>
+                </div>
+                <div class="productAddLineDiv">
+                    <span class="productAddTitleSpan">가격</span>
+                    <input type="number" class="productAddInputs" name="product_price" required="required" min="1" max="99999999" placeholder="가격을 입력하세요.(1 ~ 99,999,999)">
+                </div>
+                <div class="productAddLineDiv">
+                    <span class="productAddTitleSpan">상품 이미지(최대 3개)</span>
+                    <div class="productAddLineInnerDiv">
+                        <label for="mainFile" class="fileAddLabel">+</label>
+                        <span id="productMainImgSpan"></span>
+                        <input type="file" name="imgs1" id="mainFile" multiple>
+                    </div>
+
+
+                </div>
+                <div class="productAddLineDiv">
+                    <div class="mainFileListDiv"></div>
+                </div>
+                <div class="productAddLineDiv">
+                    <span class="productAddTitleSpan">설명 이미지(최대 2개)</span>
+                    <div class="productAddLineInnerDiv">
+                        <label for="subFile" class="fileAddLabel">+</label>
+                        <span id="productSubImgSpan"></span>
+                        <input type="file" name="imgs2" id="subFile" multiple>
+                    </div>
+
+
+                </div>
+                <div class="productAddLineDiv">
+                    <div class="subFileListDiv"></div>
+                </div>
+                <div class="productAddLineDiv">
+                    <span class="productAddTitleSpan">유튜브 주소</span>
+                    <input type="text" class="productAddInputs" name="product_youtube_url" maxlength="100" placeholder="광고 주소를 입력하세요.(최대 100자)">
+                </div>
+                <div class="productAddLineDiv">
+                    <span class="productAddTitleSpan">배송 예정일</span>
+                    <input type="number" class="productAddInputs" name="product_delivery_day" required="required" min="1" max="10" placeholder="평균 배송일을 입력하세요.(1 ~ 10)">
+                </div>
+                <div class="btnDiv">
+                    <input type="button" class="productAddBtns preBtn" value="미리보기">
+                    <input type="submit" class="productAddBtns" value="등록" id="addBtn">
+                </div>
             </div>
             <!--미리보기-->
             <div class="prePageDiv">
-                <span class="material-symbols-outlined closePreDivIcon">
-                    close
-                </span>
+                <i class="xi-close closePreDivIcon" style="display: none"></i>
                 <div class="prePageDivTop">
                     <div class="prePageDivTopLeft">
-                        <div class="productImgMain">상품 메인 이미지</div>
+                        <div class="productImgMain">
+                            <img id="prevMainImg">
+                        </div>
                         <div class="productImgFirst">
                             <img class="mainImgs">
                         </div>
