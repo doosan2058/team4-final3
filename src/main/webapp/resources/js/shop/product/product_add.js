@@ -25,16 +25,32 @@ const preBtn = document.querySelector('.preBtn');
 const closePreDivIcon = document.querySelector('.closePreDivIcon');
 const productMainImgSpan = document.querySelector('#productMainImgSpan');
 const productSubImgSpan = document.querySelector('#productSubImgSpan');
+const product_name = document.querySelector('#product_name');
+const productNameLengthSpan = document.querySelector('#productNameLengthSpan');
+const product_comment = document.querySelector('#product_comment');
+const productCommentLengthSpan = document.querySelector('#productCommentLengthSpan');
+const product_youtube_url = document.querySelector('#product_youtube_url');
+const productUrlLengthSpan = document.querySelector('#productUrlLengthSpan');
 //==================================================================================================
 // 파일 인풋 파일추가 이벤트
 mainFile.addEventListener('change', addListMain);
 subFile.addEventListener('change', addListSub);
 preBtn.addEventListener('click', showPreDiv);
 closePreDivIcon.addEventListener('click', closePreDiv);
-
+product_name.addEventListener('keyup', checkProductNameInputLength);
+product_comment.addEventListener('keyup', checkProductCommentInputLength);
+product_name.addEventListener('keyup', checkProductNameInputLength);
+product_youtube_url.addEventListener('keyup', checkProductUrlInputLength);
 //==================================================================================================
-
-
+function checkProductUrlInputLength(){
+    productUrlLengthSpan.innerHTML = `(${this.value.length}/100)`;
+}
+function checkProductCommentInputLength(){
+    productCommentLengthSpan.innerHTML = `(${this.value.length}/200)`;
+}
+function checkProductNameInputLength(){
+    productNameLengthSpan.innerHTML = `(${this.value.length}/20)`;
+}
 function closePreDiv() {
     document.querySelector('.prePageDiv').style.display = 'none';
     closePreDivIcon.style.display = 'none';

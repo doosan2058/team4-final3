@@ -42,6 +42,10 @@
 	padding: 0 0.5rem;
 
 }
+.requiredSpan{
+	font-size: 0.8rem;
+	color: var(--fontColor);
+}
 .productAddInputs {
 	width: 300px;
 	height: 50px;
@@ -65,7 +69,9 @@
 	margin: 0.5rem 0;
 	border: 0;
 }
-
+.productAddInputLengthSpan{
+	margin: 0.5rem 0.5rem 0;
+}
 
 #mainFile, #subFile{
 	width: 0;
