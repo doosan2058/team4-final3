@@ -71,21 +71,21 @@
     position: relative;
 }
 .oneDrawTop::after{
-    content: '제목을 입력하세요';
+    content: '제목';
     font-size: 0.7rem;
     position: absolute;
-    top: -10px;
+    top: -16px;
     left: 5px;
+    font-weight: bolder;
 }
 
 .oneDrawTop input[type="text"]{
-    width: 90%;
+    width: 100%;
     height: 100%;
     padding-left: 0.5rem;
     color: var(--subFontColor);
     background-color: var(--subColor2);
     border: none;
-    outline: none;
     transition: .3s;
     font-weight: bolder;
     font-family: GimpoGothicRegular00;
@@ -178,6 +178,7 @@
     width: 90%;
     height: 50px;
     display: flex;
+    border: 1px solid black;
     box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.55);
 
 }
@@ -207,6 +208,7 @@
     height: 100%;
     display: flex;
     align-items: center;
+    font-size: 0.7rem;
 }
 
 .infoBottom textarea{
@@ -214,16 +216,32 @@
     height: 150px;
     padding: 0.5rem;
     background-color: var(--subColor2);
-    color: white;
     resize: none;
     transition: .3s;
     font-family: GimpoGothicRegular00;
+    color: var(--subFontColor4);
+    border: 0;
 }
 .infoBottom textarea:focus{
     background-color: var(--mainColor);
 }
+.infoBottom input[type="number"]{
+    font-family: GimpoGothicRegular00;
+    background-color: var(--subColor2);
+    border: 0;
+    height: 40px;
+    padding: 0 0.5rem;
+    color: var(--subFontColor4);
+}
+.infoBottom input[type="date"]{
+    font-family: GimpoGothicRegular00;
+    background-color: var(--subColor2);
+    border: 0;
+    height: 40px;
+    padding: 0 0.5rem;
+    color: var(--subFontColor4);
 
-
+}
 .drawBtnDiv {
     width: 100%;
     height: 50px;
@@ -284,7 +302,7 @@
 .selectProductDivRight{
     width: 50%;
     height: 100%;
-
+    position: relative;
 }
 .selectProductDivRightHeader{
     width: 100%;
@@ -297,6 +315,11 @@
     width: 100px;
     margin: 0 0.5rem;
     font-family: GimpoGothicRegular00;
+    background-color: var(--subColor2);
+    border: 0;
+    outline: 0;
+    color: var(--subFontColor4);
+    height: 30px;
 }
 .selectSpan{
     cursor: pointer;
@@ -308,9 +331,9 @@
 }
 .closeIcon{
     position: absolute;
-    top: -32px;
-    right: 0;
-    font-size: 2rem;
+    top: -1rem;
+    right: 0.5rem;
+    font-size: 1rem;
     cursor: pointer;
 }
 .selectProductDivRightMain{
@@ -393,6 +416,10 @@
     }
     .selectProductContainer{
         min-width: 280px;
+    }
+    .selectProductDiv{
+        width: 95%;
+        height: 90%;
     }
     .selectProductDivLeft{
         overflow: hidden;

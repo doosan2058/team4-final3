@@ -68,11 +68,11 @@
                     <input type="number" class="productAddInputs" name="product_price" required="required" min="1" max="99999999" placeholder="가격을 입력하세요.(1 ~ 99,999,999)">
                 </div>
                 <div class="productAddLineDiv">
-                    <span class="productAddTitleSpan">상품 이미지(최대 3개)<span class="requiredSpan"> *</span></span>
+                    <span class="productAddTitleSpan">상품 이미지(최대 3개)</span>
                     <div class="productAddLineInnerDiv">
                         <label for="mainFile" class="fileAddLabel">+</label>
                         <span id="productMainImgSpan"></span>
-                        <input type="file" name="imgs1" id="mainFile" multiple required>
+                        <input type="file" name="imgs1" id="mainFile" multiple>
                     </div>
 
 
@@ -81,11 +81,11 @@
                     <div class="mainFileListDiv"></div>
                 </div>
                 <div class="productAddLineDiv">
-                    <span class="productAddTitleSpan">설명 이미지(최대 2개)<span class="requiredSpan"> *</span></span>
+                    <span class="productAddTitleSpan">설명 이미지(최대 2개)</span>
                     <div class="productAddLineInnerDiv">
                         <label for="subFile" class="fileAddLabel">+</label>
                         <span id="productSubImgSpan"></span>
-                        <input type="file" name="imgs2" id="subFile" multiple required>
+                        <input type="file" name="imgs2" id="subFile" multiple>
                     </div>
 
 

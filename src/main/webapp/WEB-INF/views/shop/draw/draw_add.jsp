@@ -84,7 +84,7 @@
                         </div>
                         <div class="infoWrapDiv">
                             <div class="infoTop">
-                                이벤트 시작일
+                                시작일
                             </div>
                             <div class="infoBottom">
                                 <input type="date" id="draw_event_start_date" name="draw_event_start_date"
@@ -93,7 +93,7 @@
                         </div>
                         <div class="infoWrapDiv">
                             <div class="infoTop">
-                                이벤트 종료일
+                                종료일
                             </div>
                             <div class="infoBottom">
                                 <input type="date" id="draw_event_end_date" name="draw_event_end_date"

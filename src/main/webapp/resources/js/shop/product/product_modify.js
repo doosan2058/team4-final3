@@ -48,12 +48,86 @@ function productModifyInit(){
 	productCommentLengthSpan.innerHTML = `(${product_comment.value.length}/200)`;
 	productNameLengthSpan.innerHTML = `(${product_name.value.length}/20)`;
 
+	const mainImgs = document.querySelectorAll('.mainImgs');
+	const subImgs = document.querySelectorAll('.subImgs');
+	let mainImgsCount = 0;
+	let subImgsCount = 0;
+	mainImgs.forEach((item) => {
+		if(item.src != ''){
+			mainImgsCount++;
+		}
+	});
+	subImgs.forEach((item) => {
+		if(item.src != ''){
+			subImgsCount++;
+		}
+	});
 
-	const testImg = document.querySelector('#prevMainImg');
-	console.log(testImg.blob());
-	// const newBlob = new Blob([new Uint8Array(testImg.data.data.data)]);
-	// const newFile = new File([newBlob], testImg.data.original_name, {type: testImg.data.mimetype});
-	// console.log(newFile);
+	switch (mainImgsCount) {
+		case 0:
+			productImgMain.style.border = 'none';
+			productImgMain.style.display = 'none';
+			productImgFirst.style.border = 'none';
+			productImgFirst.style.display = 'none';
+			productImgSecond.style.border = 'none';
+			productImgSecond.style.display = 'none';
+			productImgThird.style.border = 'none';
+			productImgThird.style.display = 'none';
+			break;
+		case 1:
+			productImgMain.style.border = '1px solid red';
+			productImgMain.style.display = 'flex';
+			productImgFirst.style.border = '1px solid red';
+			productImgFirst.style.display = 'block';
+			productImgSecond.style.border = 'none';
+			productImgSecond.style.display = 'none';
+			productImgThird.style.border = 'none';
+			productImgThird.style.display = 'none';
+			break;
+		case 2:
+			productImgMain.style.border = '1px solid red';
+			productImgMain.style.display = 'flex';
+			productImgFirst.style.border = '1px solid red';
+			productImgFirst.style.display = 'block';
+			productImgSecond.style.border = '1px solid blue';
+			productImgSecond.style.display = 'block';
+			productImgThird.style.border = 'none';
+			productImgThird.style.display = 'none';
+			break;
+		case 3:
+			productImgMain.style.border = '1px solid red';
+			productImgMain.style.display = 'flex';
+			productImgFirst.style.border = '1px solid red';
+			productImgFirst.style.display = 'block';
+			productImgSecond.style.border = '1px solid blue';
+			productImgSecond.style.display = 'block';
+			productImgThird.style.border = '1px solid green';
+			productImgThird.style.display = 'block';
+			break;
+	}
+
+	switch (subImgsCount) {
+		case 0:
+			subImgFirst.style.border = 'none';
+			subImgFirst.style.display = 'none';
+			subImgSecond.style.border = 'none';
+			subImgSecond.style.display = 'none';
+			break;
+		case 1:
+			subImgFirst.style.border = '1px solid yellow';
+			subImgFirst.style.display = 'block';
+			subImgSecond.style.border = 'none';
+			subImgSecond.style.display = 'none';
+			break;
+		case 2:
+			subImgFirst.style.border = '1px solid yellow';
+			subImgFirst.style.display = 'block';
+			subImgSecond.style.border = '1px solid orangered';
+			subImgSecond.style.display = 'block';
+			break;
+
+	}
+
 }
 
 function checkProductUrlInputLength(){
@@ -156,7 +230,7 @@ function drawListMain() {
 			productImgSecond.style.display = 'none';
 			productImgThird.style.border = 'none';
 			productImgThird.style.display = 'none';
-			return;
+			break;
 		case 1:
 			productImgMain.style.border = '1px solid red';
 			productImgMain.style.display = 'flex';
@@ -166,7 +240,7 @@ function drawListMain() {
 			productImgSecond.style.display = 'none';
 			productImgThird.style.border = 'none';
 			productImgThird.style.display = 'none';
-			return;
+			break;
 		case 2:
 			productImgMain.style.border = '1px solid red';
 			productImgMain.style.display = 'flex';
@@ -176,7 +250,7 @@ function drawListMain() {
 			productImgSecond.style.display = 'block';
 			productImgThird.style.border = 'none';
 			productImgThird.style.display = 'none';
-			return;
+			break;
 		case 3:
 			productImgMain.style.border = '1px solid red';
 			productImgMain.style.display = 'flex';
@@ -186,7 +260,7 @@ function drawListMain() {
 			productImgSecond.style.display = 'block';
 			productImgThird.style.border = '1px solid green';
 			productImgThird.style.display = 'block';
-			return;
+			break;
 	}
 }
 
@@ -223,19 +297,19 @@ function drawListSub() {
 			subImgFirst.style.display = 'none';
 			subImgSecond.style.border = 'none';
 			subImgSecond.style.display = 'none';
-			return;
+			break;
 		case 1:
 			subImgFirst.style.border = '1px solid yellow';
 			subImgFirst.style.display = 'block';
 			subImgSecond.style.border = 'none';
 			subImgSecond.style.display = 'none';
-			return;
+			break;
 		case 2:
 			subImgFirst.style.border = '1px solid yellow';
 			subImgFirst.style.display = 'block';
 			subImgSecond.style.border = '1px solid orangered';
 			subImgSecond.style.display = 'block';
-			return;
+			break;
 
 	}
 }

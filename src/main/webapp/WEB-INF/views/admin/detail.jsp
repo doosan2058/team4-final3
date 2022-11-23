@@ -171,7 +171,7 @@
                                     <span class="titleSpan">작성자에 의해 삭제된 게시글 입니다.</span>
                                 </c:when>
                                 <c:when test="${item.qna_delete eq 'n'}">
-                                    <a href="/qna/detail?qna_id=${item.qna_id }">
+                                    <a href="/qna/detail/admin?qna_id=${item.qna_id }">
                                         <span class="titleSpan">${item.qna_title }</span>
                                     </a>
                                 </c:when>

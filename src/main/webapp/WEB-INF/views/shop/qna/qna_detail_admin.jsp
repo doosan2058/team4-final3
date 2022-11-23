@@ -67,19 +67,15 @@
                 </span>
                     <span class="dateDashSpan">|</span>
                     <span class="qnaSubjectSpan">
-                    첨부파일
-                    <c:if test="${qnaVO.qna_picture_url ne 'not url'}">
-                        <i class="xi-paperclip attachmentIcon"></i>
-                    </c:if>
-                    <c:if test="${qnaVO.qna_picture_url eq 'not url'}">
-                        <i class="xi-paperclip attachmentIcon noneClass"></i>
-                        <span style="color: rgba(122,122,122,0.87); font-size: 0.8rem">없습니다.</span>
-                    </c:if>
-                </span>
-                    <a id="qnaDetailModifyAnchor"
-                       href="/qna/modify?qna_id=${qnaVO.qna_id}&accessId=${qnaVO.member_id}">수정하기</a>
-
-
+                        첨부파일
+                        <c:if test="${qnaVO.qna_picture_url ne 'not url'}">
+                            <i class="xi-paperclip attachmentIcon"></i>
+                        </c:if>
+                        <c:if test="${qnaVO.qna_picture_url eq 'not url'}">
+                            <i class="xi-paperclip attachmentIcon noneClass"></i>
+                            <span style="color: rgba(122,122,122,0.87); font-size: 0.8rem">없습니다.</span>
+                        </c:if>
+                    </span>
                 </div>
 
             </div>

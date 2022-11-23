@@ -142,7 +142,7 @@ function drawListMain() {
             productImgSecond.style.display = 'none';
             productImgThird.style.border = 'none';
             productImgThird.style.display = 'none';
-            return;
+            break;
         case 1:
             productImgMain.style.border = '1px solid red';
             productImgMain.style.display = 'flex';
@@ -152,7 +152,7 @@ function drawListMain() {
             productImgSecond.style.display = 'none';
             productImgThird.style.border = 'none';
             productImgThird.style.display = 'none';
-            return;
+            break;
         case 2:
             productImgMain.style.border = '1px solid red';
             productImgMain.style.display = 'flex';
@@ -162,7 +162,7 @@ function drawListMain() {
             productImgSecond.style.display = 'block';
             productImgThird.style.border = 'none';
             productImgThird.style.display = 'none';
-            return;
+            break;
         case 3:
             productImgMain.style.border = '1px solid red';
             productImgMain.style.display = 'flex';
@@ -172,7 +172,7 @@ function drawListMain() {
             productImgSecond.style.display = 'block';
             productImgThird.style.border = '1px solid green';
             productImgThird.style.display = 'block';
-            return;
+            break;
     }
 }
 
@@ -209,19 +209,19 @@ function drawListSub() {
             subImgFirst.style.display = 'none';
             subImgSecond.style.border = 'none';
             subImgSecond.style.display = 'none';
-            return;
+            break;
         case 1:
             subImgFirst.style.border = '1px solid yellow';
             subImgFirst.style.display = 'block';
             subImgSecond.style.border = 'none';
             subImgSecond.style.display = 'none';
-            return;
+            break;
         case 2:
             subImgFirst.style.border = '1px solid yellow';
             subImgFirst.style.display = 'block';
             subImgSecond.style.border = '1px solid orangered';
             subImgSecond.style.display = 'block';
-            return;
+            break;
 
     }
 }
