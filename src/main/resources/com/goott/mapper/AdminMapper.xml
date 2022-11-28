@@ -1,67 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goott.mapper.AdminMapper">
-	
-	<!-- 회원 리스트 -->
-	<select id="selectAllMemberList" resultType="com.goott.domain.MemberVO">
+
+    <!-- 회원 리스트 -->
+    <select id="selectAllMemberList" resultType="com.goott.domain.MemberVO">
 		<![CDATA[
-			select member_id, member_email, member_name, member_phone, member_age, member_gender,
-				   member_postal_code, member_address, member_join_date, member_last_login_date, member_state,
-				   member_withdrawal, member_email_agree, member_service_agree, member_personal_agree,
-				   grade_id, member_purchase_point, member_write_point, member_profile_img_url, member_login_count,
-				   member_off_limits_date, member_init_pw
-			from t_member where member_auth = '회원'
-		]]>
+        select member_id,
+               member_email,
+               member_name,
+               member_phone,
+               member_age,
+               member_gender,
+               member_postal_code,
+               member_address,
+               member_join_date,
+               member_last_login_date,
+               member_state,
+               member_withdrawal,
+               member_email_agree,
+               member_service_agree,
+               member_personal_agree,
+               grade_id,
+               member_purchase_point,
+               member_write_point,
+               member_profile_img_url,
+               member_login_count,
+               member_off_limits_date,
+               member_init_pw
+        from t_member
+        where member_auth = '회원'
+        ]]>
 	</select>
-	
-	<!-- 회원 상세 정보 -->
-	<select id="selectMemberInfo" parameterType="String" resultType="com.goott.domain.MemberVO">
-		select m.member_id as member_id, m.member_email as member_email, m.member_name as member_name, m.member_phone as member_phone, m.member_age as member_age, m.member_gender as member_gender,
-				   m.member_postal_code as member_postal_code, m.member_address as member_address, m.member_join_date as member_join_date, m.member_last_login_date as member_last_login_date, m.member_state as member_state,
-				   m.member_withdrawal as member_withdrawal, m.member_email_agree as member_email_agree, m.member_service_agree as member_service_agree, m.member_personal_agree as member_personal_agree,
-				   g.grade_name as grade_name, m.member_purchase_point as member_purchase_point, m.member_write_point as member_write_point, m.member_profile_img_url as member_profile_img_url, m.member_login_count as member_login_count,
-				   m.member_off_limits_date as member_off_limits_date, m.member_init_pw as member_init_pw from t_member m inner join t_grade g on m.grade_id = g.grade_id
-		where m.member_id = #{member_id}
-	</select>
-	
-	<!-- 자유 게시판 글목록 -->
-	<select id="selectFreeList" parameterType="String" resultType="map">
+
+    <!-- 회원 상세 정보 -->
+    <select id="selectMemberInfo" parameterType="String" resultType="com.goott.domain.MemberVO">
+        select m.member_id              as member_id,
+               m.member_email           as member_email,
+               m.member_name            as member_name,
+               m.member_phone           as member_phone,
+               m.member_age             as member_age,
+               m.member_gender          as member_gender,
+               m.member_postal_code     as member_postal_code,
+               m.member_address         as member_address,
+               m.member_join_date       as member_join_date,
+               m.member_last_login_date as member_last_login_date,
+               m.member_state           as member_state,
+               m.member_withdrawal      as member_withdrawal,
+               m.member_email_agree     as member_email_agree,
+               m.member_service_agree   as member_service_agree,
+               m.member_personal_agree  as member_personal_agree,
+               g.grade_name             as grade_name,
+               m.member_purchase_point  as member_purchase_point,
+               m.member_write_point     as member_write_point,
+               m.member_profile_img_url as member_profile_img_url,
+               m.member_login_count     as member_login_count,
+               m.member_off_limits_date as member_off_limits_date,
+               m.member_init_pw         as member_init_pw
+        from t_member m
+                 inner join t_grade g on m.grade_id = g.grade_id
+        where m.member_id = #{member_id}
+    </select>
+
+    <!-- 자유 게시판 글목록 -->
+    <select id="selectFreeList" parameterType="String" resultType="map">
 		<![CDATA[
-			select board_id, board_title from t_board 
-			where member_id = #{member_id}
-		]]>
+        select board_id, board_title
+        from t_board
+        where member_id = #{member_id}
+        ]]>
 		
 	</select>
-	<!-- 캠핑 게시판 글목록 -->
-	<select id="selectCampingList" parameterType="String" resultType="map">
+    <!-- 캠핑 게시판 글목록 -->
+    <select id="selectCampingList" parameterType="String" resultType="map">
 		<![CDATA[
-			select camping_id, camping_title from t_camping 
-			where member_id = #{member_id}
-		]]>
+        select camping_id, camping_title
+        from t_camping
+        where member_id = #{member_id}
+        ]]>
 		
 	</select>
-	<!-- 질문 게시판 글목록 -->
-	<select id="selectQnaList" parameterType="String" resultType="map">
+    <!-- 질문 게시판 글목록 -->
+    <select id="selectQnaList" parameterType="String" resultType="map">
 		<![CDATA[
-			select qna_id, qna_title, qna_delete, qna_picture_url from t_qna_remake
-			where member_id = #{member_id}
-			order by qna_regdate desc
-		]]>
+        select qna_id, qna_title, qna_delete, qna_picture_url
+        from t_qna_remake
+        where member_id = #{member_id}
+        order by qna_regdate desc
+        ]]>
 		
 	</select>
-	<!-- 구매 목록 -->
-	<select id="selectOrderList" parameterType="String" resultType="map">
+    <!-- 구매 목록 -->
+    <select id="selectOrderList" parameterType="String" resultType="map">
 		<![CDATA[
-			select o.order_id as order_id, p.product_name as product_name, o.order_state as order_state 
-			from t_order o inner join t_product p on o.product_id = p.product_id where member_id = #{member_id}
-		]]>
+        select o.order_id as order_id, p.product_name as product_name, o.order_state as order_state
+        from t_order o
+                 inner join t_product p on o.product_id = p.product_id
+        where member_id = #{member_id}
+        ]]>
 	</select>
-	<!-- 프로모션 이메일 주소 가져오기 -->
-	<select id="selectEmailList" resultType="String">
+    <!-- 프로모션 이메일 주소 가져오기 -->
+    <select id="selectEmailList" resultType="String">
 		<![CDATA[
-			select member_email from t_member 
-			where member_email_agree = 'y' and member_auth = '회원'
-			
-		]]>
+        select member_email
+        from t_member
+        where member_email_agree = 'y'
+          and member_auth = '회원'
+        ]]>
+	</select>
+
+    <!-- 공지사항 목록 -->
+    <select id="selectNoticeList" resultType="map">
+		<![CDATA[
+        select board_title, board_id
+        from t_board
+        where board_tag_id = 2
+        order by board_regdate desc limit 0,5
+        ]]>
 	</select>
 </mapper>

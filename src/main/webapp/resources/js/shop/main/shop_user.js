@@ -24,11 +24,16 @@ const optionLabel = document.querySelectorAll('.optionLabel');
 const optionLabelUnderLineDiv = document.querySelector('#optionLabelUnderLineDiv');
 // 옵션 선택
 const optionSearchSpan = document.querySelector('#optionSearchSpan');
+const youtubeListIcon = document.querySelectorAll('.youtubeListIcon');
+const youtubeContainer = document.querySelector('.youtubeContainer');
+const closeYoutubeContainerIcon = document.querySelector('.closeYoutubeContainerIcon');
+const adIframe = document.querySelector('.adIframe')
+const viewMoreSpan = document.querySelector('.viewMoreSpan');
 // ==================================================================================================
 
 window.addEventListener('load', shopMainInit);
 window.addEventListener('resize', shopMainMediaQuery);
-window.addEventListener('scroll', loadMore);
+
 productBest.forEach((item) => {
     item.addEventListener('click', goDetailPage);
 });
@@ -42,64 +47,34 @@ optionLabel.forEach((item) => {
     item.addEventListener('click', changeUnderLineColor);
 });
 optionSearchSpan.addEventListener('click', selectOption);
+youtubeListIcon.forEach((item) => {
+    item.addEventListener('click', showYoutubeCon);
+});
+youtubeContainer.addEventListener('click', closeYoutubeCon);
+closeYoutubeContainerIcon.addEventListener('click', closeYoutubeCon);
+viewMoreSpan.addEventListener('click', loadMoreItem);
 // ==================================================================================================
 
-let keys = {37: 1, 38: 1, 39: 1, 40: 1};
-
-function preventDefault(e) {
-    e.preventDefault();
-}
-
-function preventDefaultForScrollKeys(e) {
-    if (keys[e.keyCode]) {
-        preventDefault(e);
-        return false;
+//유튜브 컨테이너 닫기
+function closeYoutubeCon(e) {
+    if (e.target.className == 'youtubeContainer' || e.target.className == 'xi-close closeYoutubeContainerIcon') {
+        adIframe.src = '';
+        youtubeContainer.children[1].style.animation = 'hiddenModal 0.3s 1 forwards';
+        setTimeout(function () {
+            youtubeContainer.style.display = 'none';
+        }, 300);
     }
 }
+//유튜브 컨테이너 보이기
+function showYoutubeCon() {
+    youtubeContainer.style.display = 'block';
+    youtubeContainer.children[1].style.animation = 'showModal 0.3s 1 forwards';
+    console.log(this.dataset.url);
+    adIframe.src = this.dataset.url;
 
-// modern Chrome requires { passive: false } when adding event
-let supportsPassive = false;
-try {
-    window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
-        get: function () { supportsPassive = true; }
-    }));
-} catch(e) {}
-
-let wheelOpt = supportsPassive ? { passive: false } : false;
-let wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
-
-// call this to Disable
-function disableScroll() {
-    window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
-    window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
-    window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
-    window.addEventListener('keydown', preventDefaultForScrollKeys, false);
-
-}
-
-// call this to Enable
-function enableScroll() {
-    window.removeEventListener('DOMMouseScroll', preventDefault, false);
-    window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
-    window.removeEventListener('touchmove', preventDefault, wheelOpt);
-    window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
-
-
-
-}
-
-
-function loadMore(){
-
-    if(( window.scrollY + window.innerHeight ) >= ( document.querySelector('.viewMoreDiv').offsetTop + (window.innerHeight / 2) )){
-        window.removeEventListener('scroll', loadMore);
-        disableScroll();
-        loadMoreItem();
-    }
 }
 
 function selectOption(){
-    window.addEventListener('scroll', loadMore);
     let currentPage = 1;
 
     let searchOption = null;
@@ -134,14 +109,15 @@ function selectOption(){
             const totalPageTemp = $('.totalPageTemp').val();
             currentPageInput.value = currentPageTemp;
             totalPageInput.value = totalPageTemp;
-            if (currentPageInput.value == totalPageInput.value) {
-                window.removeEventListener('scroll', loadMore);
-            } else {
-               window.addEventListener('scroll', loadMore);
-            }
+            viewMoreSpan.style.display = 'block';
+
             //임시 페이지 정보 삭제
             $('.currentPageTemp').remove();
             $('.totalPageTemp').remove();
+
+            if(currentPageInput.value == totalPageInput.value){
+                viewMoreSpan.style.display = 'none';
+            }
 
             //클릭 이벤트 추가
             const product = document.querySelectorAll('.product');
@@ -268,11 +244,10 @@ function loadMoreItem() {
             currentPageInput.value = currentPageTemp;
             totalPageInput.value = totalPageTemp;
 
-            if (currentPageInput.value == totalPageInput.value) {
-                window.removeEventListener('scroll', loadMore);
-            } else {
-                window.addEventListener('scroll', loadMore);
+            if(currentPageInput.value == totalPageInput.value){
+                viewMoreSpan.style.display = 'none';
             }
+
             //임시 페이지 정보 삭제
             $('.currentPageTemp').remove();
             $('.totalPageTemp').remove();
@@ -282,8 +257,6 @@ function loadMoreItem() {
             product.forEach((item) => {
                 item.addEventListener('click', goDetailPage);
             });
-
-            enableScroll();
         }
     });
 

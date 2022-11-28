@@ -71,7 +71,7 @@
                                 </span>
                             </li>
                             <li>
-                                <span class="font_bottom_td">이벤트 기간</span>
+                                <span class="font_bottom_td">응모 기간</span>
                                 <span>
                                     <fmt:parseDate value="${item.draw_event_start_date}" pattern="yyyy-MM-dd'T'HH:mm" var="parseStartDate" />
                                     <fmt:formatDate value="${parseStartDate}" pattern="yyyy/MM/dd"/>
@@ -94,6 +94,7 @@
                     <input type="hidden" value="${item.draw_id}">
                     <input type="button" value="응모하기" class="drawApplicationBtn">
                     <input type="button" value="응모 결과 보기" class="showWinnerBtn">
+                    <input type="hidden" value="${item.product_id}">
                 </div>
             </div>
         </c:forEach>
@@ -103,6 +104,7 @@
 <div class="winnerListContainer">
     <div class="winnerListDiv">
         <div class="winnerListTop">
+            <input type="hidden" id="winnerListDivDrawIdInput">
             <span>당첨자 목록</span>
             <span class="material-symbols-outlined closeWinnerListContainerIcon">close</span>
         </div>

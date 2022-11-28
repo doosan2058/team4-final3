@@ -208,7 +208,7 @@
                     <h2>계산</h2>
                 </div>
                 <div class="orderPaymentBottom">
-                    <input type="submit" value="결제하기" class="formBtns" formaction="buy" formmethod="POST">
+                    <input type="submit" value="결제하기" class="formBtns" formaction="/buy" formmethod="POST">
                 </div>
             </div>
         </div>

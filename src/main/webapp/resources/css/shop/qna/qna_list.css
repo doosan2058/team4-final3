@@ -37,7 +37,6 @@
 }
 .qnaListBodyDiv{
     background-color: var(--subColor2);
-    min-height: 70vh;
 }
 .qnaLineHeadDiv{
     width: 100%;

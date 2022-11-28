@@ -121,4 +121,10 @@ public interface ProductService {
 	 * @return
 	 */
 	public List<ProductVO> getDrawLimitedProductList(int product_category_id, int product_brand_id);
+
+	/**
+	 * 유튜브 광고 목록
+	 * @return
+	 */
+	public List<ProductVO> getYoutubeList();
 }

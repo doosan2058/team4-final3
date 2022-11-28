@@ -535,7 +535,7 @@ main {
             'opsz' 48
 }
 
-.youtubeInnerDiv {
+.xi-close {
     width: fit-content;
     height: fit-content;
     position: relative;
@@ -725,6 +725,9 @@ main {
     .adIframe{
         width: 100%;
 
+    }
+    .orderDivBtnDiv p{
+        font-size: 0.7rem;
     }
 
 }

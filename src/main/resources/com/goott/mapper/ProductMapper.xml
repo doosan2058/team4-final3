@@ -387,4 +387,14 @@
         </if>
         order by product_id asc;
     </select>
+    <!-- 광고 목록 -->
+    <select id="selectYoutubeList" resultType="com.goott.domain.ProductVO">
+        <![CDATA[
+        select product_id, product_name, product_thumbnail_img_url, product_youtube_url
+        from t_product
+        where product_youtube_url != 'no url' and product_delete = 'n'
+        order by product_regdate desc
+        limit 0,5
+        ]]>
+    </select>
 </mapper>

@@ -38,7 +38,7 @@ public class OrderController {
     @Inject
     OrderService orderSerivce;
 
-    @RequestMapping(value = "order", method = RequestMethod.GET)
+    @RequestMapping(value = "/order", method = RequestMethod.POST)
     public String orderGet(HttpServletRequest request, @RequestParam String product_id,
                            @RequestParam(defaultValue = "1") String order_quantity, Model model) {
 
@@ -61,11 +61,11 @@ public class OrderController {
         model.addAttribute("order_quantity", order_quantity);
         model.addAttribute("grade", grade);
 
-        return "shop/order/order_detail";
+        return "/shop/order/order_detail";
     }
 
     @ResponseBody
-    @RequestMapping(value = "order/coupon", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @RequestMapping(value = "/order/coupon", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     public Map<String, Object> useCoupon(@RequestBody Map<String, Object> param) {
 
 
@@ -92,7 +92,7 @@ public class OrderController {
         return map;
     }
 
-    @RequestMapping(value = "buy", method = RequestMethod.POST)
+    @RequestMapping(value = "/buy", method = RequestMethod.POST)
     public String buy(HttpServletRequest request, @RequestParam double getPoint, OrderVO orderVO, Model model) {
 
 
@@ -124,18 +124,17 @@ public class OrderController {
         }
 
 
-        return "common/alert";
+        return "/common/alert";
     }
 
-    @RequestMapping(value = "order/confirm", method = RequestMethod.GET)
+    @RequestMapping(value = "/order/confirm", method = RequestMethod.GET)
     public String confirmPurchase(@RequestParam int order_id, Model model) {
-
 
         String result = orderSerivce.confirmProduct(order_id);
         model.addAttribute("msg", result);
         model.addAttribute("url", "/user/mypage");
 
-        return "common/alert";
+        return "/common/alert";
     }
 
 }

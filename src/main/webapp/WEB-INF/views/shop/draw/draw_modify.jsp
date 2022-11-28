@@ -73,7 +73,7 @@
                         </div>
                         <div class="infoWrapDiv">
                             <div class="infoTop">
-                                이벤트 등록일
+                                등록일
                             </div>
                             <div class="infoBottom">
                                 <fmt:parseDate value="${item.draw_regdate}" pattern="yyyy-MM-dd'T'HH:mm"
@@ -84,7 +84,7 @@
                         </div>
                         <div class="infoWrapDiv">
                             <div class="infoTop">
-                                이벤트 시작일
+                                시작일
                             </div>
                             <div class="infoBottom">
                                 <fmt:parseDate value="${item.draw_event_start_date}" pattern="yyyy-MM-dd'T'HH:mm"
@@ -97,7 +97,7 @@
                         </div>
                         <div class="infoWrapDiv">
                             <div class="infoTop">
-                                이벤트 종료일
+                                종료일
                             </div>
                             <div class="infoBottom">
                                 <fmt:parseDate value="${item.draw_event_end_date}" pattern="yyyy-MM-dd'T'HH:mm"

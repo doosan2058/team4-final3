@@ -21,11 +21,7 @@ public interface OrderService {
 	 */
 	public List<OrderVO> getOrderList(String member_id);
 	
-	/**
-	 * 상품 구매 확정 메서드
-	 * @param map 주문 번호
-	 * @return map + result ( 0 정상, -1 에러, -2 주문 상태 배송중, 배송완료 아님)
-	 */
+
 	/**
 	 * 상품 구매 확정 메서드
 	 * @param order_id 주문번호

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.goott.domain.ProductBrandVO;
-import com.goott.service.ProductBrandService;
+import com.goott.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,9 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.goott.domain.PageShop;
 import com.goott.domain.ProductCategoryVO;
 import com.goott.domain.ProductVO;
-import com.goott.service.ProductCategoryService;
-import com.goott.service.ProductService;
-import com.goott.service.UserService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -38,6 +35,8 @@ public class ShopController {
 	ProductBrandService productBrandService;
 	@Inject
 	UserService userService;
+	@Inject
+	AdminService adminService;
 
 	// 쇼핑몰 메인
 	@RequestMapping(value = "", method = RequestMethod.GET)
@@ -72,6 +71,13 @@ public class ShopController {
 		// 공개 상품 10개
 		List<ProductVO> productList = productService.getProductList(pageShop);
 
+		//유트브 최근 광고 5개
+		List<ProductVO> youtubeList = productService.getYoutubeList();
+
+		//공지사항 상위 5개
+		List<Map<String, Object>> noticeList = adminService.getNoticeList();
+
+
 		// 로그인 되어 있다면 회원 등급, 프로필 이미지 정보
 		Map<String, Object> userInfo = null;
 		// 로그인 중이라면
@@ -86,6 +92,8 @@ public class ShopController {
 		model.addAttribute("brandList", brandList);
 		model.addAttribute("topProduct", topProduct);
 		model.addAttribute("userInfo", userInfo);
+		model.addAttribute("youtubeList", youtubeList);
+		model.addAttribute("noticeList", noticeList);
 
 		return "shop/main/shop_user";
 	}
@@ -112,11 +120,19 @@ public class ShopController {
 		//전체 상품 10개
 		List<ProductVO> productList = productService.getProductListAll(pageShop);
 
+		//유트브 최근 광고 5개
+		List<ProductVO> youtubeList = productService.getYoutubeList();
+
+		//공지사항 상위 5개
+		List<Map<String, Object>> noticeList = adminService.getNoticeList();
+
 		model.addAttribute("productList", productList);
 		model.addAttribute("pageShop", pageShop);
 		model.addAttribute("categoryList", categoryList);
 		model.addAttribute("brandList", brandList);
 		model.addAttribute("topProduct", topProduct);
+		model.addAttribute("youtubeList", youtubeList);
+		model.addAttribute("noticeList", noticeList);
 
 		return "shop/main/shop_admin";
 	}

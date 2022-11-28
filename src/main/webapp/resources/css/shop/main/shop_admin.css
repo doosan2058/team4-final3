@@ -61,11 +61,6 @@
 }
 
 
-/*상품구역, 네비구역 컨테이너*/
-main {
-    width: 100%;
-    position: relative;
-}
 /*상품 구역*/
 .itemContainer {
     width: 100%;
@@ -141,7 +136,7 @@ main {
     height: 350px;
     padding: 1rem;
     position: relative;
-    background-color: var(--subColor2);
+    /*background-color: var(--subColor2);*/
     transition: .3s;
     display: flex;
     align-items: center;
@@ -173,25 +168,79 @@ main {
 /*순위 디비전*/
 .scoreDiv {
     position: absolute;
-    width: 100px;
-    height: fit-content;
-    bottom: -10%;
+    display: inline-block;
+    padding: 0.5rem;
+    font-size: 3rem;
+    bottom: 0;
     left: 0;
     display: flex;
+    font-family: 'Black Han Sans';
 }
 /*순위 스팬*/
 .numberSpan1, .numberSpan2, .numberSpan3 {
-    font-size: 6rem;
     color: rgb(69,175,227,0.82);
-    font-family: 'Black Han Sans';
     transition: .3s;
 }
 .numberSpan4, .numberSpan5, .numberSpan6, .numberSpan7, .numberSpan8, .numberSpan9, .numberSpan10 {
-    font-size: 6rem;
     color: rgba(209, 209, 209, 0.817);
-    font-family: 'Black Han Sans';
     transition: .3s;
 }
+
+
+.youtubeListContainer{
+    width: 100%;
+    margin-top: 5rem;
+}
+.youtubeListHeader{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    font-family: GimpoGothicBold00;
+}
+.youtubeListLineDiv{
+    width: 100%;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.6);
+    background-color: var(--subColor2);
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    margin: 8px;
+}
+.youtubeListLineDivThumbImg{
+    width: 200px;
+    height: 200px;
+    border: 3px solid white;
+    margin: 1rem 0;
+}
+.youtubeListLineInnerDiv{
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.youtubeListLineDivTitleSpan{
+    padding: 0.5rem;
+    display: inline-block;
+    font-weight: bolder;
+    color: var(--subFontColor4);
+    width: 300px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+}
+.youtubeListIcon{
+    color: #c4302b;
+    display: inline-block;
+    padding: 0.5rem;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+
 .itemAllDivCon{
     width: 100%;
     margin-top: 5rem;
@@ -379,7 +428,51 @@ main {
     position: absolute;
     bottom: -25px;
 }
+/*유튜브 광고 컨테이너*/
+.youtubeContainer {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.339);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+}
+.xi-close.closeYoutubeContainerIcon{
+    cursor: pointer;
+    position: absolute;
+    z-index: 999;
+    top: 1rem;
+    left: 1rem;
+    display: inline-block;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    background-color: var(--mainColor);
+    color: var(--basicFontColor);
 
+
+}
+.youtubeInnerDiv {
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--basicFontColor);
+}
+.adIframe{
+    width: 1280px;
+    height: 720px;
+}
+.viewMoreSpan{
+    cursor: pointer;
+}
 
 
 @keyframes loadCarouselMainImg {
@@ -416,6 +509,10 @@ main {
         display: flex;
         flex-direction: row;
     }
+    .backSpan, .forwardSpan{
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
     /*탑 10 이름*/
     .nameDivBest{
         width: 70%;
@@ -441,8 +538,8 @@ main {
         height: 50px;
         border: 3px solid var(--basicFontColor);
     }
-    .scoreDiv span{
-        font-size: 3rem;
+    .scoreDiv{
+        font-size: 2rem;
     }
     .product {
         width: 80%;
@@ -459,6 +556,19 @@ main {
     }
     .itemAllOptionSpanDiv{
         justify-content: start;
+    }
+    .adIframe{
+        width: 100%;
+        height: 150px;
+    }
+    .youtubeListLineDiv{
+        flex-direction: column;
+    }
+    .youtubeListLineInnerDiv{
+        height: auto;
+    }
+    .youtubeListLineDivTitleSpan{
+        width: 200px;
     }
 
 }
@@ -494,6 +604,10 @@ main {
         width: 50%;
         height: 300px;
     }
+    .adIframe{
+        width: 700px;
+        height: 500px;
+    }
 
 }
 
@@ -514,6 +628,9 @@ main {
     .product:hover{
         box-shadow: 1px 1px 7px 3px rgba(0, 0, 0, 0.8);
         transform: translateZ(4px);
+    }
+    .youtubeListIcon:hover{
+        color: crimson;
     }
 
 }

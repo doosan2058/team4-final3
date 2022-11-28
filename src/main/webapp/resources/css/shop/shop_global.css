@@ -123,15 +123,68 @@ header a{
     border-bottom: 3px solid white;
     border-radius: 0px;
 }
+
+
+.footerNoticeContainer{
+    width: 100%;
+    max-width: 1600px;
+    height: 50px;
+    margin: 5rem auto 0;
+
+}
+.footerNoticeDiv{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: var(--subColor2);
+
+}
+.footerNoticeTitleDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100%;
+
+}
+.footerNoticeTitleSpan{
+    display: inline-block;
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+.footerNoticeWrapDiv{
+    width: calc(100% - 100px);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.footerNoticeSpanDiv{
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    animation: footerNoticeMove 20s linear infinite;
+
+}
+
+.footerNoticeSpan{
+    color: var(--borderColor);
+}
+
+
 .mapHeaderDiv{
     width: 100%;
     height: 550px;
-    margin: 15rem auto 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     background-color: var(--subColor2);
+    margin-top: 15rem;
 }
 .mapHeaderDiv span{
     display: inline-block;
@@ -198,6 +251,15 @@ footer{
     transform: translateY(-50%) rotateZ(90deg);
 }
 
+@keyframes footerNoticeMove {
+    from{
+        top: 30px;
+    }
+    to{
+        top: -430px;
+    }
+}
+
 
 /* 스마트폰 */
 @media screen and (min-width:1px) and (max-width:767px) {
@@ -244,6 +306,13 @@ footer{
     }
     .shopFooterMapDiv{
         width: 80%;
+    }
+    .footerNoticeSpan{
+        display: inline-block;
+        width: 160px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
     }
 
 

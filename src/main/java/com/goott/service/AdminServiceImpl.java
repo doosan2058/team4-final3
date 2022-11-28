@@ -74,4 +74,9 @@ public class AdminServiceImpl implements AdminService {
 		
 	}
 
+	@Override
+	public List<Map<String, Object>> getNoticeList() {
+		return adminMapper.selectNoticeList();
+	}
+
 }

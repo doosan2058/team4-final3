@@ -50,6 +50,12 @@ public interface AdminMapper {
 	 * @return
 	 */
 	public List<String> selectEmailList();
+
+	/**
+	 * 공지사항 상위 5개
+	 * @return
+	 */
+	public List<Map<String, Object>> selectNoticeList();
 	
 	
 }

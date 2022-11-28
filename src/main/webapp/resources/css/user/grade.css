@@ -1,11 +1,6 @@
-/* ���̵� cus_ : DB���� ��� */
 
-body{
-	background-color: var(--subColor);
-}
-/* ���� ��ü */
+
 .mainDiv{
-   /*  border:solid 3px red; */
     background-color: transparent;
     margin: 0 auto;
     width: 60%;
@@ -20,7 +15,7 @@ body{
     width:100%;
     height:37%;
     margin-top :1rem;
-   
+
 } */
 /* -�������κ� : �̹��� �� ���*/
 .myGradeState{

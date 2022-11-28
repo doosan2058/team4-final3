@@ -199,16 +199,23 @@
     display: flex;
     align-items: center;
     width: 100%;
-    height: 30px;
+    height: 40px;
     font-size: 1rem;
+    padding: 0 0.5rem;
+
 }
 .winnerLineDiv span{
-    margin-left: 0.5rem;
+    display: inline-block;
 }
 .winnerLineDiv span:first-child{
-    display: inline-block;
     width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     font-weight: bolder;
+}
+.winnerLineDiv span:last-child{
+    cursor: pointer;
 }
 .winnerListBottom::-webkit-scrollbar{
     width: 10px;
@@ -219,6 +226,8 @@
 .winnerListBottom::-webkit-scrollbar-thumb{
     background-color: rgba(31, 31, 31, 0.47);
 }
+
+
 
 @media screen and (min-width: 1px) and (max-width: 767px) {
     .oneDrawDiv {

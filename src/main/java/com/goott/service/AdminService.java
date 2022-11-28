@@ -51,4 +51,10 @@ public interface AdminService {
 	public void sendPromotionEmail(List<String> toTemp, String subjectTemp, String textTemp);
 	
 	public void setPromotionEmail(String subject, String content);
+
+	/**
+	 * 공지사항 상위 5개
+	 * @return
+	 */
+	public List<Map<String, Object>> getNoticeList();
 }

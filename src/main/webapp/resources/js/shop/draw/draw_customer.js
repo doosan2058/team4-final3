@@ -22,11 +22,34 @@ closeWinnerListContainerIcon.addEventListener('click', closeWinnerList);
 
 // =======================================================================================
 
+function buyLimitedProduct(){
+    if(this.innerHTML == '미당첨')
+        alert('다음에 다시 응모해 주세요.');
+    else if(this.previousElementSibling.innerHTML == loginCheckHiddenInput.value){
+        const result = confirm('당첨을 축하드립니다. 이상품을 구매하시겠어요?');
+        if(result){
+            const tempForm = document.createElement('form');
+            const product_id = document.createElement('input');
+            const pid = document.querySelector('#winnerListDivDrawIdInput').value;
+            product_id.setAttribute('type', 'hidden');
+            product_id.setAttribute('name', 'product_id');
+            product_id.setAttribute('value', pid);
+            tempForm.appendChild(product_id);
+            tempForm.setAttribute('method','post');
+            tempForm.setAttribute('action','/order');
+            document.body.appendChild(tempForm);
+            tempForm.submit();
+        }
+    }
+    else
+        alert('당첨된 아이디로 로그인 해 주세요.');
+}
+
 /*당첨자 리스트 보기*/
 function showWinnerList(){
     winnerListContainer.style.display = 'block';
     winnerListContainer.children[0].style.animation = 'showModal 0.3s 1 forwards';
-
+    document.querySelector('#winnerListDivDrawIdInput').value = this.nextElementSibling.value;
     // 당첨자 리스트 비동기 호출
     const draw_id = this.previousElementSibling.previousElementSibling.value;
     const param = { draw_id : draw_id};
@@ -49,10 +72,10 @@ function showWinnerList(){
                 const tempIdSpan = document.createElement('span');
                 tempIdSpan.innerHTML = data[i].member_id;
                 const tempResultSpan = document.createElement('span');
-
                 tempResultSpan.innerHTML = ( data[i].draw_winning == 'y' ) ? '당첨' : '미당첨';
                 tempDiv.appendChild(tempIdSpan);
                 tempDiv.appendChild(tempResultSpan);
+                tempResultSpan.addEventListener('click', buyLimitedProduct);
                 tempContainer.appendChild(tempDiv);
             }
 

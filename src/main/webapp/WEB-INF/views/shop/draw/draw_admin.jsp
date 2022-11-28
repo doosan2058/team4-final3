@@ -80,7 +80,7 @@
                                 </span>
                             </li>
                             <li>
-                                <span class="font_bottom_td">이벤트 기간</span>
+                                <span class="font_bottom_td">응모 기간</span>
                                 <span>
                                     <fmt:parseDate value="${item.draw_event_start_date}" pattern="yyyy-MM-dd'T'HH:mm"
                                                    var="parseStartDate"/>

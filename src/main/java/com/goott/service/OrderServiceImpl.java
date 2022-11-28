@@ -161,8 +161,6 @@ public class OrderServiceImpl implements OrderService {
 		
 		int result = Integer.parseInt( confirmMap.get("result").toString() );
 		
-//		log.info("구매 확정 처리 결과 result : " + result );
-		
 		/*
 		 *  0, 정상, "주문확정 하였습니다. 리뷰를 작성해 보세요."
 		 * -1, 에러, "죄송합니다. 구매 확정 처리중 오류가 발생하였습니다. 잠시후 다시 시도해 주세요." 

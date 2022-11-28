@@ -29,7 +29,7 @@
 <!-- 상품 pk -->
 <main>
     <!--상품 이미지, 상품 가격, 상품 설명, 수량, 장바구니 담기, 구매하기-->
-    <form method="get" action="/order">
+    <form method="post" action="/order">
         <div class="productTop">
             <input type="hidden" name="product_id" id="product_id" value="${product.product_id }">
             <div class="topLeft">
@@ -76,6 +76,8 @@
                             <span class="productInfoSpan">${product.product_brand_name }</span>
                             <span class="productInfoSpan">${product.product_stock }개 남았어요</span>
                             <span class="productInfoSpan">${product.product_comment }</span>
+                            <span class="productInfoSpan">${product.product_limited } 상품이에요</span>
+
                         </div>
 
                     </div>
@@ -113,11 +115,21 @@
                     <div class="orderDiv">
                         <!--상품 가격 -->
                         <span id="productPriceSpan"></span>
+
                         <div class="orderDivBtnDiv">
-                            <!--장바구니 담기는 ajax-->
-                            <i class="xi-cart-o" id="basketBtn"></i>
-                            <!--구매하기는 submit-->
-                            <input type="submit" value="구매하기" class="formBtns" id="submitBtn">
+                            <c:choose>
+                                <c:when test="${product.product_delete eq 'y' or product.product_limited eq '한정판'}">
+                                    <p>구매할 수 없는 상품입니다.</p>
+                                    <!--장바구니 담기는 ajax-->
+                                    <i class="xi-cart-o" id="basketBtn" style="display: none;"></i>
+                                </c:when>
+                                <c:when test="${product.product_delete eq 'n' and product.product_limited eq '일반'}">
+                                    <!--장바구니 담기는 ajax-->
+                                    <i class="xi-cart-o" id="basketBtn"></i>
+                                    <!--구매하기는 submit-->
+                                    <input type="submit" value="구매하기" class="formBtns" id="submitBtn">
+                                </c:when>
+                            </c:choose>
                         </div>
 
                     </div>

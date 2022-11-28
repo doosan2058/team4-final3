@@ -315,5 +315,10 @@ public class ProductServiceImpl implements ProductService {
 		return productMapper.selectDrawLimitedProduct(product_category_id, product_brand_id);
 	}
 
+	@Override
+	public List<ProductVO> getYoutubeList() {
+		return productMapper.selectYoutubeList();
+	}
+
 
 }
