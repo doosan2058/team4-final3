@@ -1,4 +1,4 @@
-let grade = document.querySelectorAll(".grade");
+let grade = document.querySelectorAll(".gradeDiv");
 
 for(let i=0; i<grade.length;i++){
 	grade[i].addEventListener('mouseenter',changeColor);
@@ -6,7 +6,7 @@ for(let i=0; i<grade.length;i++){
 }
 function changeColor(){
 	let text = this.dataset.hover;
-	this.style.boxShadow = `2px 2px 2px 0px ${text}`;
+	this.style.boxShadow = `0px 0px 4px 2px ${text}`;
 	
 
 	

@@ -36,6 +36,7 @@
 				   g.grade_accrual_rate as grade_accrual_rate,
 				   g.grade_comment as grade_comment,
 				   g.grade_img_url as grade_img_url,
+				   g.grade_font_color as grade_font_color,
 				   m.member_id as member_id,
 				   m.member_purchase_point as member_purchase_point,
 				   m.member_write_point as member_write_point

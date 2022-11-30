@@ -1,79 +1,185 @@
-main{
-	width : 100%;
-	height: auto;
-    display:flex;
-    flex-direction: row;
-    background:	#A8A8A8;
-}
-.mainDiv{
-	margin: 0 auto;
-    width:60%;
-    height: 100%;
-/*     border: solid 2px yellowgreen; */
-    color:white;
-}
-.mainDiv>h1{
-	padding: 26px 26px 15px 26px;
-	text-align: center;
-	border-bottom: 2px solid #A8A8A8;
-}
-.subnav{
-  /*   border: solid 2px yellowgreen; */
-    display: flex;
-    flex-direction: row;
-    margin: 15px 0px;
-    padding: 6px 4px;
+.gradePolicyContainer {
+    margin: 0 auto;
     width: 100%;
-    height:60px;
-    position: relative;
-}
-.subnav>p{
-/* 	border: solid 2px blue; */
-    width:55%;
-    padding-left: 5px;
-}
-.btns{
-/* 	border: solid 2px red;	 */
-	position: absolute;
-	top:13px;
-	right:30px;
-
-}
-.btn{
-		font-size: 1rem;
-	 	width:70px;
-        height:30px;
-        border:1px #5D7190 solid;;
-        margin:15px auto; 
-        background-color:#5D7190;  
-        text-align:center; 
-        cursor: pointer;  
-        color:white;
-        transition:all 0.9s, color 0.3;
-        border-radius: 3.3px;  
-}
-.btn:hover {
-	       box-shadow: 0 80px 0 0  rgba(0,0,0,0.25) inset, 
-                    0 -80px 0 0 rgba(0,0,0,0.25) inset;
+    max-width: 1600px;
+    height: 100%;
 }
 
+.gradePolicyContainer > h1 {
+    display: inline-block;
+    margin-top: 5rem;
+}
 
-.form{
-	width:100%;
+.gradePolicyTop {
+    width: 100%;;
 }
-table{
-	width:90%;
-	margin: auto;
-	border-color: #5E7291;
+
+.gradePolicyTop > p {
+    padding: 2rem 1rem;
+    color: var(--subFontColor4);
 }
-th, td{
-	text-align: center;
+
+.gradePolicyBtnDiv {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
-.background{
-	width:80%;
-	height:80%;
-	boarder : solid 1px black;
-	
+
+.gradeBtn {
+    font-family: 'GimpoGothicRegular00';
+    font-size: 1rem;
+    width: 70px;
+    height: 30px;
+    border: 1px #5D7190 solid;
+    background-color: #5D7190;
+    cursor: pointer;
+    color: white;
+    transition: .3s;
+    border-radius: 5px;
+    margin: 0 0.5rem;
+}
+
+.gradePolicyBottom {
+    width: 100%;
+    margin-top: 2rem;
+}
+.gradePolicyLineHeaderDiv{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.gradePolicyLineHeaderDiv span {
+    display: inline-block;
+    margin: 0.5rem;
+    font-weight: bolder;
+    width: 100px;
+}
+.gradePolicyLineDiv{
+    width: 100%;
+    height: auto;
+    border: 1px solid #5E7291;
+    box-shadow: 0 0 1px #5E7291;
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+    transition: .3s;
+}
+.gradePolicyLineDiv span{
+    display: inline-block;
+    margin: 1rem 0.5rem;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.gradePolicyColorDiv{
+    width: 100px;
+    height: 100px;
+    margin: 1rem 0.5rem;
+}
+.gradePolicyImg{
+    width: 100px;
+    height: 100px;
+    margin: 1rem 0.5rem;
+}
+input[type="checkbox"]{
+    margin: 1rem 0.5rem;
+    cursor: pointer;
+}
+.explainGradePolicyDiv{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    background-color: var(--subColor2);
+    padding: 3rem 0.5rem;
+}
+.closeIcon{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+.explainGradePolicyDiv div{
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+.explainGradePolicyDivTitleSpan{
+    display: inline-block;
+    width: 90px;
+    font-size: 0.8rem;
+    font-weight: bolder;
+
+}
+.explainGradePolicyDivSpan{
+    display: inline-block;
+    width: 100px;
+    font-size: 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media screen and (min-width: 1px) and (max-width: 767px) {
+
+    .gradePolicyContainer{
+        width: 95%;
+    }
+    .gradePolicyLineHeaderDiv{
+        display: none;
+    }
+    .gradePolicyLineDiv span{
+        width: 70px;
+        font-size: 0.7rem;
+        display: none;
+    }
+    .gradePolicyColorDiv{
+        width: 70px;
+        height: 70px;
+    }
+    .gradePolicyImg{
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .gradePolicyContainer{
+        width: 95%;
+    }
+    .gradePolicyLineHeaderDiv span{
+        width: 70px;
+        font-size: 0.7rem;
+    }
+    .gradePolicyLineDiv span{
+        width: 70px;
+        font-size: 0.7rem;
+    }
+    .gradePolicyColorDiv{
+        width: 70px;
+        height: 70px;
+    }
+    .gradePolicyImg{
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .gradeBtn:hover {
+        background-color: #516e8f;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.76) inset;
+    }
+    .gradePolicyLineDiv:hover{
+        box-shadow: 0 0 4px 2px #5E7291;
+    }
 }
 
 

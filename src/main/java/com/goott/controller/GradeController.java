@@ -147,15 +147,4 @@ public class GradeController {
 
         return "redirect:/gradePolicy_admin";
     }
-
-
-    //관리자 - 등급 정책 수정
-    @RequestMapping(value = "/gradePolicyModify_admin", method = RequestMethod.GET)
-    public String gradePolicyModify() {
-
-
-        return "grade/gradePolicyModify_admin";
-    }
-
-
 }

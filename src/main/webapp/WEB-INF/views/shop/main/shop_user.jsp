@@ -86,8 +86,28 @@
     </div>
 </div>
 
+<c:if test="${userInfo ne null}">
+    <div class="myGradeState" style="background-color: ${userInfo.grade_color}">
+        <div class="myGradeState_top">
+            <h3>현재 등급은 <span style="color: ${userInfo.grade_font_color}"> ${userInfo.grade_name} </span> 입니다. </h3>
+        </div>
+        <div class="myGradeState_bottom" style="border: solid 1px ${Info.grade_font_color}">
+            <div id="myGradeState_bottom_title">등급혜택</div>
+            <div id="myGradeState_bottom_text">
+                제품 구매 시 전 제품
+                <span style="color: ${userInfo.grade_font_color};">
+				<fmt:formatNumber type="percent" value="${userInfo.grade_discount}"/> 할인</span> /
+                <span style="color: ${userInfo.grade_font_color};">
+				<fmt:formatNumber type="percent" value="${userInfo.grade_accrual_rate}"/> 적립</span>
+            </div>
+        </div>
+    </div>
+</c:if>
+
+
 
 <div class="itemContainer">
+
     <!--상품 탑 10 구역-->
     <div class="itemBestDivCon">
         <!--상품 탑 10 헤드-->
