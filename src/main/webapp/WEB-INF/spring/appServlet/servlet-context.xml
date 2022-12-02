@@ -31,7 +31,6 @@
 
     <!-- Resolves views selected for rendering by @Controllers to .jsp resources
         in the /WEB-INF/views directory -->
-
     <beans:bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="prefix" value="/WEB-INF/views/"/>
@@ -50,23 +49,21 @@
                 class="com.goott.interceptor.CommonInterceptor"/>
     <beans:bean id="adminInterceptor"
                 class="com.goott.interceptor.AdminInterceptor"/>
+
     <!-- 인터셉터 설정 -->
     <interceptors>
-        <!-- 로그인 유저만 접근 할수 있는 -->
+        <!-- 로그인 유저만 접근 할수 있는 경로 -->
         <interceptor>
 			<mapping path="/order"/>
             <mapping path="/order/*"/>
-            <!-- <mapping path="/shop/draw_customer" /> -->
 			<mapping path="/user"/>
             <mapping path="/user/*"/>
             <mapping path="/qna/add"/>
             <mapping path="/qna/modify"/>
             <mapping path="/qna/delete"/>
-
-
             <beans:ref bean="commonInterceptor"/>
         </interceptor>
-        <!-- 관리자만 접근 할수 있는 -->
+        <!-- 관리자만 접근 할수 있는 경로 -->
         <interceptor>
             <mapping path="/**/admin"/>
             <mapping path="/product/modify"/>
@@ -79,9 +76,6 @@
 			<mapping path="/qna/answer/register"/>
 			<mapping path="/qna/answer/modify"/>
 			<mapping path="/qna/answer/delete"/>
-
-
-
             <beans:ref bean="adminInterceptor"/>
         </interceptor>
     </interceptors>

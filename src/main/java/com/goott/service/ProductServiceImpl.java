@@ -74,8 +74,6 @@ public class ProductServiceImpl implements ProductService {
 		if(file.getOriginalFilename().equals("") || file.getOriginalFilename() != null) {
 			//랜덤 이름 생성
 			String uuid = UUID.randomUUID().toString();
-			//메인 이미지 원본 이름
-			String imgName = file.getOriginalFilename();
 			//메인 이미지 확장자
 			String extention = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf('.'));
 			//생성할 썸네일 이미지 이름
