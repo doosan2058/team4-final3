@@ -65,7 +65,7 @@
                 <div class="orderProductBottom">
                     <div class="productImgDiv">
 						<a href="/product/detail?product_id=${product.product_id}">
-							<img src="/productImg/${product.product_thumbnail_img_url }" alt="이미지 준비중 입니다."
+							<img src="${product.product_thumbnail_img_url }" alt="이미지 준비중 입니다."
 								 class="productImg">
 						</a>
 

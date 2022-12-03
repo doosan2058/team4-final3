@@ -11,6 +11,7 @@ import java.util.UUID;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
+import com.goott.service.S3Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,6 +38,9 @@ public class GradeController {
     @Autowired
     GradeAdminService gradeAdminService;
 
+    @Autowired
+    S3Service s3Service;
+
 
     //유저 등급(내 정보) 확인
     @RequestMapping(value = "/grade")
@@ -45,24 +49,15 @@ public class GradeController {
 
         String member_id = map.get("member_id").toString();
 
-        Map<String, Object> Info = gradeService.getUserGradeInfo(member_id);
+        Map<String, Object> info = gradeService.getUserGradeInfo(member_id);
 
         //해당 아이디의 등급 정보 가져와 모델에 저장
-        mv.addObject("Info", Info);
-
-
-        //다음 등급 정보 가져오기
-        int next_grade_id = Integer.parseInt(Info.get("grade_id").toString()) + 1;
-        //다음 등급 정보 가져오기 쿼리
-        GradeVO nextInfo = gradeService.select(next_grade_id);
-        mv.addObject("nextInfo", nextInfo);
-
+        mv.addObject("Info", info);
 
         List<GradeVO> gradeList = gradeService.gradePolicyInfo();
 
         Map<String, Object> mav = new HashMap<>();
         mav.put("InfoAll", gradeList);
-
 
         mv.addObject("map", mav);
 
@@ -79,7 +74,7 @@ public class GradeController {
     public ModelAndView gradePolicy(ModelAndView mav) {
 
         int gradeCount = gradeAdminService.gradeCount();
-        mav.setViewName("grade/gradePolicy_admin");
+        mav.setViewName("/grade/gradePolicy_admin");
         mav.addObject("gradePolicy", gradeAdminService.gradePolicy());
         mav.addObject("gradeCount", gradeCount);
         return mav;
@@ -109,40 +104,18 @@ public class GradeController {
     @RequestMapping(value = "/gradePolicyAdd_admin", method = RequestMethod.GET)
     public String gradePolicyAdd(Model model) {
 
-
-        int gradeCount = gradeAdminService.gradeCount() + 1;
+        int gradeCount = gradeAdminService.gradeCount();
         model.addAttribute("gradeCount", gradeCount);
-        return "grade/gradePolicyAdd_admin";
+        return "/grade/gradePolicyAdd_admin";
     }
 
     //관리자 - 등급 정책 추가
     @RequestMapping(value = "/gradePolicyAdd_admin", method = RequestMethod.POST)
-    public String gradePolicyAdd(@RequestParam MultipartFile img_url, GradeVO gradeVO, HttpServletRequest request) {
+    public String gradePolicyAdd(@RequestParam MultipartFile img_url, GradeVO gradeVO) {
 
-        String fileRealName = img_url.getOriginalFilename();
-        //잘 받아오는지 확인 - 삭제 예정
+       String imgUrl = s3Service.uploadS3Img(img_url, "grade");
 
-        String fileExtension = fileRealName.substring(fileRealName.lastIndexOf("."), fileRealName.length());
-        String uploadFolder = "C:\\gradeImg";
-        UUID uuid = UUID.randomUUID();
-        //어떻게 찍히는지 확인 - 삭제 예정
-
-        String[] uuids = uuid.toString().split("-");
-        String uniqueName = uuids[0];
-
-        //체크용 - 삭제예쩡
-
-
-        File saveFile = new File(uploadFolder + "\\" + uniqueName + fileExtension); //uuid 적용
-        try {
-            img_url.transferTo(saveFile);
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        gradeVO.setGrade_img_url(uniqueName + fileExtension);
+        gradeVO.setGrade_img_url(imgUrl);
         gradeAdminService.gradePolicyAdd(gradeVO);
 
         return "redirect:/gradePolicy_admin";

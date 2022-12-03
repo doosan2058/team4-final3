@@ -143,7 +143,7 @@
             </div>
         </c:if>
         <c:if test="${empty orderList }">
-            <p>현재 주문중인 상품이 없습니다.</p>
+            <p style="color: var(--subFontColor4);">현재 주문중인 상품이 없습니다.</p>
         </c:if>
     </div>
 </div>
@@ -189,7 +189,7 @@
                 </div>
             </c:if>
             <c:if test="${empty salesList }">
-                <h3>회원님의 구매 내역이 없습니다.</h3>
+                <p style="margin: 1rem; color: var(--subFontColor4);">회원님의 구매 내역이 없습니다.</p>
             </c:if>
         </div>
     </div>

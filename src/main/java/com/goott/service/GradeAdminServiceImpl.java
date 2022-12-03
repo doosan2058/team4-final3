@@ -14,13 +14,12 @@ public class GradeAdminServiceImpl implements GradeAdminService{
 
 	@Inject
 	GradeMapper gradeMapper;
-	
+	@Inject
+	S3Service s3Service;
 	
 	//관리자 - 등급 정책 리스트(gradePolicy_admin)
 	@Override
 	public List<GradeVO> gradePolicy() {
-		
-		
 		return gradeMapper.gradePolicy();
 	}
 	

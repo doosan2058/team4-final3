@@ -61,7 +61,7 @@
                     </p>
                 </div>
                 <div class="grade_right">
-                    <img src="/gradeImg/${Info.grade_img_url }">
+                    <img src="${Info.grade_img_url }">
                 </div>
             </div>
         </c:forEach>

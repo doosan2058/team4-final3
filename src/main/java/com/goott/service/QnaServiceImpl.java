@@ -22,6 +22,8 @@ public class QnaServiceImpl implements QnaService {
 
     @Inject
     QnaMapper qnaMapper;
+    @Inject
+    S3Service s3Service;
 
     @Override
     public int totalQnaCount(String qnaSearchText, String qna_category) {
@@ -41,18 +43,16 @@ public class QnaServiceImpl implements QnaService {
     @Override
     public String registerQna(QnaVO qnaVO, MultipartFile qna_picture_url) {
         // 파일 업로드 여부 확인
-        if(!qna_picture_url.isEmpty()){
+        if (!qna_picture_url.isEmpty()) {
             String resultText = saveQnaImg(qna_picture_url);
-            if(resultText.equals("업로드 파일 저장중 오류가 발생하였습니다. 관리자에게 문의해 주세요.")){
-                return resultText;
-            }
-            else{
+            if (resultText.equals("파일을 s3 에 업로드중 에러가 발생하였습니다.")) {
+                return "업로드 파일 저장중 오류가 발생하였습니다. 관리자에게 문의해 주세요.";
+            } else {
                 qnaVO.setQna_picture_url(resultText);
                 qnaMapper.insert(qnaVO);
                 return "등록 하였습니다.";
             }
-        }
-       else{
+        } else {
             qnaVO.setQna_picture_url("not url");
             qnaMapper.insert(qnaVO);
             return "등록 하였습니다.";
@@ -61,38 +61,7 @@ public class QnaServiceImpl implements QnaService {
 
     @Override
     public String saveQnaImg(MultipartFile qna_picture_url) {
-        // 질문글 이미지 파일 기본 저장 주소
-        String filePath = "C:/uploadtest/qnaImg/";
-        filePath = filePath.replace("/", File.separator);
-
-        // 오늘 날짜 폴더 경로
-        Date today = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        String todayPath = sdf.format(today);
-        todayPath = todayPath.replace("/", File.separator);
-
-        // 파일 확장자
-        String imgFileExtention = qna_picture_url.getOriginalFilename().substring(qna_picture_url.getOriginalFilename().lastIndexOf('.'));
-        // 랜덤 문자열
-        String uuid = UUID.randomUUID().toString();
-        // 랜덤 이름
-        String randFileName = uuid + imgFileExtention;
-
-        // 폴더 생성
-        File folder = new File(filePath + todayPath);
-        folder.mkdirs();
-
-        // 저장할 이미지 파일 생성
-        File saveImgFile = new File(filePath + todayPath, randFileName);
-        // 유저 업로드한 파일 복사
-        try {
-            qna_picture_url.transferTo(saveImgFile);
-            return "/qnaImg/" + todayPath + "/" + randFileName;
-        } catch (IOException e) {
-           e.printStackTrace();
-           return "업로드 파일 저장중 오류가 발생하였습니다. 관리자에게 문의해 주세요.";
-        }
-
+        return s3Service.uploadS3Img(qna_picture_url, "qnaImg");
     }
 
     @Override
@@ -162,20 +131,21 @@ public class QnaServiceImpl implements QnaService {
     @Override
     public void deleteExImgUrl(int qna_id) {
         String exImgUrl = this.selectExImgUrl(qna_id);
-        exImgUrl = exImgUrl.replace("/qnaImg/", "C:/uploadtest/qnaImg/");
-        exImgUrl = exImgUrl.replace("/", File.separator);
 
-        File exImg = new File(exImgUrl);
-        // 존재하면 삭제
-        if(exImg.exists()){
-            exImg.delete();
-        }
-
+        if(!exImgUrl.equals("not url"))
+            s3Service.deleteS3Img(exImgUrl);
     }
 
     @Override
     public void updateQna(QnaVO qnaVO, MultipartFile file) {
-        String resultUrl = this.saveQnaImg(file);
+        String resultUrl = "not url";
+
+        if(!file.isEmpty()){
+            resultUrl = this.saveQnaImg(file);
+        } else {
+            resultUrl = this.selectExImgUrl(qnaVO.getQna_id());
+        }
+
         this.deleteExImgUrl(qnaVO.getQna_id());
         qnaVO.setQna_picture_url(resultUrl);
         this.update(qnaVO);

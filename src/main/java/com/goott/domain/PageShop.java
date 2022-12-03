@@ -20,6 +20,7 @@ public class PageShop {
 		this.endNum = 10;
 		this.currentPage = currentPage;
 		this.totalPage = totalPage;
+		this.searchOption = searchOption;
 	}
 	
 	

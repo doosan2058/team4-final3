@@ -25,7 +25,7 @@
 
         <div class="gradeAddLineDiv">
             <span>단계</span>
-            <input type="text" id="grade_comment" name="grade_comment" value="${gradeCount}단계" readonly="readonly">
+            <input type="text" id="grade_comment" name="grade_comment" value="${gradeCount + 1}단계" readonly="readonly">
 		</div>
         <div class="gradeAddLineDiv">
             <span>등급명</span>

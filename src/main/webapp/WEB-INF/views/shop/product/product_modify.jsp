@@ -169,7 +169,7 @@
                         <div class="productImgMain">
                             <c:choose>
                                 <c:when test="${product.product_img_url1 ne 'no url'}">
-                                    <img id="prevMainImg" src="/productImg/${product.product_img_url1}">
+                                    <img id="prevMainImg" src="${product.product_img_url1}">
                                 </c:when>
                                 <c:when test="${product.product_img_url1 eq 'no url'}">
                                     <img id="prevMainImg">
@@ -179,7 +179,7 @@
                         <div class="productImgFirst">
                             <c:choose>
                                 <c:when test="${product.product_img_url1 ne 'no url'}">
-                                    <img class="mainImgs" src="/productImg/${product.product_img_url1}">
+                                    <img class="mainImgs" src="${product.product_img_url1}">
                                 </c:when>
                                 <c:when test="${product.product_img_url1 eq 'no url'}">
                                     <img class="mainImgs">
@@ -189,7 +189,7 @@
                         <div class="productImgSecond">
                             <c:choose>
                                 <c:when test="${product.product_img_url2 ne 'no url'}">
-                                    <img class="mainImgs" src="/productImg/${product.product_img_url2}">
+                                    <img class="mainImgs" src="${product.product_img_url2}">
                                 </c:when>
                                 <c:when test="${product.product_img_url2 eq 'no url'}">
                                     <img class="mainImgs">
@@ -199,7 +199,7 @@
                         <div class="productImgThird">
                             <c:choose>
                                 <c:when test="${product.product_img_url3 ne 'no url'}">
-                                    <img class="mainImgs" src="/productImg/${product.product_img_url3}">
+                                    <img class="mainImgs" src="${product.product_img_url3}">
                                 </c:when>
                                 <c:when test="${product.product_img_url3 eq 'no url'}">
                                     <img class="mainImgs">
@@ -213,7 +213,7 @@
                     <div class="subImgFirst">
                         <c:choose>
                             <c:when test="${product.product_description_img_url1 ne 'no url'}">
-                                <img class="subImgs" src="/productImg/${product.product_description_img_url1}">
+                                <img class="subImgs" src="${product.product_description_img_url1}">
                             </c:when>
                             <c:when test="${product.product_description_img_url1 eq 'no url'}">
                                 <img class="subImgs">
@@ -224,7 +224,7 @@
                     <div class="subImgSecond">
                         <c:choose>
                             <c:when test="${product.product_description_img_url2 ne 'no url'}">
-                                <img class="subImgs" src="/productImg/${product.product_description_img_url2}">
+                                <img class="subImgs" src="${product.product_description_img_url2}">
                             </c:when>
                             <c:when test="${product.product_description_img_url2 eq 'no url'}">
                                 <img class="subImgs">

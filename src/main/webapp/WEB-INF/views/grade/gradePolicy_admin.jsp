@@ -56,7 +56,7 @@
                 <span class="gradePolicyLineDivSpan"><fmt:formatNumber type="percent" value="${row.grade_accrual_rate}"/></span>
                 <div class="gradePolicyColorDiv" style="background-color:${row.grade_color}"></div>
                 <div class="gradePolicyColorDiv" style="background-color:${row.grade_font_color}"></div>
-                <img src="/gradeImg/${row.grade_img_url}" class="gradePolicyImg">
+                <img src="${row.grade_img_url}" class="gradePolicyImg">
             </div>
         </c:forEach>
     </div>

@@ -255,12 +255,9 @@ public class UserController {
 	@RequestMapping(value = "deleteBasket", method = RequestMethod.POST, produces = "text/html;charset=utf-8")
 	public String deleteBasket(@RequestBody Map<String, Object> param) {
 		int basket_id = Integer.parseInt( param.get("basket_id").toString() );
-		int result = userMapper.deleteBasket(basket_id);
-		
-		if(result == 1)
-			return "삭제되었습니다.";
-		else
-			return "죄송합니다. 잠시후 다시 시도해 주세요";
+		userMapper.deleteBasket(basket_id);
+
+		return "삭제되었습니다.";
 	}
 	@ResponseBody
 	@RequestMapping(value = "buyBasket", method = RequestMethod.POST, produces = "application/json;charset=utf-8")

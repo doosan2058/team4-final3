@@ -28,7 +28,7 @@
 									</span>
 			</div>
 			<div class="thumbnailDiv">
-				<img src="/productImg/${item.product_thumbnail_img_url }" class="thumbnailImg"
+				<img src="${item.product_thumbnail_img_url }" class="thumbnailImg"
 					 alt="이미지 준비중 입니다.">
 			</div>
 		</div>

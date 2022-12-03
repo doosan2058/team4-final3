@@ -35,7 +35,7 @@
             <!--장바구니 상품 정보 구역-->
             <div class="basketMiddle">
                 <c:if test="${empty list }">
-                    <h1>장바구니가 비었습니다.</h1>
+                    <p style="color: var(--subFontColor4); margin: 1rem;">장바구니가 비었습니다.</p>
                 </c:if>
                 <c:if test="${!empty list }">
                     <div id="basketTable">
@@ -53,7 +53,7 @@
                                                class="basketRadio">
                                     </div>
                                     <div class="basketLineInnerDiv">
-                                        <img src="/productImg/${item.product_img_url1 }" class="productImg">
+                                        <img src="${item.product_img_url1 }" class="productImg">
                                     </div>
                                     <div class="basketLineInnerDiv">
                                         <a href="/product/detail?product_id=${item.product_id}" class="productAnchor">

@@ -44,7 +44,7 @@
                     <div class="drawImgDiv">
                         <!--이벤트 이미지-->
                         <c:if test="${item.product_img_url1 ne 'no url' }">
-                            <img src="/productImg/${item.product_img_url1 }" alt="이미지 준비중 입니다." class="productMainImg">
+                            <img src="${item.product_img_url1 }" alt="이미지 준비중 입니다." class="productMainImg">
                         </c:if>
                     </div>
                     <div class="drawBottomDiv">

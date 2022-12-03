@@ -36,26 +36,26 @@
                 <div class="mainImgDiv">
                     <!-- 상품 이미지1 -->
                     <c:if test="${product.product_img_url1 ne 'no url' }">
-                        <img src="/productImg/${product.product_img_url1 }" alt="" class="productMainImg">
+                        <img src="${product.product_img_url1 }" alt="" class="productMainImg">
                     </c:if>
                 </div>
                 <div class="subImgDiv">
                     <!-- 상품 이미지 1~3 -->
                     <c:if test="${product.product_img_url1 ne 'no url' }">
                         <div class="subImgWrapDiv">
-                            <img src="/productImg/${product.product_img_url1 }" alt="" class="productSubImg">
+                            <img src="${product.product_img_url1 }" alt="" class="productSubImg">
                         </div>
                     </c:if>
 
                     <c:if test="${product.product_img_url2 ne 'no url' }">
                         <div class="subImgWrapDiv">
-                            <img src="/productImg/${product.product_img_url2 }" alt="" class="productSubImg">
+                            <img src="${product.product_img_url2 }" alt="" class="productSubImg">
                         </div>
                     </c:if>
 
                     <c:if test="${product.product_img_url3 ne 'no url' }">
                         <div class="subImgWrapDiv">
-                            <img src="/productImg/${product.product_img_url3 }" alt="" class="productSubImg">
+                            <img src="${product.product_img_url3 }" alt="" class="productSubImg">
                         </div>
                     </c:if>
                 </div>
@@ -144,10 +144,10 @@
         <div class="productImgDiv">
             <!-- 상품 상세 이미지 1~2 -->
             <c:if test="${product.product_description_img_url1 ne 'no url'}">
-                <img src="/productImg/${product.product_description_img_url1 }" alt="" class="mainImgs">
+                <img src="${product.product_description_img_url1 }" alt="" class="mainImgs">
             </c:if>
             <c:if test="${product.product_description_img_url2 ne 'no url'}">
-                <img src="/productImg/${product.product_description_img_url2 }" alt="" class="mainImgs">
+                <img src="${product.product_description_img_url2 }" alt="" class="mainImgs">
             </c:if>
             <div class="viewMoreDiv">펼처 보기</div>
         </div>
@@ -246,7 +246,7 @@
                                     <p></p>
                                 </c:if>
                                 <c:if test="${item.product_review_img_url ne 'no url'}">
-                                    <img alt="이미지 준비중" src="/reviewFiles/${item.product_review_img_url }"
+                                    <img alt="이미지 준비중" src="${item.product_review_img_url }"
                                          class="reviewImage">
                                 </c:if>
                             </div>
@@ -257,7 +257,7 @@
                                 </c:if>
                                 <c:if test="${item.product_review_video_url ne 'no url' }">
                                     <video controls width="100%" height="100%">
-                                        <source src="/reviewFiles/${item.product_review_video_url }" type="video/mp4">
+                                        <source src="${item.product_review_video_url }" type="video/mp4">
                                     </video>
                                 </c:if>
                             </div>

@@ -1,5 +1,6 @@
 package com.goott.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -59,7 +60,7 @@ public class ProductController {
     // 상품 등록
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registerPost(ProductVO productVO, @RequestParam(value = "imgs1") MultipartFile[] imgs1,
-                               @RequestParam(value = "imgs2") MultipartFile[] imgs2) {
+                               @RequestParam(value = "imgs2") MultipartFile[] imgs2)  {
 
         // 코멘트 없으면 초기화
         if (productVO.getProduct_comment().trim().equals("") || productVO.getProduct_comment().trim() == null
@@ -94,7 +95,7 @@ public class ProductController {
     // 상품 수정
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
     public String modifyPost(ProductVO productVO, @RequestParam(value = "imgs1") MultipartFile[] imgs1,
-                             @RequestParam(value = "imgs2") MultipartFile[] imgs2, Model model) {
+                             @RequestParam(value = "imgs2") MultipartFile[] imgs2, Model model)  {
 
         // 코멘트 없으면 초기화
         if (productVO.getProduct_comment().trim().equals("") || productVO.getProduct_comment().trim() == null

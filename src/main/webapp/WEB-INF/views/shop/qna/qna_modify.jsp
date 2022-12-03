@@ -25,7 +25,7 @@
 <body>
 <jsp:include page="../shop_header.jsp"/>
 <div class="qnaAddContainer">
-    <form method="post" action="modify" enctype="multipart/form-data">
+    <form method="post" action="/qna/modify" enctype="multipart/form-data">
         <input type="hidden" name="member_id" value="${qnaVO.member_id}" id="qna_member_id">
         <input type="hidden" name="qna_id" value="${qnaVO.qna_id}">
         <div class="qnaOptionDiv">

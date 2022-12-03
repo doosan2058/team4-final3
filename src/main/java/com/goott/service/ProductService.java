@@ -1,5 +1,6 @@
 package com.goott.service;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +27,7 @@ public interface ProductService {
 	 * @param imgs1 상품 이미지 1, 2, 3
 	 * @param imgs2 상품 설명 이미지 1, 2, 3
 	 */
-	public void saveProduct(ProductVO productVO, MultipartFile[] imgs1, MultipartFile[] imgs2); //상품 입력
+	public void saveProduct(ProductVO productVO, MultipartFile[] imgs1, MultipartFile[] imgs2);  //상품 입력
 	
 	/**
 	 * 상품 정보 수정
@@ -36,7 +37,7 @@ public interface ProductService {
 	 * @param imgs1 상품 이미지 1, 2, 3
 	 * @param imgs2 상품 설명 이미지 1, 2, 3
 	 */
-	public int updateProduct(ProductVO productVO, MultipartFile[] imgs1, MultipartFile[] imgs2); //상품 입력
+	public int updateProduct(ProductVO productVO, MultipartFile[] imgs1, MultipartFile[] imgs2);  //상품 입력
 	
 	/**
 	 * 상품 상세 정보

@@ -112,8 +112,7 @@
 				]]>
         </if>
         <![CDATA[
-
-			limit #{startNum},#{endNum}
+            limit #{startNum},#{endNum}
 		]]>
     </select>
     <!-- 상품 10개씩 관리자 -->
@@ -150,8 +149,7 @@
 				]]>
         </if>
         <![CDATA[
-
-			limit #{startNum},#{endNum}
+            limit #{startNum},#{endNum}
 		]]>
 
     </select>

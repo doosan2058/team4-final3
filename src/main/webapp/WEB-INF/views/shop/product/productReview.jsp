@@ -53,7 +53,7 @@
 						<p></p>
 					</c:if>
 					<c:if test="${item.product_review_img_url ne 'no url'}">
-						<img alt="이미지 준비중" src="/reviewFiles/${item.product_review_img_url }" class="reviewImage">
+						<img alt="이미지 준비중" src="${item.product_review_img_url }" class="reviewImage">
 					</c:if>
 
 
@@ -66,7 +66,7 @@
 					</c:if>
 					<c:if test="${item.product_review_video_url ne 'no url' }">
 						<video controls width="100%" height="100%">
-							<source src="/reviewFiles/${item.product_review_video_url }" type="video/mp4">
+							<source src="${item.product_review_video_url }" type="video/mp4">
 						</video>
 					</c:if>
 

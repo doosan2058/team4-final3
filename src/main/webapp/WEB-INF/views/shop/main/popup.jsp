@@ -26,7 +26,7 @@
 		</div>
 		<!-- 팝업 이미지 -->
 		<div class="imgDiv">
-			<img alt="" src="/productImg/${item.product_img_url1 }" id="popupImg">
+			<img alt="" src="${item.product_img_url1 }" id="popupImg">
 			<div class="popupTextDiv">
 				<p>${item.product_name } 이 입고 되었어요.</p>
 			</div>

@@ -100,7 +100,7 @@
                                 판매)</a>
                         </div>
                         <div class="thumbnailDivBest">
-                            <img src="/productImg/${item.product_thumbnail_img_url }" class="thumbnailImg"
+                            <img src="${item.product_thumbnail_img_url }" class="thumbnailImg"
                                  alt="이미지 준비중 입니다.">
                         </div>
                         <div class="scoreDiv">
@@ -120,7 +120,7 @@
             <c:forEach var="item" items="${youtubeList}">
                 <div class="youtubeListLineDiv">
                     <input type="hidden" value="${item.product_id}">
-                    <img src="/productImg/${item.product_thumbnail_img_url}" class="youtubeListLineDivThumbImg">
+                    <img src="${item.product_thumbnail_img_url}" class="youtubeListLineDivThumbImg">
                     <div class="youtubeListLineInnerDiv">
                         <a href="/product/detail?product_id=${item.product_id}"><span class="youtubeListLineDivTitleSpan">${item.product_name}</span></a>
                         <i class="fa-brands fa-youtube youtubeListIcon" data-url="${item.product_youtube_url}"></i>
@@ -193,7 +193,7 @@
 								</span>
                         </div>
                         <div class="thumbnailDiv">
-                            <img src="/productImg/${item.product_thumbnail_img_url }" class="thumbnailImg"
+                            <img src="${item.product_thumbnail_img_url }" class="thumbnailImg"
                                  alt="이미지 준비중 입니다.">
                         </div>
                     </div>

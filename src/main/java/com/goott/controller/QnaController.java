@@ -159,6 +159,9 @@ public class QnaController {
 
     @RequestMapping(value = "/qna/modify", method = RequestMethod.POST)
     public String modifyPost(Model model, QnaVO qnaVO, MultipartFile file) {
+        if(file.isEmpty())
+            qnaVO.setQna_picture_url("not url");
+
         qnaService.updateQna(qnaVO, file);
         int qna_id = qnaVO.getQna_id();
         String member_id = qnaVO.getMember_id();
