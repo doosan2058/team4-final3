@@ -94,7 +94,7 @@
                             <i class="fa-brands fa-square-twitter shareIcons"></i>
                         </div>
                         <div class="shareIconsWrapDiv">
-                            <img class="shareIconsImg" src="/resources/img/KakaoTalk_logo.svg">
+                            <img class="shareIconsImg" src="https://team4projectbucket.s3.ap-northeast-2.amazonaws.com/utilImg/KakaoTalk_logo.svg">
                         </div>
                         <div class="shareIconsWrapDiv">
                             <i class="fa-solid fa-copy shareIcons"></i>

@@ -35,27 +35,27 @@
     <div class="adContainer">
         <div class="adSubCon">
             <div class="carouselImgDiv">
-                <img src="/resources/img/shop/ad/3ed70dbe5c741730b08d02b2664bd0ad.jpg" alt="이미지 준비중 입니다.">
+                <img src="https://team4projectbucket.s3.ap-northeast-2.amazonaws.com/utilImg/3ed70dbe5c741730b08d02b2664bd0ad.jpg" alt="이미지 준비중 입니다.">
             </div>
         </div>
         <div class="adSubCon">
             <div class="carouselImgDiv">
-                <img src="/resources/img/shop/ad/426036bc4d8e49a589788a2730d3ecf5.jpg" alt="이미지 준비중 입니다.">
+                <img src="https://team4projectbucket.s3.ap-northeast-2.amazonaws.com/utilImg/426036bc4d8e49a589788a2730d3ecf5.jpg" alt="이미지 준비중 입니다.">
             </div>
         </div>
         <div class="adSubCon">
             <div class="carouselImgDiv">
-                <img src="/resources/img/shop/ad/56e8f0bd7af5e3fa52f7ac76dd346b8f.jpg" alt="이미지 준비중 입니다.">
+                <img src="https://team4projectbucket.s3.ap-northeast-2.amazonaws.com/utilImg/56e8f0bd7af5e3fa52f7ac76dd346b8f.jpg" alt="이미지 준비중 입니다.">
             </div>
         </div>
         <div class="adSubCon">
             <div class="carouselImgDiv">
-                <img src="/resources/img/shop/ad/ba3b9d639544b7b7e35a1c6173a52fbb.jpg" alt="이미지 준비중 입니다.">
+                <img src="https://team4projectbucket.s3.ap-northeast-2.amazonaws.com/utilImg/ba3b9d639544b7b7e35a1c6173a52fbb.jpg" alt="이미지 준비중 입니다.">
             </div>
         </div>
         <div class="adSubCon">
             <div class="carouselImgDiv">
-                <img src="/resources/img/shop/ad/c5a20ba490f33ba0301b5cbc46fbf4b9.jpg" alt="이미지 준비중 입니다.">
+                <img src="https://team4projectbucket.s3.ap-northeast-2.amazonaws.com/utilImg/c5a20ba490f33ba0301b5cbc46fbf4b9.jpg" alt="이미지 준비중 입니다.">
             </div>
         </div>
     </div>

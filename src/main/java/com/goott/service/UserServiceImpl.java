@@ -132,7 +132,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Map<String, Object> changeProfileImg(MultipartFile file, String member_id) {
 		//기본 이미지 저장 주소
-		String basicImgUrl = "/resources/img/user/basic_profile.jpg";
+		String basicImgUrl = "https://team4projectbucket.s3.ap-northeast-2.amazonaws.com/utilImg/basic_profile.jpg";
 		
 		
 		String filePath = "C:/uploadtest/uploadUserProfileImg/" + member_id;

@@ -1,6 +1,6 @@
 package com.goott.controller;
 
-import com.goott.service.S3Upload;
+import com.goott.service.S3Service;
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,7 @@ import java.io.IOException;
 @Controller
 public class TestController {
     @Autowired
-    S3Upload s3Upload;
+    S3Service s3Service;
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String testUpload(){
@@ -23,10 +23,21 @@ public class TestController {
 
     @RequestMapping(value = "/test", method = RequestMethod.POST)
     public String testUploadPost(@RequestParam MultipartFile file) throws IOException {
-        log.info("=================test==================");
-        log.info(file);
-        String url = s3Upload.uploadTest(file);
-        log.info(url);
+        String saveType = "productImg";
+        s3Service.uploadS3Img(file, saveType);
+
+        return "/test";
+    }
+
+    @RequestMapping(value = "/test/delete", method = RequestMethod.GET)
+    public String testDelete(@RequestParam String fileName){
+        s3Service.deleteS3Img(fileName);
+        return "/test";
+    }
+
+    @RequestMapping(value = "/test/getFileName", method = RequestMethod.GET)
+    public String testGetFileName(@RequestParam String fileUrl){
+        log.info(s3Service.getS3FileName(fileUrl));
         return "/test";
     }
 }
