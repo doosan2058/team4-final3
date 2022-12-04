@@ -50,7 +50,6 @@
     <div class="homeMain">
         <div class="shopDiv">
             <div class="homeImgWrapDiv">
-                <img alt="" src="">
                 <h1>쇼핑</h1>
                 <p>캠핑 용품을 구매하세요.</p>
             </div>
@@ -58,7 +57,6 @@
         </div>
         <div class="communityDiv">
             <div class="homeImgWrapDiv">
-                <img alt="" src="">
                 <h1>커뮤니티</h1>
                 <p>사람들과 여행하세요.</p>
             </div>

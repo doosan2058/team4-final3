@@ -19,7 +19,8 @@
 <!-- 제이쿼리 스크립트 -->
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 <!-- 카카오맵 스크립트 -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=495d480862b83fe2d322e1f0afe17685"></script>
+	<script type="text/javascript"
+			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b3fddae03c72f192c7b74da13d2a55b0&libraries=services"></script>
 
 <title>Document</title>
 </head>
