@@ -41,7 +41,7 @@
     <beans:bean id="multipartResolver"
                 class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <beans:property name="maxUploadSize" value="50000000"/>
-		<beans:property name="defaultEncoding" value="utf-8"/>
+        <beans:property name="defaultEncoding" value="utf-8"/>
     </beans:bean>
 
     <!-- 인터셉터 클래스 빈 등록 -->
@@ -54,9 +54,9 @@
     <interceptors>
         <!-- 로그인 유저만 접근 할수 있는 경로 -->
         <interceptor>
-			<mapping path="/order"/>
+            <mapping path="/order"/>
             <mapping path="/order/*"/>
-			<mapping path="/user"/>
+            <mapping path="/user"/>
             <mapping path="/user/*"/>
             <mapping path="/qna/add"/>
             <mapping path="/qna/modify"/>
@@ -69,13 +69,13 @@
             <mapping path="/product/modify"/>
             <mapping path="/product/register"/>
             <mapping path="/admin/**"/>
-			<mapping path="/draw/draw_admin"/>
-			<mapping path="/draw/modify"/>
-			<mapping path="/draw/add"/>
-			<mapping path="/qna/admin"/>
-			<mapping path="/qna/answer/register"/>
-			<mapping path="/qna/answer/modify"/>
-			<mapping path="/qna/answer/delete"/>
+            <mapping path="/draw/draw_admin"/>
+            <mapping path="/draw/modify"/>
+            <mapping path="/draw/add"/>
+            <mapping path="/qna/admin"/>
+            <mapping path="/qna/answer/register"/>
+            <mapping path="/qna/answer/modify"/>
+            <mapping path="/qna/answer/delete"/>
             <beans:ref bean="adminInterceptor"/>
         </interceptor>
     </interceptors>

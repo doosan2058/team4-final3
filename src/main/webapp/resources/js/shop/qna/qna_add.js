@@ -7,6 +7,8 @@ const fileIcon = document.querySelector('.xi-paperclip');
 const qnaImgDeleteSpan = document.querySelector('.qnaImgDeleteSpan');
 const uploadImgContainerCloseIcon = document.querySelector('.uploadImgContainerCloseIcon');
 const uploadImgContainer = document.querySelector('.uploadImgContainer');
+const qna_text = document.querySelector('#qna_text');
+const qnaTextlengthSpan = document.querySelector('.qnaTextlengthSpan');
 
 // 이미지 타입
 const imgTypeArray = ['image/jpeg','image/png','image/jpg','image/gif'];
@@ -17,8 +19,13 @@ qna_picture_url.addEventListener('change', uploadImg);
 qnaImgDeleteSpan.addEventListener('click', cancelUploadImg);
 fileIcon.addEventListener('click', showQnaUploadImgContainer);
 uploadImgContainerCloseIcon.addEventListener('click', closeQnaUploadImgContainer);
+qna_text.addEventListener('keyup', checkQnaTitleLength);
 // =====================================================================================================================
 
+function checkQnaTitleLength(){
+    const qnaTitleLength = qna_text.value.length;
+    qnaTextlengthSpan.innerHTML = `(${qnaTitleLength}/500)`;
+}
 
 function showQnaUploadImgContainer(){
     uploadImgContainer.style.display = 'block';

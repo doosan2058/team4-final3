@@ -54,11 +54,12 @@
             <span class="qnaImgDeleteSpan">취소</span>
         </div>
         <div class="qnaSubjectDiv">
-            <input type="text" name="qna_title" maxlength="30" placeholder="제목을 입력하세요.(최대 30자)" required id="qna_title">
+            <input type="text" name="qna_title" maxlength="30" placeholder="제목을 입력하세요.(최대 30자)" id="qna_title" required>
             <span id="qnaTitleLengthSpan">(0/30)</span>
         </div>
         <div class="qnaDetailDiv">
-            <textarea name="qna_text" required id="qna_text" placeholder="내용을 입력하세요."></textarea>
+            <textarea name="qna_text" required id="qna_text" placeholder="내용을 입력하세요.(최대 500자)" required></textarea>
+            <span class="qnaTextlengthSpan">(0/500)</span>
         </div>
         <div class="qnaDetailDiv">
             <input type="submit" value="등록" id="qnaSubmitBtn">

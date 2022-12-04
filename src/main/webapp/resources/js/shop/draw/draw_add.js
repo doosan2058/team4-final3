@@ -23,6 +23,8 @@ const draw_title = document.querySelector('#draw_title');
 const draw_comment = document.querySelector('#draw_comment');
 // 이벤트 등록 버튼
 const addDrawBtn = document.querySelector('.addDrawBtn');
+const commentLengthSpan = document.querySelector('.commentLengthSpan');
+const titleLengthSpan = document.querySelector('.titleLengthSpan');
 // =======================================================================================
 window.addEventListener('load', initDrawAdd);
 addDrawProductDiv.addEventListener('click', showSelectContainer);
@@ -31,9 +33,19 @@ selectSpan.addEventListener('click', searchLimitedProduct);
 closeImgWrapDivIcon.addEventListener('click', cancelProduct);
 addDrawBtn.addEventListener('click', addDraw);
 draw_event_start_date.addEventListener('change', initDrawEndDate);
-
+draw_comment.addEventListener('keyup', checkDrawCommentLength);
+draw_title.addEventListener('keyup', checkDrawTitleLength);
 // =======================================================================================
-
+function checkDrawTitleLength(){
+    // 이벤트 설명 글자수
+    let checkTitleLength = draw_title.value.length;
+    titleLengthSpan.innerHTML = `(${checkTitleLength}/100)`;
+}
+function checkDrawCommentLength(){
+    // 이벤트 설명 글자수
+    let checkCommentLength = draw_comment.value.length;
+    commentLengthSpan.innerHTML = `(${checkCommentLength}/100)`;
+}
 /*새로운 이벤트 등록*/
 function addDraw(){
     location.href = '/draw/add';
@@ -173,6 +185,7 @@ function initDrawAdd() {
     const today = new Date(todayUTCMills);
 
     draw_event_start_date.setAttribute('min', today.toISOString().slice(0, 10));
+
 }
 
 // 이벤트 종료 날짜 초기화

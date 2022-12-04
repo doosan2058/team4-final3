@@ -98,14 +98,22 @@
     top: 50%;
     right: 0.5rem;
     transform: translateY(-50%);
-    font-weight: bolder;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
 }
 .qnaDetailDiv{
     width: 100%;
     height: auto;
     margin-top: 2rem;
     padding: 0 0.5rem;
+    position: relative;
+}
+
+.qnaTextlengthSpan{
+    position: absolute;
+    font-size: 0.7rem;
+    color: var(--subFontColor4);
+    bottom: 0.5rem;
+    right: 1rem;
 }
 #qna_text{
     display: block;

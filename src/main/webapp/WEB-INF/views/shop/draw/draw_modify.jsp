@@ -36,6 +36,7 @@
             <div class="oneDrawDiv">
                 <div class="oneDrawTop">
                     <input type="text" value="${item.draw_title}" name="draw_title" id="draw_title" required placeholder="이벤트 제목을 입력하세요.(최대 20자)" maxlength="20">
+                    <span class="titleLengthSpan">(0/100)</span>
                 </div>
                 <div class="drawCenterDiv">
                     <div class="drawImgDiv">
@@ -114,6 +115,7 @@
                             </div>
                             <div class="infoBottom">
                                 <textarea name="draw_comment" id="draw_comment" required placeholder="이벤트 내용을 입력해 주세요.(최대 100자)" maxlength="100">${item.draw_comment}</textarea>
+                                <span class="commentLengthSpan">(0/100)</span>
                             </div>
                         </div>
                     </div>

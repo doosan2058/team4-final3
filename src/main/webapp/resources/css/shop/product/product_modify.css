@@ -19,6 +19,7 @@
 	display: flex;
 	align-items: center;
 	transition: .3s;
+	position: relative;
 }
 .productAddLineInnerDiv{
 	display: flex;
@@ -70,7 +71,10 @@
 	border: 0;
 }
 .productAddInputLengthSpan{
-	margin: 0.5rem 0.5rem 0;
+	position: absolute;
+	font-size: 0.7rem;
+	bottom: 0.5rem;
+	right: 1rem;
 }
 
 #mainFile, #subFile{

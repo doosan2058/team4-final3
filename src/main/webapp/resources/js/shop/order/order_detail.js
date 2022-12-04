@@ -34,21 +34,24 @@ const couponPriceHidden = document.querySelector('#couponPriceHidden');
 const useCouponNum = document.querySelector('#useCouponNum');
 //최종 결제 금액
 const order_purchase_amount = document.querySelector('#order_purchase_amount');
+const orderTextLenghSpan = document.querySelector('.orderTextLenghSpan');
 //================================================================================================
+window.addEventListener('load', setTotalPrice);
 couponUseCon.addEventListener('click' , closeCouponCon);
 insertCouponBtn.addEventListener('click' , openCouponCon);
 requestSelect.addEventListener('change' , setOrderMassage);
 useCouponBtn.addEventListener('click' , useCoupon);
 couponCancle.addEventListener('click' , cancelCouponUse);
+requestTextarea.addEventListener('keyup', changeTextLength);
 //==================================================================================================
 
-window.onload = function(){
-	setTotalPrice();
+function changeTextLength(){
+	const textLength = requestTextarea.value.length;
+	orderTextLenghSpan.innerHTML = `(${textLength}/500)`;
 }
 
 //최종 가격 화면에 표시하는 함수
 function setTotalPrice(){
-	
 	resultPriceSpan.innerHTML = priceToString( (parseInt(order_purchase_amount_before.value) - parseInt(discount.value) - parseInt(couponPriceHidden.value)) );
 	order_purchase_amount.value = ((resultPriceSpan.innerHTML).replace(',','')).trim();
 }
@@ -136,8 +139,11 @@ function useCoupon(){
 function setOrderMassage(){
 	const msg = this.selectedOptions[0].innerHTML;
 	if(msg == '배송 메시지를 선택해 주세요.')
-		return;
-	requestTextarea.value = msg;
+		requestTextarea.value = '';
+	else
+		requestTextarea.value = msg;
+
+	changeTextLength();
 	
 }
 

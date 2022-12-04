@@ -3,13 +3,13 @@
     width: 70%;
     margin: 0 auto;
     padding-top: 1rem;
-    font-family: 'GimpoGothicBold00';
 }
 /*상세 TOP 디비전 공통*/
 .orderAddressTop, .orderProductTop, .orderPriceTop, .orderPaymentTop{
     padding: 1rem;
     background-color: var(--mainColor);
     color: var(--subFontColor);
+    font-family: 'GimpoGothicBold00';
 }
 
 /*상세 BOTTOM 디비전 공통*/
@@ -25,27 +25,37 @@
     padding: 1rem;
     font-size: 1.2rem;
 }
-
+.requestDiv{
+    position: relative;
+}
+.orderTextLenghSpan{
+    position: absolute;
+    font-size: 0.7rem;
+    color: var(--subFontColor4);
+    bottom: 0.5rem;
+    right: 1rem;
+}
 .orderInputs{
 	width: 100%;
-	padding: 1rem;
+	padding: 0.5rem;
 	background-color: var(--subColor2);
     transition: .3s;
-	border: none;
-	outline: none;
+	border: 0;
+    outline: 0;
     color: var(--basicFontColor);
 }
 
 .orderSelect{
-	height: 50px;
+    font-family: 'GimpoGothicRegular00';
+    color: var(--subFontColor3);
+    font-weight: bolder;
 }
 
 .orderText{
 	height: 150px;
 	resize: none;
-	font-size: 1.2rem;
+    font-family: 'GimpoGothicRegular00';
 }
-
 
 .orderInputs:focus{
 	background-color: var(--mainColor);
@@ -82,10 +92,18 @@
     height: 100%;
     padding: 0 1rem;
     font-size: 1rem;
+    font-weight: bolder;
 }
-.productNameP{
+.productDetail p{
+     color: var(--subFontColor3);
+ }
+.productDetail a{
     font-size: 1.2rem;
     transition: .3s;
+    color: var(--basicFontColor);
+}
+.EmphasisSpan{
+    color: var(--basicFontColor);
 }
 
 /*결제정보*/
@@ -179,6 +197,9 @@
 	align-items: center;
     justify-content: end;
 	
+}
+.tdLeft{
+    font-weight: bolder;
 }
 .tdRight{
     text-align: right;

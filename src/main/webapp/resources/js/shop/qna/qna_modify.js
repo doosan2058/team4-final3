@@ -9,6 +9,8 @@ const uploadImgContainerCloseIcon = document.querySelector('.uploadImgContainerC
 const uploadImgContainer = document.querySelector('.uploadImgContainer');
 // 이미지 타입
 const imgTypeArray = ['image/jpeg','image/png','image/jpg','image/gif'];
+const qna_text = document.querySelector('#qna_text');
+const qnaTextlengthSpan = document.querySelector('.qnaTextlengthSpan');
 // ===================================================================================================
 window.addEventListener('load', qnaModifyInit);
 qna_title.addEventListener('keyup', changeTitleInputLength);
@@ -16,7 +18,13 @@ qna_picture_url.addEventListener('change', uploadImg);
 qnaImgDeleteSpan.addEventListener('click', cancelUploadImg);
 fileIcon.addEventListener('click', showQnaUploadImgContainer);
 uploadImgContainerCloseIcon.addEventListener('click', closeQnaUploadImgContainer);
+qna_text.addEventListener('keyup', checkQnaTitleLength);
 // ===================================================================================================
+
+function checkQnaTitleLength(){
+    const qnaTitleLength = qna_text.value.length;
+    qnaTextlengthSpan.innerHTML = `(${qnaTitleLength}/500)`;
+}
 
 function qnaModifyInit() {
 
@@ -33,13 +41,20 @@ function qnaModifyInit() {
 
     const qna_category = document.querySelector('#qna_category');
     const selectedValue = qna_category.dataset.exValue;
-    console.log(qna_category.options);
+
     for (let i = 0; i < qna_category.options.length; i++) {
         if (qna_category.options[i].value == selectedValue) {
             qna_category.options[i].selected = true;
             break;
         }
     }
+
+    const initQnaTextLength = qna_text.value.length;
+    qnaTextlengthSpan.innerHTML = `(${initQnaTextLength}/500)`;
+
+    let initTitleInputLength = qna_title.value.length;
+    qnaTitleLengthSpan.innerHTML = `(${initTitleInputLength}/30)`;
+
 }
 function showQnaUploadImgContainer(){
     uploadImgContainer.style.display = 'block';

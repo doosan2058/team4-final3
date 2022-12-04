@@ -51,9 +51,8 @@
                         </select>
                         <!-- 메시지 -->
                         <textarea name="order_comment" class="orderInputs orderText" id="requestTextarea" cols="30"
-                                  rows="10" maxlength="500" placeholder="배송 메시지를 입력해 주세요."></textarea>
-
-
+                                  rows="10" maxlength="500" ></textarea>
+                        <span class="orderTextLenghSpan">(0/500)</span>
                     </div>
                 </div>
             </div>
@@ -72,7 +71,7 @@
                     </div>
                     <div class="productDetail">
 						<a href="/product/detail?product_id=${product.product_id}" class="productAnchor">
-							<p class="productNameP">${product.product_name}</p>
+							${product.product_name}
 						</a>
                         <p>
                             <fmt:formatNumber type="number" value="${product.product_price}"/>
@@ -81,7 +80,7 @@
                         <p>
                             평균
                             <span class="EmphasisSpan">${product.product_delivery_day }</span>
-                            일 배송일
+                            일 배송
                         </p>
                         <input type="hidden" id="productCategory" value="${product.product_category_id }">
                         <input type="hidden" id="productBrand" value="${product.product_brand_id }">

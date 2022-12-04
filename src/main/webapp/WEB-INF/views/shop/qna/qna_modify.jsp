@@ -68,7 +68,8 @@
             <span id="qnaTitleLengthSpan">(0/30)</span>
         </div>
         <div class="qnaDetailDiv">
-            <textarea name="qna_text" required id="qna_text" placeholder="내용을 입력하세요.">${qnaVO.qna_text}</textarea>
+            <textarea name="qna_text" required id="qna_text" placeholder="내용을 입력하세요.(최대 500자)" required>${qnaVO.qna_text}</textarea>
+            <span class="qnaTextlengthSpan">(0/500)</span>
         </div>
         <div class="qnaDetailDiv">
             <input type="submit" value="수정" id="qnaSubmitBtn">

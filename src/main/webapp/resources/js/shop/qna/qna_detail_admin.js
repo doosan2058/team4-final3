@@ -3,14 +3,21 @@
 const attachmentIcon = document.querySelector('.attachmentIcon');
 const qnaImgContainer = document.querySelector('.qnaImgContainer');
 const closeQnaImgContainer = document.querySelector('.closeQnaImgContainer');
-const qnaDetailModifyAnchor = document.querySelector('#qnaDetailModifyAnchor');
+
+const answer_text = document.querySelector('.answer_text');
+const answerTextLengthSpan = document.querySelector('.answerTextLengthSpan');
 // =============================================================================
 
 window.addEventListener('load', qnaDetailInit);
 attachmentIcon.addEventListener('click', showQnaImg);
 closeQnaImgContainer.addEventListener('click', closeSelectContainer);
+answer_text.addEventListener('keyup', checkAnswerLength);
 
 // =============================================================================
+function checkAnswerLength() {
+    const answerLength = answer_text.value.length;
+    answerTextLengthSpan.innerHTML = `(${answerLength}/500)`;
+}
 
 function qnaDetailInit() {
     // 비공개 게시글
@@ -29,22 +36,20 @@ function qnaDetailInit() {
     // 삭제 게시글
     else if (document.querySelector('#qna_delete').value == 'y') {
         // 관리자제외 접근 불허
-        if(document.querySelector('#authCheckHiddenInput').value != '관리자'){
+        if (document.querySelector('#authCheckHiddenInput').value != '관리자') {
             alert('삭제된 게시글 입니다.');
             location.href = '/qna';
         }
     }
-    // 공개 게시글
-    else {
-        // 작성자 == 로그인유저
-        if (document.querySelector('#loginCheckHiddenInput').value == document.querySelector('.qna_member_id').innerHTML) {
-            qnaDetailModifyAnchor.style.display = 'block';
-        }
-        // 작성자 != 로그인유저
-        else {
-            qnaDetailModifyAnchor.style.display = 'none';
-        }
+    else{
+
     }
+
+    const initAnswerLength = answer_text.value.length;
+    answerTextLengthSpan.innerHTML = `(${initAnswerLength}/500)`;
+
+
+
 
 
 }

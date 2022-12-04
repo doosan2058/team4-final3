@@ -135,6 +135,16 @@
     font-size: 0.9rem;
     color: var(--subFontColor4);
 }
+.answerTextDiv{
+    position: relative;
+}
+.answerTextLengthSpan{
+    position: absolute;
+    font-size: 0.7rem;
+    color: var(--subFontColor4);
+    bottom: 0.5rem;
+    right: 1rem;
+}
 .answerText textarea{
     display: inline-block;
     width: 100%;

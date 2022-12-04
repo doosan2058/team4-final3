@@ -93,29 +93,37 @@
                             <input type="hidden" name="answer_id" value="  ${answerVO.answer_id}" readonly>
                             <input type="hidden" name="qna_id" value="  ${answerVO.qna_id}" readonly>
                             <div class="answerTextDateDiv">
-                            <span class="answerTextDateDivInner">
-                                <span class="answerSubjectSpan">등록일</span>
-                                <span class="answerDateSpan">
-                                    <fmt:formatDate value="${answerVO.answer_regdate}" pattern="yyyy/MM/dd HH:mm:ss"/>
-                                </span>
-                            </span>
-                                <span class="dateDashSpan test">|</span>
                                 <span class="answerTextDateDivInner">
-                                <span class="answerSubjectSpan">수정일</span>
-                                <span class="answerDateSpan"><fmt:formatDate value="${answerVO.answer_update_date}"
-                                                                             pattern="yyyy/MM/dd HH:mm:ss"/>
+                                    <span class="answerSubjectSpan">등록일</span>
+                                    <span class="answerDateSpan">
+                                        <fmt:formatDate value="${answerVO.answer_regdate}" pattern="yyyy/MM/dd HH:mm:ss"/>
+                                    </span>
                                 </span>
-                            </span>
+                                    <span class="dateDashSpan test">|</span>
+                                    <span class="answerTextDateDivInner">
+                                    <span class="answerSubjectSpan">수정일</span>
+                                    <span class="answerDateSpan"><fmt:formatDate value="${answerVO.answer_update_date}"
+                                                                                 pattern="yyyy/MM/dd HH:mm:ss"/>
+                                    </span>
+                                </span>
                                 <span class="dateDashSpan">|</span>
                                 <input type="submit" formaction="/qna/answer/modify" formmethod="post" value="수정">
                                 <input type="submit" formaction="/qna/answer/delete" formmethod="post" value="삭제">
                             </div>
-                            <textarea name="answer_text"> ${answerVO.answer_text}</textarea>
+                            <div class="answerTextDiv">
+                                <textarea name="answer_text" class="answer_text" maxlength="500" placeholder="답변을 등록해 주세요.(최대 500자)" required>${answerVO.answer_text}</textarea>
+                                <span class="answerTextLengthSpan">(0/500)</span>
+                            </div>
+
 
 
                         </c:when>
                         <c:when test="${qnaVO.qna_admin_answer eq 'n'}">
-                            <textarea name="answer_text"></textarea>
+                            <div class="answerTextDiv">
+                                <textarea name="answer_text" class="answer_text" maxlength="500" placeholder="답변을 등록해 주세요.(최대 500자)" required></textarea>
+                                <span class="answerTextLengthSpan">(0/500)</span>
+                            </div>
+
                             <input type="submit" formaction="/qna/answer/register" formmethod="post" value="등록">
                         </c:when>
                     </c:choose>
