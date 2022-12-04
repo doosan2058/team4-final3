@@ -70,18 +70,20 @@
                 </div>
                 <div class="productAddLineDiv">
                     <span class="productAddTitleSpan">비공개 <span class="requiredSpan"> *</span></span>
-                    <c:if test="${product.product_delete eq 'n'}">
-                        <label for="productDeleteN">공개</label>
-                        <input type="radio" name="product_delete" value="n" checked="checked" id="productDeleteN">
-                        <label for="productDeleteY">비공개</label>
-                        <input type="radio" name="product_delete" value="y" id="productDeleteY">
-                    </c:if>
-                    <c:if test="${product.product_delete eq 'y'}">
-                        <label for="productDeleteN">공개</label>
-                        <input type="radio" name="product_delete" value="n" id="productDeleteN">
-                        <label for="productDeleteY">비공개</label>
-                        <input type="radio" name="product_delete" value="y" id="productDeleteY" checked>
-                    </c:if>
+                    <div class="productAddLineInnerDiv">
+                        <c:if test="${product.product_delete eq 'n'}">
+                            <label for="productDeleteN">공개</label>
+                            <input type="radio" name="product_delete" value="n" checked="checked" id="productDeleteN">
+                            <label for="productDeleteY">비공개</label>
+                            <input type="radio" name="product_delete" value="y" id="productDeleteY">
+                        </c:if>
+                        <c:if test="${product.product_delete eq 'y'}">
+                            <label for="productDeleteN">공개</label>
+                            <input type="radio" name="product_delete" value="n" id="productDeleteN">
+                            <label for="productDeleteY">비공개</label>
+                            <input type="radio" name="product_delete" value="y" id="productDeleteY" checked>
+                        </c:if>
+                    </div>
                 </div>
                 <div class="productAddLineDiv">
                     <span class="productAddTitleSpan">재고<span class="requiredSpan"> *</span></span>

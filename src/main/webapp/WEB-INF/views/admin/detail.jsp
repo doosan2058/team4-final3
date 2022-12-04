@@ -119,7 +119,7 @@
             <div class="freeBoard">
                 <h2>자유 게시판 글목록</h2>
                 <c:if test="${empty freeMapList }">
-                    <p>작성한 게시글이 없습니다.</p>
+                    <p style="color: var(--subFontColor4)">작성한 게시글이 없습니다.</p>
                 </c:if>
 
                 <c:if test="${!empty freeMapList }">
@@ -139,7 +139,7 @@
             <div class="camping">
                 <h2>캠핑 게시판 글목록</h2>
 				<c:if test="${empty campingMapList }">
-                    <p>작성한 게시글이 없습니다.</p>
+                    <p style="color: var(--subFontColor4)">작성한 게시글이 없습니다.</p>
                 </c:if>
                 <c:if test="${!empty campingMapList }">
                     <c:forEach var="item" items="${campingMapList }">
@@ -159,7 +159,7 @@
             <div class="qna">
                 <h2>질문 글목록</h2>
                 <c:if test="${empty qnaMapList }">
-                    <p>작성한 게시글이 없습니다.</p>
+                    <p style="color: var(--subFontColor4)">작성한 게시글이 없습니다.</p>
                 </c:if>
                 <c:if test="${!empty qnaMapList }">
                     <c:forEach var="item" items="${qnaMapList }">
@@ -188,7 +188,7 @@
             <div class="buy">
                 <h2>구매 목록</h2>
                 <c:if test="${empty orderMapList }">
-                    <p>구매한 상품이 없습니다.</p>
+                    <p style="color: var(--subFontColor4)">구매한 상품이 없습니다.</p>
                 </c:if>
                 <c:if test="${!empty orderMapList }">
                     <c:forEach var="item" items="${orderMapList }">
