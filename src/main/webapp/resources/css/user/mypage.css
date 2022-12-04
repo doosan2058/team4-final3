@@ -89,12 +89,27 @@
 	width: 100%;
 	height: 20%;
 }
-#profileImgForm{
-	display: block;
-	height: 100%;
+.profileImgFormInnerDiv{
+	width: 100%;
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: center;
+}
+.userImgDivInnerBottom label{
+	font-size: 0.8rem;
+	font-weight: bolder;
+	cursor: pointer;
+}
+#file{
+	overflow: hidden;
+	width: 0;
+	height: 0;
+}
+.profileImgAnchorDiv{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .imgSubmit, .imgCancel{
 	display: none;
@@ -102,6 +117,8 @@
 	cursor: pointer;
 	transition: .3s;
 	font-size: 0.7rem;
+	padding: 0.5rem;
+	color: var(--subFontColor3);
 }
 .userInfoDiv{
 	padding: 2rem;
@@ -567,6 +584,7 @@
 	}
 	.deliveryHisroyDiv{
 		width: 95%;
+		margin: 0 auto;
 	}
 	.deliveryHisroyTableTop span:nth-child(2){
 		display: none;

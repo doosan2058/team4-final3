@@ -58,10 +58,15 @@
 
         <div class=userImgDivInnerBottom>
             <form id="profileImgForm">
-                <input type="hidden" value="${memberVO.member_id }" name="member_id" id="member_id">
-                <input type="file" class="file" name="file">
-                <a class="imgSubmit">변경</a>
-                <a class="imgCancel">취소</a>
+                <div class="profileImgFormInnerDiv">
+                    <input type="hidden" value="${memberVO.member_id }" name="member_id" id="member_id">
+                    <label for="file">프로필 이미지 변경하기</label>
+                    <input type="file" class="file" name="file" id="file">
+                </div>
+                <div class="profileImgAnchorDiv">
+                    <a class="imgSubmit">변경</a>
+                    <a class="imgCancel">취소</a>
+                </div>
             </form>
         </div>
     </div>
@@ -143,7 +148,7 @@
             </div>
         </c:if>
         <c:if test="${empty orderList }">
-            <p style="color: var(--subFontColor4);">현재 주문중인 상품이 없습니다.</p>
+            <p style="color: var(--subFontColor4); padding: 0.5rem;">현재 주문중인 상품이 없습니다.</p>
         </c:if>
     </div>
 </div>

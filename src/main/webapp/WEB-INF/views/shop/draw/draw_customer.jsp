@@ -108,6 +108,7 @@
             <span>당첨자 목록</span>
             <span class="material-symbols-outlined closeWinnerListContainerIcon">close</span>
         </div>
+
         <div class="winnerListBottom">
 
         </div>
