@@ -12,10 +12,11 @@
 <link rel="stylesheet" href="/resources/css/global.css">
 <!--커뮤니티 글로벌 css-->
 <link rel="stylesheet" href="<c:url value="/resources/css/community/community_global.css?ver=2"/>">
-<!--xeicon cdn-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
-<!-- 제이쿼리 -->
-<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+	<!-- Jquery cdn -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<!--xeicon-->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+
 <title>Document</title>
 </head>
 

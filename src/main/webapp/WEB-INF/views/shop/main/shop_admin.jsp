@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="/resources/css/global.css">
     <!-- Jquery cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- xeicon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
+    <!--xeicon-->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <!-- 폰트어썸 -->
     <script src="https://kit.fontawesome.com/10a37546a9.js" crossorigin="anonymous"></script>
     <title>쇼핑몰 관리자 메인</title>

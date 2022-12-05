@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="/resources/css/global.css">
     <link rel="stylesheet" href="/resources/css/home.css">
     <!-- 구글 아이콘 -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <!--xeicon-->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <title>시작화면</title>
 
 </head>

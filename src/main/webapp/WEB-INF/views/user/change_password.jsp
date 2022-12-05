@@ -9,10 +9,8 @@
     <!-- 글로벌 css -->
     <link rel="stylesheet" href="/resources/css/global.css">
     <link rel="stylesheet" href="/resources/css/user/change_password.css">
-
     <!-- Jquery cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 
     <title>비밀번호 변경 페이지</title>
 </head>

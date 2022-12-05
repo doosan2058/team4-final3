@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-         pageEncoding="EUC-KR" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -10,54 +9,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ±Û·Î¹ú css -->
+    <!-- ê¸€ë¡œë²Œ css -->
     <link rel="stylesheet" href="/resources/css/global.css">
     <link rel="stylesheet" href="/resources/css/user/grade.css">
-    <!--¼îÇÎ¸ô ±Û·Î¹ú ¾ÆÀÌÄÜ cdn-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
-    <title>µî±Þ Á¤Ã¥</title>
+    <!--xeicon-->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <title>ë“±ê¸‰ ì •ì±…</title>
 </head>
 <body>
 <jsp:include page="../shop/shop_header.jsp" />
 <div class="gradeInfoContainer">
-    <!-- ¸ÞÀÎ À­ ºÎºÐ : ÀÌ¹ø´Þ ³» µî±Þ -->
+    <!-- ë©”ì¸ ìœ— ë¶€ë¶„ : ì´ë²ˆë‹¬ ë‚´ ë“±ê¸‰ -->
     <div class="myGradeState" style="background-color: ${Info.grade_color}">
         <div class="myGradeState_top">
-			<h3>${Info.member_id}´ÔÀÇ ÇöÀç µî±ÞÀº <span style="color: ${Info.grade_font_color}"> ${Info.grade_name} </span> ÀÔ´Ï´Ù. </h3>
-			<p>´©Àû ${Info.member_purchase_point + Info.member_write_point} p</p>
+			<h3>${Info.member_id}ë‹˜ì˜ í˜„ìž¬ ë“±ê¸‰ì€ <span style="color: ${Info.grade_font_color}"> ${Info.grade_name} </span> ìž…ë‹ˆë‹¤. </h3>
+			<p>ëˆ„ì  ${Info.member_purchase_point + Info.member_write_point} p</p>
 		</div>
         <div class="myGradeState_bottom" style="border: solid 1px ${Info.grade_font_color}">
-            <div id="myGradeState_bottom_title">µî±ÞÇýÅÃ</div>
+            <div id="myGradeState_bottom_title">ë“±ê¸‰í˜œíƒ</div>
             <div id="myGradeState_bottom_text">
-                Á¦Ç° ±¸¸Å ½Ã Àü Á¦Ç°
+                ì œí’ˆ êµ¬ë§¤ ì‹œ ì „ ì œí’ˆ
 				<span style="color: ${Info.grade_font_color};">
-				<fmt:formatNumber type="percent" value="${Info.grade_discount}"/> ÇÒÀÎ</span> /
+				<fmt:formatNumber type="percent" value="${Info.grade_discount}"/> í• ì¸</span> /
 				<span style="color: ${Info.grade_font_color};">
-				<fmt:formatNumber type="percent" value="${Info.grade_accrual_rate}"/> Àû¸³</span>
+				<fmt:formatNumber type="percent" value="${Info.grade_accrual_rate}"/> ì ë¦½</span>
 
             </div>
         </div>
     </div>
 
 
-    <!-- ¸ÞÀÎ ¾Æ·§ºÎºÐ : µî±Þº° ÇýÅÃ ¾È³» -->
+    <!-- ë©”ì¸ ì•„ëž«ë¶€ë¶„ : ë“±ê¸‰ë³„ í˜œíƒ ì•ˆë‚´ -->
     <div class="gradeAdventage">
         <div class="grade_info">
-			<h3>µî±Þº° ÇýÅÃ ¾È³»</h3>
+			<h3>ë“±ê¸‰ë³„ í˜œíƒ ì•ˆë‚´</h3>
             <ul>
-				<li>´©Àû Æ÷ÀÎÆ® ÇÕ»ê ÈÄ, ÀÚµ¿À¸·Î µî±ÞÀ» »êÁ¤ÇÕ´Ï´Ù.</li>
-                <li>µî±Þ °ü·Ã º¯°æ»çÇ×ÀÌ ÀÖÀ» ½Ã °øÁö»çÇ×À» ÅëÇØ °øÁöÇÕ´Ï´Ù.</li>
+				<li>ëˆ„ì  í¬ì¸íŠ¸ í•©ì‚° í›„, ìžë™ìœ¼ë¡œ ë“±ê¸‰ì„ ì‚°ì •í•©ë‹ˆë‹¤.</li>
+                <li>ë“±ê¸‰ ê´€ë ¨ ë³€ê²½ì‚¬í•­ì´ ìžˆì„ ì‹œ ê³µì§€ì‚¬í•­ì„ í†µí•´ ê³µì§€í•©ë‹ˆë‹¤.</li>
             </ul>
         </div>
         <c:forEach var="Info" items="${map.InfoAll}">
             <div class="gradeDiv" data-hover="${Info.grade_font_color}" style="background-color: ${Info.grade_color}; border:solid 2px ${Info.grade_font_color};">
                 <div class="grade_left">
                     <h3 style="color: ${Info.grade_font_color}">${Info.grade_name }</h3>
-                    <p>´©Àû Æ÷ÀÎÆ® <fmt:formatNumber type="Number" pattern="#,###" value="${Info.grade_start_point}"/>P ÀÌ»ó</p>
+                    <p>ëˆ„ì  í¬ì¸íŠ¸ <fmt:formatNumber type="Number" pattern="#,###" value="${Info.grade_start_point}"/>P ì´ìƒ</p>
                     <p>
-                        »óÇ° ±¸¸Å ½Ã
-						<span style="color: ${Info.grade_font_color}"><fmt:formatNumber type="percent" value="${Info.grade_discount}"/> ÇÒÀÎ</span>
-                        <span style="color: ${Info.grade_font_color}"><fmt:formatNumber type="percent" value="${Info.grade_accrual_rate}"/> Àû¸³ </span>
+                        ìƒí’ˆ êµ¬ë§¤ ì‹œ
+						<span style="color: ${Info.grade_font_color}"><fmt:formatNumber type="percent" value="${Info.grade_discount}"/> í• ì¸</span>
+                        <span style="color: ${Info.grade_font_color}"><fmt:formatNumber type="percent" value="${Info.grade_accrual_rate}"/> ì ë¦½ </span>
                     </p>
                 </div>
                 <div class="grade_right">

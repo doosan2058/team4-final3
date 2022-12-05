@@ -55,9 +55,6 @@
 					<c:if test="${item.product_review_img_url ne 'no url'}">
 						<img alt="이미지 준비중" src="${item.product_review_img_url }" class="reviewImage">
 					</c:if>
-
-
-
 				</div>
 				<div class="reviewsPhotoInner reviewsPhotoInnerVideo">
 					<!-- 조건 처리 작업 -->

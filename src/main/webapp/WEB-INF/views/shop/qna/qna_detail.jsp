@@ -19,7 +19,8 @@
     <!-- 폰트, 색상 공통 -->
     <link rel="stylesheet" href="/resources/css/global.css">
     <link rel="stylesheet" href="/resources/css/shop/qna/qna_detail.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
+    <!--xeicon-->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <title>질문 상세 페이지</title>
 </head>
 <body>

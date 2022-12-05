@@ -13,9 +13,10 @@
     <link rel="stylesheet" href="/resources/css/global.css">
     <link rel="stylesheet" href="/resources/css/grade/gradePolicy_admin.css">
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/xeicon@2/xeicon.min.css">
+    <!-- Jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--xeicon-->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <title>등급 정책</title>
 </head>
 <body>

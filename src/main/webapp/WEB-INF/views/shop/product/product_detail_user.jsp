@@ -14,8 +14,7 @@
     <!-- 제이쿼리 cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- 구글 폰트 -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <!-- 폰트 어썸 -->
     <script src="https://kit.fontawesome.com/10a37546a9.js" crossorigin="anonymous"></script>
     <title>상품 상세 페이지</title>
