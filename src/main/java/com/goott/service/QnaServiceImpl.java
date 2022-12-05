@@ -138,17 +138,20 @@ public class QnaServiceImpl implements QnaService {
 
     @Override
     public void updateQna(QnaVO qnaVO, MultipartFile file) {
-        String resultUrl = "not url";
 
         if(!file.isEmpty()){
-            resultUrl = this.saveQnaImg(file);
-        } else {
-            resultUrl = this.selectExImgUrl(qnaVO.getQna_id());
+            String resultUrl = this.saveQnaImg(file);
+            qnaVO.setQna_picture_url(resultUrl);
+            this.deleteExImgUrl(qnaVO.getQna_id());
         }
 
-        this.deleteExImgUrl(qnaVO.getQna_id());
-        qnaVO.setQna_picture_url(resultUrl);
+        else{
+            String resultUrl = this.selectExImgUrl(qnaVO.getQna_id());
+            qnaVO.setQna_picture_url(resultUrl);
+        }
+
         this.update(qnaVO);
+
     }
 
     @Override
