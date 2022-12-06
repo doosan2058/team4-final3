@@ -109,7 +109,7 @@ function searchLimitedProduct() {
 
                     const drawImgTemp = document.createElement('img');
                     drawImgTemp.className = 'drawImg';
-                    drawImgTemp.src = '/productImg/' + data[i].product_img_url1;
+                    drawImgTemp.src = data[i].product_img_url1;
 
                     const drawIdSpanTemp = document.createElement('span');
                     drawIdSpanTemp.className = 'drawIdSpan';

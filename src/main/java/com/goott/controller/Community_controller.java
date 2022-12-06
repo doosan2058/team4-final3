@@ -14,6 +14,8 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.goott.service.Community_service;
-
+@Log4j
 @Controller
 @RequestMapping("/community/*")
 public class Community_controller {
@@ -37,6 +39,7 @@ public class Community_controller {
     public void mainPage(Model model) {
         model.addAttribute("data", mservice.getList());//자유게시판 정보
         model.addAttribute("list", mservice.getData());//캠핑모임게시판 정보
+        log.info(mservice.getDraw());
         model.addAttribute("draw", mservice.getDraw());//이벤트 정보
     }
 

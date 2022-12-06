@@ -28,47 +28,40 @@
     <!-- 화제의 사진 -->
     <div class="recommendation">
         <div class="recommendation_header">
-            <h1>
-                화제의
-                <span>사진</span>
-            </h1>
-            <h3>+ 더보기</h3>
+            <span class="mainTitleSpan">화제의 사진</span>
+            <a class="mainViewMoreAnchor">+ 더보기</a>
         </div>
 
         <div class="recommendation_main">
             <div class="recommendation_main_imgBox">
                 <div class="recommendation_img">
-                    <img src="/community/imgSubmit?uid=67ff1ee8-8ea9-4903-a339-0faee29db899&amp;fileName=캠핑메인.jpg"
+                    <img src="https://team4projectbucket.s3.ap-northeast-2.amazonaws.com/community/%EC%BA%A0%ED%95%91%EB%A9%94%EC%9D%B81.jpg"
                          alt="">
                 </div>
                 <div class="recommendation_img">
-                    <img src="/community/imgSubmit?uid=c77ff10a-3b5e-40e1-b8ac-64a788378aff&fileName=메인img.jpg" alt="">
+                    <img src="https://team4projectbucket.s3.ap-northeast-2.amazonaws.com/community/%EC%BA%A0%ED%95%91%EB%A9%94%EC%9D%B82.jpg"
+                         alt="">
                 </div>
                 <div class="recommendation_img">
-                    <img src="/community/imgSubmit?uid=add5a0b0-eedd-45c1-92f1-79819b6f79ae&fileName=메인img2.jpg" alt="">
+                    <img src="https://team4projectbucket.s3.ap-northeast-2.amazonaws.com/community/%EC%BA%A0%ED%95%91%EB%A9%94%EC%9D%B83.jpg"
+                         alt="">
                 </div>
                 <div class="recommendation_img">
-                    <img src="/community/imgSubmit?uid=e30dfbf3-8ea4-42cc-a896-03f494cae303&fileName=메인img3.jpg" alt="">
+                    <img src="https://team4projectbucket.s3.ap-northeast-2.amazonaws.com/community/%EC%BA%A0%ED%95%91%EB%A9%94%EC%9D%B84.jpg"
+                         alt="">
                 </div>
-                <div class="recommendation_img">
-                    <img src="/community/imgSubmit?uid=ce204025-8ceb-4ade-b01d-d87d3ae912c0&fileName=메인img4.jpg" alt="">
-                </div>
+
             </div>
         </div>
     </div>
 
     <section>
-
         <div class="section1">
-
             <!-- 자유게시판 -->
             <div class="section1_noticeBoard">
                 <div class="section1_noticeBoard_header">
-                    <h1>
-                        자유게시판
-                        <span>Top 10</span>
-                    </h1>
-                    <h3><a href="/community/freeNotice/main">+ 더보기</a></h3>
+                    <span class="mainTitleSpan">자유게시판 Top 10</span>
+                    <a href="/community/freeNotice/main" class="mainViewMoreAnchor">+ 더보기</a>
                 </div>
 
                 <div class="section1_noticeBoard_main">
@@ -91,8 +84,8 @@
             <!-- 캠핑모임 -->
             <div class="section1_notice">
                 <div class="section1_notice_header">
-                    <h1>현재 모집중인 <span>캠핑모임</span></h1>
-                    <h3><a href="/community/joinNotice/main">+ 더보기</a></h3>
+                    <span class="mainTitleSpan">모집중 캠핑모임</span>
+                    <a href="/community/joinNotice/main" class="mainViewMoreAnchor">+ 더보기</a>
                 </div>
 
                 <div class="section1_notice_main">
@@ -120,33 +113,26 @@
             <!-- 이벤트,프로모션 -->
             <div class="section2_event">
                 <div class="section2_event_header">
-                    <h1>
-                        이벤트
-                        <span>& 프로모션</span>
-                    </h1>
-                    <h3><a href="/shop/draw_customer">+ 더보기</a></h3>
+                    <span class="mainTitleSpan">이벤트</span>
+                    <a href="/draw/draw_customer" class="mainViewMoreAnchor">+ 더보기</a>
                 </div>
 
                 <div class="section2_event_main">
                     <div class="section2_event_content">
-                        <i class="xi-angle-left left_btn"></i>
-                        <i class="xi-angle-right right_btn"></i>
-                        <div class="section2_event_content_carousel">
-                            <c:forEach var="data" items="${draw}">
-                                <div class="section2_event_content_img">
-                                    <img src="/productImg/${data.product_img_url1}">
-                                </div>
-                                <div class="section2_event_content_info">
-                                    <p><span>특가</span> 판매
-                                    <p>
-                                    <p>${data.draw_title}</p>
-                                    <fmt:parseDate value="${data.draw_event_end_date}" pattern="yyyy-MM-dd'T'HH:mm"
-                                                   var="date" type="both"/>
-                                    <p>기간 ~<span><fmt:formatDate value="${date}" pattern="yy-MM-dd"/></span></p>
-                                    <a href="/draw/draw_customer">이벤트 바로가기</a>
-                                </div>
-                            </c:forEach>
-                        </div>
+
+                            <div class="section2_event_content_img">
+                                <img src="${draw.product_img_url1}">
+                            </div>
+                            <div class="section2_event_content_info">
+                                <p><span>한정</span> 판매</p>
+                                <p>${draw.draw_title}</p>
+                                <fmt:parseDate value="${draw.draw_event_start_date}" pattern="yyyy-MM-dd'T'HH:mm"
+                                               var="date" type="both"/>
+                                <p>시작일 <span><fmt:formatDate value="${date}" pattern="yy-MM-dd"/></span></p>
+                                <p>${draw.draw_comment}</p>
+                                <a href="/draw/draw_customer">이벤트 바로가기</a>
+                            </div>
+
                     </div>
                 </div>
             </div>
@@ -154,8 +140,7 @@
             <!-- 날씨 정보 -->
             <div class="section2_map">
                 <div class="section2_map_header">
-                    <h1>날씨정보</h1>
-
+                    <span class="mainTitleSpan">날씨정보</span>
                     <select name="camping_region" class="section2_map_list">
                         <option class="location_list" value="서울">서울</option>
                         <option class="location_list" value="경기도">경기도</option>
@@ -169,26 +154,21 @@
                         <option class="location_list" value="제주도">제주도</option>
                     </select>
                 </div>
-
                 <div class="section2_map_main">
                     <div class="section2_map_content">
                         <div class="section2_map_content_main">
-
                             <div class="section2_map_content_main_icon">
                                 <video autoplay loop muted class="weather_img">
                                     <source src="https://cdn-icons-mp4.flaticon.com/512/6455/6455017.mp4">
                                     <!-- 날씨 아이콘 -->
                                 </video>
                             </div>
-
                             <div class="section2_map_content_main_info">
                                 <p><span class="temp"></span>&deg;C</p>
                                 <p class="weather"></p>
                                 <p class="location"></p>
                             </div>
-
                         </div>
-
                         <div class="section2_map_content_footer">
                             <div class="section2_map_content_footer_wind">
                                 <p>Wind speed</p>
@@ -203,24 +183,6 @@
                                 <p><span class="clouds"></span> %</p>
                             </div>
                         </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- 실시간 채팅 -->
-            <div class="section2_chat">
-                <div class="section2_chat_header">
-                    <h1>
-                        실시간
-                        <span>채팅</span>
-                    </h1>
-                    <h3>참여</h3>
-                </div>
-
-                <div class="section2_chat_main">
-                    <div class="section2_chat_content">
-                        <p>업데이트 예정입니다.</p>
                     </div>
                 </div>
             </div>

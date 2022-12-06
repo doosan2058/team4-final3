@@ -27,7 +27,7 @@ public class Community_service_impl implements Community_service{
 	}
 
 	@Override
-	public List<Map<String, Object>> getDraw() {
+	public Map<String, Object> getDraw() {
 		return mapper.getDraw();
 	}
 

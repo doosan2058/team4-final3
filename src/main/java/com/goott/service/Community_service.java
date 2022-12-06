@@ -12,6 +12,6 @@ public interface Community_service {
 
 	List<T_camping_VO> getData();
 
-	List<Map<String, Object>> getDraw();
+	Map<String, Object> getDraw();
 
 }
