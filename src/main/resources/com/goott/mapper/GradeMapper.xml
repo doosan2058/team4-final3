@@ -2,105 +2,92 @@
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goott.mapper.GradeMapper">
 
-	<!-- 등급 정보 전체 가져오기 -->
-	<select id="gradePolicyInfo"
-		resultType="com.goott.domain.GradeVO">
+    <!-- 전체 등급 정보 가져오기 -->
+    <select id="gradePolicyInfo"
+            resultType="com.goott.domain.GradeVO">
 		<![CDATA[
-			select grade_id, grade_start_point, grade_end_point ,grade_name, grade_color, grade_discount,
-				   grade_accrual_rate, grade_comment, grade_img_url,grade_font_color
-			  from t_grade
-			  order by grade_id asc;
-		]]>
+        select grade_id,
+               grade_start_point,
+               grade_end_point,
+               grade_name,
+               grade_color,
+               grade_discount,
+               grade_accrual_rate,
+               grade_comment,
+               grade_img_url,
+               grade_font_color
+        from t_grade
+        order by grade_id asc;
+        ]]>
 	</select>
 
-	<!-- 등급 정보 가져오기 -->
-	<select id="select" parameterType="_int"
-		resultType="com.goott.domain.GradeVO">
+    <!-- 등급 정보 가져오기 -->
+    <select id="select" parameterType="_int"
+            resultType="com.goott.domain.GradeVO">
 		<![CDATA[
-			select grade_id, grade_start_point, grade_end_point ,grade_name, grade_color, grade_discount,
-				   grade_accrual_rate, grade_comment, grade_img_url
-			  from t_grade where grade_id = #{grade_id}
-		]]>
+        select grade_id,
+               grade_start_point,
+               grade_end_point,
+               grade_name,
+               grade_color,
+               grade_discount,
+               grade_accrual_rate,
+               grade_comment,
+               grade_img_url
+        from t_grade
+        where grade_id = #{grade_id}
+        ]]>
 	</select>
 
-	<!-- 특정 회원의 아이디로 해당 등급 정보 가져오기 -->
-	<select id="selectUserGradeId" parameterType="String"
-		resultType="map">
+    <!-- 특정 회원의 아이디로 해당 등급 정보 가져오기 -->
+    <select id="selectUserGradeId" parameterType="String"
+            resultType="map">
 		<![CDATA[
-			select g.grade_id as grade_id,
-				   g.grade_start_point as grade_start_point,
-				   g.grade_end_point as grade_end_point,
-				   g.grade_name as grade_name,
-				   g.grade_color as grade_color,
-				   g.grade_discount as grade_discount,
-				   g.grade_accrual_rate as grade_accrual_rate,
-				   g.grade_comment as grade_comment,
-				   g.grade_img_url as grade_img_url,
-				   g.grade_font_color as grade_font_color,
-				   m.member_id as member_id,
-				   m.member_purchase_point as member_purchase_point,
-				   m.member_write_point as member_write_point
-			from t_grade g
-			inner join t_member m
-			on g.grade_id = m.grade_id
-			where m.member_id = #{member_id}
-		]]>
+        select g.grade_id              as grade_id,
+               g.grade_start_point     as grade_start_point,
+               g.grade_end_point       as grade_end_point,
+               g.grade_name            as grade_name,
+               g.grade_color           as grade_color,
+               g.grade_discount        as grade_discount,
+               g.grade_accrual_rate    as grade_accrual_rate,
+               g.grade_comment         as grade_comment,
+               g.grade_img_url         as grade_img_url,
+               g.grade_font_color      as grade_font_color,
+               m.member_id             as member_id,
+               m.member_purchase_point as member_purchase_point,
+               m.member_write_point    as member_write_point
+        from t_grade g
+                 inner join t_member m
+                            on g.grade_id = m.grade_id
+        where m.member_id = #{member_id}
+        ]]>
 	</select>
 
 
-	<!-- 관리자 - 등급 정책 리스트 -->
-	<select id="gradePolicy" resultType="com.goott.domain.GradeVO">
+    <!-- 등급 정책 갯수 -->
+    <select id="gradeCount" resultType="int">
 		<![CDATA[
-			select grade_id, grade_start_point, grade_end_point ,grade_name, grade_color, grade_discount,
-				   grade_accrual_rate, grade_comment, grade_img_url,grade_font_color
-			  from t_grade
-			  order by grade_id asc
-		]]>
+        select count(*) as gradeCount
+        from t_grade
+        ]]>
 	</select>
 
-	<!-- 관리자 - 등급 정책 갯수 -->
-	<select id="gradeCount" resultType="int">
-		<![CDATA[
-			select count(*) as gradeCount
-			from t_grade
-		]]>
-	</select>
+    <!-- 등급 정책 삭제 -->
+    <delete id="gradePolicyDelete" parameterType="_int">
+        delete
+        from t_grade
+        where grade_id = #{grade_id}
+    </delete>
 
-	<!-- 관리자- 등급 정책 삭제 -->
-	<delete id="gradePolicyDelete" parameterType="_int">
-		delete from t_grade
-		where grade_id = #{grade_id}
-	</delete>
-
-	<insert id="gradePolicyAdd"
-		parameterType="com.goott.domain.GradeVO">
+    <!-- 신규 등급 추가 -->
+    <insert id="gradePolicyAdd"
+            parameterType="com.goott.domain.GradeVO">
 		<![CDATA[
-		insert into t_grade
-		(grade_start_point, grade_end_point ,grade_name, grade_color, grade_discount,
-				   grade_accrual_rate, grade_comment, grade_font_color, grade_img_url)
-		values (#{grade_start_point}, #{grade_end_point},#{grade_name},#{grade_color},#{grade_discount},
-		#{grade_accrual_rate}, #{ grade_comment},#{grade_font_color},#{grade_img_url})
-		]]>
+        insert into t_grade (grade_start_point, grade_end_point, grade_name, grade_color, grade_discount,
+                             grade_accrual_rate, grade_comment, grade_font_color, grade_img_url)
+        values (#{grade_start_point}, #{grade_end_point}, #{grade_name}, #{grade_color}, #{grade_discount},
+                #{grade_accrual_rate}, #{ grade_comment}, #{grade_font_color}, #{grade_img_url})
+        ]]>
 	</insert>
-	<update id="gradePolicyUpdate"
-		parameterType="com.goott.domain.GradeVO">
-		<![CDATA[
-		update t_grade SET
-		grade_start_point = #{grade_start_point},
-		grade_end_point = #{grade_end_point},
-		grade_name = #{grade_name},
-		grade_color = #{grade_color},
-		grade_discount = #{grade_discount},
-		grade_accrual_rate = #{grade_accrual_rate},
-		grade_comment = #{grade_comment},
-		grade_font_color = #{grade_font_color},
-		grade_img_url = #{grade_img_url}
-		where grade_id = #{grade_id}
-		]]>
-	</update>
-
-
-	<!-- 관리자 - 회원 등급 자동 업데이트 -->
-
 
 </mapper>

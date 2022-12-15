@@ -15,19 +15,20 @@
     <!-- Enables the Spring MVC @Controller programming model -->
     <annotation-driven/>
 
-
     <!-- Handles HTTP GET requests for /resources/** by efficiently serving
         up static resources in the ${webappRoot}/resources directory -->
     <resources mapping="/resources/**" location="/resources/"/>
-    <resources mapping="/productImg/**"
-               location="file:/C:/uploadtest/productImg/"/>
-    <resources mapping="/uploadUserProfileImg/**"
-               location="file:/C:/uploadtest/uploadUserProfileImg/"/>
-    <resources mapping="/reviewFiles/**"
-               location="file:/C:/uploadtest/reviewFiles/"/>
-    <resources mapping="/qnaImg/**"
-               location="file:/C:/uploadtest/qnaImg/"/>
-    <resources location="file:/C:/gradeImg/" mapping="/gradeImg/**"></resources>
+
+    <!-- 파일 저장 공간 로컬 에서 aws S3 로 변경 -->
+    <!--    <resources mapping="/productImg/**"-->
+    <!--               location="file:/C:/uploadtest/productImg/"/>-->
+    <!--    <resources mapping="/uploadUserProfileImg/**"-->
+    <!--               location="file:/C:/uploadtest/uploadUserProfileImg/"/>-->
+    <!--    <resources mapping="/reviewFiles/**"-->
+    <!--               location="file:/C:/uploadtest/reviewFiles/"/>-->
+    <!--    <resources mapping="/qnaImg/**"-->
+    <!--               location="file:/C:/uploadtest/qnaImg/"/>-->
+    <!--    <resources location="file:/C:/gradeImg/" mapping="/gradeImg/**"></resources>-->
 
     <!-- Resolves views selected for rendering by @Controllers to .jsp resources
         in the /WEB-INF/views directory -->
@@ -45,8 +46,10 @@
     </beans:bean>
 
     <!-- 인터셉터 클래스 빈 등록 -->
+    <!-- 회원 권한 설정 빈 -->
     <beans:bean id="commonInterceptor"
                 class="com.goott.interceptor.CommonInterceptor"/>
+    <!-- 관리자 권한 설정 빈 -->
     <beans:bean id="adminInterceptor"
                 class="com.goott.interceptor.AdminInterceptor"/>
 
@@ -63,11 +66,13 @@
             <mapping path="/qna/delete"/>
             <beans:ref bean="commonInterceptor"/>
         </interceptor>
+
         <!-- 관리자만 접근 할수 있는 경로 -->
         <interceptor>
             <mapping path="/**/admin"/>
             <mapping path="/product/modify"/>
             <mapping path="/product/register"/>
+            <mapping path="/product/delete"/>
             <mapping path="/admin/**"/>
             <mapping path="/draw/draw_admin"/>
             <mapping path="/draw/modify"/>

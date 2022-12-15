@@ -1,162 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goott.mapper.MemberMapper">
-	<!-- 회원가입 -->
-	<insert id="insertMember" parameterType="com.goott.domain.MemberVO">
+    <!-- 회원가입 -->
+    <insert id="insertMember" parameterType="com.goott.domain.MemberVO">
 		<![CDATA[
-			insert 
-			into t_member(member_id, member_pw, member_email, member_name, member_phone, member_age, 
-							member_gender, member_postal_code, member_address, member_email_agree, member_profile_img_url) 
-			values (#{member_id}, #{member_pw}, #{member_email}, #{member_name}, #{member_phone}, #{member_age}, 
-						#{member_gender}, #{member_postal_code}, #{member_address}, #{member_email_agree}, #{member_profile_img_url})
-		]]>
+        insert
+        into t_member(member_id, member_pw, member_email, member_name, member_phone, member_age,
+                      member_gender, member_postal_code, member_address, member_email_agree, member_profile_img_url)
+        values (#{member_id}, #{member_pw}, #{member_email}, #{member_name}, #{member_phone}, #{member_age},
+                #{member_gender}, #{member_postal_code}, #{member_address}, #{member_email_agree},
+                #{member_profile_img_url})
+        ]]>
 	</insert>
-	<!-- 비밀번호 가져오기 -->
-	<select id="selectPw" parameterType="String" resultType="String">
+    <!-- 비밀번호 가져오기 -->
+    <select id="selectPw" parameterType="String" resultType="String">
 		<![CDATA[
-			select member_pw from t_member where member_id = #{member_id}
-		]]>
+        select member_pw
+        from t_member
+        where member_id = #{member_id}
+        ]]>
 	</select>
-	<!-- 중복 아이디 확인 -->
-	<select id="countId" parameterType="String" resultType="_int">
+    <!-- 중복 아이디 확인 -->
+    <select id="countId" parameterType="String" resultType="_int">
 		<![CDATA[
-			select count(member_id) as count from t_member where member_id = #{member_id}
-		]]>
+        select count(member_id) as count
+        from t_member
+        where member_id = #{member_id}
+        ]]>
 	</select>
-	<!-- 중복 이메일 확인 -->
-	<select id="countEmail" parameterType="String" resultType="_int">
+    <!-- 중복 이메일 확인 -->
+    <select id="countEmail" parameterType="String" resultType="_int">
 		<![CDATA[
-			select count(member_email) as count from t_member where member_email = #{member_email}
-		]]>
+        select count(member_email) as count
+        from t_member
+        where member_email = #{member_email}
+        ]]>
 	</select>
-	<!-- 로그인 시도 횟수 가져오기 -->
-	<select id="selectLoginCount" parameterType="String" resultType="_int">
+    <!-- 로그인 시도 횟수 가져오기 -->
+    <select id="selectLoginCount" parameterType="String" resultType="_int">
 		<![CDATA[
-			select member_login_count from t_member where member_id = #{member_id}
-		]]>
+        select member_login_count
+        from t_member
+        where member_id = #{member_id}
+        ]]>
 	</select>
-	<!-- 로그인 시도 횟수 증가  -->
-	<update id="updateLoginCount" parameterType="String">
+    <!-- 로그인 시도 횟수 증가  -->
+    <update id="updateLoginCount" parameterType="String">
 		<![CDATA[
-			update t_member set member_login_count = (member_login_count + 1) where member_id = #{member_id}
-		]]>
+        update t_member
+        set member_login_count = (member_login_count + 1)
+        where member_id = #{member_id}
+        ]]>
 	</update>
-	<!-- 로그인 시도 횟수 초기화 -->
-	<update id="initLoginCount" parameterType="String">
+    <!-- 로그인 시도 횟수 초기화 -->
+    <update id="initLoginCount" parameterType="String">
 		<![CDATA[
-			update t_member set member_login_count = 0 where member_id = #{member_id}
-		]]>
+        update t_member
+        set member_login_count = 0
+        where member_id = #{member_id}
+        ]]>
 	</update>
-	
-	<!-- 로그인 제한 날짜 가져오기 -->
-	<select id="selectOffLimitsDate" parameterType="String" resultType="date">
+
+    <!-- 로그인 제한 날짜 가져오기 -->
+    <select id="selectOffLimitsDate" parameterType="String" resultType="date">
 		<![CDATA[
-			select member_off_limits_date from t_member where member_id = #{member_id}
-		]]>
+        select member_off_limits_date
+        from t_member
+        where member_id = #{member_id}
+        ]]>
 	</select>
-	
-	<!-- 로그인 제한 날짜 설정 -->
-	<update id="updateOffLimitsDate" parameterType="String">
+
+    <!-- 로그인 제한 날짜 내일로 설정 -->
+    <update id="updateOffLimitsDate" parameterType="String">
 		<![CDATA[
-			update t_member set member_off_limits_date = date_add(now(),INTERVAL 1 DAY) where member_id = #{member_id}
-		]]>
+        update t_member
+        set member_off_limits_date = date_add(now(), INTERVAL 1 DAY)
+        where member_id = #{member_id}
+        ]]>
 	</update>
-	
-	<!-- 로그인 제한 날짜 초기화 -->
-	<update id="initOffLimitsDate" parameterType="String">
+
+    <!-- 로그인 제한 날짜 초기화 -->
+    <update id="initOffLimitsDate" parameterType="String">
 		<![CDATA[
-			update t_member set member_off_limits_date = null where member_id = #{member_id}
-		]]>
+        update t_member
+        set member_off_limits_date = now()
+        where member_id = #{member_id}
+        ]]>
 	</update>
-	
-	
-	
-	<!-- 최근 로그인 시간 업데이트 -->
-	<update id="updateLoginDate" parameterType="String">
+
+
+    <!-- 최근 로그인 시간 업데이트 -->
+    <update id="updateLoginDate" parameterType="String">
 		<![CDATA[
-			update t_member set member_last_login_date = now() where member_id = #{member_id}
-		]]>
+        update t_member
+        set member_last_login_date = now()
+        where member_id = #{member_id}
+        ]]>
 	</update>
-	
-	<!-- 멤버 권한 가져오기 -->
-	<select id="selectAuth" parameterType="String" resultType="String">
+
+    <!-- 멤버 권한 가져오기 -->
+    <select id="selectAuth" parameterType="String" resultType="String">
 		<![CDATA[
-			select member_auth from t_member where member_id = #{member_id}
-		]]>
+        select member_auth
+        from t_member
+        where member_id = #{member_id}
+        ]]>
 	</select>
-	
-	<!-- 멤버 주소 가져오기 -->
-	<select id="selectAddress" parameterType="String" resultType="map">
+
+    <!-- 멤버 주소 가져오기 -->
+    <select id="selectAddress" parameterType="String" resultType="map">
 		<![CDATA[
-			select member_postal_code, member_address from t_member where member_id = #{member_id}
-		]]>
+        select member_postal_code, member_address
+        from t_member
+        where member_id = #{member_id}
+        ]]>
 	</select>
-	
-	
-	<!-- 멤버 등급에 따른 할인율, 적립율 가져오기 -->
-	<select id="selectGradeInfo" parameterType="String" resultType="map">
+
+
+    <!-- 멤버 등급에 따른 할인율, 적립율 가져오기 -->
+    <select id="selectGradeInfo" parameterType="String" resultType="map">
 		<![CDATA[
-			select grade_name, grade_discount, grade_accrual_rate
-			from t_grade
-			where grade_id = (select grade_id from t_member where member_id = #{member_id})
-		]]>
+        select grade_name, grade_discount, grade_accrual_rate
+        from t_grade
+        where grade_id = (select grade_id from t_member where member_id = #{member_id})
+        ]]>
 	</select>
-	
-	<!-- 로그인 시 탈퇴 회원인지 확인 -->
-	<select id="selectWithdrawal" parameterType="String" resultType="String">
+
+    <!-- 로그인 시 탈퇴 회원인지 확인 -->
+    <select id="selectWithdrawal" parameterType="String" resultType="String">
 		<![CDATA[
-			select member_withdrawal from t_member where member_id = #{member_id}
-		]]>
+        select member_withdrawal
+        from t_member
+        where member_id = #{member_id}
+        ]]>
 		
 	</select>
-	
-	<!-- 회원 탈퇴 처리 -->
-	<update id="updateWithdrawal" parameterType="String">
+
+    <!-- 회원 탈퇴 처리 -->
+    <update id="updateWithdrawal" parameterType="String">
 		<![CDATA[
-			update t_member set member_withdrawal = 'y' where member_id = #{member_id}
-		]]>
+        update t_member
+        set member_withdrawal = 'y'
+        where member_id = #{member_id}
+        ]]>
 		
 	</update>
-	
-	<!-- 회원 정보 가져오기 -->
-	<select id="selectMemberInfo" parameterType="String" resultType="com.goott.domain.MemberVO">
+
+    <!-- 회원 정보 가져오기 -->
+    <select id="selectMemberInfo" parameterType="String" resultType="com.goott.domain.MemberVO">
 		<![CDATA[
-			select member_id, member_name, member_email, member_phone, member_age, member_gender, member_postal_code, member_address,
-				   member_email_agree, grade_id, member_purchase_point, member_write_point, member_profile_img_url
-			from t_member 
-			where member_id = #{member_id}
-		]]>
+        select member_id,
+               member_name,
+               member_email,
+               member_phone,
+               member_age,
+               member_gender,
+               member_postal_code,
+               member_address,
+               member_email_agree,
+               grade_id,
+               member_purchase_point,
+               member_write_point,
+               member_profile_img_url
+        from t_member
+        where member_id = #{member_id}
+        ]]>
 	</select>
-	
-	<!-- 아이디에 해당하는 이메일 가져오기 -->
-	<select id="selectEmail" parameterType="String" resultType="String">
+
+    <!-- 아이디에 해당하는 이메일 가져오기 -->
+    <select id="selectEmail" parameterType="String" resultType="String">
 		<![CDATA[
-			select member_email from t_member where member_id = #{member_id}
-		]]>
+        select member_email
+        from t_member
+        where member_id = #{member_id}
+        ]]>
 		
 	</select>
-	
-	<!-- 회원  비밀번호 초기화 상태 업데이트-->
-	<update id="updateInitPw" parameterType="String">
+
+    <!-- 회원  비밀번호 초기화 상태 업데이트-->
+    <update id="updateInitPw" parameterType="String">
 		<![CDATA[
-			update t_member set member_init_pw = 'y', member_off_limits_date = now() where member_email = #{member_email}
-		]]>
+        update t_member
+        set member_init_pw         = 'y',
+            member_off_limits_date = now()
+        where member_email = #{member_email}
+        ]]>
 	</update>
-	
-	<!-- 회원 비밀번호 초기화 상태인지 확인  -->
-	<select id="selectInitPw" parameterType="String" resultType="String">
+
+    <!-- 회원 비밀번호 초기화 상태인지 확인  -->
+    <select id="selectInitPw" parameterType="String" resultType="String">
 		<![CDATA[
-			select member_init_pw from t_member where member_id = #{member_id}
-		]]>
+        select member_init_pw
+        from t_member
+        where member_id = #{member_id}
+        ]]>
 		
 	</select>
-	
-	<!-- 회원 비밀번호 초기화 완료 업데이트 -->
-	<update id="updateCompletePw" parameterType="String">
+
+    <!-- 회원 비밀번호 초기화 완료 업데이트 -->
+    <update id="updateCompletePw" parameterType="String">
 		<![CDATA[
-			update t_member set member_init_pw = 'n' where member_id = #{member_id}
-		]]>
+        update t_member
+        set member_init_pw = 'n'
+        where member_id = #{member_id}
+        ]]>
 		
 	</update>
-	
+
 </mapper>

@@ -153,7 +153,7 @@
 		]]>
 
     </select>
-    <!-- 전체 페이지 수 유저 -->
+    <!-- 전체 상품 수 유저 -->
     <select id="total" resultType="_int" parameterType="_int">
         <![CDATA[
 			select count(product_id) as totalPage 
@@ -172,7 +172,7 @@
 			]]>
         </if>
     </select>
-    <!-- 전체 페이지 수 관리자 -->
+    <!-- 전체 상품 수 관리자 -->
     <!-- 한정판, 삭제여부, 비공개 여부 상관 없이 모두 -->
     <select id="totalAll" resultType="_int" parameterType="_int">
         <![CDATA[
@@ -307,6 +307,7 @@
                product_delete
         from t_product
         where product_delete = 'n'
+          and product_limited = '일반'
         order by product_regdate desc limit 0,1
         ]]>
 	</select>
@@ -385,14 +386,14 @@
         </if>
         order by product_id asc;
     </select>
-    <!-- 광고 목록 -->
+    <!-- 광고 목록 최신 5개 -->
     <select id="selectYoutubeList" resultType="com.goott.domain.ProductVO">
         <![CDATA[
         select product_id, product_name, product_thumbnail_img_url, product_youtube_url
         from t_product
         where product_youtube_url != 'no url' and product_delete = 'n'
         order by product_regdate desc
-        limit 0,5
+            limit 0, 5
         ]]>
     </select>
 </mapper>

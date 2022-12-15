@@ -4,13 +4,13 @@ import lombok.Data;
 
 @Data
 public class PageReview {
-	int searchCount;
-	int totalNum;
-	int currentPage;
-	int lastPage;
-	int searchStartNum;
-	int product_id;
-	boolean end;
+	private int searchCount; // 한 페이지 리뷰글 개수(10개)
+	private int totalNum; // 전체 리뷰글 개수
+	private int currentPage; // 현재 리뷰 페이지 번호
+	private int lastPage; // 마지막 페이지 번호
+	private int searchStartNum; // 출력할 리뷰글 시작 번호
+	private int product_id;
+	private boolean end; // 마지막 페이지 여부
 	
 	public PageReview(int currentPage, int totalNum) {
 		this.searchCount = 10;

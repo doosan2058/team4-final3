@@ -11,11 +11,10 @@
 </head>
 <body>
 <script type="text/javascript">
-    const msg = "<c:out value = '${msg}' />";
-    let url = "<c:out value = '${url}' />";
-    url = url.replace('amp;', '');
+    const msg = "<c:out value = '${msg}' />"; // 메시지
+    let url = "<c:out value = '${url}' />"; // 메시지 출력후 이동할 페이지
+    url = url.replace('amp;', ''); // 파라미터 사이 엠퍼센트 문자 삭제
     alert(msg);
-    /* alert(url); */
     location.href = url;
 </script>
 </body>

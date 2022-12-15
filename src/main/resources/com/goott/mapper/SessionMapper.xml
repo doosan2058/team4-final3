@@ -113,89 +113,89 @@
         ]]>
 	</select>
 
-    <!-- 지금까지 일별 접속자 수 -->
+    <!-- 최근 7일 일별 접속자 수 -->
     <select id="selectCountTotalDay" resultType="map">
 		<![CDATA[
-        SELECT DATE(`create_time`) AS `date`, count(`idx`) as count
+        SELECT DATE(create_time) AS date, count(idx) as count
         FROM t_session
-        GROUP BY `date`
+        GROUP BY date
         order by create_time desc limit 0, 7
         ]]>
 	</select>
-    <!-- 지금까지 주 접속자 수 -->
+    <!-- 최근 4주 주간 접속자 수 -->
     <select id="selectCountTotalWeek" resultType="map">
 		<![CDATA[
-        SELECT DATE_FORMAT(DATE_SUB(`create_time`, INTERVAL (DAYOFWEEK(`create_time`)-1) DAY), '%Y/%m/%d') as start,
-               DATE_FORMAT(DATE_SUB(`create_time`, INTERVAL (DAYOFWEEK(`create_time`)-7) DAY), '%Y/%m/%d') as end,
-			DATE_FORMAT(`create_time`, '%Y%U') AS `date`, count(`idx`) as count
+        SELECT DATE_FORMAT(DATE_SUB(create_time, INTERVAL (DAYOFWEEK(create_time)-1) DAY), '%Y/%m/%d') as start,
+               DATE_FORMAT(DATE_SUB(create_time, INTERVAL (DAYOFWEEK(create_time)-7) DAY), '%Y/%m/%d') as end,
+			DATE_FORMAT(create_time, '%Y%U') AS date, count(idx) as count
         FROM t_session
         GROUP BY date
-        order by create_time desc limit 0, 7
+        order by create_time desc limit 0, 4
         ]]>
 	</select>
 
-    <!-- 지금까지 일별 자유 게시글 수 -->
+    <!-- 최근 7일 일별 작성된 자유게시판 게시글 수 -->
     <select id="selectCountTotalDayBoard" resultType="map">
 		<![CDATA[
-        SELECT DATE(`board_regdate`) AS `date`, count(`board_id`) as count
+        SELECT DATE(board_regdate) AS date, count(board_id) as count
         FROM t_board
-        GROUP BY `date`
+        GROUP BY date
         order by board_regdate desc limit 0, 7
         ]]>
 	</select>
-    <!-- 지금까지 주별 자유게시글 수 -->
+    <!-- 최근 4주 주간 작성된 자유게시판 게시글 수 -->
     <select id="selectCountTotalWeekBoard" resultType="map">
 		<![CDATA[
-        SELECT DATE_FORMAT(DATE_SUB(`board_regdate`, INTERVAL (DAYOFWEEK(`board_regdate`)-1) DAY), '%Y/%m/%d') as start,
-               DATE_FORMAT(DATE_SUB(`board_regdate`, INTERVAL (DAYOFWEEK(`board_regdate`)-7) DAY), '%Y/%m/%d') as end,
-			DATE_FORMAT(`board_regdate`, '%Y%U') AS `date`, count(`board_id`) as count
+        SELECT DATE_FORMAT(DATE_SUB(board_regdate, INTERVAL (DAYOFWEEK(board_regdate)-1) DAY), '%Y/%m/%d') as start,
+               DATE_FORMAT(DATE_SUB(board_regdate, INTERVAL (DAYOFWEEK(board_regdate)-7) DAY), '%Y/%m/%d') as end,
+			DATE_FORMAT(board_regdate, '%Y%U') AS date, count(board_id) as count
         FROM t_board
         GROUP BY date
-        order by board_regdate desc limit 0, 7
+        order by board_regdate desc limit 0, 4
         ]]>
 	</select>
 
-    <!-- 지금까지 일별 질문 게시글 수 -->
+    <!-- 최근 7일 일별 작성된 질문게시판 게시글 수 -->
     <select id="selectCountTotalDayQna" resultType="map">
 		<![CDATA[
-        SELECT DATE(`qna_regdate`) AS `date`, count(`qna_id`) as count
-        FROM t_qna_remake
-        GROUP BY `date`
-        order by qna_regdate desc limit 0, 7
-        ]]>
-	</select>
-    <!-- 지금까지 주별 질문 게시글 수 -->
-    <select id="selectCountTotalWeekQna" resultType="map">
-		<![CDATA[
-        SELECT DATE_FORMAT(DATE_SUB(`qna_regdate`, INTERVAL (DAYOFWEEK(`qna_regdate`)-1) DAY), '%Y/%m/%d') as start,
-               DATE_FORMAT(DATE_SUB(`qna_regdate`, INTERVAL (DAYOFWEEK(`qna_regdate`)-7) DAY), '%Y/%m/%d') as end,
-			DATE_FORMAT(`qna_regdate`, '%Y%U') AS `date`, count(`qna_id`) as count
+        SELECT DATE(qna_regdate) AS date, count(qna_id) as count
         FROM t_qna_remake
         GROUP BY date
         order by qna_regdate desc limit 0, 7
         ]]>
 	</select>
+    <!-- 최근 4주 주간 작성된 질문게시판 게시글 수 -->
+    <select id="selectCountTotalWeekQna" resultType="map">
+		<![CDATA[
+        SELECT DATE_FORMAT(DATE_SUB(qna_regdate, INTERVAL (DAYOFWEEK(qna_regdate)-1) DAY), '%Y/%m/%d') as start,
+               DATE_FORMAT(DATE_SUB(qna_regdate, INTERVAL (DAYOFWEEK(qna_regdate)-7) DAY), '%Y/%m/%d') as end,
+			DATE_FORMAT(qna_regdate, '%Y%U') AS date, count(qna_id) as count
+        FROM t_qna_remake
+        GROUP BY date
+        order by qna_regdate desc limit 0, 4
+        ]]>
+	</select>
 
-    <!-- 지금까지 일별 매출 -->
+    <!-- 최근 7일 일별 매출 -->
     <select id="selectCountTotalDayShop" resultType="map">
 		<![CDATA[
-        SELECT DATE(s.sales_date) AS `date`, sum(o.order_purchase_amount) as count
+        SELECT DATE(s.sales_date) AS date, sum(o.order_purchase_amount) as count
         FROM t_sales s inner join t_order o
         on s.order_id = o.order_id
-        GROUP BY `date`
+        GROUP BY date
         order by s.sales_date desc limit 0, 7
         ]]>
 	</select>
-    <!-- 지금까지 주별 매출 -->
+    <!-- 최근 4주 주별 매출 -->
     <select id="selectCountTotalWeekShop" resultType="map">
 		<![CDATA[
         SELECT DATE_FORMAT(DATE_SUB(s.sales_date, INTERVAL (DAYOFWEEK(s.sales_date)-1) DAY), '%Y/%m/%d') as start,
                DATE_FORMAT(DATE_SUB(s.sales_date, INTERVAL (DAYOFWEEK(s.sales_date)-7) DAY), '%Y/%m/%d') as end,
-			DATE_FORMAT(s.sales_date, '%Y%U') AS `date`, sum(o.order_purchase_amount) as count
+			DATE_FORMAT(s.sales_date, '%Y%U') AS date, sum(o.order_purchase_amount) as count
         FROM t_sales s inner join t_order o
         on s.order_id = o.order_id
         GROUP BY date
-        order by s.sales_date desc limit 0, 7
+        order by s.sales_date desc limit 0, 4
         ]]>
 	</select>
 

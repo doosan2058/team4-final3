@@ -1,6 +1,3 @@
-/**
- *
- */
 'use strict'
 
 //네비
@@ -146,7 +143,7 @@ function monitoringFunc() {
                     labels: dailyCountDateArr.reverse(),
                     datasets: [{
                         data: dailyCountCountArr.reverse(),
-                        label: "일간 접속자",
+                        label: "일간 접속자(7일)",
                         borderColor: "#3e95cd",
                         fill: false
                     }
@@ -168,7 +165,7 @@ function monitoringFunc() {
                     labels: weekCountDateArr.reverse(),
                     datasets: [{
                         data: weekCountCountArr.reverse(),
-                        label: "주간 접속자",
+                        label: "주간 접속자(4주)",
                         borderColor: "#3e95cd",
                         fill: false
                     }
@@ -189,7 +186,7 @@ function monitoringFunc() {
                     labels: dailyCountDateBoardArr.reverse(),
                     datasets: [{
                         data: dailyCountCountBoardArr.reverse(),
-                        label: "일간 자유게시글",
+                        label: "일간 자유게시글(7일)",
                         borderColor: "#3e95cd",
                         fill: false
                     }
@@ -210,7 +207,7 @@ function monitoringFunc() {
                     labels: weekCountDateBoardArr.reverse(),
                     datasets: [{
                         data: weekCountCountBoardArr.reverse(),
-                        label: "주간 자유게시글",
+                        label: "주간 자유게시글(4주)",
                         borderColor: "#3e95cd",
                         fill: false
                     }
@@ -231,7 +228,7 @@ function monitoringFunc() {
                     labels: dailyCountDateQnaArr.reverse(),
                     datasets: [{
                         data: dailyCountCountQnaArr.reverse(),
-                        label: "일간 질문게시글",
+                        label: "일간 질문게시글(7일)",
                         borderColor: "#3e95cd",
                         fill: false
                     }
@@ -252,7 +249,7 @@ function monitoringFunc() {
                     labels: weekCountDateQnaArr.reverse(),
                     datasets: [{
                         data: weekCountCountQnaArr.reverse(),
-                        label: "주간 질문게시글",
+                        label: "주간 질문게시글(4주)",
                         borderColor: "#3e95cd",
                         fill: false
                     }
@@ -272,7 +269,7 @@ function monitoringFunc() {
                     labels: dailyCountDateShopArr.reverse(),
                     datasets: [{
                         data: dailyCountCountShopArr.reverse(),
-                        label: "일간 매출",
+                        label: "일간 매출(7일)",
                         borderColor: "#3e95cd",
                         fill: false
                     }
@@ -293,7 +290,7 @@ function monitoringFunc() {
                     labels: weekCountDateShopArr.reverse(),
                     datasets: [{
                         data: weekCountCountShopArr.reverse(),
-                        label: "주간 매출",
+                        label: "주간 매출(4주)",
                         borderColor: "#3e95cd",
                         fill: false
                     }

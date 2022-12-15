@@ -345,8 +345,7 @@ function speedChart() {
 //리뷰 10개씩 더보기 함수
 function viewMoreReview() {
     let temp = parseInt(currentPage.value);
-    temp += 1;
-    //현재 페이지 1 증가
+    temp += 1; // 검색 요청할 다음 페이지(현재 페이지 + 1)
     currentPage.value = temp;
     let param = {product_id: product_id.value, currentPage: currentPage.value};
     //ajax 처리후 다음 10개 가져오기 로직 작성

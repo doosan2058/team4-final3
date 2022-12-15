@@ -7,6 +7,7 @@ import lombok.extern.log4j.Log4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.inject.Inject;
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +15,7 @@ import java.util.Map;
 @Service
 public class DrawServiceImpl implements DrawService {
 
-    @Autowired
+    @Inject
     DrawMapper drawMapper;
 
     @Override
@@ -44,10 +45,9 @@ public class DrawServiceImpl implements DrawService {
 
     @Override
     public String registerDraw(DrawEnterVO drawEnterVO) {
-        //이벤트 중복 등록 확인
         int resultCount = this.getCount(drawEnterVO);
 
-        if (resultCount != 0) {
+        if (resultCount != 0) { // DB 중복 레코드 개수
             return "이미 응모하였습니다.";
         } else {
             this.applicationDraw(drawEnterVO);

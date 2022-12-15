@@ -6,8 +6,8 @@ import lombok.Data;
 
 @Data
 public class SessionVO {
-	int idx;
-	String browser;
-	String ip;
-	Date create_time;
+	private int idx; // 세션 번호
+	private String browser; // 브라우저 이름
+	private String ip; // 접속 아이피 주소
+	private Date create_time; // 접속 시간
 }

@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.goott.mapper.CouponMapper">
-	
-	<!-- 쿠폰 정보 가져오기  -->
-	<select id="selectCoupon" parameterType="String" resultType="com.goott.domain.CouponVO">
+
+    <!-- 쿠폰 정보 가져오기  -->
+    <select id="selectCoupon" parameterType="String" resultType="com.goott.domain.CouponVO">
 		<![CDATA[
-			select coupon_num, coupon_name, coupon_comment, coupon_discount, coupon_category, coupon_brand, coupon_live,
-				   coupon_start_date, coupon_end_date from t_coupon where coupon_num = #{coupon_num}
-		]]>
+        select coupon_num,
+               coupon_name,
+               coupon_comment,
+               coupon_discount,
+               coupon_category,
+               coupon_brand,
+               coupon_live,
+               coupon_start_date,
+               coupon_end_date
+        from t_coupon
+        where coupon_num = #{coupon_num}
+        ]]>
 	</select>
-	
-	<!-- 쿠폰 사용 쿠폰으로 업데이트 -->
-	<update id="updateCouponLive" parameterType="String">
+
+    <!-- 쿠폰 사용 쿠폰으로 업데이트 -->
+    <update id="updateCouponLive" parameterType="String">
 		<![CDATA[
-			update t_coupon set coupon_live = '사용' where coupon_num = #{coupon_num}
-		]]>
+        update t_coupon
+        set coupon_live = '사용'
+        where coupon_num = #{coupon_num}
+        ]]>
 	</update>
 </mapper>

@@ -17,7 +17,6 @@
     <h3>페이지가 존재하지 않습니다.</h3>
 	<h3>관리자에게 문의해 주세요.</h3>
     <img alt="이미지 준비중 입니다." src="https://team4projectbucket.s3.ap-northeast-2.amazonaws.com/error/errorImg.gif">
-
 </div>
 </body>
 </html>

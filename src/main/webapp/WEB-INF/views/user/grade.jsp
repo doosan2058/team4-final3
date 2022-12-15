@@ -20,19 +20,19 @@
 <jsp:include page="../shop/shop_header.jsp" />
 <div class="gradeInfoContainer">
     <!-- 메인 윗 부분 : 이번달 내 등급 -->
-    <div class="myGradeState" style="background-color: ${Info.grade_color}">
+    <div class="myGradeState" style="background-color: ${info.grade_color}">
         <div class="myGradeState_top">
-			<h3>${Info.member_id}님의 현재 등급은 <span style="color: ${Info.grade_font_color}"> ${Info.grade_name} </span> 입니다. </h3>
-			<p>누적 ${Info.member_purchase_point + Info.member_write_point} p</p>
+			<h3>${info.member_id}님의 현재 등급은 <span style="color: ${info.grade_font_color}"> ${info.grade_name} </span> 입니다. </h3>
+			<p>누적 ${info.member_purchase_point + info.member_write_point} p</p>
 		</div>
-        <div class="myGradeState_bottom" style="border: solid 1px ${Info.grade_font_color}">
+        <div class="myGradeState_bottom" style="border: solid 1px ${info.grade_font_color}">
             <div id="myGradeState_bottom_title">등급혜택</div>
             <div id="myGradeState_bottom_text">
                 제품 구매 시 전 제품
-				<span style="color: ${Info.grade_font_color};">
-				<fmt:formatNumber type="percent" value="${Info.grade_discount}"/> 할인</span> /
-				<span style="color: ${Info.grade_font_color};">
-				<fmt:formatNumber type="percent" value="${Info.grade_accrual_rate}"/> 적립</span>
+				<span style="color: ${info.grade_font_color};">
+				<fmt:formatNumber type="percent" value="${info.grade_discount}"/> 할인</span> /
+				<span style="color: ${info.grade_font_color};">
+				<fmt:formatNumber type="percent" value="${info.grade_accrual_rate}"/> 적립</span>
 
             </div>
         </div>
@@ -48,19 +48,19 @@
                 <li>등급 관련 변경사항이 있을 시 공지사항을 통해 공지합니다.</li>
             </ul>
         </div>
-        <c:forEach var="Info" items="${map.InfoAll}">
-            <div class="gradeDiv" data-hover="${Info.grade_font_color}" style="background-color: ${Info.grade_color}; border:solid 2px ${Info.grade_font_color};">
+        <c:forEach var="item" items="${gradeList}">
+            <div class="gradeDiv" data-hover="${item.grade_font_color}" style="background-color: ${item.grade_color}; border:solid 2px ${item.grade_font_color};">
                 <div class="grade_left">
-                    <h3 style="color: ${Info.grade_font_color}">${Info.grade_name }</h3>
-                    <p>누적 포인트 <fmt:formatNumber type="Number" pattern="#,###" value="${Info.grade_start_point}"/>P 이상</p>
+                    <h3 style="color: ${item.grade_font_color}">${item.grade_name }</h3>
+                    <p>누적 포인트 <fmt:formatNumber type="Number" value="${item.grade_start_point}"/>P 이상</p>
                     <p>
                         상품 구매 시
-						<span style="color: ${Info.grade_font_color}"><fmt:formatNumber type="percent" value="${Info.grade_discount}"/> 할인</span>
-                        <span style="color: ${Info.grade_font_color}"><fmt:formatNumber type="percent" value="${Info.grade_accrual_rate}"/> 적립 </span>
+						<span style="color: ${item.grade_font_color}"><fmt:formatNumber type="percent" value="${item.grade_discount}"/> 할인</span>
+                        <span style="color: ${item.grade_font_color}"><fmt:formatNumber type="percent" value="${item.grade_accrual_rate}"/> 적립 </span>
                     </p>
                 </div>
                 <div class="grade_right">
-                    <img src="${Info.grade_img_url }">
+                    <img src="${item.grade_img_url }">
                 </div>
             </div>
         </c:forEach>

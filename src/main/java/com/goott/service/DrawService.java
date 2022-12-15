@@ -9,38 +9,45 @@ import java.util.Map;
 public interface DrawService {
     /**
      * 이벤트 정보 가져오기
-     * @param draw_id
+     *
+     * @param draw_id 이벤트 번호
      * @return 이벤트 정보
      */
     public Map<String, Object> getDraw(int draw_id);
+
     /**
      * 모든 이벤트 정보 가져오기
+     *
      * @return 이벤트 List
      */
     public List<Map<String, Object>> getAllDrawList();
 
     /**
      * 이벤트 중복 지원 확인
-     * @param drawEnterVO
+     *
+     * @param drawEnterVO 이벤트 응모 엔티티
      * @return 0 정상, 나머지 중복
      */
     public int getCount(DrawEnterVO drawEnterVO);
 
     /**
-     * 이벤트 응모
+     * 이벤트 응모 하기
+     *
      * @param drawEnterVO
      */
     public void applicationDraw(DrawEnterVO drawEnterVO);
 
     /**
      * 응모자 확인
+     *
      * @param draw_id
      * @return 응모자 List
      */
     public List<DrawEnterVO> getDrawEnterList(int draw_id);
 
     /**
-     * 이벤트 중복 등록 확인후 응모하기
+     * 이벤트 중복 응모 여부 확인후 응모하기
+     *
      * @param drawEnterVO
      * @return
      */
@@ -48,6 +55,7 @@ public interface DrawService {
 
     /**
      * 이벤트 모집인원, 응모자수, 당첨자수 확인
+     *
      * @param draw_id
      * @return Map
      */
@@ -55,18 +63,21 @@ public interface DrawService {
 
     /**
      * 유저 이벤트 담첨 처리
+     *
      * @param param (유저 아이디, 이벤트 번호)
      */
     public void userEnter(Map<String, Object> param);
 
     /**
      * 이벤트 수정
+     *
      * @param drawVO
      */
     public void modifyDraw(DrawVO drawVO);
 
     /**
      * 신규 이벤트 등록
+     *
      * @param drawVO
      */
     public void addDraw(DrawVO drawVO);

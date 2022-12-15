@@ -17,7 +17,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!--xeicon-->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-    <title>등급 정책</title>
+    <title>등급 정책 관리 페이지</title>
 </head>
 <body>
 <!--헤더-->
@@ -46,18 +46,18 @@
             <span>글자색</span>
             <span>이미지</span>
         </div>
-        <c:forEach items="${gradePolicy}" var="row" varStatus="count">
+        <c:forEach items="${gradePolicy}" var="item" varStatus="count">
             <div class="gradePolicyLineDiv">
-                <input type="checkbox" name="grade" value="${row.grade_id}" onclick="checkSelectAll()">
+                <input type="checkbox" name="grade" value="${item.grade_id}" onclick="checkSelectAll()">
                 <span class="gradePolicyLineDivSpan">${count.count}</span>
-                <span class="gradePolicyLineDivSpan">${row.grade_name}</span>
-                <span class="gradePolicyLineDivSpan"><fmt:formatNumber type="Number" pattern="#,###" value="${row.grade_start_point}"/>P</span>
-                <span class="gradePolicyLineDivSpan"><fmt:formatNumber type="Number" pattern="#,###" value="${row.grade_end_point}"/>P</span>
-                <span class="gradePolicyLineDivSpan"><fmt:formatNumber type="percent" value="${row.grade_discount}"/></span>
-                <span class="gradePolicyLineDivSpan"><fmt:formatNumber type="percent" value="${row.grade_accrual_rate}"/></span>
-                <div class="gradePolicyColorDiv" style="background-color:${row.grade_color}"></div>
-                <div class="gradePolicyColorDiv" style="background-color:${row.grade_font_color}"></div>
-                <img src="${row.grade_img_url}" class="gradePolicyImg">
+                <span class="gradePolicyLineDivSpan">${item.grade_name}</span>
+                <span class="gradePolicyLineDivSpan"><fmt:formatNumber type="Number" pattern="#,###" value="${item.grade_start_point}"/>P</span>
+                <span class="gradePolicyLineDivSpan"><fmt:formatNumber type="Number" pattern="#,###" value="${item.grade_end_point}"/>P</span>
+                <span class="gradePolicyLineDivSpan"><fmt:formatNumber type="percent" value="${item.grade_discount}"/></span>
+                <span class="gradePolicyLineDivSpan"><fmt:formatNumber type="percent" value="${item.grade_accrual_rate}"/></span>
+                <div class="gradePolicyColorDiv" style="background-color:${item.grade_color}"></div>
+                <div class="gradePolicyColorDiv" style="background-color:${item.grade_font_color}"></div>
+                <img src="${item.grade_img_url}" class="gradePolicyImg">
             </div>
         </c:forEach>
     </div>
