@@ -1,7 +1,3 @@
-/**
- * home
- */
-
 'use strict'
 //쇼핑몰 구역
 const shopDiv = document.querySelector('.shopDiv');

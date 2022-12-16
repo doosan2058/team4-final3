@@ -42,10 +42,12 @@
     <!-- 메인 아랫부분 : 등급별 혜택 안내 -->
     <div class="gradeAdventage">
         <div class="grade_info">
-			<h3>등급별 혜택 안내</h3>
+			<h3>등급별 안내</h3>
             <ul>
 				<li>누적 포인트 합산 후, 자동으로 등급을 산정합니다.</li>
                 <li>등급 관련 변경사항이 있을 시 공지사항을 통해 공지합니다.</li>
+                <li>상품 구매 확정시 실제 포인트가 적립됩니다.</li>
+                <li>커뮤니티에서 글 작성시 0 ~ 10 사이에 포인트가 적립됩니다.</li>
             </ul>
         </div>
         <c:forEach var="item" items="${gradeList}">
@@ -58,6 +60,7 @@
 						<span style="color: ${item.grade_font_color}"><fmt:formatNumber type="percent" value="${item.grade_discount}"/> 할인</span>
                         <span style="color: ${item.grade_font_color}"><fmt:formatNumber type="percent" value="${item.grade_accrual_rate}"/> 적립 </span>
                     </p>
+                    <p>${item.grade_comment}</p>
                 </div>
                 <div class="grade_right">
                     <img src="${item.grade_img_url }">

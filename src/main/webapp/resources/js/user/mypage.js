@@ -13,8 +13,6 @@ const logOutBtn = document.querySelector('#logOutBtn');
 const orderHistoryModalCon = document.querySelector('.orderHistoryModalCon');
 /*구매 내역 디비전 */
 const userOrderHistoryDiv = document.querySelector('.userOrderHistoryDiv');
-/*리뷰 작성하러 가기 스팬 */
-const writeReviewSpan = document.querySelectorAll('.writeReviewSpan');
 //회원 탈퇴 앵커
 const deleteMemberAnchor = document.querySelector('.deleteMemberAnchor');
 //회원 탈퇴 컨테이너
@@ -309,7 +307,7 @@ function closeSalesDiv(e) {
 //구매 확정하기 버튼
 function purchaseProduct() {
     const order_id = this.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerHTML;
-//	console.log(order_id);
+
 
     const result = confirm('구매확정 하시겠습니까?');
     if (result) {

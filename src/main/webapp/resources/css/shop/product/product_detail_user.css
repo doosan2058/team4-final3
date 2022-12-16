@@ -405,10 +405,7 @@ main {
 /*별점*/
 .star {
     color: yellow;
-    font-variation-settings: 'FILL' 1,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48;
+    font-size: 1.2rem;
 }
 
 .reviewsGradeInnerThumb {
@@ -421,10 +418,7 @@ main {
     cursor: pointer;
     color: rgb(139, 197, 255);
     transition: .3s;
-    font-variation-settings: 'FILL' 1,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48;
+    font-size: 1.5rem;
 }
 
 
@@ -505,6 +499,7 @@ main {
 }
 .playIconSpan{
     transition: .3s;
+    font-size: 1.5rem;
 }
 
 /*유튜브 광고 컨테이너*/
@@ -519,23 +514,18 @@ main {
     backdrop-filter: blur(4px);
 }
 
-.closeYoutubeContainerIcon{
+.xi-close.closeYoutubeContainerIcon{
     cursor: pointer;
     position: absolute;
     z-index: 998;
     top: 1rem;
     left: 1rem;
-    background-color: var(--mainColor);
+    font-size: 2rem;
     color: var(--basicFontColor);
     transition: .3s;
-    font-variation-settings:
-            'FILL' 0,
-            'wght' 700,
-            'GRAD' 0,
-            'opsz' 48
 }
 
-.xi-close {
+.youtubeInnerDiv {
     width: fit-content;
     height: fit-content;
     position: relative;
@@ -570,20 +560,15 @@ main {
     position: center;
 }
 
-.closeFullImageContainerIcon {
+.xi-close.closeFullImageContainerIcon {
     cursor: pointer;
     position: absolute;
     z-index: 998;
     top: 1rem;
     left: 1rem;
-    background-color: var(--mainColor);
+    font-size: 1.5rem;
     color: var(--basicFontColor);
     transition: .3s;
-    font-variation-settings:
-            'FILL' 0,
-            'wght' 700,
-            'GRAD' 0,
-            'opsz' 48
 }
 
 /*메인 상품 이미지 변경 애니메이션 클래스*/
@@ -802,7 +787,7 @@ main {
     .thumb:hover {
         color: rgb(0, 128, 255);
     }
-    .closeFullImageContainerIcon:hover, closeYoutubeContainerIcon:hover{
+    .closeFullImageContainerIcon:hover, .closeYoutubeContainerIcon:hover{
         color: var(--fontColor);
         transform: scale(1.2,1.2);
     }

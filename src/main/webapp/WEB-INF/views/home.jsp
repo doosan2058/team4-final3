@@ -33,15 +33,15 @@
         </div>
         <div class="menuDiv">
             <a id="loginBtn" href="login">
-                <span class="material-symbols-outlined iconSpan">login</span>
+                <span class="xi-log-in iconSpan"></span>
                 <span class="headerAnchorTextSpan">로그인</span>
             </a>
             <a id="logOutBtn">
-                <span class="material-symbols-outlined iconSpan">logout</span>
+                <span class="xi-log-out iconSpan"></span>
                 <span class="headerAnchorTextSpan">로그아웃</span>
             </a>
             <a id="joinBtn" href="agree">
-                <span class="material-symbols-outlined iconSpan">person_add</span>
+                <span class="xi-user-plus-o iconSpan"></span>
                 <span class="headerAnchorTextSpan">회원가입</span>
             </a>
         </div>

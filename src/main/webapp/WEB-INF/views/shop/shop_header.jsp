@@ -41,11 +41,11 @@
     </div>
     <div class="login">
         <a id="loginBtn" href="/login" data-tooltip="로그인 하기" class="loginMenuAnchor">
-            <span class="material-symbols-outlined">login</span>
+            <span class="xi-log-in iconSpan"></span>
             <span class="headerAnchorTextSpan">로그인</span>
         </a>
         <a id="joinBtn" href="/agree" data-tooltip="회원가입 하기" class="loginMenuAnchor">
-            <span class="material-symbols-outlined">person_add</span>
+            <span class="xi-user-plus-o iconSpan"></span>
             <span class="headerAnchorTextSpan">회원가입</span>
         </a>
 
@@ -54,20 +54,20 @@
             <span class="loginUserIdSpan">${sessionScope.login_id } 님</span>
         </a>
         <a id="basket" href="/user/basket" data-tooltip="장바구니 보기" class="loginMenuAnchor">
-            <span class="material-symbols-outlined">shopping_basket</span>
+            <span class="xi-basket iconSpan"></span>
             <span class="headerAnchorTextSpan">장바구니</span>
         </a>
         <a id="logOutBtn" data-tooltip="로그아웃 하기" class="loginMenuAnchor">
-            <span class="material-symbols-outlined">logout</span>
+            <span class="xi-log-out iconSpan"></span>
             <span class="headerAnchorTextSpan">로그아웃</span>
         </a>
 
         <a href="/shop" id="loginShop" class="loginMenuAnchor">
-            <i class="xi-shop"></i>
+            <i class="xi-shop iconSpan"></i>
             <span class="headerAnchorTextSpan">쇼핑몰</span>
         </a>
         <a href="/community/main" id="loginCommu" class="loginMenuAnchor">
-            <i class="xi-forum"></i>
+            <i class="xi-forum iconSpan"></i>
             <span class="headerAnchorTextSpan">커뮤니티</span>
         </a>
 

@@ -29,13 +29,11 @@
         <p>확인 사항 : 총 ${gradeCount}개의 등급이 있습니다.</p>
         <div class="gradePolicyBtnDiv">
             <input type="button" value="추가" class="gradeBtn  insert_btn" onclick="location.href='/gradePolicyAdd_admin'"/>
-            <input type="button" value="삭제" class="gradeBtn  delete_btn" onclick="selectDelete();"/>
         </div>
     </div>
 
     <div class="gradePolicyBottom">
         <div class="gradePolicyLineHeaderDiv">
-            <input type="checkbox" name="selectall" value="all" onclick="selectAll(this)">
             <span>번호</span>
             <span>등급명</span>
             <span>시작 포인트</span>
@@ -48,7 +46,6 @@
         </div>
         <c:forEach items="${gradePolicy}" var="item" varStatus="count">
             <div class="gradePolicyLineDiv">
-                <input type="checkbox" name="grade" value="${item.grade_id}" onclick="checkSelectAll()">
                 <span class="gradePolicyLineDivSpan">${count.count}</span>
                 <span class="gradePolicyLineDivSpan">${item.grade_name}</span>
                 <span class="gradePolicyLineDivSpan"><fmt:formatNumber type="Number" pattern="#,###" value="${item.grade_start_point}"/>P</span>

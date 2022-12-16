@@ -107,7 +107,7 @@
         <div class="winnerListTop">
             <input type="hidden" id="winnerListDivDrawIdInput">
             <span>당첨자 목록</span>
-            <span class="material-symbols-outlined closeWinnerListContainerIcon">close</span>
+            <span class="xi-close closeWinnerListContainerIcon"></span>
         </div>
 
         <div class="winnerListBottom">

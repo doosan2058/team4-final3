@@ -21,55 +21,55 @@
 <!--헤더-->
 <%@include file="../shop/shop_header.jsp" %>
 <div class="gradeAddContainer">
-    <h1>등급 추가</h1>
-    <form method="post" action="/gradePolicyAdd_admin" enctype="multipart/form-data">
-
+    <span class="gradeCountSpan">${gradeCount + 1}</span><span class="gradeSpan">th 등급.</span>
+    <form method="post" action="/gradePolicyAdd_admin" enctype="multipart/form-data" id="gradeForm" onsubmit="return checkGradeAddForm();">
         <div class="gradeAddLineDiv">
-            <span>단계</span>
-            <input type="text" id="grade_comment" name="grade_comment" value="${gradeCount + 1}단계" readonly="readonly">
-		</div>
+            <span>설명</span>
+            <input type="text" id="grade_comment" name="grade_comment" placeholder="최대 50자" maxlength="50" required>
+        </div>
         <div class="gradeAddLineDiv">
             <span>등급명</span>
-           <input type="text" id="grade_name" name="grade_name" required="required">
+            <input type="text" id="grade_name" name="grade_name" placeholder="최대 10자" maxlength="10" required>
         </div>
         <div class="gradeAddLineDiv">
             <span>시작 포인트</span>
-            <input type="text" id="grade_start_point" name="grade_start_point" required="required">
+            <input type="number" id="grade_start_point" name="grade_start_point" readonly
+                   value="${lastGradeEndPoint + 1}">
         </div>
         <div class="gradeAddLineDiv">
             <span>끝 포인트</span>
-           <input type="text" id="grade_end_point" name="grade_end_point" required="required">
+            <input type="number" id="grade_end_point" name="grade_end_point"
+                   placeholder="${lastGradeEndPoint + 1} 보다 큰 수를 입력하세요." min="${lastGradeEndPoint + 2}" required>
         </div>
         <div class="gradeAddLineDiv">
-            <span>할인율</span>
-           <input type="text" id="grade_discount" name="grade_discount" required="required">
+            <span>할인율(0.xx)</span>
+            <input type="text" id="grade_discount" name="grade_discount" placeholder="${LastDiscountAndAccrualPoint.grade_discount} 보다 큰수를 입력하세요." required>
         </div>
         <div class="gradeAddLineDiv">
-            <span>적립율</span>
-            <input type="text" id="grade_accrual_rate" name="grade_accrual_rate" required="required">
+            <span>적립율(0.xx)</span>
+            <input type="text" id="grade_accrual_rate" name="grade_accrual_rate" placeholder="${LastDiscountAndAccrualPoint.grade_accrual_rate} 보다 큰수를 입력하세요." required>
         </div>
         <div class="gradeAddLineDiv">
             <span>배경색</span>
-           <input type="color" id="grade_color" name="grade_color" required="required">
+            <input type="color" id="grade_color" name="grade_color" required>
         </div>
         <div class="gradeAddLineDiv">
             <span>글자색</span>
-           <input type="color" id="grade_font_color" name="grade_font_color">
+            <input type="color" id="grade_font_color" name="grade_font_color" required>
         </div>
         <div class="gradeAddLineDiv">
-            <span>대표 이미지</span>
-            <input type="file" id="grade_img_url" name="img_url" required="required">
+            <span>이미지</span>
+            <input type="file" id="grade_img_url" name="img_url" required>
         </div>
-		<div class="gradeAddBtnDiv">
-			<input type="submit" id="submit" value="저장" class="gradeAddBtn">
-		</div>
-
+        <div class="gradeAddBtnDiv">
+            <input type="submit" id="submitBtn" value="저장" class="gradeAddBtn">
+        </div>
     </form>
 </div>
 
 <!--푸터-->
 <%@include file="../shop/shop_footer.jsp" %>
-<script src="resources/js/gradePolicy_admin.js"></script>
+<script src="/resources/js/grade/gradePolicyAdd_admin.js"></script>
 
 </body>
 </html>

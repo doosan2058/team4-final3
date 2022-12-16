@@ -11,19 +11,19 @@
     <link rel="stylesheet" href="/resources/css/common/join.css">
     <!-- Jquery cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- 구글 폰트-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+	<!--xeicon-->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 
     <title>회원가입</title>
 </head>
 <body>
 <!-- 진행상태 -->
 <div class="progressDiv">
-    <span class="material-symbols-outlined backOne"> looks_one </span>
-    <span class="material-symbols-outlined backOne"> more_horiz </span>
-    <span class="material-symbols-outlined one"> looks_two </span>
-    <span class="material-symbols-outlined oneDot"> more_horiz </span>
-    <span class="material-symbols-outlined"> looks_3 </span>
+    <span class="xi-radiobox-checked backOne"></span>
+    <span class="xi-log backOne"></span>
+    <span class="xi-radiobox-checked one"></span>
+    <span class="xi-log oneDot oneDot"></span>
+    <span class="xi-radiobox-blank"></span>
 </div>
 <!--회원가입 컨테이너-->
 <div class="joinContainer">

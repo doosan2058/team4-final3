@@ -51,4 +51,18 @@ public interface GradeService {
      * @param gradeVO 등급 정보 엔티티
      */
     public void gradePolicyAdd(GradeVO gradeVO);
+
+    /**
+     * 마지막 등급의 종료 포인트 가져오기
+     *
+     * @return 마지막 등급 종료 포인트
+     */
+    public int getLastGradeEndPoint();
+
+    /**
+     * 마지막 등급의 할인율, 적립율 가져오기
+     *
+     * @return 할인율, 적립율
+     */
+    public Map<String, String> getLastDiscountAndAccrualPoint();
 }

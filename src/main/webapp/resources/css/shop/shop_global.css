@@ -6,6 +6,10 @@ header{
     font-family: 'Black Han Sans';
     position: relative;
 }
+/*아이콘 공통*/
+.iconSpan{
+    font-size: 1.5rem;
+}
 #logOutBtn{
 	cursor: pointer;
 	transition: .3s;
@@ -102,7 +106,6 @@ header a{
     color: var(--subFontColor);
 }
 .login i{
-    font-size: 1.5rem;
     transition: .3s;
     color: var(--subFontColor);
 }

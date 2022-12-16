@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="/resources/css/global.css">
     <!-- 제이쿼리 cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- 구글 폰트 -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <!-- 폰트 어썸 -->
     <script src="https://kit.fontawesome.com/10a37546a9.js" crossorigin="anonymous"></script>
     <title>상품 상세 관리자 페이지</title>
@@ -210,14 +208,17 @@
                             <input type="hidden" value="${item.product_review_speed }">
                             <div class="reviewsGradeInner">
                                 <c:forEach begin="1" end="${item.product_review_grade }">
-                                    <span class="material-symbols-outlined star"> grade </span>
+                                    <span class="xi-star star"></span>
+                                </c:forEach>
+                                <c:forEach begin="1" end="${5 - item.product_review_grade}">
+                                    <span class="xi-star-o star"></span>
                                 </c:forEach>
                                 <span>${item.product_review_grade }점</span>
                             </div>
                             <div class="reviewsGradeInner reviewsGradeInnerThumb">
                                 <!--리뷰 번호(PK)-->
                                 <input type="hidden" value="${item.product_review_id }">
-                                <span class="material-symbols-outlined thumb"> thumb_up </span>
+                                <span class="xi-thumbs-up thumb"> thumb_up </span>
                                 <span class="helpfulSpan">${item.product_review_helpful }</span>
                             </div>
                         </div>
@@ -274,14 +275,12 @@
         <div class="toReviewCon">리뷰</div>
         <div class="toBottomDiv">하단</div>
         <div class="youtubeDiv">
-            <span class="material-symbols-outlined playIconSpan">play_circle</span>
+            <span class="xi-play-circle-o playIconSpan"></span>
         </div>
     </div>
     <!-- 유튜브 광고 컨테이너 -->
     <div class="youtubeContainer">
-        <span class="material-symbols-outlined closeYoutubeContainerIcon">
-            close
-        </span>
+        <span class="xi-close closeYoutubeContainerIcon"></span>
         <div class="youtubeInnerDiv">
             <c:if test="${product.product_youtube_url eq 'no url'}">
                 <input type="hidden" class="product_youtube_url_hidden" value="${product.product_youtube_url}">
@@ -296,9 +295,7 @@
     </div>
 </main>
 <div class="fullImageContainer">
-    <span class="material-symbols-outlined closeFullImageContainerIcon">
-        close
-    </span>
+    <span class="xi-close closeFullImageContainerIcon"></span>
     <img src="">
 </div>
 <!-- 푸터 -->

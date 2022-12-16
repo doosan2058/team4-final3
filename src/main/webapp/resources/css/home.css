@@ -4,6 +4,10 @@
 	background-color: var(--mainColor);
 	height: 100vh;
 }
+/*아이콘 공통*/
+.iconSpan{
+	font-size: 1.5rem;
+}
 /*상단*/
 .homeTop{
 	height: 80px;

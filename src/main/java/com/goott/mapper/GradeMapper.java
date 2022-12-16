@@ -57,5 +57,19 @@ public interface GradeMapper {
      */
     public void gradePolicyAdd(GradeVO gradeVO);
 
+    /**
+     * 마지막 등급의 끝 포인트 가져오기
+     *
+     * @return 끝 포인트
+     */
+    public int selectLastGradePoint();
+
+    /**
+     * 마지막 등급의 할인율, 적립율 가져오기
+     *
+     * @return 할인율, 적립율
+     */
+    public Map<String, String> selectLastDiscountAndAccrualPoint();
+
 
 }

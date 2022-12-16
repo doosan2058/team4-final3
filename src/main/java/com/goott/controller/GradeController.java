@@ -29,9 +29,7 @@ public class GradeController {
     @Inject
     GradeService gradeService;
 
-
-
-    @Autowired
+    @Inject
     S3Service s3Service;
 
 
@@ -72,29 +70,6 @@ public class GradeController {
         return mav;
     }
 
-    /**
-     * 등급 삭제
-     *
-     * @param valueArr 삭제할 등급 번호 list
-     * @return
-     */
-    @RequestMapping(value = "/gradePolicy_adminDelete", method = RequestMethod.POST, produces = "text/html; charset=utf-8")
-    @ResponseBody
-    public String gradePolicyDelete(@RequestParam(value = "valueArr[]") List<String> valueArr) {
-
-        Iterator it = valueArr.iterator();
-        String resultInfo = "삭제하였습니다.";
-        while (it.hasNext()) {
-            int temp = Integer.parseInt(it.next().toString());
-            String result = gradeService.gradePolicyDelete(temp);
-            if (result.equals("삭제 도중 오류가 발생하였습니다.")) {
-                resultInfo = "삭제도중 오류가 발생하였습니다. 다시 확인해주세요.";
-                break;
-            }
-
-        }
-        return resultInfo;
-    }
 
     /**
      * 등급 추가 페이지 요청
@@ -106,7 +81,10 @@ public class GradeController {
     public String gradePolicyAdd(Model model) {
 
         int gradeCount = gradeService.gradeCount(); // 현재 총 등급 개수
+        int lastGradeEndPoint = gradeService.getLastGradeEndPoint(); // 마지막 등급 엔드 포인트
         model.addAttribute("gradeCount", gradeCount);
+        model.addAttribute("lastGradeEndPoint", lastGradeEndPoint);
+        model.addAttribute("LastDiscountAndAccrualPoint", gradeService.getLastDiscountAndAccrualPoint()); // 마지막 등급 할인율, 적립율
         return "/grade/gradePolicyAdd_admin";
     }
 

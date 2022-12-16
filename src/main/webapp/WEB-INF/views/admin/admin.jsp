@@ -9,9 +9,8 @@
     <!--글로벌 css-->
     <link rel="stylesheet" href="/resources/css/global.css">
     <link rel="stylesheet" href="/resources/css/admin/admin.css">
-    <!-- 구글 폰트 -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+	<!--xeicon-->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <!-- Jquery cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- chart.js -->
@@ -22,31 +21,31 @@
     <!-- 왼쪽 네비 -->
     <div class="nav">
         <div class="navInnerTop">
-            <span class="material-symbols-outlined navIcon menuIcons"> menu </span>
+            <span class="xi-bars navIcon menuIcons"></span>
         </div>
 		<div class="navInnerBottom">
 			<a class="allMemberAnchor">
-				<span class="material-symbols-outlined menuIcons"> group </span>
+				<span class="xi-users menuIcons"></span>
 				<span class="textSpan">회원 관리</span>
 			</a>
 			<a class="mailAnchor">
-				<span class="material-symbols-outlined menuIcons"> mail </span>
+				<span class="xi-mail-o menuIcons"></span>
 				<span class="textSpan">프로모션 메일</span>
 			</a>
 			<a class="graphAnchor">
-				<span class="material-symbols-outlined menuIcons"> monitoring </span>
+				<span class="xi-chart-bar-square menuIcons"></span>
 				<span class="textSpan">모니터링</span>
 			</a>
 			<a class="productAddAnchor">
-				<span class="material-symbols-outlined menuIcons"> add_shopping_cart </span>
+				<span class="xi-cart-add menuIcons"></span>
 				<span class="textSpan">상품 등록</span>
 			</a>
 			<a class="gradeAnchor">
-				<span class="material-symbols-outlined menuIcons"> settings_accessibility </span>
+				<span class="xi-cog menuIcons"></span>
 				<span class="textSpan">등급 관리</span>
 			</a>
 			<a class="homeAnchor">
-				<span class="material-symbols-outlined menuIcons"> home </span>
+				<span class="xi-home menuIcons"></span>
 				<span class="textSpan">나가기</span>
 			</a>
 		</div>

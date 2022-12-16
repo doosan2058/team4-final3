@@ -9,12 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/resources/css/user/mypage.css">
     <link rel="stylesheet" href="/resources/css/global.css">
-
     <!-- Jquery cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <!-- 구글 폰트 -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
     <!--xeicon-->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <title>내정보 페이지</title>
@@ -205,7 +201,7 @@
     <div class="deleteMemberDiv">
         <div class="deleteInner">
             <p> 탈퇴 하시겠어요? </p>
-            <span class="material-symbols-outlined closeIcon"> close </span>
+            <span class="xi-close closeIcon"></span>
         </div>
         <div class="deleteInner">
             <p>만약 이글을 읽지 않으면 엄청난 일이 생길수 있습니다!</p>
@@ -255,7 +251,7 @@
 <div class="myListContainer">
     <div class="myListDiv">
         <div class="myListHeader">
-            <span class="material-symbols-outlined"> close </span>
+            <span class="xi-close"></span>
         </div>
 
         <!-- 자유 -->

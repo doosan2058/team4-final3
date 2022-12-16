@@ -49,6 +49,8 @@ const copyIcon = document.querySelector('.fa-copy');
 //네비게이터 메인 아이콘
 const naviDiv = document.querySelector('.naviDiv');
 let isNaviOut = false;
+// 미구현 공유 아이콘
+const dummyIcon = document.querySelectorAll('.dummyIcon');
 //==================================================================================================
 
 window.addEventListener('load', initProductDetailAdmin);
@@ -71,7 +73,14 @@ closeYoutubeContainerIcon.addEventListener('click', closeYoutubeCon);
 copyIcon.addEventListener('click', copyUrl);
 naviDiv.addEventListener('click', toggleNaviDivs);
 productMainImg.addEventListener('click', showFullMainImg);
+dummyIcon.forEach((item) => {
+    item.addEventListener('click', dummyIconAlert);
+})
 //==================================================================================================
+// 미구현 공유 기능 알림 함수
+function dummyIconAlert(){
+    alert('죄송합니다. 서비스 준비중 입니다.');
+}
 /*네비 아이콘 애니메이션*/
 function toggleNaviDivs() {
     if (isNaviOut == false) {
@@ -120,11 +129,8 @@ function toggleNaviDivs() {
 
 /*주소 복사*/
 function copyUrl() {
-    navigator.clipboard.writeText(location.href).then(
-        () => {
-            alert('클립보드에 복사되었습니다.');
-        }
-    );
+    navigator.clipboard.writeText(location.href);
+    alert('클립보드에 복사되었습니다.');
 }
 
 //이미지 원본보기 닫기
@@ -145,7 +151,6 @@ function reviewImageFullSize() {
 }
 //이미지 원본크기보기
 function showFullImage(url) {
-    console.log(this);
     fullImageContainer.style.display = 'flex';
     fullImageContainer.children[1].src = url;
 }
@@ -167,8 +172,7 @@ function initProductDetailAdmin() {
 
 //유튜브 컨테이너 닫기
 function closeYoutubeCon(e) {
-    console.log(e.target.className);
-    if (e.target.className == 'youtubeContainer' || e.target.className == 'material-symbols-outlined closeYoutubeContainerIcon') {
+    if (e.target.className == 'youtubeContainer' || e.target.className == 'xi-close closeYoutubeContainerIcon') {
         adIframe.src = '';
         youtubeContainer.children[1].style.animation = 'hiddenModal 0.3s 1 forwards';
         setTimeout(function () {

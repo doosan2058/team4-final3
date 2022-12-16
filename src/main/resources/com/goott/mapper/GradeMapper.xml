@@ -90,4 +90,19 @@
         ]]>
 	</insert>
 
+    <!-- 마지막 등급 포인트 가져오기 -->
+    <select id="selectLastGradePoint" resultType="_int">
+        <![CDATA[
+        select grade_end_point from t_grade order by grade_id desc limit 0,1
+        ]]>
+    </select>
+
+    <!-- 마지막 할인율, 적립율 가져오기 -->
+    <select id="selectLastDiscountAndAccrualPoint" resultType="map">
+        <![CDATA[
+        select grade_discount, grade_accrual_rate from t_grade order by grade_id desc limit 0,1
+        ]]>
+    </select>
+
+
 </mapper>

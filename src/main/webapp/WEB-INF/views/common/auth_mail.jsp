@@ -9,19 +9,19 @@
     <!-- 글로벌 css -->
     <link rel="stylesheet" href="/resources/css/global.css">
     <link rel="stylesheet" href="/resources/css/common/auth_mail.css">
-    <!-- 구글 폰트 -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <!--xeicon-->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 
     <title>인증번호 체크</title>
 </head>
 <body>
 <!-- 진행상태 -->
 <div class="progressDiv">
-    <span class="material-symbols-outlined backOne"> looks_one </span>
-    <span class="material-symbols-outlined backOne"> more_horiz </span>
-    <span class="material-symbols-outlined backOne"> looks_two </span>
-    <span class="material-symbols-outlined backOne"> more_horiz </span>
-    <span class="material-symbols-outlined one"> looks_3 </span>
+    <span class="xi-radiobox-checked backOne"></span>
+    <span class="xi-log backOne"></span>
+    <span class="xi-radiobox-checked backOne"></span>
+    <span class="xi-log backOne"></span>
+    <span class="xi-radiobox-checked one"></span>
 </div>
 
 <form action="joinSuccess" method="post" id="joinForm">

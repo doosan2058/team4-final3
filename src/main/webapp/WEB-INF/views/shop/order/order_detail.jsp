@@ -13,16 +13,15 @@
     <link rel="stylesheet" href="/resources/css/global.css">
     <!-- 제이쿼리 cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- 구글 폰트 -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <!--xeicon-->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <title>주문 상세 페이지</title>
 </head>
 <body>
 <%@include file="../shop_header.jsp" %>
 
 <main>
-    <form>
-
+    <form action="/buy" method="post" id="orderForm">
         <!--주문 상세 컨테이너-->
         <div class="orderContainer">
             <!--주소-->
@@ -32,13 +31,24 @@
                 </div>
 
                 <div class="orderAddressBottom">
+                    <div class="addressSelectDiv">
+                        <input type="radio" id="addressRadio" name="addressRadio" checked>
+                        <label for="addressRadio" class="addressRadioLabel">기본 주소지</label>
+                    </div>
                     <div class="addressDiv">
-                        <p>${list.member_postal_code },${list.member_address }</p>
-
-                        <!-- 주소 -->
-                        <input type="hidden" name="order_address"
-                               value="${list.member_postal_code}, ${list.member_address}">
-
+                        <p id="basicAddressP">${list.member_postal_code },${list.member_address }</p>
+                    </div>
+                    <div class="addressWriteSelectDiv">
+                        <input type="radio" id="addressWriteRadio" name="addressRadio">
+                        <label for="addressWriteRadio" class="addressRadioLabel">직접 입력</label>
+                    </div>
+                    <div class="addressWriteDiv">
+                        <input type="button" value="우편번호 찾기" id="addressSearchBtn" class="formBtns">
+                        <input type="text" id="postcode" placeholder="우편번호" class="formInputs" name="member_postal_code" readonly>
+                        <input type="text" id="roadAddress" placeholder="도로명주소" class="formInputs addressInputs" readonly>
+                        <input type="text" id="extraAddress" placeholder="참고항목" class="formInputs addressInputs" readonly>
+                        <input type="text" id="detailAddress" placeholder="상세주소" class="formInputs addressInputs">
+                        <span id="guide" style="color: #999; display: none"></span>
                     </div>
                     <div class="requestDiv">
                         <select id="requestSelect" class="orderInputs orderSelect">
@@ -54,6 +64,9 @@
                         <span class="orderTextLenghSpan">(0/500)</span>
                     </div>
                 </div>
+                <!-- 주소 -->
+                <input type="hidden" name="order_address" id="order_address"
+                       value="${list.member_postal_code}, ${list.member_address}">
             </div>
             <!--상품정보-->
             <div class="orderProductDiv">
@@ -172,7 +185,7 @@
                                     <span id="couponPrice" class="discountSpan">0</span>
                                     <input type="hidden" id="couponPriceHidden" value="0">
                                     원
-                                    <span class="material-symbols-outlined couponCancle"> delete </span>
+                                    <span class="xi-trash-o couponCancle"></span>
                                     <input type="hidden" name="order_coupon_num" value="no use coupon"
                                            id="useCouponNum">
                                 </div>
@@ -206,7 +219,7 @@
                     <h2>계산</h2>
                 </div>
                 <div class="orderPaymentBottom">
-                    <input type="submit" value="결제하기" class="formBtns" formaction="/buy" formmethod="POST">
+                    <input type="button" value="결제하기" class="formBtns" id="submitBtn">
                 </div>
             </div>
         </div>
@@ -221,7 +234,8 @@
 </main>
 
 <%@include file="../shop_footer.jsp" %>
-
+<!--카카오 주소찾기 api-->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/js/shop/order/order_detail.js"></script>
 </body>
 </html>

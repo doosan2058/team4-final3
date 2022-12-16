@@ -58,4 +58,14 @@ public class GradeServiceImpl implements GradeService {
         gradeMapper.gradePolicyAdd(gradeVO);
     }
 
+    @Override
+    public int getLastGradeEndPoint() {
+        return gradeMapper.selectLastGradePoint();
+    }
+
+    @Override
+    public Map<String, String> getLastDiscountAndAccrualPoint() {
+        return gradeMapper.selectLastDiscountAndAccrualPoint();
+    }
+
 }
