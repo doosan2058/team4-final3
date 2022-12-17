@@ -44,8 +44,6 @@ const product_youtube_url_hidden = document.querySelector('.product_youtube_url_
 const adIframe = document.querySelector('.adIframe');
 //유튜브 아이콘
 const youtubeIcon = document.querySelector('.fa-youtube');
-//주소 복사 아이콘
-const copyIcon = document.querySelector('.fa-copy');
 //네비게이터 메인 아이콘
 const naviDiv = document.querySelector('.naviDiv');
 let isNaviOut = false;
@@ -70,7 +68,6 @@ youtubeIcon.addEventListener('click', showYoutubeCon);
 youtubeContainer.addEventListener('click', closeYoutubeCon);
 closeFullImageContainerIcon.addEventListener('click', closeFullImageContainer);
 closeYoutubeContainerIcon.addEventListener('click', closeYoutubeCon);
-copyIcon.addEventListener('click', copyUrl);
 naviDiv.addEventListener('click', toggleNaviDivs);
 productMainImg.addEventListener('click', showFullMainImg);
 dummyIcon.forEach((item) => {
@@ -125,12 +122,6 @@ function toggleNaviDivs() {
         isNaviOut = false;
     }
 
-}
-
-/*주소 복사*/
-function copyUrl() {
-    navigator.clipboard.writeText(location.href);
-    alert('클립보드에 복사되었습니다.');
 }
 
 //이미지 원본보기 닫기

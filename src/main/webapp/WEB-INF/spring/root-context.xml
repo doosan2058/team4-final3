@@ -58,7 +58,7 @@
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
-	
+	<!-- 세션 리스너에서 이용하기위해 세션서비스 빈 등록 -->
 	<bean id="sessionService" class="com.goott.service.SessionServiceImpl" />
 	
 	

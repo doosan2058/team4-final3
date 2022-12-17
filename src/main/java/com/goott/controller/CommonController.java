@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.goott.session.SessionConfig;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -122,7 +123,9 @@ public class CommonController {
 
         // 로그인 성공, 세션에 로그인 아이디, 권한 저장
         if (msg.equals("로그인 성공.")) {
-            HttpSession session = request.getSession();
+            SessionConfig.checkLoginId(member_id); // 중복 로그인 체크, 먼저 로그인한 세션 소멸
+
+            HttpSession session = request.getSession(); // 생성된 세션에 어트리뷰트 추가
             session.setAttribute("login_id", member_id); // 아이디
             String login_auth = memberService.getUserAuth(member_id); // 권한
             session.setAttribute("login_auth", login_auth);

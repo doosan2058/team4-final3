@@ -233,8 +233,7 @@
 <!-- 유튜브 광고 컨테이너 -->
 <div class="youtubeContainer">
     <i class="xi-close closeYoutubeContainerIcon"></i>
-    <div class="youtubeInnerDiv">
-        <input type="hidden" class="product_youtube_url_hidden" value="${product.product_youtube_url}">
+    <div class="youtubeInnerDiv" id="player">
         <iframe class="adIframe" allowfullscreen></iframe>
     </div>
 </div>

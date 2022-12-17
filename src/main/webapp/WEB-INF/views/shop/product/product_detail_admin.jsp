@@ -97,9 +97,6 @@
                         <div class="shareIconsWrapDiv">
                             <img class="shareIconsImg" src="https://team4projectbucket.s3.ap-northeast-2.amazonaws.com/utilImg/KakaoTalk_logo.svg">
                         </div>
-                        <div class="shareIconsWrapDiv">
-                            <i class="fa-solid fa-copy shareIcons"></i>
-                        </div>
                     </div>
                 </div>
 

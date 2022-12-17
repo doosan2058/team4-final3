@@ -27,8 +27,11 @@ const optionSearchSpan = document.querySelector('#optionSearchSpan');
 const youtubeListIcon = document.querySelectorAll('.youtubeListIcon');
 const youtubeContainer = document.querySelector('.youtubeContainer');
 const closeYoutubeContainerIcon = document.querySelector('.closeYoutubeContainerIcon');
-const adIframe = document.querySelector('.adIframe')
+const adIframe = document.querySelector('.adIframe');
 const viewMoreSpan = document.querySelector('.viewMoreSpan');
+
+
+
 // ==================================================================================================
 
 window.addEventListener('load', shopMainInit);
@@ -54,25 +57,6 @@ youtubeContainer.addEventListener('click', closeYoutubeCon);
 closeYoutubeContainerIcon.addEventListener('click', closeYoutubeCon);
 viewMoreSpan.addEventListener('click', loadMoreItem);
 // ==================================================================================================
-
-//유튜브 컨테이너 닫기
-function closeYoutubeCon(e) {
-    if (e.target.className == 'youtubeContainer' || e.target.className == 'xi-close closeYoutubeContainerIcon') {
-        adIframe.src = '';
-        youtubeContainer.children[1].style.animation = 'hiddenModal 0.3s 1 forwards';
-        setTimeout(function () {
-            youtubeContainer.style.display = 'none';
-        }, 300);
-    }
-}
-//유튜브 컨테이너 보이기
-function showYoutubeCon() {
-    youtubeContainer.style.display = 'block';
-    youtubeContainer.children[1].style.animation = 'showModal 0.3s 1 forwards';
-    console.log(this.dataset.url);
-    adIframe.src = this.dataset.url;
-
-}
 
 function selectOption(){
     let currentPage = 1;
@@ -406,3 +390,21 @@ function shopMainMediaQuery() {
     }
 }
 
+// ====================================================================================
+
+//유튜브 컨테이너 닫기
+function closeYoutubeCon(e) {
+    if (e.target.className == 'youtubeContainer' || e.target.className == 'xi-close closeYoutubeContainerIcon') {
+        adIframe.src = '';
+        youtubeContainer.children[1].style.animation = 'hiddenModal 0.3s 1 forwards';
+        setTimeout(function () {
+            youtubeContainer.style.display = 'none';
+        }, 300);
+    }
+}
+//유튜브 컨테이너 보이기
+function showYoutubeCon() {
+    youtubeContainer.style.display = 'block';
+    youtubeContainer.children[1].style.animation = 'showModal 0.3s 1 forwards';
+    adIframe.src = this.dataset.url;
+}

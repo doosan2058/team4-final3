@@ -206,7 +206,7 @@ main {
 }
 .orderDivBtnDiv{
     width: fit-content;
-    height: 200px;
+    height: 100%;
     display: flex;
     align-items: center;
 }
@@ -477,6 +477,7 @@ main {
     transition: .5s;
     border-radius: 50%;
     transform: rotate(-180deg);
+    z-index: 999;
 }
 .naviDiv, .toTopDiv, .toReviewCon, .toBottomDiv, .youtubeDiv{
     position: absolute;

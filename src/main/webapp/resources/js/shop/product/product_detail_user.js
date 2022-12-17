@@ -55,8 +55,6 @@ const product_youtube_url_hidden = document.querySelector('.product_youtube_url_
 const adIframe = document.querySelector('.adIframe');
 //유튜브 아이콘
 const youtubeIcon = document.querySelector('.fa-youtube');
-//주소 복사 아이콘
-const copyIcon = document.querySelector('.fa-copy');
 //네비게이터 메인 아이콘
 const naviDiv = document.querySelector('.naviDiv');
 let isNaviOut = false;
@@ -86,7 +84,6 @@ thumbs.forEach((item) => {
 quantityText.addEventListener('blur', quantitySetting);
 closeFullImageContainerIcon.addEventListener('click', closeFullImageContainer);
 closeYoutubeContainerIcon.addEventListener('click', closeYoutubeCon);
-copyIcon.addEventListener('click', copyUrl);
 naviDiv.addEventListener('click', toggleNaviDivs);
 productMainImg.addEventListener('click', showFullMainImg);
 dummyIcon.forEach((item) => {
@@ -143,11 +140,6 @@ function toggleNaviDivs() {
 
 }
 
-/*주소 복사*/
-function copyUrl() {
-    navigator.clipboard.writeText(location.href);
-    alert('클립보드에 복사되었습니다.');
-}
 //이미지 원본보기 닫기
 function closeFullImageContainer() {
     fullImageContainer.style.display = 'none';
@@ -454,19 +446,20 @@ function changeMainImg() {
 
 /*상품 갯수 추가 함수 */
 function quantityUp() {
-    if (quantityText.value === '99')
+    if (quantityText.value == '99')
         return;
     quantityText.value = parseInt(quantityText.value) + 1 + '';
-    productPriceSpan.innerHTML = parseInt(productPriceTd.innerHTML.replace('원', '').replace(/,/g, '')) * parseInt(quantityText.value);
+    productPriceSpan.innerHTML = (parseInt(productPriceTd.innerHTML.replace('원', '').replace(/,/g, '')) * parseInt(quantityText.value)) + '';
     productPriceSpan.innerHTML = priceToString(productPriceSpan.innerHTML);
 }
 
 /*상품 갯수 제거 함수 */
 function quantityDown() {
-    if (quantityText.value === '1')
+    if (quantityText.value == '1')
         return;
     quantityText.value = parseInt(quantityText.value) - 1 + '';
-    productPriceSpan.innerHTML = parseInt(productPriceTd.innerHTML.replace('원', '').replace(/,/g, '')) * parseInt(quantityText.value);
+
+    productPriceSpan.innerHTML = (parseInt(productPriceTd.innerHTML.replace('원', '').replace(/,/g, '')) * parseInt(quantityText.value)) + '';
     productPriceSpan.innerHTML = priceToString(productPriceSpan.innerHTML);
 }
 

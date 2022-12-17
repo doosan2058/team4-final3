@@ -8,14 +8,13 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/spring/root-context.xml</param-value>
-		
 	</context-param>
 
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
 	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener
-		</listener-class>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	<!-- SessionConfig 클래스 리스너 선언 -->
 	<listener>
 		<listener-class>com.goott.session.SessionConfig</listener-class>
 	</listener>
@@ -32,7 +31,6 @@
 				<!-- /WEB-INF/spring/security-context.xml -->
 			</param-value>
 		</init-param>
-
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
@@ -66,12 +64,10 @@
 		<error-code>404</error-code>
 		<location>/WEB-INF/views/error/error404.jsp</location>
 	</error-page>
-
 	<error-page>
 		<error-code>400</error-code>
 		<location>/WEB-INF/views/error/error400.jsp</location>
 	</error-page>
-
 	<error-page>
 		<error-code>500</error-code>
 		<location>/WEB-INF/views/error/error500.jsp</location>

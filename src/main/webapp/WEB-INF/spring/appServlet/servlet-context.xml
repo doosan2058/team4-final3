@@ -81,6 +81,8 @@
             <mapping path="/qna/answer/register"/>
             <mapping path="/qna/answer/modify"/>
             <mapping path="/qna/answer/delete"/>
+            <mapping path="/gradePolicy_admin"/>
+            <mapping path="/gradePolicyAdd_admin"/>
             <beans:ref bean="adminInterceptor"/>
         </interceptor>
     </interceptors>
