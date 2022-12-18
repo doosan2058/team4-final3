@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goott.mapper.SchedulerMapper">
+    <!-- 배송상품 상태 배송중 > 배송완료로 업데이트 -->
+    <update id="updateDeliveryState">
+        <![CDATA[
+        update t_order set order_state = '배송완료' where order_state = '배송중' and order_end_date <= (select now() from dual)
+        ]]>
+    </update>
+</mapper>
