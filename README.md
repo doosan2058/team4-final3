@@ -53,6 +53,4 @@ doosan2058 / test1111!
 ![스크린샷(92)](https://user-images.githubusercontent.com/40354006/208542914-c3011116-8ff1-4a5e-b2b7-2a0a31b11997.png)
 ![스크린샷(93)](https://user-images.githubusercontent.com/40354006/208542917-86c7d5f3-2b3b-4096-b219-00ab4a46203a.png)
 ![스크린샷(94)](https://user-images.githubusercontent.com/40354006/208542918-40e5e072-370d-4e4d-ac19-c9aaa8429395.png)
-![스크린샷(54)](https://user-images.githubusercontent.com/40354006/208542920-2cc3cb5b-b87a-4e4c-93e4-bacab5bb17bb.png)
-![스크린샷(55)](https://user-images.githubusercontent.com/40354006/208542922-8809a6a8-41ca-4c40-a017-22e7bcef8cb9.png)
-![스크린샷(56)](https://user-images.githubusercontent.com/40354006/208542924-a849b3b0-2416-4adc-a8c4-e6d6dcb8045e.png)
+
