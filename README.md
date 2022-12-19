@@ -1,9 +1,13 @@
 # Shopping and Community Web Service
 홈페이지 : http://52.79.246.36:8080/  
 
-관리자 아이디 / 비밀번호             admin / admin1111!  
+관리자  
 
-회원 아이디 / 비밀번호                doosan2058 / test1111!  
+admin / admin1111!  
+
+회원  
+
+doosan2058 / test1111!  
 
 쇼핑몰 구역은 모바일과, 태블릿 디스플레이 사이즈에서도 보실 수 있습니다.  
 
