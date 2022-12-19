@@ -1,3 +1,11 @@
+# Shopping and Community Web Service
+홈페이지 : http://52.79.246.36:8080/
+관리자 아이디 / 비밀번호             admin / admin1111!
+회원 아이디 / 비밀번호                doosan2058 / test1111!
+쇼핑몰 구역은 모바일과, 태블릿 디스플레이 사이즈에서도 보실 수 있습니다.
+현재 삼성 인터넷 브라우저 에서는 쇼핑몰 구역에서 유튜브 재생이 안되는 이슈가 있습니다.
+
+
 ![제목 없는 프레젠테이션](https://user-images.githubusercontent.com/40354006/208540696-638203ff-6bb5-41fd-a862-c0a635086789.png)
 ![제목 없는 프레젠테이션 (1)](https://user-images.githubusercontent.com/40354006/208540627-c1059389-05a8-467f-a7ce-520ff3f4253d.png)
 ![제목 없는 프레젠테이션 (2)](https://user-images.githubusercontent.com/40354006/208540629-bfea333e-de35-4557-bf39-da48d8d3fa08.png)
