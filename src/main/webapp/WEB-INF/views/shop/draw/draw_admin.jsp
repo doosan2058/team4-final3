@@ -116,7 +116,7 @@
     <div class="winnerListDiv">
         <div class="winnerListTop">
             <span>이벤트 지원 현황</span>
-            <span class="xi-close closeWinnerListContainerIcon">close</span>
+            <span class="xi-close closeWinnerListContainerIcon"></span>
         </div>
         <div class="winnerListCountInfoDiv">
             <ul>

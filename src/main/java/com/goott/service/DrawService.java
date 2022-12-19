@@ -81,5 +81,11 @@ public interface DrawService {
      * @param drawVO
      */
     public void addDraw(DrawVO drawVO);
+
+    /**
+     * 이벤트 자동 마감 업데이트
+     *
+     */
+    public void autoUpdateDrawEnd();
 }
 

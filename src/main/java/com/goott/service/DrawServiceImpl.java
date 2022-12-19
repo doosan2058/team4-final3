@@ -76,5 +76,10 @@ public class DrawServiceImpl implements DrawService {
         drawMapper.insert(drawVO);
     }
 
+    @Override
+    public void autoUpdateDrawEnd() {
+        drawMapper.updateDrawEnd();
+    }
+
 
 }

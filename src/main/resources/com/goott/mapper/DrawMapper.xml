@@ -120,4 +120,11 @@
                 #{draw_reqruit})
         ]]>
     </insert>
+
+    <!-- 이벤트 마감 처리 -->
+    <update id="updateDrawEnd">
+        <![CDATA[
+        update t_draw_remake set draw_close = 'y' where draw_close = 'n' and draw_event_end_date <= (select now() from dual)
+        ]]>
+    </update>
 </mapper>

@@ -76,4 +76,10 @@ public interface DrawMapper {
      */
     public void insert(DrawVO drawVO);
 
+    /**
+     * 이벤트 자동 마감 업데이트
+     *
+     */
+    public void updateDrawEnd();
+
 }

@@ -96,6 +96,7 @@
                     <input type="button" value="응모하기" class="drawApplicationBtn">
                     <input type="button" value="응모 결과 보기" class="showWinnerBtn">
                     <input type="hidden" value="${item.product_id}">
+                    <input type="hidden" value="${item.draw_close}">
                 </div>
             </div>
         </c:forEach>

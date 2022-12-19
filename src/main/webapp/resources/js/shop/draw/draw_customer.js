@@ -100,9 +100,13 @@ function applicationDraw(){
     let eventStartDate = new Date(this.previousElementSibling.previousElementSibling.previousElementSibling.value);
     const lastDate = this.previousElementSibling.previousElementSibling.value + ' 23:59:59';
     let eventEndDate = new Date(lastDate);
-
+    let endDraw = this.nextElementSibling.nextElementSibling.nextElementSibling.value;
     if(today < eventStartDate){
         alert('아직 이벤트 응모 기간이 아닙니다.');
+        return;
+    }
+    else if(endDraw == 'y'){
+        alert('죄송합니다. 마감된 이벤트 입니다.');
         return;
     }
     else if(today > eventEndDate){
@@ -110,7 +114,6 @@ function applicationDraw(){
         return;
     }
     else{
-
         const login_id = loginCheckHiddenInput.value;
         if(login_id == '' || login_id == null || login_id == undefined || login_id.trim().length == 0){
             alert('로그인이 필요한 서비스 입니다.');
