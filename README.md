@@ -13,7 +13,7 @@ doosan2058 / test1111!
 
 ***현재 삼성 인터넷 브라우저 에서는 쇼핑몰 구역에서 유튜브 재생이 안되는 이슈가 있습니다.***  
 
-
+![스크린샷(58)](https://user-images.githubusercontent.com/109563463/208546810-ff4f8641-4813-48fb-aa8d-70001b8e813b.png)
 <img width="1280" alt="스크린샷(57)" src="https://user-images.githubusercontent.com/40354006/208542841-b50f456d-eb75-4c0e-89d4-b75232e75748.png">
 <img width="1280" alt="스크린샷(57)" src="https://user-images.githubusercontent.com/40354006/208542843-f6ca3adb-ae70-4626-a360-437bfde9f493.png">
 <img width="1280" alt="스크린샷(57)" src="https://user-images.githubusercontent.com/40354006/208542845-17664c13-dcde-48c7-b951-fcea72b9a7dc.png">
