@@ -1,17 +1,18 @@
 # Shopping and Community Web Service
 홈페이지 : http://52.79.246.36:8080/  
 
-관리자  
+**관리자**  
 
 admin / admin1111!  
 
-회원  
+**회원**  
 
 doosan2058 / test1111!  
 
-쇼핑몰 구역은 모바일과, 태블릿 디스플레이 사이즈에서도 보실 수 있습니다.  
+**쇼핑몰 구역은 모바일과, 태블릿 디스플레이 사이즈에서도 보실 수 있습니다.**  
 
-현재 삼성 인터넷 브라우저 에서는 쇼핑몰 구역에서 유튜브 재생이 안되는 이슈가 있습니다.  
+***현재 삼성 인터넷 브라우저 에서는 쇼핑몰 구역에서 유튜브 재생이 안되는 이슈가 있습니다.***  
+
 
 <img width="1280" alt="스크린샷(57)" src="https://user-images.githubusercontent.com/40354006/208542841-b50f456d-eb75-4c0e-89d4-b75232e75748.png">
 <img width="1280" alt="스크린샷(57)" src="https://user-images.githubusercontent.com/40354006/208542843-f6ca3adb-ae70-4626-a360-437bfde9f493.png">
