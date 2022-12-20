@@ -9,6 +9,9 @@
 
 ***현재 삼성 인터넷 브라우저 에서는 쇼핑몰 구역에서 유튜브 재생이 안되는 이슈가 있습니다.***  
 
+***판매순 1위 상품 [큐브패밀리테이블L6] 를 선택해 주시면 리뷰 데이터를 볼 수 있습니다.***  
+
+
 [포트폴리오.pdf](https://github.com/doosan2058/team4-final3/files/10272601/default.pdf)
 
 ![스크린샷(131)](https://user-images.githubusercontent.com/109563463/208765580-0a7cf6f3-08ca-4098-883c-76c9c24f2964.png)
