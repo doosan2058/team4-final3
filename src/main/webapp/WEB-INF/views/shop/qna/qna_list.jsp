@@ -78,7 +78,7 @@
                         <span>${item.member_id}</span>
                     </div>
                     <div class="qnaLineDateDiv">
-                        <span><fmt:formatDate value="${item.qna_regdate}" pattern="yyyy/MM/dd HH:mm" /></span>
+                        <span><fmt:formatDate value="${item.qna_regdate}" pattern="yyyy/MM/dd HH:mm"/></span>
                     </div>
                     <div class="qnaLineAnswerDiv">
                         <c:if test="${item.qna_admin_answer eq 'n'}">
@@ -106,33 +106,41 @@
 
             </div>
             <div class="qnaPageDiv">
-                <input type="hidden"  value="${pageQna.clientPageNum}" id="clientPageNumHiddenInput">
+                <input type="hidden" value="${pageQna.clientPageNum}" id="clientPageNumHiddenInput">
                 <div class="qnaPagePreDiv">
                     <c:if test="${pageQna.startPageBlock eq true}">
-                        <a href="/qna?clientPageNum=1&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}" style="color: #9b9b9b;">처음</a>
+                        <a href="/qna?clientPageNum=1&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
+                           style="color: #9b9b9b;">처음</a>
                     </c:if>
                     <c:if test="${pageQna.prePage eq true}">
-                        <a href="/qna?clientPageNum=${pageQna.clientPageNum - 1}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}" style="color: #9b9b9b;">이전</a>
+                        <a href="/qna?clientPageNum=${pageQna.clientPageNum - 1}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
+                           style="color: #9b9b9b;">이전</a>
                     </c:if>
                 </div>
                 <div class="qnaPageCenterDiv">
                     <c:if test="${pageQna.currentBlockNum eq pageQna.totalBlock}">
-                        <c:forEach var="i" begin="${pageQna.currentBlockNum * pageQna.blockCount - 9}" end="${pageQna.totalPage}">
-                            <a href="/qna?clientPageNum=${i}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}" class="qnaPageAnchor">${i}</a>
+                        <c:forEach var="i" begin="${pageQna.currentBlockNum * pageQna.blockCount - 9}"
+                                   end="${pageQna.totalPage}">
+                            <a href="/qna?clientPageNum=${i}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
+                               class="qnaPageAnchor">${i}</a>
                         </c:forEach>
                     </c:if>
                     <c:if test="${pageQna.currentBlockNum ne pageQna.totalBlock}">
-                        <c:forEach var="i" begin="${pageQna.currentBlockNum * pageQna.blockCount - 9}" end="${pageQna.currentBlockNum * pageQna.blockCount}">
-                            <a href="/qna?clientPageNum=${i}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}" class="qnaPageAnchor">${i}</a>
+                        <c:forEach var="i" begin="${pageQna.currentBlockNum * pageQna.blockCount - 9}"
+                                   end="${pageQna.currentBlockNum * pageQna.blockCount}">
+                            <a href="/qna?clientPageNum=${i}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
+                               class="qnaPageAnchor">${i}</a>
                         </c:forEach>
                     </c:if>
                 </div>
                 <div class="qnaPageNextDiv">
                     <c:if test="${pageQna.nextPage eq true}">
-                        <a href="/qna?clientPageNum=${pageQna.clientPageNum + 1}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}" style="color: #9b9b9b;">다음</a>
+                        <a href="/qna?clientPageNum=${pageQna.clientPageNum + 1}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
+                           style="color: #9b9b9b;">다음</a>
                     </c:if>
                     <c:if test="${pageQna.endPageBlock eq true}">
-                        <a href="/qna?clientPageNum=${pageQna.totalPage}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}" style="color: #9b9b9b;">끝</a>
+                        <a href="/qna?clientPageNum=${pageQna.totalPage}&qna_category=${pageQna.qna_category}&qnaSearchText=${pageQna.qnaSearchText}"
+                           style="color: #9b9b9b;">끝</a>
                     </c:if>
                 </div>
 

@@ -43,22 +43,22 @@ public class PageQna {
     private String qna_admin_answer;
 
     public PageQna(int clientPageNum, int totalCount, String qna_category, String qnaSearchText){
-        this.clientPageNum = clientPageNum;
-        this.startRownum = (clientPageNum - 1) * 10;
-        this.rownumEndCount = 10;
-        this.totalCount = totalCount;
-        this.totalPage =(int) Math.ceil(totalCount / (rownumEndCount * 1.0));
+        this.clientPageNum = clientPageNum; // 클라이언트가 요청한 페이지 번호
+        this.startRownum = (clientPageNum - 1) * 10; // 검색 시작할 게시글 번호
+        this.rownumEndCount = 10; // 10개씩 검색
+        this.totalCount = totalCount; // 전체 게시글 개수
+        this.totalPage =(int) Math.ceil(totalCount / (rownumEndCount * 1.0)); // 전체 페이지 개수
 
-        this.blockCount = 10;
-        this.totalBlock =(int) Math.ceil(this.totalPage / (this.blockCount * 1.0));
-        this.currentBlockNum = (int) Math.ceil(this.clientPageNum / (this.blockCount * 1.0));
+        this.blockCount = 10; // 한 블록에 나타낼 페이지 개수
+        this.totalBlock =(int) Math.ceil(this.totalPage / (this.blockCount * 1.0)); // 총 블록 개수
+        this.currentBlockNum = (int) Math.ceil(this.clientPageNum / (this.blockCount * 1.0)); // 현재 블록 번호
 
-        this.endPageBlock = (this.clientPageNum == totalPage) ? false : true;
-        this.startPageBlock = (this.clientPageNum == 1) ? false : true;
-        this.nextPage = (this.clientPageNum == totalPage) ? false : true;
-        this.prePage = (this.clientPageNum == 1) ? false : true;
+        this.endPageBlock = (this.clientPageNum == totalPage) ? false : true; // 끝 블록으로 가는 버튼
+        this.startPageBlock = (this.clientPageNum == 1) ? false : true; // 첫 블록으로 가는 버튼
+        this.nextPage = (this.clientPageNum == totalPage) ? false : true; // 다음 페이지 버튼
+        this.prePage = (this.clientPageNum == 1) ? false : true; // 이전 페이지 버튼
 
-        this.qna_category = qna_category;
-        this.qnaSearchText = qnaSearchText;
+        this.qna_category = qna_category; // 검색 카테고리
+        this.qnaSearchText = qnaSearchText; // 검색어
     }
 }

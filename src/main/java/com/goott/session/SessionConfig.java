@@ -25,8 +25,8 @@ public class SessionConfig implements HttpSessionListener {
         for (String key : SESSIONMAP.keySet()) { // 반복 돌면서 저장된 세션의 어트리뷰트 체크(login_id)
             HttpSession tempSession = SESSIONMAP.get(key);
             if (tempSession != null && tempSession.getAttribute("login_id") != null && tempSession.getAttribute("login_id").toString().equals(login_id)) {
-				tempSession.invalidate();
-				SESSIONMAP.remove(key);
+                tempSession.invalidate();
+                SESSIONMAP.remove(key);
             }
         }
     }
@@ -58,10 +58,10 @@ public class SessionConfig implements HttpSessionListener {
     // 세션 소멸시
     @Override
     public void sessionDestroyed(HttpSessionEvent se) {
-		if(SESSIONMAP.get(se.getSession().getId()) != null){ // 맵에서 해당 세션 제거
-			SESSIONMAP.get(se.getSession().getId()).invalidate(); // 세션 소멸
-			SESSIONMAP.remove(se.getSession().getId()); // 맵에서 해당 세션 제거
-		}
+        if (SESSIONMAP.get(se.getSession().getId()) != null) { // 맵에서 해당 세션 제거
+            SESSIONMAP.get(se.getSession().getId()).invalidate(); // 세션 소멸
+            SESSIONMAP.remove(se.getSession().getId()); // 맵에서 해당 세션 제거
+        }
 
 
     }

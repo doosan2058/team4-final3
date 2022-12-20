@@ -250,20 +250,17 @@ function preMainImgs() {
     });
 
     for (let i = 0; i < fileArrayMain.length; i++) {
-        imgs[i].style.display = 'block';
+        imgs[i].style.display = 'block'; // 미리보기용 이미지 태크
         let reader = new FileReader();
         if (fileArrayMain[i])
-            reader.readAsDataURL(fileArrayMain[i]);
+            reader.readAsDataURL(fileArrayMain[i]); // input file 에 올린 파일 목록 복사해온 배열
         reader.addEventListener('load', function () {
             imgs[i].src = reader.result;
             if(i == 0){
-                document.querySelector('#prevMainImg').src = imgs[0].src;
+                document.querySelector('#prevMainImg').src = imgs[0].src; // 반복문 돌면서 이미지 출력
             }
         });
-
     }
-
-
 }
 
 // 설명 이미지 미리보기 태그 생성
