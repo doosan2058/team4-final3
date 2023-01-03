@@ -52,7 +52,21 @@ function buyBasket(){
 		success: function(data){
 			let product_id = data.product_id;
 			let basket_amount = data.basket_amount;
-			location.href = '/order?product_id=' + product_id + '&order_quantity=' + basket_amount;
+			let tempForm = document.createElement("form");
+			tempForm.setAttribute("method","post");
+			tempForm.setAttribute("action","/order");
+			let tempProductId = document.createElement("input");
+			tempProductId.setAttribute("type","hidden");
+			tempProductId.setAttribute("name","product_id");
+			tempProductId.setAttribute("value",product_id);
+			let tempOrderQuantity = document.createElement("input");
+			tempOrderQuantity.setAttribute("type", "hidden");
+			tempOrderQuantity.setAttribute("name", "order_quantity");
+			tempOrderQuantity.setAttribute("value", basket_amount);
+			tempForm.appendChild(tempProductId);
+			tempForm.appendChild(tempOrderQuantity);
+			document.body.appendChild(tempForm);
+			tempForm.submit();
 		}
 	});
 }
