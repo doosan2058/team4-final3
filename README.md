@@ -3,7 +3,16 @@
 
 **관리자** : admin / admin1111!  
 
-**회원** : doosan2058 / test1111!  
+**회원** :  
+doosan2058 / test1111!  
+kim0123 / aaaa1234!  
+love1704 / rnxmdkzkepal1!  
+ssk1990 / tlstprud09$  
+shoheiohtani / ohoh1313@@  
+haseong3322 / goldenglobe11@  
+awstest / awstest1111!  
+sayhello / sayhello1234!  
+
 
 **쇼핑몰 구역**은 모바일과, 태블릿 디스플레이 사이즈에서도 보실 수 있습니다.  
 
